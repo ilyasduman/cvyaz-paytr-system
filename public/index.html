@@ -24,6 +24,19 @@
 </head>
 
 <body>
+
+  <!-- DESKTOP TOP BAR -->
+  <div class="desktop-topbar">
+    <div class="desktop-logo-mini">
+      <img src="/favicon.png" alt="CVYAZ">
+      <div><b>CVYAZ</b><span>ATS uyumlu CV şablonları</span></div>
+    </div>
+    <div class="desktop-top-badges">
+      <span>🛡️ ATS Uyumlu</span><span>🤝 HR Dostu</span><span>📄 Tek Sayfa</span><span>⚡ 5 Dakikada Hazır</span>
+    </div>
+    <button class="desktop-sample-btn" type="button" onclick="document.querySelector('.preview-style-tabs')?.scrollIntoView({behavior:'smooth', block:'center'});">Örnek CV'leri İncele</button>
+  </div>
+
 <!-- =====================================================
      PDF PREVIEW MODAL
 ===================================================== -->
@@ -76,16 +89,6 @@
     </p>
 
   </section>
-
-  <!-- DESKTOP TRUST STRIP -->
-
-  <div class="desktop-trust-strip" aria-label="CVYAZ güven bilgileri">
-    <span>🛡️ ATS Uyumlu</span>
-    <span>⚡ 5 Dakikada Hazır</span>
-    <span>📄 Canlı CV Önizleme</span>
-    <span>🔒 Güvenli Dijital Satın Alma</span>
-  </div>
-
 
   <!-- PERSONAL INFO -->
 
@@ -562,13 +565,7 @@ onblur="if(!this.value)this.type='text'">
 
   </div>
 
-  
-  <div class="desktop-preview-badges">
-    <span>● Gerçek zamanlı önizleme</span>
-    <span>CVYAZ ÖNİZLEME</span>
-  </div>
-
-<div class="preview-title">
+  <div class="preview-title">
     CV’n Anında Oluşuyor
   </div>
 
@@ -577,7 +574,13 @@ onblur="if(!this.value)this.type='text'">
     PDF önizlemede koruma yazısı bulunur.
   </p>
 
-  <div class="cv-wrap" id="cvWrap">
+  
+  <!-- DESKTOP PREVIEW HEADER -->
+  <div class="desktop-panel-head desktop-preview-panel-head">
+    <div class="desktop-panel-title"><span class="desktop-panel-icon">☷</span><div><h2>Canlı CV Önizleme</h2><p>Satın almadan önce profesyonel görünümü kontrol edin.</p></div></div>
+    <span class="desktop-live-dot">● Gerçek zamanlı önizleme</span>
+  </div>
+<div class="cv-wrap" id="cvWrap">
 
     <div id="cv" class="cv modern">
 
@@ -716,6 +719,18 @@ onblur="if(!this.value)this.type='text'">
      LEGAL / POLICY AREA
 ===================================================== -->
 
+
+  <!-- DESKTOP PROOF BLOCKS -->
+  <div class="desktop-proof-stats">
+    <div><span class="proof-icon">👤</span><strong>10.000+</strong><small>Oluşturulan CV</small></div>
+    <div><span class="proof-icon green">✓</span><strong>%98</strong><small>ATS Başarı Oranı</small></div>
+    <div><span class="proof-icon orange">☆</span><strong>4.9/5</strong><small>Kullanıcı Memnuniyeti</small></div>
+    <div><span class="proof-icon blue">🛡️</span><strong>%100</strong><small>Güvenli Ödeme</small></div>
+  </div>
+  <div class="desktop-proof-bottom">
+    <div class="desktop-review-card"><b>“CVYAZ sayesinde profesyonel bir CV hazırlayıp başvuruma güvenle geçtim.”</b><span>★★★★★ 5/5 — Kullanıcı Yorumu</span></div>
+    <div class="desktop-pay-card"><span>🔒 256bit SSL</span><span>🛡️ Güvenli Ödeme</span><span>VISA</span><span>Mastercard</span><span>TROY</span></div>
+  </div>
 <div class="legal-box">
 
   <div class="legal-title">Güvenli Dijital Satın Alma</div>
