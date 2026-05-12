@@ -3000,3 +3000,54 @@ update();
   setTimeout(forceDesktopPreviewTop, 1200);
 })();
 
+
+
+
+/* =====================================================
+   CVYAZ DESKTOP TRUE LIVE PREVIEW V3.3
+   Form bilgilerini sağdaki masaüstü preview alanına canlı yansıtır.
+===================================================== */
+(function(){
+  function firstExisting(selectors){
+    for(var i=0;i<selectors.length;i++){
+      var el=document.querySelector(selectors[i]);
+      if(el){ return el; }
+    }
+    return null;
+  }
+
+  function val(selectors, fallback){
+    var el=firstExisting(selectors);
+    var v=el && typeof el.value==="string" ? el.value.trim() : "";
+    return v || fallback;
+  }
+
+  function text(id, value){
+    var el=document.getElementById(id);
+    if(el){ el.textContent=value; }
+  }
+
+  function updateDesktopTruePreview(){
+    text("dtName", val(['input[name="name"]','#name','#fullName','input[placeholder*="Ad Soyad"]','input[placeholder*="Adınız"]'], "Ad Soyad"));
+    text("dtJob", val(['input[name="job"]','#job','#position','input[placeholder*="Meslek"]','input[placeholder*="Pozisyon"]'], "MESLEK / POZİSYON").toUpperCase());
+    text("dtPhone", val(['input[name="phone"]','#phone','input[placeholder*="Telefon"]'], "5XX XXX XX XX"));
+    text("dtMail", val(['input[name="email"]','#email','input[type="email"]','input[placeholder*="E-posta"]'], "ornek@email.com"));
+
+    var city = val(['input[name="city"]','#city','input[placeholder*="Şehir"]','input[placeholder*="İlçe"]'], "Şehir");
+    var country = val(['input[name="country"]','#country','input[placeholder*="Ülke"]'], "Ülke");
+    text("dtCity", city + " / " + country);
+
+    text("dtSummary", val(['textarea[name="summary"]','#summary','textarea[placeholder*="Özet"]','textarea[placeholder*="Hakkımda"]'], "Profesyonel özetiniz burada canlı olarak görünür. Bilgi girdikçe bu alan otomatik güncellenir."));
+    text("dtExp", val(['textarea[name="experience"]','#experience','textarea[placeholder*="Deneyim"]'], "İş deneyimleriniz ve görev açıklamalarınız burada özetlenir."));
+    text("dtProjects", val(['textarea[name="projects"]','#projects','textarea[placeholder*="Proje"]'], "Projeleriniz, başarılarınız veya ek çalışmalarınız burada görünür."));
+    text("dtEdu", val(['textarea[name="education"]','#education','input[placeholder*="Okul"]','textarea[placeholder*="Eğitim"]'], "Okul / Bölüm"));
+  }
+
+  document.addEventListener("input", updateDesktopTruePreview, true);
+  document.addEventListener("change", updateDesktopTruePreview, true);
+  document.addEventListener("DOMContentLoaded", updateDesktopTruePreview);
+  window.addEventListener("load", updateDesktopTruePreview);
+  setTimeout(updateDesktopTruePreview, 400);
+  setTimeout(updateDesktopTruePreview, 1400);
+})();
+
