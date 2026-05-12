@@ -2729,3 +2729,247 @@ img {
 .pdf-modal .legal-box {
   display: none !important;
 }
+
+
+
+/* =====================================================
+   DESKTOP SPLIT LAYOUT V1
+   Mobil yapı korunur. 980px üzeri web görünüm premium split olur.
+===================================================== */
+
+.desktop-trust-strip,
+.desktop-preview-badges {
+  display: none;
+}
+
+@media (min-width: 980px) {
+  body {
+    padding-bottom: 100px;
+    background:
+      radial-gradient(circle at top left, rgba(47,128,255,.08), transparent 34%),
+      radial-gradient(circle at top right, rgba(17,17,17,.055), transparent 30%),
+      #f4f5f7;
+  }
+
+  .app {
+    max-width: 1180px !important;
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: minmax(390px, 430px) minmax(520px, 1fr) !important;
+    gap: 18px 28px !important;
+    align-items: start !important;
+    padding: 22px 24px 40px !important;
+  }
+
+  .brand-image {
+    grid-column: 1 / -1 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .brand-image img {
+    max-width: 360px !important;
+  }
+
+  .hero {
+    grid-column: 1 / -1 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hero h1 {
+    font-size: 38px !important;
+    max-width: 760px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero p {
+    max-width: 560px !important;
+    font-size: 15px !important;
+  }
+
+  .desktop-trust-strip {
+    grid-column: 1 / -1 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    margin: 2px 0 12px !important;
+  }
+
+  .desktop-trust-strip span {
+    background: rgba(255,255,255,.84) !important;
+    border: 1px solid rgba(17,17,17,.07) !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,.045) !important;
+    border-radius: 999px !important;
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+    color: #111827 !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  .app > .acc,
+  .app > .preview-style-tabs {
+    grid-column: 1 !important;
+  }
+
+  .preview-style-tabs {
+    position: relative !important;
+    top: auto !important;
+    z-index: 1 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    padding-top: 2px !important;
+  }
+
+  .tabs {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .desktop-preview-badges,
+  .preview-title,
+  .preview-sub,
+  .cv-wrap {
+    grid-column: 2 !important;
+  }
+
+  .desktop-preview-badges {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 10px !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(17,17,17,.07) !important;
+    border-radius: 22px 22px 0 0 !important;
+    padding: 16px 18px 8px !important;
+    box-shadow: 0 12px 34px rgba(0,0,0,.055) !important;
+    margin-bottom: -8px !important;
+  }
+
+  .desktop-preview-badges span {
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    color: #111827 !important;
+    opacity: .78 !important;
+  }
+
+  .desktop-preview-badges span:first-child {
+    color: #16a34a !important;
+  }
+
+  .preview-title {
+    background: #ffffff !important;
+    border-left: 1px solid rgba(17,17,17,.07) !important;
+    border-right: 1px solid rgba(17,17,17,.07) !important;
+    margin: 0 !important;
+    padding: 8px 18px 2px !important;
+    text-align: left !important;
+    font-size: 21px !important;
+    font-weight: 950 !important;
+  }
+
+  .preview-sub {
+    background: #ffffff !important;
+    border-left: 1px solid rgba(17,17,17,.07) !important;
+    border-right: 1px solid rgba(17,17,17,.07) !important;
+    margin: 0 !important;
+    padding: 0 18px 14px !important;
+    text-align: left !important;
+    max-width: none !important;
+    font-size: 13px !important;
+  }
+
+  .cv-wrap {
+    position: sticky !important;
+    top: 16px !important;
+    align-self: start !important;
+    background: linear-gradient(180deg, #ffffff, #edf1f7) !important;
+    border: 1px solid rgba(17,17,17,.07) !important;
+    border-radius: 0 0 26px 26px !important;
+    padding: 18px !important;
+    min-height: 690px !important;
+    box-shadow: 0 18px 46px rgba(0,0,0,.075) !important;
+    overflow: hidden !important;
+  }
+
+  .cv {
+    transform: scale(.63) !important;
+    transform-origin: top center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: -390px !important;
+  }
+
+  .acc {
+    border: 1px solid rgba(17,17,17,.06) !important;
+    box-shadow: 0 12px 30px rgba(0,0,0,.055) !important;
+  }
+
+  .acc-head {
+    font-size: 16px !important;
+  }
+
+  input,
+  textarea,
+  select {
+    background: #f6f7f9 !important;
+    border: 1px solid rgba(17,17,17,.055) !important;
+  }
+
+  .download {
+    max-width: 430px !important;
+    left: calc(50% - 300px) !important;
+    transform: translateX(-50%) !important;
+    bottom: 22px !important;
+    box-shadow: 0 18px 36px rgba(0,0,0,.20) !important;
+  }
+
+  .legal-box,
+  .support-footer {
+    max-width: 1180px !important;
+  }
+
+  .legal-box {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px 18px !important;
+    align-items: start !important;
+  }
+
+  .legal-title,
+  .legal-note,
+  .legal-links {
+    grid-column: 1 / -1 !important;
+  }
+
+  .support-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 28px !important;
+    text-align: left !important;
+    margin-bottom: 105px !important;
+  }
+
+  .support-sub {
+    margin: 0 !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .app {
+    max-width: 1240px !important;
+    grid-template-columns: 430px minmax(620px, 1fr) !important;
+  }
+
+  .cv {
+    transform: scale(.68) !important;
+    margin-bottom: -340px !important;
+  }
+
+  .cv-wrap {
+    min-height: 740px !important;
+  }
+}
+
