@@ -2954,3 +2954,49 @@ bindMobileLiveEvents();
 markJsActive();
 
 update();
+
+
+
+/* =====================================================
+   CVYAZ DESKTOP PREVIEW FORCE TOP V3.2
+   Eğer canlı CV elementi yanlış yerdeyse masaüstünde sağ preview paneline taşır.
+===================================================== */
+(function(){
+  function forceDesktopPreviewTop(){
+    try{
+      if(!window.matchMedia || !window.matchMedia("(min-width: 1024px)").matches){ return; }
+
+      var wrap = document.querySelector(".cv-wrap");
+      if(!wrap){ return; }
+
+      var cv = wrap.querySelector(".cv") || document.querySelector(".cv");
+      if(!cv){ return; }
+
+      if(cv.parentElement !== wrap){
+        wrap.insertBefore(cv, wrap.firstChild);
+      }
+
+      wrap.style.display = "flex";
+      wrap.style.alignItems = "flex-start";
+      wrap.style.justifyContent = "center";
+      wrap.style.overflow = "hidden";
+      wrap.style.position = "sticky";
+      wrap.style.top = "18px";
+
+      cv.style.position = "relative";
+      cv.style.top = "0";
+      cv.style.left = "auto";
+      cv.style.right = "auto";
+      cv.style.bottom = "auto";
+      cv.style.margin = "0 auto";
+      cv.style.transformOrigin = "top center";
+    }catch(e){}
+  }
+
+  window.addEventListener("load", forceDesktopPreviewTop);
+  window.addEventListener("resize", forceDesktopPreviewTop);
+  document.addEventListener("DOMContentLoaded", forceDesktopPreviewTop);
+  setTimeout(forceDesktopPreviewTop, 300);
+  setTimeout(forceDesktopPreviewTop, 1200);
+})();
+
