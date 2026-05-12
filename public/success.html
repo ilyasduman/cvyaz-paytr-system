@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVYAZ | Ödeme Başarılı</title>
+  <style>
+    * { box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #f4f5f7;
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+    .card {
+      width: 100%;
+      max-width: 430px;
+      background: #fff;
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 18px 44px rgba(15,23,42,.14);
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      letter-spacing: -.5px;
+    }
+    p {
+      margin: 0 0 18px;
+      font-size: 14px;
+      line-height: 1.55;
+      opacity: .66;
+    }
+    .status {
+      background: #f3f4f6;
+      border-radius: 16px;
+      padding: 13px;
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+    a, button {
+      display: block;
+      width: 100%;
+      border: 0;
+      border-radius: 16px;
+      padding: 15px;
+      background: #16a34a;
+      color: #fff;
+      font-weight: 900;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    .muted {
+      background: #111;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Ödeme kontrol ediliyor</h1>
+    <p>PayTR ödeme onayı gelince temiz PDF indirme butonu açılacak.</p>
+    <div class="status" id="statusBox">Bekleniyor...</div>
+    <a id="downloadBtn" href="#" style="display:none;">Temiz PDF’i İndir</a>
+    <button class="muted" onclick="location.href='/'">Ana Sayfaya Dön</button>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const oid = params.get("oid");
+
+    const statusBox = document.getElementById("statusBox");
+    const downloadBtn = document.getElementById("downloadBtn");
+
+    async function checkOrder() {
+      if (!oid) {
+        statusBox.innerText = "Sipariş numarası bulunamadı.";
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/order/" + encodeURIComponent(oid));
+        const data = await res.json();
+
+        if (!data.ok) {
+          statusBox.innerText = data.error || "Sipariş bulunamadı.";
+          return;
+        }
+
+        if (data.status === "paid") {
+          document.querySelector("h1").innerText = "Ödeme Başarılı ✅";
+          document.querySelector("p").innerText = "Temiz PDF hazır. Aşağıdaki butondan indirebilirsiniz.";
+          statusBox.innerText = "Ödeme onaylandı.";
+          downloadBtn.href = data.download_url;
+          downloadBtn.style.display = "block";
+          return;
+        }
+
+        if (data.status === "failed") {
+          document.querySelector("h1").innerText = "Ödeme Başarısız";
+          statusBox.innerText = "Ödeme başarısız görünüyor.";
+          return;
+        }
+
+        statusBox.innerText = "PayTR onayı bekleniyor...";
+        setTimeout(checkOrder, 2500);
+
+      } catch (error) {
+        statusBox.innerText = "Kontrol sırasında hata oluştu. Birazdan tekrar deneyin.";
+        setTimeout(checkOrder, 3000);
+      }
+    }
+
+    checkOrder();
+  </script>
+</body>
+</html>
