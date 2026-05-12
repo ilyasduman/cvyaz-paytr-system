@@ -2747,15 +2747,14 @@ img {
 
 
 /* =====================================================
-   LEGAL / POLICY AREA
-   Mesafeli satış + KVKK + dijital ürün iade onayı
+   LEGAL / POLICY AREA FINAL
 ===================================================== */
 
 .legal-box {
   background: #ffffff;
   border-radius: 22px;
   padding: 16px;
-  margin: 18px 0 16px;
+  margin: 16px 0;
   box-shadow: 0 10px 28px rgba(0,0,0,.06);
   border: 1px solid rgba(17,17,17,.06);
 }
@@ -2778,10 +2777,10 @@ img {
   width: 18px !important;
   height: 18px !important;
   min-width: 18px !important;
-  max-width: 18px !important;
-  margin: 2px 0 0 !important;
+  margin-top: 2px !important;
+  flex: 0 0 18px !important;
   padding: 0 !important;
-  flex: 0 0 18px;
+  border-radius: 4px !important;
   appearance: auto !important;
   -webkit-appearance: checkbox !important;
 }
@@ -2817,10 +2816,6 @@ img {
   font-size: 12px;
   font-weight: 800;
 }
-
-/* =====================================================
-   WHATSAPP SUPPORT FOOTER
-===================================================== */
 
 .support-footer {
   margin-top: 26px;
@@ -2859,10 +2854,6 @@ img {
   box-shadow: 0 10px 22px rgba(22,163,74,.20);
 }
 
-.support-whatsapp:hover {
-  filter: brightness(.96);
-}
-
 .support-mail {
   margin-top: 14px;
   font-size: 12px;
@@ -2870,6 +2861,44 @@ img {
   font-weight: 700;
 }
 
+
+/* =====================================================
+   LEGAL + SUPPORT COMPACT WIDTH FIX
+   Sayfanın tamamına yayılmasını engeller.
+===================================================== */
+
+.legal-box,
+.support-footer {
+  width: 100% !important;
+  max-width: 430px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.legal-box {
+  padding: 16px !important;
+  margin-top: 18px !important;
+  margin-bottom: 18px !important;
+  border-radius: 22px !important;
+}
+
+.support-footer {
+  padding: 22px 18px !important;
+  margin-top: 22px !important;
+  margin-bottom: 115px !important;
+  border-radius: 24px !important;
+}
+
+.legal-check {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+.legal-links {
+  max-width: 360px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
 
 </style>
 </head>
@@ -3548,6 +3577,10 @@ onblur="if(!this.value)this.type='text'">
 
   </div>
 
+</div>
+
+<!-- FIXED PDF BUTTON -->
+
 
 <!-- =====================================================
      LEGAL / POLICY AREA
@@ -3555,13 +3588,10 @@ onblur="if(!this.value)this.type='text'">
 
 <div class="legal-box">
 
-  <div class="legal-title">
-    Güvenli Dijital Satın Alma
-  </div>
+  <div class="legal-title">Güvenli Dijital Satın Alma</div>
 
   <div class="legal-check">
     <input type="checkbox" id="acceptTerms">
-
     <label for="acceptTerms">
       Mesafeli satış sözleşmesini, KVKK aydınlatma metnini ve kullanım koşullarını kabul ediyorum.
     </label>
@@ -3569,57 +3599,21 @@ onblur="if(!this.value)this.type='text'">
 
   <div class="legal-check">
     <input type="checkbox" id="acceptDigital">
-
     <label for="acceptDigital">
       Temiz PDF teslim edilen dijital ürünlerde teslim sonrası iade yapılamayacağını kabul ediyorum.
     </label>
   </div>
 
-  <div class="legal-note">
-    Ödeme işlemleri güvenli altyapı üzerinden gerçekleştirilir.
-  </div>
+  <div class="legal-note">Ödeme işlemleri güvenli ödeme altyapısı üzerinden gerçekleştirilir.</div>
 
   <div class="legal-links">
-    <a href="#">Mesafeli Satış</a>
-    <a href="#">KVKK</a>
-    <a href="#">İade Politikası</a>
-    <a href="#">Gizlilik</a>
+    <a href="/mesafeli-satis.html" target="_blank" rel="noopener">Mesafeli Satış</a>
+    <a href="/kvkk.html" target="_blank" rel="noopener">KVKK</a>
+    <a href="/iade.html" target="_blank" rel="noopener">İade Politikası</a>
+    <a href="/gizlilik.html" target="_blank" rel="noopener">Gizlilik</a>
   </div>
 
 </div>
-
-<!-- =====================================================
-     WHATSAPP SUPPORT FOOTER
-===================================================== -->
-
-<div class="support-footer">
-
-  <div class="support-title">
-    Yardım mı lazım?
-  </div>
-
-  <div class="support-sub">
-    Sipariş, PDF veya ödeme sorunları için bize WhatsApp üzerinden ulaşabilirsiniz.
-  </div>
-
-  <a
-    class="support-whatsapp"
-    href="https://wa.me/905555555555"
-    target="_blank"
-    rel="noopener"
-  >
-    💬 WhatsApp Destek
-  </a>
-
-  <div class="support-mail">
-    destek@cvyaz.com
-  </div>
-
-</div>
-
-</div>
-
-<!-- FIXED PDF BUTTON -->
 
 <button type="button" class="download" onclick="startPreviewPdf(event)" onpointerdown="startPreviewPdf(event)" onmousedown="startPreviewPdf(event)" ontouchstart="startPreviewPdf(event)" ontouchend="startPreviewPdf(event)">
   CV PDF Önizleme Oluştur →</button>
@@ -5046,6 +5040,161 @@ function getPdfLoadingHtml() {
 }
 
 
+
+/* =====================================================
+   LEGAL / POLICY AREA FINAL
+===================================================== */
+
+.legal-box {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 0 10px 28px rgba(0,0,0,.06);
+  border: 1px solid rgba(17,17,17,.06);
+}
+
+.legal-title {
+  font-size: 15px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.legal-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.legal-check input {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  margin-top: 2px !important;
+  flex: 0 0 18px !important;
+  padding: 0 !important;
+  border-radius: 4px !important;
+  appearance: auto !important;
+  -webkit-appearance: checkbox !important;
+}
+
+.legal-check label {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #374151;
+}
+
+.legal-note {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: .68;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.legal-links a {
+  text-decoration: none;
+  background: #f3f4f6;
+  color: #111827;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.support-footer {
+  margin-top: 26px;
+  margin-bottom: 110px;
+  text-align: center;
+  padding: 22px 18px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.06);
+  border: 1px solid rgba(17,17,17,.06);
+}
+
+.support-title {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.support-sub {
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: .66;
+  max-width: 320px;
+  margin: 0 auto 16px;
+}
+
+.support-whatsapp {
+  display: inline-block;
+  text-decoration: none;
+  background: #16a34a;
+  color: #ffffff;
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 900;
+  box-shadow: 0 10px 22px rgba(22,163,74,.20);
+}
+
+.support-mail {
+  margin-top: 14px;
+  font-size: 12px;
+  opacity: .58;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   LEGAL + SUPPORT COMPACT WIDTH FIX
+   Sayfanın tamamına yayılmasını engeller.
+===================================================== */
+
+.legal-box,
+.support-footer {
+  width: 100% !important;
+  max-width: 430px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.legal-box {
+  padding: 16px !important;
+  margin-top: 18px !important;
+  margin-bottom: 18px !important;
+  border-radius: 22px !important;
+}
+
+.support-footer {
+  padding: 22px 18px !important;
+  margin-top: 22px !important;
+  margin-bottom: 115px !important;
+  border-radius: 24px !important;
+}
+
+.legal-check {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+.legal-links {
+  max-width: 360px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 </style>
       </head>
       <body>
@@ -5054,7 +5203,19 @@ function getPdfLoadingHtml() {
           <b>CV PDF hazırlanıyor...</b>
           <span>Önizleme birkaç saniye içinde açılacak.</span>
         </div>
-      </body>
+      
+<!-- =====================================================
+     WHATSAPP SUPPORT FOOTER
+===================================================== -->
+
+<div class="support-footer">
+  <div class="support-title">Yardım mı lazım?</div>
+  <div class="support-sub">Sipariş, PDF veya ödeme sorunları için bize WhatsApp üzerinden ulaşabilirsiniz.</div>
+  <a class="support-whatsapp" href="https://wa.me/905555555555" target="_blank" rel="noopener">💬 WhatsApp Destek</a>
+  <div class="support-mail">destek@cvyaz.com.tr</div>
+</div>
+
+</body>
     </html>
   `;
 
@@ -5706,6 +5867,161 @@ async function createPreviewPdf() {
 }
 
 
+
+/* =====================================================
+   LEGAL / POLICY AREA FINAL
+===================================================== */
+
+.legal-box {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 0 10px 28px rgba(0,0,0,.06);
+  border: 1px solid rgba(17,17,17,.06);
+}
+
+.legal-title {
+  font-size: 15px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.legal-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.legal-check input {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  margin-top: 2px !important;
+  flex: 0 0 18px !important;
+  padding: 0 !important;
+  border-radius: 4px !important;
+  appearance: auto !important;
+  -webkit-appearance: checkbox !important;
+}
+
+.legal-check label {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #374151;
+}
+
+.legal-note {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: .68;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.legal-links a {
+  text-decoration: none;
+  background: #f3f4f6;
+  color: #111827;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.support-footer {
+  margin-top: 26px;
+  margin-bottom: 110px;
+  text-align: center;
+  padding: 22px 18px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.06);
+  border: 1px solid rgba(17,17,17,.06);
+}
+
+.support-title {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.support-sub {
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: .66;
+  max-width: 320px;
+  margin: 0 auto 16px;
+}
+
+.support-whatsapp {
+  display: inline-block;
+  text-decoration: none;
+  background: #16a34a;
+  color: #ffffff;
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 900;
+  box-shadow: 0 10px 22px rgba(22,163,74,.20);
+}
+
+.support-mail {
+  margin-top: 14px;
+  font-size: 12px;
+  opacity: .58;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   LEGAL + SUPPORT COMPACT WIDTH FIX
+   Sayfanın tamamına yayılmasını engeller.
+===================================================== */
+
+.legal-box,
+.support-footer {
+  width: 100% !important;
+  max-width: 430px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.legal-box {
+  padding: 16px !important;
+  margin-top: 18px !important;
+  margin-bottom: 18px !important;
+  border-radius: 22px !important;
+}
+
+.support-footer {
+  padding: 22px 18px !important;
+  margin-top: 22px !important;
+  margin-bottom: 115px !important;
+  border-radius: 24px !important;
+}
+
+.legal-check {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+.legal-links {
+  max-width: 360px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 </style>
       </head>
       <body>
@@ -5716,7 +6032,19 @@ async function createPreviewPdf() {
           </div>
           ${previewPagesHtml}
         </main>
-      </body>
+      
+<!-- =====================================================
+     WHATSAPP SUPPORT FOOTER
+===================================================== -->
+
+<div class="support-footer">
+  <div class="support-title">Yardım mı lazım?</div>
+  <div class="support-sub">Sipariş, PDF veya ödeme sorunları için bize WhatsApp üzerinden ulaşabilirsiniz.</div>
+  <a class="support-whatsapp" href="https://wa.me/905555555555" target="_blank" rel="noopener">💬 WhatsApp Destek</a>
+  <div class="support-mail">destek@cvyaz.com.tr</div>
+</div>
+
+</body>
       </html>
     `;
 
@@ -5729,7 +6057,19 @@ async function createPreviewPdf() {
             <b>PDF önizleme hazırlanamadı.</b>
             <p style="opacity:.65;font-size:13px;">Lütfen Kapat butonuna basıp tekrar deneyin.</p>
           </div>
-        </body>
+        
+<!-- =====================================================
+     WHATSAPP SUPPORT FOOTER
+===================================================== -->
+
+<div class="support-footer">
+  <div class="support-title">Yardım mı lazım?</div>
+  <div class="support-sub">Sipariş, PDF veya ödeme sorunları için bize WhatsApp üzerinden ulaşabilirsiniz.</div>
+  <a class="support-whatsapp" href="https://wa.me/905555555555" target="_blank" rel="noopener">💬 WhatsApp Destek</a>
+  <div class="support-mail">destek@cvyaz.com.tr</div>
+</div>
+
+</body>
       </html>
     `;
 
@@ -6025,7 +6365,6 @@ async function createCleanPdfBlobForPayment() {
 }
 
 async function goPay() {
-
   const acceptTerms = document.getElementById("acceptTerms");
   const acceptDigital = document.getElementById("acceptDigital");
 
@@ -6104,6 +6443,18 @@ markJsActive();
 update();
 
 </script>
+
+
+<!-- =====================================================
+     WHATSAPP SUPPORT FOOTER
+===================================================== -->
+
+<div class="support-footer">
+  <div class="support-title">Yardım mı lazım?</div>
+  <div class="support-sub">Sipariş, PDF veya ödeme sorunları için bize WhatsApp üzerinden ulaşabilirsiniz.</div>
+  <a class="support-whatsapp" href="https://wa.me/905555555555" target="_blank" rel="noopener">💬 WhatsApp Destek</a>
+  <div class="support-mail">destek@cvyaz.com.tr</div>
+</div>
 
 </body>
 </html>
