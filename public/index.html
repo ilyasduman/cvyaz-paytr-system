@@ -2903,6 +2903,25 @@ img {
   margin-right: auto !important;
 }
 
+
+/* =====================================================
+   FINAL PDF PREVIEW WHATSAPP COLLISION FIX
+   PDF hazırlama/önizleme iframe içinde WhatsApp destek kartı görünmez.
+===================================================== */
+
+.pdf-modal {
+  background: #f4f5f7 !important;
+}
+
+#pdfFrame {
+  background: #f4f5f7 !important;
+}
+
+.pdf-modal .support-footer,
+.pdf-modal .legal-box {
+  display: none !important;
+}
+
 </style>
 </head>
 
@@ -5205,20 +5224,7 @@ function getPdfLoadingHtml() {
           <div class="loader"></div>
           <b>CV PDF hazırlanıyor...</b>
           <span>Önizleme birkaç saniye içinde açılacak.</span>
-        </div>
-      
-<!-- =====================================================
-     WHATSAPP SUPPORT FOOTER
-===================================================== -->
-
-<div class="support-footer">
-  <div class="support-title">Yardım mı lazım?</div>
-  <div class="support-sub">Sipariş, PDF veya ödeme sorunları için bize WhatsApp üzerinden ulaşabilirsiniz.</div>
-  <a class="support-whatsapp" href="https://wa.me/905555555555" target="_blank" rel="noopener">💬 WhatsApp Destek</a>
-  <div class="support-mail">destek@cvyaz.com.tr</div>
-</div>
-
-</body>
+        </div></body>
     </html>
   `;
 
@@ -6034,20 +6040,7 @@ async function createPreviewPdf() {
             <span>İlk sayfa telefonda tam görünür. Ek belgeler ayrı sayfada tam gösterilir.</span>
           </div>
           ${previewPagesHtml}
-        </main>
-      
-<!-- =====================================================
-     WHATSAPP SUPPORT FOOTER
-===================================================== -->
-
-<div class="support-footer">
-  <div class="support-title">Yardım mı lazım?</div>
-  <div class="support-sub">Sipariş, PDF veya ödeme sorunları için bize WhatsApp üzerinden ulaşabilirsiniz.</div>
-  <a class="support-whatsapp" href="https://wa.me/905555555555" target="_blank" rel="noopener">💬 WhatsApp Destek</a>
-  <div class="support-mail">destek@cvyaz.com.tr</div>
-</div>
-
-</body>
+        </main></body>
       </html>
     `;
 
@@ -6059,20 +6052,7 @@ async function createPreviewPdf() {
           <div style="padding:24px;">
             <b>PDF önizleme hazırlanamadı.</b>
             <p style="opacity:.65;font-size:13px;">Lütfen Kapat butonuna basıp tekrar deneyin.</p>
-          </div>
-        
-<!-- =====================================================
-     WHATSAPP SUPPORT FOOTER
-===================================================== -->
-
-<div class="support-footer">
-  <div class="support-title">Yardım mı lazım?</div>
-  <div class="support-sub">Sipariş, PDF veya ödeme sorunları için bize WhatsApp üzerinden ulaşabilirsiniz.</div>
-  <a class="support-whatsapp" href="https://wa.me/905555555555" target="_blank" rel="noopener">💬 WhatsApp Destek</a>
-  <div class="support-mail">destek@cvyaz.com.tr</div>
-</div>
-
-</body>
+          </div></body>
       </html>
     `;
 
