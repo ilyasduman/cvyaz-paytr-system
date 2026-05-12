@@ -2958,57 +2958,11 @@ update();
 
 
 /* =====================================================
-   CVYAZ DESKTOP PREVIEW FORCE TOP V3.2
-   Eğer canlı CV elementi yanlış yerdeyse masaüstünde sağ preview paneline taşır.
+   CVYAZ RESPONSIVE DESKTOP LIVE PREVIEW V4
+   Masaüstü sağ preview alanını form inputlarından canlı besler.
 ===================================================== */
 (function(){
-  function forceDesktopPreviewTop(){
-    try{
-      if(!window.matchMedia || !window.matchMedia("(min-width: 1024px)").matches){ return; }
-
-      var wrap = document.querySelector(".cv-wrap");
-      if(!wrap){ return; }
-
-      var cv = wrap.querySelector(".cv") || document.querySelector(".cv");
-      if(!cv){ return; }
-
-      if(cv.parentElement !== wrap){
-        wrap.insertBefore(cv, wrap.firstChild);
-      }
-
-      wrap.style.display = "flex";
-      wrap.style.alignItems = "flex-start";
-      wrap.style.justifyContent = "center";
-      wrap.style.overflow = "hidden";
-      wrap.style.position = "sticky";
-      wrap.style.top = "18px";
-
-      cv.style.position = "relative";
-      cv.style.top = "0";
-      cv.style.left = "auto";
-      cv.style.right = "auto";
-      cv.style.bottom = "auto";
-      cv.style.margin = "0 auto";
-      cv.style.transformOrigin = "top center";
-    }catch(e){}
-  }
-
-  window.addEventListener("load", forceDesktopPreviewTop);
-  window.addEventListener("resize", forceDesktopPreviewTop);
-  document.addEventListener("DOMContentLoaded", forceDesktopPreviewTop);
-  setTimeout(forceDesktopPreviewTop, 300);
-  setTimeout(forceDesktopPreviewTop, 1200);
-})();
-
-
-
-
-/* =====================================================
-   CVYAZ DESKTOP TRUE LIVE PREVIEW V3.3
-   Form bilgilerini sağdaki masaüstü preview alanına canlı yansıtır.
-===================================================== */
-(function(){
-  function firstExisting(selectors){
+  function pick(selectors){
     for(var i=0;i<selectors.length;i++){
       var el=document.querySelector(selectors[i]);
       if(el){ return el; }
@@ -3016,38 +2970,60 @@ update();
     return null;
   }
 
-  function val(selectors, fallback){
-    var el=firstExisting(selectors);
-    var v=el && typeof el.value==="string" ? el.value.trim() : "";
+  function value(selectors, fallback){
+    var el=pick(selectors);
+    var v=el && typeof el.value === "string" ? el.value.trim() : "";
     return v || fallback;
   }
 
-  function text(id, value){
+  function setText(id, txt){
     var el=document.getElementById(id);
-    if(el){ el.textContent=value; }
+    if(el){ el.textContent = txt; }
   }
 
-  function updateDesktopTruePreview(){
-    text("dtName", val(['input[name="name"]','#name','#fullName','input[placeholder*="Ad Soyad"]','input[placeholder*="Adınız"]'], "Ad Soyad"));
-    text("dtJob", val(['input[name="job"]','#job','#position','input[placeholder*="Meslek"]','input[placeholder*="Pozisyon"]'], "MESLEK / POZİSYON").toUpperCase());
-    text("dtPhone", val(['input[name="phone"]','#phone','input[placeholder*="Telefon"]'], "5XX XXX XX XX"));
-    text("dtMail", val(['input[name="email"]','#email','input[type="email"]','input[placeholder*="E-posta"]'], "ornek@email.com"));
+  function updateDesktopPreviewV4(){
+    setText("dName", value([
+      'input[name="name"]','#name','#fullName','input[placeholder*="Ad Soyad"]','input[placeholder*="Adınız"]'
+    ], "AD SOYAD").toUpperCase());
 
-    var city = val(['input[name="city"]','#city','input[placeholder*="Şehir"]','input[placeholder*="İlçe"]'], "Şehir");
-    var country = val(['input[name="country"]','#country','input[placeholder*="Ülke"]'], "Ülke");
-    text("dtCity", city + " / " + country);
+    setText("dJob", value([
+      'input[name="job"]','#job','#position','input[placeholder*="Meslek"]','input[placeholder*="Pozisyon"]'
+    ], "MESLEK / POZİSYON").toUpperCase());
 
-    text("dtSummary", val(['textarea[name="summary"]','#summary','textarea[placeholder*="Özet"]','textarea[placeholder*="Hakkımda"]'], "Profesyonel özetiniz burada canlı olarak görünür. Bilgi girdikçe bu alan otomatik güncellenir."));
-    text("dtExp", val(['textarea[name="experience"]','#experience','textarea[placeholder*="Deneyim"]'], "İş deneyimleriniz ve görev açıklamalarınız burada özetlenir."));
-    text("dtProjects", val(['textarea[name="projects"]','#projects','textarea[placeholder*="Proje"]'], "Projeleriniz, başarılarınız veya ek çalışmalarınız burada görünür."));
-    text("dtEdu", val(['textarea[name="education"]','#education','input[placeholder*="Okul"]','textarea[placeholder*="Eğitim"]'], "Okul / Bölüm"));
+    setText("dPhone", value([
+      'input[name="phone"]','#phone','input[placeholder*="Telefon"]'
+    ], "5XX XXX XX XX"));
+
+    setText("dMail", value([
+      'input[name="email"]','#email','input[type="email"]','input[placeholder*="E-posta"]'
+    ], "ornek@email.com"));
+
+    var city = value(['input[name="city"]','#city','input[placeholder*="Şehir"]','input[placeholder*="İlçe"]'], "Şehir");
+    var country = value(['input[name="country"]','#country','input[placeholder*="Ülke"]'], "Ülke");
+    setText("dLocation", city + " / " + country);
+
+    setText("dSummary", value([
+      'textarea[name="summary"]','#summary','textarea[placeholder*="Özet"]','textarea[placeholder*="Hakkımda"]'
+    ], "Profesyonel özetiniz burada canlı olarak görünür. Bilgi girdikçe bu alan otomatik güncellenir."));
+
+    setText("dExperience", value([
+      'textarea[name="experience"]','#experience','textarea[placeholder*="Deneyim"]'
+    ], "İş deneyimleriniz ve görev açıklamalarınız burada özetlenir."));
+
+    setText("dProjects", value([
+      'textarea[name="projects"]','#projects','textarea[placeholder*="Proje"]'
+    ], "Projeleriniz, başarılarınız veya ek çalışmalarınız burada görünür."));
+
+    setText("dEdu", value([
+      'textarea[name="education"]','#education','input[placeholder*="Okul"]','textarea[placeholder*="Eğitim"]'
+    ], "Okul / Bölüm"));
   }
 
-  document.addEventListener("input", updateDesktopTruePreview, true);
-  document.addEventListener("change", updateDesktopTruePreview, true);
-  document.addEventListener("DOMContentLoaded", updateDesktopTruePreview);
-  window.addEventListener("load", updateDesktopTruePreview);
-  setTimeout(updateDesktopTruePreview, 400);
-  setTimeout(updateDesktopTruePreview, 1400);
+  document.addEventListener("input", updateDesktopPreviewV4, true);
+  document.addEventListener("change", updateDesktopPreviewV4, true);
+  document.addEventListener("DOMContentLoaded", updateDesktopPreviewV4);
+  window.addEventListener("load", updateDesktopPreviewV4);
+  setTimeout(updateDesktopPreviewV4, 250);
+  setTimeout(updateDesktopPreviewV4, 1000);
 })();
 
