@@ -255,7 +255,29 @@ document.querySelectorAll("input, textarea, select").forEach(function(element) {
    PHOTO UPLOAD
 ===================================================== */
 
+
+function unlockPreviewCta() {
+
+  const previewButton = document.querySelector(".download");
+
+  if (!previewButton) {
+    return;
+  }
+
+  previewButton.classList.remove("preview-locked");
+
+}
+
+document.querySelectorAll(".file-label").forEach(function(label) {
+
+  label.addEventListener("click", unlockPreviewCta);
+  label.addEventListener("touchstart", unlockPreviewCta, { passive: true });
+
+});
+
 function handlePhotoFile(file) {
+
+  unlockPreviewCta();
 
   if (!file) {
     return;

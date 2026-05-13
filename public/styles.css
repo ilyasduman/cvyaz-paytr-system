@@ -3197,3 +3197,13 @@ h1{
     margin-top: 14px !important;
   }
 }
+
+
+/* =====================================================
+   WEB + MOBILE PREVIEW CTA FLOW FIX
+   CV PDF Önizleme butonu ilk açılışta gizli kalır.
+   Kullanıcı Fotoğraf Ekle / CV Oluşturmaya Başla butonuna basınca açılır.
+===================================================== */
+.download.preview-locked {
+  display: none !important;
+}
