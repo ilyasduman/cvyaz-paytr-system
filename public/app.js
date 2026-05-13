@@ -3814,3 +3814,60 @@ cvyazSaveDraft();
   }
   window.addEventListener('load', function() { setTimeout(bind, 100); });
 })();
+
+
+/* =====================================================
+   CVYAZ DESKTOP PREVIEW CLICK RESTORE V8.6.1
+   V86 mobil iOS klavye fix'i web tarafında onclick'i temizlediği için
+   masaüstünde Önizleme Oluştur butonu çalışmayabiliyordu.
+   Mobil davranışa dokunmadan, sadece web/desktop click akışı geri bağlanır.
+===================================================== */
+(function() {
+  if (window.__CVYAZ_DESKTOP_PREVIEW_CLICK_RESTORE_V861__) { return; }
+  window.__CVYAZ_DESKTOP_PREVIEW_CLICK_RESTORE_V861__ = true;
+
+  function isDesktopPreviewViewport() {
+    return !(window.matchMedia && window.matchMedia('(max-width: 767px)').matches);
+  }
+
+  function getPreviewButton() {
+    return document.getElementById('previewCta') || document.querySelector('.download');
+  }
+
+  function runDesktopPreview(event) {
+    if (!isDesktopPreviewViewport()) { return; }
+
+    var button = getPreviewButton();
+    if (!button || button.classList.contains('preview-locked')) { return; }
+
+    if (event && event.cancelable) { event.preventDefault(); }
+    if (event && event.stopPropagation) { event.stopPropagation(); }
+
+    if (typeof startPreviewPdf === 'function') {
+      startPreviewPdf(event || window.event);
+    }
+  }
+
+  function bindDesktopPreviewClick() {
+    var button = getPreviewButton();
+    if (!button || button.dataset.desktopPreviewRestore === '1') { return; }
+
+    button.dataset.desktopPreviewRestore = '1';
+    button.addEventListener('click', runDesktopPreview, { passive: false });
+    button.addEventListener('mousedown', function(event) {
+      if (!isDesktopPreviewViewport()) { return; }
+      // Webde hover/click hissi korunsun; asıl işlem click'te başlar.
+    }, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindDesktopPreviewClick);
+  } else {
+    bindDesktopPreviewClick();
+  }
+
+  window.addEventListener('load', function() {
+    setTimeout(bindDesktopPreviewClick, 100);
+    setTimeout(bindDesktopPreviewClick, 600);
+  });
+})();
