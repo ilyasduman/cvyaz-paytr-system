@@ -3577,3 +3577,89 @@ cvyazSaveDraft();
   window.addEventListener("load", setupMobileCtaVisibility);
 })();
 
+
+
+/* =====================================================
+   CVYAZ MOBILE DATALIST / AUTOCOMPLETE FIRST TAP FIX V8.4
+   Sorun: Mobil tarayıcıda Meslek/Pozisyon datalist seçimi açık kalınca
+   ilk Önizleme dokunuşu bazen sadece öneri kutusunu/klavyeyi kapatıyor.
+   Çözüm: Meslek alanında değer seçilince mobilde odağı güvenli şekilde kapat,
+   butona basıldığında da aktif form odağını preview başlamadan kilitleme.
+===================================================== */
+(function() {
+
+  function isMobileCvyaz() {
+    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+  }
+
+  function safeBlurElement(el) {
+    if (!el || typeof el.blur !== "function") { return; }
+    try { el.blur(); } catch (e) {}
+  }
+
+  function selectedFromDatalist(input) {
+    if (!input || !input.value) { return false; }
+    const listId = input.getAttribute("list");
+    if (!listId) { return false; }
+    const list = document.getElementById(listId);
+    if (!list) { return false; }
+    const value = String(input.value).trim().toLowerCase();
+    return Array.from(list.options).some(function(option) {
+      return String(option.value || "").trim().toLowerCase() === value;
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const jobInput = document.getElementById("job");
+
+    if (jobInput) {
+      jobInput.setAttribute("autocomplete", "off");
+      jobInput.setAttribute("autocorrect", "off");
+      jobInput.setAttribute("autocapitalize", "none");
+      jobInput.setAttribute("spellcheck", "false");
+
+      ["input", "change"].forEach(function(evtName) {
+        jobInput.addEventListener(evtName, function() {
+          if (!isMobileCvyaz()) { return; }
+
+          if (selectedFromDatalist(jobInput) || jobInput.value.trim().length >= 3) {
+            window.__cvyazMobileJustSelectedJob = true;
+
+            setTimeout(function() {
+              safeBlurElement(jobInput);
+            }, 80);
+
+            setTimeout(function() {
+              window.__cvyazMobileJustSelectedJob = false;
+            }, 900);
+          }
+        }, { passive: true });
+      });
+    }
+
+    const previewButton = document.getElementById("previewCta");
+
+    if (previewButton) {
+      function hardPreview(event) {
+        if (!isMobileCvyaz()) { return; }
+        if (previewButton.classList.contains("preview-locked")) { return; }
+
+        if (event && event.cancelable) { event.preventDefault(); }
+        if (event && event.stopPropagation) { event.stopPropagation(); }
+        if (event && event.stopImmediatePropagation) { event.stopImmediatePropagation(); }
+
+        const active = document.activeElement;
+        if (active && active !== document.body && typeof active.blur === "function") {
+          safeBlurElement(active);
+        }
+
+        // Modalı aynı frame içinde açtır. Böylece ilk dokunuş görsel cevap verir.
+        startPreviewPdf(event || window.event);
+      }
+
+      previewButton.addEventListener("touchstart", hardPreview, { passive: false, capture: true });
+      previewButton.addEventListener("mousedown", hardPreview, { passive: false, capture: true });
+    }
+  });
+
+})();
