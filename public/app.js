@@ -267,6 +267,12 @@ function unlockPreviewCta() {
   previewButton.classList.remove("preview-locked");
   document.body.classList.add("cvyaz-show-preview-cta");
 
+  try {
+    localStorage.setItem("cvyaz_preview_cta_unlocked_v71", "1");
+  } catch (error) {
+    // storage kapalıysa sessiz geç.
+  }
+
 }
 
 document.querySelectorAll(".file-label").forEach(function(label) {
@@ -3003,10 +3009,14 @@ async function goPay() {
    KVKK / sözleşme / gizlilik / iade sayfalarına gidip dönünce
    kullanıcının girdiği CV bilgileri kaldığı yerden devam eder.
 ===================================================== */
-const CVYAZ_DRAFT_KEY = "cvyaz_form_draft_v70_session";
-const CVYAZ_DRAFT_PERSIST_KEY = "cvyaz_form_draft_v70_legal_return";
-const CVYAZ_LEGAL_RETURN_KEY = "cvyaz_legal_return_v70";
+const CVYAZ_DRAFT_KEY = "cvyaz_form_draft_v71_session";
+const CVYAZ_DRAFT_PERSIST_KEY = "cvyaz_form_draft_v71_legal_return";
+const CVYAZ_LEGAL_RETURN_KEY = "cvyaz_legal_return_v71";
+const CVYAZ_PREVIEW_STATE_KEY = "cvyaz_preview_cta_unlocked_v71";
 const CVYAZ_LEGACY_DRAFT_KEY = "cvyaz_form_draft_v67";
+const CVYAZ_LEGACY_DRAFT_KEY_V70 = "cvyaz_form_draft_v70_legal_return";
+const CVYAZ_LEGACY_SESSION_KEY_V70 = "cvyaz_form_draft_v70_session";
+const CVYAZ_LEGACY_LEGAL_KEY_V70 = "cvyaz_legal_return_v70";
 let CVYAZ_RESTORING_DRAFT = false;
 
 const CVYAZ_DYNAMIC_SECTIONS = [
@@ -3054,6 +3064,25 @@ function cvyazWriteField(element, value) {
   element.value = value || "";
 }
 
+function cvyazIsPreviewCtaUnlocked() {
+  const previewButton = document.querySelector(".download");
+  return !!(previewButton && !previewButton.classList.contains("preview-locked"));
+}
+
+function cvyazRestorePreviewCtaState(draft) {
+  let shouldUnlock = !!(draft && draft.ui && draft.ui.previewUnlocked);
+
+  try {
+    shouldUnlock = shouldUnlock || localStorage.getItem(CVYAZ_PREVIEW_STATE_KEY) === "1";
+  } catch (error) {
+    // storage kapalıysa sadece draft içindeki state kullanılır.
+  }
+
+  if (shouldUnlock) {
+    unlockPreviewCta();
+  }
+}
+
 function cvyazCollectItemValues(item) {
   return Array.from(item.querySelectorAll("input, textarea, select"))
     .filter(cvyazIsDraftField)
@@ -3096,6 +3125,9 @@ function cvyazSaveDraft() {
     const draftPayload = JSON.stringify({
       fixed: fixed,
       dynamic: dynamic,
+      ui: {
+        previewUnlocked: cvyazIsPreviewCtaUnlocked()
+      },
       savedAt: Date.now()
     });
 
@@ -3141,6 +3173,8 @@ function cvyazRestoreDraft() {
     Object.keys(draft.fixed || {}).forEach(function(id) {
       cvyazWriteField(document.getElementById(id), draft.fixed[id]);
     });
+
+    cvyazRestorePreviewCtaState(draft);
   } finally {
     CVYAZ_RESTORING_DRAFT = false;
   }
@@ -3174,6 +3208,9 @@ function cvyazInstallDraftAutosave() {
 function cvyazMarkLegalNavigation() {
   try {
     cvyazSaveDraft();
+    if (cvyazIsPreviewCtaUnlocked()) {
+      localStorage.setItem(CVYAZ_PREVIEW_STATE_KEY, "1");
+    }
     localStorage.setItem(CVYAZ_LEGAL_RETURN_KEY, String(Date.now()));
   } catch (error) {
     // localStorage kapalıysa sessiz geç.
@@ -3201,7 +3238,7 @@ function cvyazInstallLegalLinkProtection() {
 
 function cvyazShouldRestoreDraftAfterLegalPage() {
   try {
-    const marker = Number(localStorage.getItem(CVYAZ_LEGAL_RETURN_KEY) || "0");
+    const marker = Number(localStorage.getItem(CVYAZ_LEGAL_RETURN_KEY) || localStorage.getItem(CVYAZ_LEGACY_LEGAL_KEY_V70) || "0");
     const markerFresh = marker && (Date.now() - marker < 1000 * 60 * 60 * 6);
     const ref = (document.referrer || "").toLowerCase();
     const refIsLegal = ref.indexOf("kvkk") !== -1 ||
@@ -3219,8 +3256,13 @@ function cvyazClearStoredDraftForFreshVisit() {
   try {
     sessionStorage.removeItem(CVYAZ_DRAFT_KEY);
     localStorage.removeItem(CVYAZ_DRAFT_PERSIST_KEY);
+    localStorage.removeItem(CVYAZ_PREVIEW_STATE_KEY);
     localStorage.removeItem(CVYAZ_LEGACY_DRAFT_KEY);
+    localStorage.removeItem(CVYAZ_LEGACY_DRAFT_KEY_V70);
+    sessionStorage.removeItem(CVYAZ_LEGACY_SESSION_KEY_V70);
     localStorage.removeItem(CVYAZ_LEGAL_RETURN_KEY);
+    localStorage.removeItem(CVYAZ_LEGACY_LEGAL_KEY_V70);
+    localStorage.removeItem(CVYAZ_LEGACY_LEGAL_KEY_V70);
   } catch (error) {
     // storage kapalıysa sessiz geç.
   }
