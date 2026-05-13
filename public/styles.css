@@ -43,11 +43,13 @@ body {
 }
 
 .brand-image img {
-  width: 100%;
-  max-width: 430px;
-  height: auto;
-  display: block;
-  opacity: .94;
+    width: 92%;
+    max-width: 430px;
+    height: 78px;
+    object-fit: contain;
+    display: block;
+    opacity: .94;
+    margin: 0 auto;
 }
 
 /* =====================================================
