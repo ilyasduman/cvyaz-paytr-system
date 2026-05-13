@@ -2999,11 +2999,13 @@ async function goPay() {
 
 
 /* =====================================================
-   CVYAZ FORM DRAFT AUTOSAVE V6.9
+   CVYAZ FORM DRAFT AUTOSAVE V7.0
    KVKK / sözleşme / gizlilik / iade sayfalarına gidip dönünce
    kullanıcının girdiği CV bilgileri kaldığı yerden devam eder.
 ===================================================== */
-const CVYAZ_DRAFT_KEY = "cvyaz_form_draft_v69_session";
+const CVYAZ_DRAFT_KEY = "cvyaz_form_draft_v70_session";
+const CVYAZ_DRAFT_PERSIST_KEY = "cvyaz_form_draft_v70_legal_return";
+const CVYAZ_LEGAL_RETURN_KEY = "cvyaz_legal_return_v70";
 const CVYAZ_LEGACY_DRAFT_KEY = "cvyaz_form_draft_v67";
 let CVYAZ_RESTORING_DRAFT = false;
 
@@ -3091,11 +3093,14 @@ function cvyazSaveDraft() {
       dynamic[section.listId] = Array.from(list.querySelectorAll(section.itemSelector)).map(cvyazCollectItemValues);
     });
 
-    sessionStorage.setItem(CVYAZ_DRAFT_KEY, JSON.stringify({
+    const draftPayload = JSON.stringify({
       fixed: fixed,
       dynamic: dynamic,
       savedAt: Date.now()
-    }));
+    });
+
+    sessionStorage.setItem(CVYAZ_DRAFT_KEY, draftPayload);
+    localStorage.setItem(CVYAZ_DRAFT_PERSIST_KEY, draftPayload);
   } catch (error) {
     // sessionStorage kapalıysa uygulama çalışmaya devam eder.
   }
@@ -3105,7 +3110,7 @@ function cvyazRestoreDraft() {
   let draft = null;
 
   try {
-    draft = JSON.parse(sessionStorage.getItem(CVYAZ_DRAFT_KEY) || "null");
+    draft = JSON.parse(sessionStorage.getItem(CVYAZ_DRAFT_KEY) || localStorage.getItem(CVYAZ_DRAFT_PERSIST_KEY) || "null");
   } catch (error) {
     draft = null;
   }
@@ -3166,23 +3171,89 @@ function cvyazInstallDraftAutosave() {
   window.addEventListener("beforeunload", cvyazSaveDraft);
 }
 
+function cvyazMarkLegalNavigation() {
+  try {
+    cvyazSaveDraft();
+    localStorage.setItem(CVYAZ_LEGAL_RETURN_KEY, String(Date.now()));
+  } catch (error) {
+    // localStorage kapalıysa sessiz geç.
+  }
+}
+
+function cvyazInstallLegalLinkProtection() {
+  document.addEventListener("click", function(event) {
+    const link = event.target && event.target.closest ? event.target.closest("a[href]") : null;
+    if (!link) {
+      return;
+    }
+
+    const href = (link.getAttribute("href") || "").toLowerCase();
+    const isLegalLink = href.indexOf("kvkk") !== -1 ||
+      href.indexOf("mesafeli-satis") !== -1 ||
+      href.indexOf("iade") !== -1 ||
+      href.indexOf("gizlilik") !== -1;
+
+    if (isLegalLink) {
+      cvyazMarkLegalNavigation();
+    }
+  }, true);
+}
+
+function cvyazShouldRestoreDraftAfterLegalPage() {
+  try {
+    const marker = Number(localStorage.getItem(CVYAZ_LEGAL_RETURN_KEY) || "0");
+    const markerFresh = marker && (Date.now() - marker < 1000 * 60 * 60 * 6);
+    const ref = (document.referrer || "").toLowerCase();
+    const refIsLegal = ref.indexOf("kvkk") !== -1 ||
+      ref.indexOf("mesafeli-satis") !== -1 ||
+      ref.indexOf("iade") !== -1 ||
+      ref.indexOf("gizlilik") !== -1;
+
+    return !!(markerFresh || refIsLegal);
+  } catch (error) {
+    return false;
+  }
+}
+
+function cvyazClearStoredDraftForFreshVisit() {
+  try {
+    sessionStorage.removeItem(CVYAZ_DRAFT_KEY);
+    localStorage.removeItem(CVYAZ_DRAFT_PERSIST_KEY);
+    localStorage.removeItem(CVYAZ_LEGACY_DRAFT_KEY);
+    localStorage.removeItem(CVYAZ_LEGAL_RETURN_KEY);
+  } catch (error) {
+    // storage kapalıysa sessiz geç.
+  }
+}
+
+function cvyazFinishLegalReturnRestore() {
+  try {
+    localStorage.removeItem(CVYAZ_LEGAL_RETURN_KEY);
+  } catch (error) {
+    // storage kapalıysa sessiz geç.
+  }
+}
+
 /* =====================================================
    INITIALIZE
 ===================================================== */
 
-try {
-  // V6.9: Eski web tarayıcı localStorage taslağını temizle.
-  // Böylece site ilk kez açıldığında eski doldurulmuş CV bilgileri geri gelmez.
-  // Mevcut sekmede KVKK / sözleşme / gizlilik / iade sayfalarına gidip dönünce
-  // sessionStorage ile bilgiler korunmaya devam eder.
-  localStorage.removeItem(CVYAZ_LEGACY_DRAFT_KEY);
-} catch (error) {
-  // localStorage kapalıysa sessiz geç.
+const cvyazRestoreAfterLegalReturn = cvyazShouldRestoreDraftAfterLegalPage();
+
+if (!cvyazRestoreAfterLegalReturn) {
+  // V7.0: Site normal/temiz açılıyorsa eski CV bilgilerini gösterme.
+  // Ancak KVKK / sözleşme / gizlilik / iade sayfasından dönülüyorsa taslağı koru.
+  cvyazClearStoredDraftForFreshVisit();
 }
 
 cvyazInstallDraftAutosave();
+cvyazInstallLegalLinkProtection();
 
-const cvyazDraftRestored = cvyazRestoreDraft();
+const cvyazDraftRestored = cvyazRestoreAfterLegalReturn ? cvyazRestoreDraft() : false;
+
+if (cvyazDraftRestored) {
+  cvyazFinishLegalReturnRestore();
+}
 
 if (!cvyazDraftRestored) {
   addEdu();
