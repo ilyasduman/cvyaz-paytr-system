@@ -3285,7 +3285,7 @@ h1{
   .app .brand-image img {
     width: 100% !important;
     max-width: none !important;
-    height: auto !important;
+    height: 80px !important;
     max-height: none !important;
     min-height: 0 !important;
     object-fit: contain !important;
