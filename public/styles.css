@@ -3283,7 +3283,7 @@ h1{
   }
 
   .app .brand-image img {
-    width: 82% !important;
+    width: 100% !important;
     max-width: none !important;
     height:auto !important;
     max-height: none !important;
