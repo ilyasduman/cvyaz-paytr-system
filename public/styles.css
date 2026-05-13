@@ -3155,3 +3155,45 @@ h1{
   }
 }
 
+
+/* =====================================================
+   CVYAZ MOBILE HERO HEIGHT TIGHTEN V6.4
+   Mobil ilk ekranda açıklama alanını kısaltır;
+   Fotoğraf Ekle / CV Oluşturmaya Başla butonu yukarı gelir.
+===================================================== */
+
+@media (max-width: 767px) {
+  .hero {
+    padding-top: 20px !important;
+    padding-bottom: 54px !important;
+    margin-bottom: 14px !important;
+    border-bottom-left-radius: 34px !important;
+    border-bottom-right-radius: 34px !important;
+  }
+
+  .hero::after {
+    bottom: -46px !important;
+    height: 86px !important;
+  }
+
+  .hero h1,
+  h1 {
+    font-size: 48px !important;
+    line-height: 0.96 !important;
+    letter-spacing: -1.8px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero p,
+  .hero-subtitle {
+    font-size: 15.5px !important;
+    line-height: 1.38 !important;
+    max-width: 330px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .acc:first-of-type {
+    margin-top: 14px !important;
+  }
+}
