@@ -4278,3 +4278,104 @@ body.menu-open {
     font-size: 14px !important;
   }
 }
+
+
+/* =====================================================
+   V100 COMPACT HEADER LOGO
+   Sol hamburger + yanında mevcut CVYAZ logosu. Eski sol CVYAZ pill ve sağ menü kaldırıldı.
+   Büyük logo alanı gizlenerek mobil/web ilk ekranı sıkıştırıldı.
+===================================================== */
+.site-topbar {
+  max-width: 430px !important;
+  padding: 10px 14px 6px !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  align-items: center !important;
+  pointer-events: none !important;
+}
+
+.site-header-logo {
+  pointer-events: auto !important;
+  height: 46px !important;
+  width: min(176px, calc(100vw - 90px)) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-decoration: none !important;
+  overflow: hidden !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.site-header-logo img {
+  display: block !important;
+  width: 100% !important;
+  height: 24px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.site-mini-brand { display: none !important; }
+
+.hamburger-btn {
+  width: 46px !important;
+  height: 46px !important;
+  flex: 0 0 46px !important;
+  border-radius: 16px !important;
+  order: 0 !important;
+}
+
+.site-header-logo { order: 1 !important; }
+
+/* Büyük hero logosu artık header'da kullanıldığı için tekrar etmesin. */
+.brand-image,
+.brand-image img {
+  display: none !important;
+}
+
+.hero-card {
+  margin-top: 8px !important;
+}
+
+@media (max-width: 520px) {
+  .site-topbar {
+    padding: 8px 14px 4px !important;
+    gap: 9px !important;
+  }
+  .hamburger-btn {
+    width: 44px !important;
+    height: 44px !important;
+    flex-basis: 44px !important;
+    border-radius: 15px !important;
+  }
+  .hamburger-btn span {
+    width: 18px !important;
+    height: 2px !important;
+  }
+  .site-header-logo {
+    height: 44px !important;
+    width: min(160px, calc(100vw - 86px)) !important;
+  }
+  .site-header-logo img {
+    height: 22px !important;
+  }
+  .hero-card {
+    margin-top: 6px !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .site-topbar {
+    max-width: 520px !important;
+  }
+  .site-header-logo {
+    width: 190px !important;
+  }
+  .site-header-logo img {
+    height: 24px !important;
+  }
+}
