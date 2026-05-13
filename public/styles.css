@@ -4379,3 +4379,72 @@ body.menu-open {
     height: 24px !important;
   }
 }
+
+
+/* =====================================================
+   V101 HEADER LOGO READABILITY FIX
+   Logo hamburger yüksekliğinde ve kalan satır genişliğini doldurur.
+===================================================== */
+.site-topbar {
+  max-width: 520px !important;
+  padding: 10px 14px 8px !important;
+  gap: 12px !important;
+}
+
+.site-header-logo {
+  flex: 1 1 auto !important;
+  width: auto !important;
+  max-width: calc(100% - 58px) !important;
+  height: 48px !important;
+  overflow: visible !important;
+}
+
+.site-header-logo img {
+  width: 100% !important;
+  height: 44px !important;
+  max-height: 44px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+}
+
+.hamburger-btn {
+  width: 48px !important;
+  height: 48px !important;
+  flex: 0 0 48px !important;
+}
+
+@media (max-width: 520px) {
+  .site-topbar {
+    max-width: 100% !important;
+    padding: 8px 16px 6px !important;
+    gap: 10px !important;
+  }
+  .hamburger-btn {
+    width: 48px !important;
+    height: 48px !important;
+    flex-basis: 48px !important;
+    border-radius: 16px !important;
+  }
+  .site-header-logo {
+    height: 48px !important;
+    max-width: calc(100% - 58px) !important;
+  }
+  .site-header-logo img {
+    height: 44px !important;
+    max-height: 44px !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .site-topbar {
+    max-width: 520px !important;
+  }
+  .site-header-logo {
+    height: 50px !important;
+    max-width: calc(100% - 62px) !important;
+  }
+  .site-header-logo img {
+    height: 46px !important;
+    max-height: 46px !important;
+  }
+}
