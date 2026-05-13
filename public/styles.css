@@ -3225,3 +3225,40 @@ h1{
 .download.preview-locked {
   display: none !important;
 }
+
+
+/* =====================================================
+   CVYAZ MOBILE iOS KEYBOARD PREVIEW FIX V8.6
+   iPhone Safari'de klavye/accessory bar açıkken ilk dokunuş input'u kapatmaya gider.
+   CTA klavyenin üstüne taşınır ve dokunma hedefi en üst katmanda tutulur.
+===================================================== */
+:root {
+  --cvyaz-keyboard-inset: 0px;
+}
+
+@media (max-width: 767px) {
+  body.cvyaz-show-preview-cta #previewCta,
+  body.cvyaz-show-preview-cta .download {
+    display: flex !important;
+    position: fixed !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: calc(var(--cvyaz-keyboard-inset, 0px) + 18px) !important;
+    transform: translate3d(-50%, 0, 0) !important;
+    width: calc(100vw - 44px) !important;
+    max-width: 680px !important;
+    min-height: 58px !important;
+    height: 58px !important;
+    border-radius: 18px !important;
+    z-index: 2147483000 !important;
+    pointer-events: auto !important;
+    touch-action: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+  }
+
+  body.cvyaz-keyboard-open {
+    padding-bottom: calc(var(--cvyaz-keyboard-inset, 0px) + 110px) !important;
+  }
+}
