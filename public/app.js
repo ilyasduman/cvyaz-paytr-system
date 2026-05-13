@@ -2989,19 +2989,202 @@ async function goPay() {
 }
 
 
+
+/* =====================================================
+   CVYAZ FORM DRAFT AUTOSAVE V6.7
+   KVKK / sözleşme / gizlilik / iade sayfalarına gidip dönünce
+   kullanıcının girdiği CV bilgileri kaldığı yerden devam eder.
+===================================================== */
+const CVYAZ_DRAFT_KEY = "cvyaz_form_draft_v67";
+let CVYAZ_RESTORING_DRAFT = false;
+
+const CVYAZ_DYNAMIC_SECTIONS = [
+  { listId: "eduList", itemSelector: ".edu", add: function(){ addEdu(); } },
+  { listId: "expList", itemSelector: ".exp", add: function(){ addExp(); } },
+  { listId: "langList", itemSelector: ".lang", add: function(){ addLang(); } },
+  { listId: "certList", itemSelector: ".cert", add: function(){ addCert(); } },
+  { listId: "projectList", itemSelector: ".project", add: function(){ addProject(); } },
+  { listId: "refList", itemSelector: ".ref", add: function(){ addRef(); } }
+];
+
+function cvyazIsDraftField(element) {
+  if (!element || !element.matches || !element.matches("input, textarea, select")) {
+    return false;
+  }
+
+  if (element.type === "file" || element.id === "photoInput" || element.id === "docInput") {
+    return false;
+  }
+
+  if (element.closest("#cv") || element.closest(".pdf-modal")) {
+    return false;
+  }
+
+  return true;
+}
+
+function cvyazReadField(element) {
+  if (element.type === "checkbox" || element.type === "radio") {
+    return !!element.checked;
+  }
+  return element.value || "";
+}
+
+function cvyazWriteField(element, value) {
+  if (!element) {
+    return;
+  }
+
+  if (element.type === "checkbox" || element.type === "radio") {
+    element.checked = !!value;
+    return;
+  }
+
+  element.value = value || "";
+}
+
+function cvyazCollectItemValues(item) {
+  return Array.from(item.querySelectorAll("input, textarea, select"))
+    .filter(cvyazIsDraftField)
+    .map(cvyazReadField);
+}
+
+function cvyazApplyItemValues(item, values) {
+  const fields = Array.from(item.querySelectorAll("input, textarea, select")).filter(cvyazIsDraftField);
+  fields.forEach(function(field, index) {
+    cvyazWriteField(field, values && values[index]);
+  });
+}
+
+function cvyazSaveDraft() {
+  if (CVYAZ_RESTORING_DRAFT) {
+    return;
+  }
+
+  try {
+    const fixed = {};
+
+    document.querySelectorAll("input[id], textarea[id], select[id]").forEach(function(element) {
+      if (!cvyazIsDraftField(element)) {
+        return;
+      }
+      fixed[element.id] = cvyazReadField(element);
+    });
+
+    const dynamic = {};
+
+    CVYAZ_DYNAMIC_SECTIONS.forEach(function(section) {
+      const list = document.getElementById(section.listId);
+      if (!list) {
+        return;
+      }
+
+      dynamic[section.listId] = Array.from(list.querySelectorAll(section.itemSelector)).map(cvyazCollectItemValues);
+    });
+
+    localStorage.setItem(CVYAZ_DRAFT_KEY, JSON.stringify({
+      fixed: fixed,
+      dynamic: dynamic,
+      savedAt: Date.now()
+    }));
+  } catch (error) {
+    // localStorage kapalıysa uygulama çalışmaya devam eder.
+  }
+}
+
+function cvyazRestoreDraft() {
+  let draft = null;
+
+  try {
+    draft = JSON.parse(localStorage.getItem(CVYAZ_DRAFT_KEY) || "null");
+  } catch (error) {
+    draft = null;
+  }
+
+  if (!draft || (!draft.fixed && !draft.dynamic)) {
+    return false;
+  }
+
+  CVYAZ_RESTORING_DRAFT = true;
+
+  try {
+    CVYAZ_DYNAMIC_SECTIONS.forEach(function(section) {
+      const list = document.getElementById(section.listId);
+      if (!list) {
+        return;
+      }
+
+      list.innerHTML = "";
+      const rows = draft.dynamic && Array.isArray(draft.dynamic[section.listId]) ? draft.dynamic[section.listId] : [];
+
+      rows.forEach(function(values) {
+        section.add();
+        const item = list.querySelector(section.itemSelector + ":last-child");
+        cvyazApplyItemValues(item, values);
+      });
+    });
+
+    Object.keys(draft.fixed || {}).forEach(function(id) {
+      cvyazWriteField(document.getElementById(id), draft.fixed[id]);
+    });
+  } finally {
+    CVYAZ_RESTORING_DRAFT = false;
+  }
+
+  return true;
+}
+
+function cvyazInstallDraftAutosave() {
+  document.addEventListener("input", function(event) {
+    if (cvyazIsDraftField(event.target)) {
+      cvyazSaveDraft();
+    }
+  }, true);
+
+  document.addEventListener("change", function(event) {
+    if (cvyazIsDraftField(event.target)) {
+      cvyazSaveDraft();
+    }
+  }, true);
+
+  document.addEventListener("click", function(event) {
+    if (event.target && event.target.matches && event.target.matches(".mini-btn.remove")) {
+      setTimeout(cvyazSaveDraft, 0);
+    }
+  }, true);
+
+  window.addEventListener("pagehide", cvyazSaveDraft);
+  window.addEventListener("beforeunload", cvyazSaveDraft);
+}
+
 /* =====================================================
    INITIALIZE
 ===================================================== */
 
-addEdu();
+cvyazInstallDraftAutosave();
 
-addExp();
+const cvyazDraftRestored = cvyazRestoreDraft();
+
+if (!cvyazDraftRestored) {
+  addEdu();
+  addExp();
+}
+
+if (document.querySelectorAll("#eduList .edu").length === 0) {
+  addEdu();
+}
+
+if (document.querySelectorAll("#expList .exp").length === 0) {
+  addExp();
+}
 
 bindMobileLiveEvents();
 
 markJsActive();
 
 update();
+
+cvyazSaveDraft();
 
 
 
