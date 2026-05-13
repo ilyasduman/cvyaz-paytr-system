@@ -119,6 +119,8 @@ document.addEventListener("change", function(event) {
 
 
 /* FINAL OVERRIDE: smart page breaks */
+window.startPreviewPdf = startPreviewPdf;
+
 function applySmartPageBreaks(root) {
 
   const pageHeight = 1123;
@@ -1884,6 +1886,8 @@ function startPreviewPdf(event) {
 }
 
 
+window.startPreviewPdf = startPreviewPdf;
+
 function applySmartPageBreaks(root) {
 
   const pageHeight = 1123;
@@ -3399,100 +3403,6 @@ function cvyazFinishLegalReturnRestore() {
   }
 }
 
-
-
-/* =====================================================
-   MOBILE DATALIST / AUTOCOMPLETE FOCUS FIX V7.9
-   Mobil tarayıcılarda meslek datalist seçildikten sonra klavye/öneri katmanı
-   açık kalırsa ilk dokunuş yalnızca o katmanı kapatabiliyor. Meslek ve diğer
-   datalist seçimlerinde input değiştiği anda odağı kapatıyoruz; preview CTA'ya
-   basınca da capture aşamasında doğrudan PDF önizleme başlatılıyor.
-===================================================== */
-document.addEventListener("DOMContentLoaded", function() {
-  function isSmallTouchScreenV79() {
-    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
-  }
-
-  function blurDatalistFieldSoon(field) {
-    if (!isSmallTouchScreenV79() || !field || !field.matches || !field.matches('input[list]')) {
-      return;
-    }
-
-    window.setTimeout(function() {
-      try {
-        field.blur();
-      } catch (error) {}
-    }, 30);
-  }
-
-  document.addEventListener("change", function(event) {
-    blurDatalistFieldSoon(event.target);
-  }, true);
-
-  document.addEventListener("input", function(event) {
-    const target = event.target;
-    if (!target || !target.matches || !target.matches('input[list]')) {
-      return;
-    }
-
-    const listId = target.getAttribute("list");
-    const list = listId ? document.getElementById(listId) : null;
-    if (!list) {
-      return;
-    }
-
-    const value = (target.value || "").trim().toLowerCase();
-    const exactOption = Array.from(list.querySelectorAll("option")).some(function(option) {
-      return ((option.value || "").trim().toLowerCase() === value);
-    });
-
-    if (exactOption) {
-      blurDatalistFieldSoon(target);
-    }
-  }, true);
-
-  const previewButton = document.getElementById("previewCta");
-  if (!previewButton || previewButton.__cvyazV79Installed) {
-    return;
-  }
-
-  previewButton.__cvyazV79Installed = true;
-
-  function forcePreviewOnFirstTouchV79(event) {
-    if (!isSmallTouchScreenV79()) {
-      return;
-    }
-
-    if (previewButton.classList.contains("preview-locked") || isPdfGenerating) {
-      return;
-    }
-
-    if (event && event.cancelable) {
-      event.preventDefault();
-    }
-    if (event && event.stopImmediatePropagation) {
-      event.stopImmediatePropagation();
-    } else if (event && event.stopPropagation) {
-      event.stopPropagation();
-    }
-
-    const active = document.activeElement;
-    if (active && active !== document.body && typeof active.blur === "function") {
-      try { active.blur(); } catch (error) {}
-    }
-
-    startPreviewPdf(event);
-  }
-
-  previewButton.addEventListener("touchstart", forcePreviewOnFirstTouchV79, { passive: false, capture: true });
-  previewButton.addEventListener("mousedown", forcePreviewOnFirstTouchV79, { passive: false, capture: true });
-  previewButton.addEventListener("pointerdown", function(event) {
-    if (!event.pointerType || event.pointerType === "touch") {
-      forcePreviewOnFirstTouchV79(event);
-    }
-  }, { passive: false, capture: true });
-});
-
 /* =====================================================
    INITIALIZE
 ===================================================== */
@@ -3581,3 +3491,99 @@ cvyazSaveDraft();
   window.addEventListener("load", setupMobileCtaVisibility);
 })();
 
+
+
+/* =====================================================
+   CVYAZ MOBILE DATALIST / AUTOCOMPLETE FIRST TAP FIX V8.0
+   Mobilde native datalist/autocomplete seçimi açık kalınca ilk dokunuş
+   sadece klavye/öneri listesini kapatabiliyordu. Seçim tamamlanınca
+   odağı güvenli şekilde kapatır; CTA dokunuşunu yakalarsa önizlemeyi
+   aynı anda başlatır.
+===================================================== */
+(function(){
+  function isMobile(){
+    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+  }
+
+  function safeBlurActive(){
+    try {
+      var active = document.activeElement;
+      if (active && active !== document.body && typeof active.blur === "function") {
+        active.blur();
+      }
+    } catch (e) {}
+  }
+
+  function inputValueMatchesDatalist(input){
+    if (!input || !input.getAttribute) { return false; }
+    var listId = input.getAttribute("list");
+    if (!listId) { return false; }
+    var list = document.getElementById(listId);
+    if (!list) { return false; }
+    var value = (input.value || "").trim().toLowerCase();
+    if (!value) { return false; }
+    var options = Array.prototype.slice.call(list.querySelectorAll("option"));
+    return options.some(function(opt){
+      var optValue = (opt.value || opt.textContent || "").trim().toLowerCase();
+      return optValue === value;
+    });
+  }
+
+  function closeNativeAutocompleteAfterPick(input){
+    if (!isMobile()) { return; }
+    if (!inputValueMatchesDatalist(input)) { return; }
+
+    window.clearTimeout(input.__cvyazDatalistBlurTimer);
+    input.__cvyazDatalistBlurTimer = window.setTimeout(function(){
+      try { input.blur(); } catch(e) {}
+      try { document.body.focus && document.body.focus(); } catch(e) {}
+    }, 90);
+  }
+
+  function installDatalistBlurFix(){
+    var inputs = document.querySelectorAll("input[list]");
+    inputs.forEach(function(input){
+      if (input.__cvyazDatalistFixInstalled) { return; }
+      input.__cvyazDatalistFixInstalled = true;
+
+      input.addEventListener("input", function(){
+        closeNativeAutocompleteAfterPick(input);
+      }, true);
+
+      input.addEventListener("change", function(){
+        closeNativeAutocompleteAfterPick(input);
+      }, true);
+    });
+  }
+
+  function installPreviewGlobalTouchGuard(){
+    function handle(event){
+      if (!isMobile()) { return; }
+      var target = event.target;
+      var button = target && target.closest ? target.closest("#previewCta") : null;
+      if (!button) { return; }
+      if (button.classList.contains("preview-locked")) { return; }
+
+      safeBlurActive();
+
+      if (typeof window.startPreviewPdf === "function") {
+        if (event.cancelable) { event.preventDefault(); }
+        if (event.stopImmediatePropagation) { event.stopImmediatePropagation(); }
+        else if (event.stopPropagation) { event.stopPropagation(); }
+        window.startPreviewPdf(event);
+      }
+    }
+
+    document.addEventListener("touchstart", handle, {capture:true, passive:false});
+    document.addEventListener("pointerdown", function(event){
+      if (event.pointerType === "touch") { handle(event); }
+    }, {capture:true, passive:false});
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    installDatalistBlurFix();
+    installPreviewGlobalTouchGuard();
+  });
+
+  window.addEventListener("load", installDatalistBlurFix);
+})();
