@@ -119,8 +119,6 @@ document.addEventListener("change", function(event) {
 
 
 /* FINAL OVERRIDE: smart page breaks */
-window.startPreviewPdf = startPreviewPdf;
-
 function applySmartPageBreaks(root) {
 
   const pageHeight = 1123;
@@ -1856,14 +1854,18 @@ function startPreviewPdf(event) {
     return false;
   }
 
-  const active = document.activeElement;
+  /*
+    V8.2 KÖK DÜZELTME:
+    Mobilde input/datalist/meslek otomatik seçiminden sonra ilk dokunuş bazen
+    sadece klavyeyi veya öneri panelini kapatıyordu. Eski akışta önce blur,
+    sonra modal açılıyordu; bazı mobil tarayıcılarda blur ilk dokunuşu yutuyordu.
 
-  if (active && typeof active.blur === "function" && active !== document.body) {
-    active.blur();
-  }
-
+    Yeni akış:
+    1) Önce modalı ve loading ekranını ANINDA aç.
+    2) Sonra aktif input'u gecikmeli blur et.
+    3) PDF üretimini bir sonraki frame'de başlat.
+  */
   isPdfGenerating = true;
-
   openPdfLoadingInstant();
 
   const button = document.querySelector(".download");
@@ -1873,20 +1875,28 @@ function startPreviewPdf(event) {
     button.innerText = "CV PDF hazırlanıyor...";
   }
 
-  // iPhone Safari'de input focus ilk dokunuşu yutmasın diye
-  // modal hemen açılır, üretim sonraki frame'de başlar.
+  const active = document.activeElement;
+
+  setTimeout(function() {
+    if (active && typeof active.blur === "function" && active !== document.body) {
+      try {
+        active.blur();
+      } catch (error) {
+        // Mobil tarayıcı blur hatası verirse önizleme akışı devam eder.
+      }
+    }
+  }, 0);
+
   requestAnimationFrame(function() {
     setTimeout(function() {
       createPreviewPdf();
-    }, 40);
+    }, 80);
   });
 
   return false;
 
 }
 
-
-window.startPreviewPdf = startPreviewPdf;
 
 function applySmartPageBreaks(root) {
 
@@ -2022,6 +2032,68 @@ async function waitForImages(root) {
   }));
 
 }
+
+
+/* =====================================================
+   CVYAZ MOBILE DATALIST BLUR FIX V8.2
+   Meslek/şehir gibi native datalist seçimleri mobilde açık kalırsa
+   ilk Önizleme dokunuşu sadece öneri panelini kapatabiliyor.
+   Seçim yapıldığı an input'u yumuşak şekilde kapatıyoruz.
+===================================================== */
+document.addEventListener("DOMContentLoaded", function() {
+
+  function isMobileScreen() {
+    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+  }
+
+  function valueMatchesDatalist(input) {
+    if (!input || !input.getAttribute) {
+      return false;
+    }
+
+    const listId = input.getAttribute("list");
+    if (!listId || !input.value) {
+      return false;
+    }
+
+    const list = document.getElementById(listId);
+    if (!list) {
+      return false;
+    }
+
+    const current = String(input.value).trim().toLowerCase();
+    return Array.from(list.querySelectorAll("option")).some(function(option) {
+      return String(option.value || "").trim().toLowerCase() === current;
+    });
+  }
+
+  function closeNativeSuggestionFocus(input) {
+    if (!isMobileScreen() || !valueMatchesDatalist(input)) {
+      return;
+    }
+
+    [40, 140, 320].forEach(function(delay) {
+      setTimeout(function() {
+        if (document.activeElement === input && typeof input.blur === "function") {
+          try {
+            input.blur();
+          } catch (error) {}
+        }
+      }, delay);
+    });
+  }
+
+  document.querySelectorAll("input[list]").forEach(function(input) {
+    input.addEventListener("input", function() {
+      closeNativeSuggestionFocus(input);
+    }, true);
+
+    input.addEventListener("change", function() {
+      closeNativeSuggestionFocus(input);
+    }, true);
+  });
+
+});
 
 /* =====================================================
    MOBILE ONE-TAP PREVIEW FIX V6.6
@@ -3491,207 +3563,3 @@ cvyazSaveDraft();
   window.addEventListener("load", setupMobileCtaVisibility);
 })();
 
-
-
-/* =====================================================
-   CVYAZ MOBILE DATALIST / AUTOCOMPLETE FIRST TAP FIX V8.0
-   Mobilde native datalist/autocomplete seçimi açık kalınca ilk dokunuş
-   sadece klavye/öneri listesini kapatabiliyordu. Seçim tamamlanınca
-   odağı güvenli şekilde kapatır; CTA dokunuşunu yakalarsa önizlemeyi
-   aynı anda başlatır.
-===================================================== */
-(function(){
-  function isMobile(){
-    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
-  }
-
-  function safeBlurActive(){
-    try {
-      var active = document.activeElement;
-      if (active && active !== document.body && typeof active.blur === "function") {
-        active.blur();
-      }
-    } catch (e) {}
-  }
-
-  function inputValueMatchesDatalist(input){
-    if (!input || !input.getAttribute) { return false; }
-    var listId = input.getAttribute("list");
-    if (!listId) { return false; }
-    var list = document.getElementById(listId);
-    if (!list) { return false; }
-    var value = (input.value || "").trim().toLowerCase();
-    if (!value) { return false; }
-    var options = Array.prototype.slice.call(list.querySelectorAll("option"));
-    return options.some(function(opt){
-      var optValue = (opt.value || opt.textContent || "").trim().toLowerCase();
-      return optValue === value;
-    });
-  }
-
-  function closeNativeAutocompleteAfterPick(input){
-    if (!isMobile()) { return; }
-    if (!inputValueMatchesDatalist(input)) { return; }
-
-    window.clearTimeout(input.__cvyazDatalistBlurTimer);
-    input.__cvyazDatalistBlurTimer = window.setTimeout(function(){
-      try { input.blur(); } catch(e) {}
-      try { document.body.focus && document.body.focus(); } catch(e) {}
-    }, 90);
-  }
-
-  function installDatalistBlurFix(){
-    var inputs = document.querySelectorAll("input[list]");
-    inputs.forEach(function(input){
-      if (input.__cvyazDatalistFixInstalled) { return; }
-      input.__cvyazDatalistFixInstalled = true;
-
-      input.addEventListener("input", function(){
-        closeNativeAutocompleteAfterPick(input);
-      }, true);
-
-      input.addEventListener("change", function(){
-        closeNativeAutocompleteAfterPick(input);
-      }, true);
-    });
-  }
-
-  function installPreviewGlobalTouchGuard(){
-    function handle(event){
-      if (!isMobile()) { return; }
-      var target = event.target;
-      var button = target && target.closest ? target.closest("#previewCta") : null;
-      if (!button) { return; }
-      if (button.classList.contains("preview-locked")) { return; }
-
-      safeBlurActive();
-
-      if (typeof window.startPreviewPdf === "function") {
-        if (event.cancelable) { event.preventDefault(); }
-        if (event.stopImmediatePropagation) { event.stopImmediatePropagation(); }
-        else if (event.stopPropagation) { event.stopPropagation(); }
-        window.startPreviewPdf(event);
-      }
-    }
-
-    document.addEventListener("touchstart", handle, {capture:true, passive:false});
-    document.addEventListener("pointerdown", function(event){
-      if (event.pointerType === "touch") { handle(event); }
-    }, {capture:true, passive:false});
-  }
-
-  document.addEventListener("DOMContentLoaded", function(){
-    installDatalistBlurFix();
-    installPreviewGlobalTouchGuard();
-  });
-
-  window.addEventListener("load", installDatalistBlurFix);
-})();
-
-/* =====================================================
-   CVYAZ MOBILE FIRST PREVIEW REAL FIX V8.1
-   İlk sayfa açılışında meslek/autocomplete veya aktif input açıkken
-   ilk Önizleme dokunuşu boşa gitmesin diye preview motoru sayfa açılır açılmaz
-   hazırlanır; datalist seçiminden sonra focus kesin kapatılır.
-===================================================== */
-(function(){
-  function isMobileView(){
-    return window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
-  }
-
-  function blurActiveHard(){
-    try {
-      var active = document.activeElement;
-      if (active && active !== document.body && typeof active.blur === 'function') {
-        active.blur();
-      }
-      if (document.body && typeof document.body.focus === 'function') {
-        document.body.setAttribute('tabindex', '-1');
-        document.body.focus({preventScroll:true});
-      }
-    } catch(e) {}
-  }
-
-  function primePreviewEngine(){
-    try {
-      if (window.__cvyazPreviewPrimedV81) { return; }
-      window.__cvyazPreviewPrimedV81 = true;
-      if (typeof update === 'function') { update(); }
-      var frame = document.getElementById('pdfFrame');
-      if (frame && !frame.__cvyazPrimedV81) {
-        frame.__cvyazPrimedV81 = true;
-        frame.setAttribute('title', 'CV PDF Önizleme');
-      }
-    } catch(e) {}
-  }
-
-  function installHardAutocompleteBlur(){
-    if (!isMobileView()) { return; }
-
-    var job = document.getElementById('job');
-    if (job && !job.__cvyazHardBlurV81) {
-      job.__cvyazHardBlurV81 = true;
-
-      // Native datalist seçimi çoğu mobil tarayıcıda change ile netleşir.
-      // Seçim netleşir netleşmez focus kapatılır; ilk preview dokunuşu artık
-      // klavye/autocomplete kapatma dokunuşuna dönüşmez.
-      job.addEventListener('change', function(){
-        window.setTimeout(blurActiveHard, 0);
-        window.setTimeout(blurActiveHard, 80);
-      }, true);
-
-      job.addEventListener('keydown', function(ev){
-        if (ev.key === 'Enter' || ev.keyCode === 13) {
-          window.setTimeout(blurActiveHard, 0);
-        }
-      }, true);
-    }
-  }
-
-  function installPreviewCaptureOverride(){
-    if (window.__cvyazPreviewCaptureOverrideV81) { return; }
-    window.__cvyazPreviewCaptureOverrideV81 = true;
-
-    function shouldHandle(ev){
-      if (!isMobileView()) { return false; }
-      var target = ev.target;
-      var btn = target && target.closest ? target.closest('#previewCta') : null;
-      if (!btn || btn.classList.contains('preview-locked')) { return false; }
-      return true;
-    }
-
-    function firePreview(ev){
-      if (!shouldHandle(ev)) { return; }
-
-      try { ev.preventDefault && ev.preventDefault(); } catch(e) {}
-      try { ev.stopImmediatePropagation && ev.stopImmediatePropagation(); } catch(e) {}
-      try { ev.stopPropagation && ev.stopPropagation(); } catch(e) {}
-
-      blurActiveHard();
-      primePreviewEngine();
-
-      // İlk açılışta DOM/layout hazır değilse bile modal hemen açılsın.
-      window.setTimeout(function(){
-        if (typeof window.startPreviewPdf === 'function') {
-          window.startPreviewPdf();
-        }
-      }, 0);
-    }
-
-    document.addEventListener('touchstart', firePreview, {capture:true, passive:false});
-    document.addEventListener('touchend', firePreview, {capture:true, passive:false});
-    document.addEventListener('pointerdown', function(ev){
-      if (ev.pointerType === 'touch') { firePreview(ev); }
-    }, {capture:true, passive:false});
-  }
-
-  function boot(){
-    primePreviewEngine();
-    installHardAutocompleteBlur();
-    installPreviewCaptureOverride();
-  }
-
-  document.addEventListener('DOMContentLoaded', boot);
-  window.addEventListener('load', boot);
-  window.setTimeout(boot, 300);
-})();
