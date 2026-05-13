@@ -3248,3 +3248,22 @@ h1{
     -webkit-tap-highlight-color: transparent !important;
   }
 }
+
+
+/* CVYAZ V8.9: Mobil CTA stabil alt konum - input değiştirirken kendiliğinden açılma yok */
+@media (max-width: 767px) {
+  body.cvyaz-show-preview-cta #previewCta,
+  body.cvyaz-show-preview-cta .download {
+    position: fixed !important;
+    left: 16px !important;
+    right: 16px !important;
+    bottom: max(14px, env(safe-area-inset-bottom)) !important;
+    top: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    transform: none !important;
+    z-index: 9999 !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+}
