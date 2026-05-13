@@ -324,6 +324,9 @@ function handlePhotoFile(file) {
     $("pPhoto").src = reader.result;
     $("photoFrame").style.display = "block";
     update();
+    if (typeof cvyazSaveDraft === "function") {
+      cvyazSaveDraft();
+    }
 
   };
 
@@ -343,6 +346,9 @@ function removePhoto() {
   $("photoFrame").style.display = "none";
   $("photoInput").value = "";
   update();
+  if (typeof cvyazSaveDraft === "function") {
+    cvyazSaveDraft();
+  }
 
 }
 
@@ -3084,6 +3090,33 @@ function cvyazWriteField(element, value) {
   element.value = value || "";
 }
 
+
+function cvyazGetSavedPhotoData() {
+  const photo = document.getElementById("pPhoto");
+  if (!photo) {
+    return "";
+  }
+
+  const src = photo.getAttribute("src") || "";
+  if (src.indexOf("data:image/") === 0) {
+    return src;
+  }
+
+  return "";
+}
+
+function cvyazRestorePhotoData(photoData) {
+  const photo = document.getElementById("pPhoto");
+  const frame = document.getElementById("photoFrame");
+
+  if (!photo || !frame || !photoData || String(photoData).indexOf("data:image/") !== 0) {
+    return;
+  }
+
+  photo.src = photoData;
+  frame.style.display = "block";
+}
+
 function cvyazIsPreviewCtaUnlocked() {
   const previewButton = document.querySelector(".download");
   return !!(previewButton && !previewButton.classList.contains("preview-locked"));
@@ -3148,6 +3181,7 @@ function cvyazSaveDraft() {
       ui: {
         previewUnlocked: cvyazIsPreviewCtaUnlocked()
       },
+      photoData: cvyazGetSavedPhotoData(),
       savedAt: Date.now()
     });
 
@@ -3194,6 +3228,7 @@ function cvyazRestoreDraft() {
       cvyazWriteField(document.getElementById(id), draft.fixed[id]);
     });
 
+    cvyazRestorePhotoData(draft.photoData);
     cvyazRestorePreviewCtaState(draft);
   } finally {
     CVYAZ_RESTORING_DRAFT = false;
