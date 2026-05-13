@@ -3871,3 +3871,61 @@ cvyazSaveDraft();
     setTimeout(bindDesktopPreviewClick, 600);
   });
 })();
+
+/* =====================================================
+   CVYAZ TRUST MENU V95
+   Hamburger menü aç/kapat. CV üretim çekirdeğine dokunmaz.
+===================================================== */
+(function() {
+  if (window.__CVYAZ_TRUST_MENU_V95__) { return; }
+  window.__CVYAZ_TRUST_MENU_V95__ = true;
+
+  function setMenu(open) {
+    var body = document.body;
+    var btn = document.getElementById('hamburgerBtn');
+    var menu = document.getElementById('sideMenu');
+    var overlay = document.getElementById('menuOverlay');
+    if (!body || !btn || !menu || !overlay) { return; }
+
+    if (open) {
+      overlay.hidden = false;
+      requestAnimationFrame(function() { body.classList.add('menu-open'); });
+      btn.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+    } else {
+      body.classList.remove('menu-open');
+      btn.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+      setTimeout(function() {
+        if (!body.classList.contains('menu-open')) { overlay.hidden = true; }
+      }, 240);
+    }
+  }
+
+  function bindMenu() {
+    var btn = document.getElementById('hamburgerBtn');
+    var close = document.getElementById('menuClose');
+    var overlay = document.getElementById('menuOverlay');
+    var menu = document.getElementById('sideMenu');
+    if (!btn || !close || !overlay || !menu || btn.dataset.boundTrustMenu === '1') { return; }
+
+    btn.dataset.boundTrustMenu = '1';
+    btn.addEventListener('click', function() { setMenu(!document.body.classList.contains('menu-open')); });
+    close.addEventListener('click', function() { setMenu(false); });
+    overlay.addEventListener('click', function() { setMenu(false); });
+    menu.addEventListener('click', function(event) {
+      var link = event.target && event.target.closest ? event.target.closest('a') : null;
+      if (link) { setMenu(false); }
+    });
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') { setMenu(false); }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindMenu);
+  } else {
+    bindMenu();
+  }
+  window.addEventListener('load', bindMenu);
+})();

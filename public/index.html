@@ -24,6 +24,39 @@
 </head>
 
 <body>
+
+<!-- =====================================================
+     CVYAZ TRUST NAV / HAMBURGER MENU
+===================================================== -->
+<header class="site-topbar" id="top">
+  <a class="site-mini-brand" href="#top" aria-label="CVYAZ Ana Sayfa">CVYAZ</a>
+  <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Menüyü aç" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="menu-overlay" id="menuOverlay" hidden></div>
+<nav class="side-menu" id="sideMenu" aria-label="CVYAZ Menü" aria-hidden="true">
+  <div class="side-menu-head">
+    <div>
+      <strong>CVYAZ</strong>
+      <small>Profesyonel CV oluşturucu</small>
+    </div>
+    <button type="button" class="menu-close" id="menuClose" aria-label="Menüyü kapat">×</button>
+  </div>
+  <a href="#top">Ana Sayfa</a>
+  <a href="#how-it-works">Nasıl Çalışır?</a>
+  <a href="#ats-nedir">ATS Nedir?</a>
+  <a href="#cv-examples">Örnek CV’ler</a>
+  <a href="#about-cvyaz">Hakkımızda</a>
+  <a href="#contact-cvyaz">İletişim</a>
+  <div class="side-menu-divider"></div>
+  <a href="/gizlilik.html" target="_blank" rel="noopener">Gizlilik Politikası</a>
+  <a href="/kvkk.html" target="_blank" rel="noopener">KVKK</a>
+  <a href="/mesafeli-satis.html" target="_blank" rel="noopener">Mesafeli Satış</a>
+  <a href="/iade.html" target="_blank" rel="noopener">İade Politikası</a>
+  <p>ATS uyumlu, sade ve hızlı PDF CV deneyimi.</p>
+</nav>
 <!-- =====================================================
      PDF PREVIEW MODAL
 ===================================================== -->
@@ -75,6 +108,14 @@
       Canlı önizle, stilini seç, temiz PDF çıktısını anında al.
     </p>
 
+  </section>
+
+  <!-- TRUST BAR -->
+
+  <section class="trust-bar" aria-label="CVYAZ güven özellikleri">
+    <div>✅ ATS Uyumlu</div>
+    <div>⚡ 5 Dakikada Hazır</div>
+    <div>📄 PDF Önizleme</div>
   </section>
 
   <!-- PERSONAL INFO -->
@@ -696,6 +737,73 @@ onblur="if(!this.value)this.type='text'">
 
 <!-- FIXED PDF BUTTON -->
 
+
+<!-- =====================================================
+     CVYAZ TRUST CONTENT SECTIONS
+===================================================== -->
+
+<section class="info-section" id="how-it-works">
+  <div class="section-kicker">Nasıl Çalışır?</div>
+  <h2>CV hazırlamak üç net adım.</h2>
+  <div class="step-grid">
+    <article>
+      <span>1</span>
+      <h3>Bilgilerini Gir</h3>
+      <p>Kişisel bilgiler, deneyimler, eğitim ve yeteneklerini sade form alanlarına ekle.</p>
+    </article>
+    <article>
+      <span>2</span>
+      <h3>Önizlemeyi Gör</h3>
+      <p>CV stilini seç, PDF önizlemesini kontrol et ve düzeni satın almadan incele.</p>
+    </article>
+    <article>
+      <span>3</span>
+      <h3>PDF İndir</h3>
+      <p>Tek ödeme sonrası temiz, yüksek kaliteli PDF CV çıktını indir.</p>
+    </article>
+  </div>
+</section>
+
+<section class="info-section ats-card" id="ats-nedir">
+  <div class="section-kicker">ATS Nedir?</div>
+  <h2>İşe alım sistemlerinin okuyabildiği CV düzeni.</h2>
+  <p>ATS, şirketlerin başvuruları otomatik olarak taramak için kullandığı işe alım yazılımıdır. CVYAZ şablonları; temiz başlıklar, okunabilir metin yapısı ve sade PDF düzeniyle ATS dostu olacak şekilde hazırlanır.</p>
+  <div class="mini-checks">
+    <span>✅ Temiz düzen</span>
+    <span>✅ Okunabilir PDF</span>
+    <span>✅ Profesyonel yapı</span>
+    <span>✅ Modern tasarım</span>
+  </div>
+  <small>Not: ATS uyumluluk, işe kabul garantisi değil; CV’nin sistemler tarafından daha sağlıklı okunmasına yardımcı olan profesyonel bir yapıdır.</small>
+</section>
+
+<section class="info-section" id="cv-examples">
+  <div class="section-kicker">Örnek CV’ler</div>
+  <h2>Farklı pozisyonlar için modern CV stilleri.</h2>
+  <div class="example-grid">
+    <article><b>Minimal</b><span>Sade ve net görünüm</span></article>
+    <article><b>Profesyonel</b><span>Kurumsal başvurular</span></article>
+    <article><b>ATS Clean</b><span>Sistem dostu düzen</span></article>
+    <article><b>Modern</b><span>Şık ve güçlü vitrin</span></article>
+  </div>
+</section>
+
+<section class="info-section" id="about-cvyaz">
+  <div class="section-kicker">Hakkımızda</div>
+  <h2>CVYAZ, hızlı ve profesyonel CV hazırlamak için geliştirildi.</h2>
+  <p>Karmaşık tasarım araçlarıyla uğraşmadan, modern ve ATS dostu CV oluşturmanı sağlar. Amaç basit: bilgilerini gir, görünümü seç, önizle ve temiz PDF çıktını al.</p>
+</section>
+
+<section class="info-section contact-card" id="contact-cvyaz">
+  <div class="section-kicker">İletişim</div>
+  <h2>Destek için bize ulaş.</h2>
+  <p>Sipariş, PDF veya ödeme sorunları için destek ekibine yazabilirsin.</p>
+  <div class="contact-actions">
+    <a href="mailto:destek@cvyaz.com.tr">destek@cvyaz.com.tr</a>
+    <a href="https://wa.me/905555555555" target="_blank" rel="noopener">WhatsApp Destek</a>
+  </div>
+</section>
+
 <!-- =====================================================
      LEGAL / POLICY AREA
 ===================================================== -->
@@ -742,6 +850,28 @@ onblur="if(!this.value)this.type='text'">
   <a class="support-whatsapp" href="https://wa.me/905555555555" target="_blank" rel="noopener">💬 WhatsApp Destek</a>
   <div class="support-mail">destek@cvyaz.com.tr</div>
 </div>
+
+<!-- =====================================================
+     CVYAZ SITE FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+  <strong>CVYAZ</strong>
+  <p>ATS uyumlu, modern ve hızlı CV oluşturma deneyimi.</p>
+  <div>
+    <a href="#how-it-works">Nasıl Çalışır?</a>
+    <a href="#ats-nedir">ATS Nedir?</a>
+    <a href="#about-cvyaz">Hakkımızda</a>
+    <a href="#contact-cvyaz">İletişim</a>
+  </div>
+  <div>
+    <a href="/gizlilik.html" target="_blank" rel="noopener">Gizlilik</a>
+    <a href="/kvkk.html" target="_blank" rel="noopener">KVKK</a>
+    <a href="/mesafeli-satis.html" target="_blank" rel="noopener">Mesafeli Satış</a>
+    <a href="/iade.html" target="_blank" rel="noopener">İade</a>
+  </div>
+  <small>© 2026 CVYAZ — Tüm hakları saklıdır.</small>
+</footer>
 
 <script src="/app.js"></script>
 </body>
