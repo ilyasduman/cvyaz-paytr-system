@@ -729,7 +729,7 @@ onblur="if(!this.value)this.type='text'">
 
 </div>
 
-<button type="button" class="download preview-locked" id="previewCta" onclick="startPreviewPdf(event)">
+<button type="button" class="download preview-locked" id="previewCta" ontouchstart="startPreviewPdf(event)" onpointerdown="if(event.pointerType==='touch'){startPreviewPdf(event)}" onclick="startPreviewPdf(event)">
   CV PDF Önizleme Oluştur →</button>
 
 <!-- =====================================================

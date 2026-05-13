@@ -2038,7 +2038,9 @@ document.addEventListener("DOMContentLoaded", function() {
   let mobilePreviewTapStarted = false;
 
   function isSmallTouchScreen() {
-    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+    const narrow = window.matchMedia && window.matchMedia("(max-width: 900px)").matches;
+    const coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+    return !!(narrow || coarse || "ontouchstart" in window);
   }
 
   function runPreviewFromFirstMobileTouch(event) {
@@ -2046,13 +2048,29 @@ document.addEventListener("DOMContentLoaded", function() {
       return;
     }
 
-    if (previewButton.classList.contains("preview-locked")) {
-      return;
+    /*
+      V7.8 gerçek mobil input-focus düzeltmesi:
+      Input içinde imleç varken bazı mobil tarayıcılar ilk dokunuşu sadece
+      klavyeyi kapatma/blur gibi kullanıyor. Ayrıca buton üzerinde eski
+      preview-locked class kalırsa touchend click'i de engelleyebiliyordu.
+      Bu yüzden ilk touch/pointer anında önce CTA kilidini kesin kaldırıyoruz,
+      aktif input'u blur ediyoruz ve önizlemeyi click beklemeden başlatıyoruz.
+    */
+    unlockPreviewCta();
+    previewButton.classList.remove("preview-locked");
+    document.body.classList.add("cvyaz-show-preview-cta");
+
+    const active = document.activeElement;
+    if (active && active !== document.body && typeof active.blur === "function") {
+      active.blur();
     }
 
     if (mobilePreviewTapStarted || isPdfGenerating) {
       if (event && event.cancelable) {
         event.preventDefault();
+      }
+      if (event && event.stopPropagation) {
+        event.stopPropagation();
       }
       return;
     }
@@ -2062,7 +2080,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     setTimeout(function() {
       mobilePreviewTapStarted = false;
-    }, 1200);
+    }, 1400);
   }
 
   /*
@@ -2074,7 +2092,27 @@ document.addEventListener("DOMContentLoaded", function() {
   previewButton.addEventListener("touchstart", runPreviewFromFirstMobileTouch, { passive: false, capture: true });
 
   previewButton.addEventListener("pointerdown", function(event) {
-    if (event.pointerType === "touch") {
+    if (event.pointerType === "touch" || isSmallTouchScreen()) {
+      runPreviewFromFirstMobileTouch(event);
+    }
+  }, { passive: false, capture: true });
+
+  previewButton.addEventListener("mousedown", function(event) {
+    if (isSmallTouchScreen()) {
+      runPreviewFromFirstMobileTouch(event);
+    }
+  }, { passive: false, capture: true });
+
+  document.addEventListener("touchstart", function(event) {
+    const target = event.target && event.target.closest ? event.target.closest("#previewCta") : null;
+    if (target) {
+      runPreviewFromFirstMobileTouch(event);
+    }
+  }, { passive: false, capture: true });
+
+  document.addEventListener("pointerdown", function(event) {
+    const target = event.target && event.target.closest ? event.target.closest("#previewCta") : null;
+    if (target && (event.pointerType === "touch" || isSmallTouchScreen())) {
       runPreviewFromFirstMobileTouch(event);
     }
   }, { passive: false, capture: true });
@@ -2084,10 +2122,13 @@ document.addEventListener("DOMContentLoaded", function() {
       if (event.cancelable) {
         event.preventDefault();
       }
+      if (event.stopPropagation) {
+        event.stopPropagation();
+      }
       return;
     }
     startPreviewPdf(event);
-  }, { passive: false });
+  }, { passive: false, capture: true });
 
 });
 
