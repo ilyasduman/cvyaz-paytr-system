@@ -4962,89 +4962,364 @@ body.menu-open {
 }
 
 
-/* V108 HERO UPDATE */
 
-.hero{
-background:linear-gradient(135deg,#05082f 0%, #26178f 100%);
-clip-path:polygon(0 0,100% 0,100% 86%,0 100%);
-border-radius:32px;
-overflow:hidden;
-position:relative;
+/* =====================================================
+   V109 FINAL HERO REFERENCE UI
+   - Hero ekranı tam dolduran premium koyu mor gradient
+   - Logo + hamburger üst bar ayrıldı
+   - Üst bar altına ince çizgi eklendi
+   - Hero altı açılı yapıldı
+   - Web + mobil aynı tasarım dili
+===================================================== */
+
+/* Eski ayrı büyük logo kesin gizli */
+.brand-image,
+.logo-strip,
+.top-brand,
+.site-pill,
+.header-logo,
+.header-compact {
+  display: none !important;
 }
 
-.hero-top{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-padding:10px 8px 0 8px;
+/* Ana genişlik */
+.app {
+  width: min(100%, 620px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-.hero-logo{
-font-size:34px;
-font-weight:800;
-color:#fff;
-line-height:1;
+/* Hero ana kart */
+.hero {
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(82, 57, 196, .50) 0%, rgba(82,57,196,0) 36%),
+    linear-gradient(135deg, #070a34 0%, #10104b 42%, #2b1b8f 100%) !important;
+  color: #ffffff !important;
+  border-radius: 0 0 34px 34px !important;
+  box-shadow: 0 18px 44px rgba(20, 20, 70, .16) !important;
+  padding: 0 48px 126px 48px !important;
+  min-height: 455px !important;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%) !important;
 }
 
-.hero-logo small{
-display:block;
-font-size:8px;
-letter-spacing:1px;
-margin-top:4px;
-opacity:.9;
+/* Eski beyaz/ek pseudo alanlarını devre dışı bırak */
+.hero::before,
+.hero::after {
+  content: none !important;
+  display: none !important;
 }
 
-.hero-menu{
-font-size:42px;
-color:#fff;
-background:none;
-border:none;
+/* Üst bar: logo ve hamburger ayrı okunur */
+.hero-nav {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  z-index: 10 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: calc(100% + 96px) !important;
+  margin-left: -48px !important;
+  margin-right: -48px !important;
+  margin-bottom: 62px !important;
+  padding: 34px 48px 26px 48px !important;
+  background: rgba(5, 8, 42, .18) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, .18) !important;
+  backdrop-filter: blur(6px) !important;
 }
 
-.hero h1{
-font-size:72px;
-font-weight:900;
-line-height:.92;
-color:#fff;
-margin-top:28px;
-margin-bottom:26px;
+/* Logo metinsel, beyaz ve net */
+.hero-logo.hero-logo-text {
+  width: auto !important;
+  height: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+  color: #fff !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  transform: none !important;
 }
 
-.hero p{
-font-size:26px;
-line-height:1.5;
-color:#fff;
-padding-bottom:52px;
+.hero-logo-icon {
+  width: 40px !important;
+  height: 40px !important;
+  border: 3px solid rgba(255,255,255,.96) !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: transparent !important;
+  position: relative !important;
+  flex: 0 0 40px !important;
 }
 
-@media(max-width:700px){
-
-.hero{
-clip-path:polygon(0 0,100% 0,100% 88%,0 100%);
-border-radius:28px;
+.hero-logo-icon::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 8px !important;
+  top: 10px !important;
+  width: 18px !important;
+  height: 3px !important;
+  background: #fff !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 0 #fff, 0 16px 0 #fff !important;
+  opacity: .94 !important;
 }
 
-.hero-logo{
-font-size:24px;
+.hero-logo-icon::after {
+  content: "✓" !important;
+  position: absolute !important;
+  right: -8px !important;
+  bottom: -10px !important;
+  font-size: 28px !important;
+  line-height: 1 !important;
+  font-weight: 1000 !important;
+  color: #fff !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.hero-logo small{
-font-size:6px;
+.hero-logo-wordwrap {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  line-height: 1 !important;
 }
 
-.hero-menu{
-font-size:34px;
+.hero-logo-wordwrap strong {
+  display: block !important;
+  font-size: 40px !important;
+  line-height: .86 !important;
+  letter-spacing: .01em !important;
+  color: #fff !important;
+  font-weight: 1000 !important;
 }
 
-.hero h1{
-font-size:42px;
-margin-top:18px;
-margin-bottom:18px;
+.hero-logo-wordwrap em {
+  display: block !important;
+  margin-top: 6px !important;
+  font-style: normal !important;
+  font-size: 8px !important;
+  line-height: 1 !important;
+  letter-spacing: .18em !important;
+  color: rgba(255,255,255,.86) !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
 }
 
-.hero p{
-font-size:16px;
-padding-bottom:36px;
+/* Hamburger sade beyaz çizgi, kutusuz */
+.hero-menu-btn,
+.hamburger-btn.hero-menu-btn {
+  position: static !important;
+  width: 54px !important;
+  height: 54px !important;
+  flex: 0 0 54px !important;
+  display: inline-flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
+.hero-menu-btn span,
+.hamburger-btn.hero-menu-btn span {
+  display: block !important;
+  width: 34px !important;
+  height: 4px !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.96) !important;
+  box-shadow: none !important;
+}
+
+/* Başlık ve açıklama logo barından ayrı dursun */
+.hero h1 {
+  position: relative !important;
+  z-index: 6 !important;
+  color: #fff !important;
+  max-width: 860px !important;
+  margin: 0 auto 26px auto !important;
+  text-align: center !important;
+  font-size: clamp(48px, 5vw, 76px) !important;
+  line-height: .94 !important;
+  letter-spacing: -.045em !important;
+  font-weight: 1000 !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,.10) !important;
+}
+
+.hero p,
+.hero-subtitle {
+  position: relative !important;
+  z-index: 6 !important;
+  color: rgba(255,255,255,.92) !important;
+  max-width: 660px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  font-size: clamp(16px, 1.55vw, 21px) !important;
+  line-height: 1.48 !important;
+  font-weight: 500 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Güven kutuları hero altına temiz otursun */
+.trust-bar {
+  margin-top: -26px !important;
+  position: relative !important;
+  z-index: 8 !important;
+}
+
+/* Mobil referans görseline yakın */
+@media (max-width: 700px) {
+  body {
+    background: #eef1f4 !important;
+  }
+
+  .app {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hero {
+    border-radius: 0 0 26px 26px !important;
+    min-height: 540px !important;
+    padding: 0 30px 94px 30px !important;
+    clip-path: polygon(0 0, 100% 0, 100% 89%, 0 100%) !important;
+  }
+
+  .hero-nav {
+    width: calc(100% + 60px) !important;
+    margin-left: -30px !important;
+    margin-right: -30px !important;
+    margin-bottom: 58px !important;
+    padding: 34px 30px 24px 30px !important;
+    border-bottom: 1px solid rgba(255,255,255,.18) !important;
+  }
+
+  .hero-logo.hero-logo-text {
+    gap: 10px !important;
+  }
+
+  .hero-logo-icon {
+    width: 35px !important;
+    height: 35px !important;
+    flex-basis: 35px !important;
+    border-width: 2.6px !important;
+    border-radius: 7px !important;
+  }
+
+  .hero-logo-icon::before {
+    left: 7px !important;
+    top: 8px !important;
+    width: 16px !important;
+    height: 2.5px !important;
+    box-shadow: 0 7.5px 0 #fff, 0 15px 0 #fff !important;
+  }
+
+  .hero-logo-icon::after {
+    right: -7px !important;
+    bottom: -9px !important;
+    font-size: 24px !important;
+  }
+
+  .hero-logo-wordwrap strong {
+    font-size: 31px !important;
+    line-height: .88 !important;
+  }
+
+  .hero-logo-wordwrap em {
+    font-size: 5.8px !important;
+    margin-top: 4px !important;
+    letter-spacing: .16em !important;
+  }
+
+  .hero-menu-btn,
+  .hamburger-btn.hero-menu-btn {
+    width: 46px !important;
+    height: 46px !important;
+    flex-basis: 46px !important;
+    gap: 6px !important;
+  }
+
+  .hero-menu-btn span,
+  .hamburger-btn.hero-menu-btn span {
+    width: 31px !important;
+    height: 3.5px !important;
+  }
+
+  .hero h1 {
+    text-align: left !important;
+    margin: 0 0 24px 0 !important;
+    max-width: 360px !important;
+    font-size: clamp(50px, 12.2vw, 72px) !important;
+    line-height: .94 !important;
+    letter-spacing: -.055em !important;
+  }
+
+  .hero p,
+  .hero-subtitle {
+    text-align: left !important;
+    margin: 0 !important;
+    max-width: 360px !important;
+    font-size: clamp(18px, 4.8vw, 26px) !important;
+    line-height: 1.45 !important;
+  }
+
+  .trust-bar {
+    margin-top: -34px !important;
+  }
+}
+
+/* Küçük ekranlarda ilk ekran CTA dengesi */
+@media (max-width: 430px) {
+  .hero {
+    min-height: 505px !important;
+    padding-left: 26px !important;
+    padding-right: 26px !important;
+    padding-bottom: 86px !important;
+  }
+
+  .hero-nav {
+    width: calc(100% + 52px) !important;
+    margin-left: -26px !important;
+    margin-right: -26px !important;
+    padding: 28px 26px 22px 26px !important;
+    margin-bottom: 48px !important;
+  }
+
+  .hero-logo-icon {
+    width: 31px !important;
+    height: 31px !important;
+    flex-basis: 31px !important;
+  }
+
+  .hero-logo-wordwrap strong {
+    font-size: 28px !important;
+  }
+
+  .hero-logo-wordwrap em {
+    font-size: 5.1px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 11.6vw, 58px) !important;
+    max-width: 330px !important;
+  }
+
+  .hero p,
+  .hero-subtitle {
+    font-size: clamp(16px, 4.4vw, 22px) !important;
+    max-width: 330px !important;
+  }
 }
