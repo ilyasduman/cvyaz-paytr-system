@@ -2035,7 +2035,57 @@ document.addEventListener("DOMContentLoaded", function() {
 
   previewButton.style.touchAction = "manipulation";
 
+  let mobilePreviewTapStarted = false;
+
+  function isSmallTouchScreen() {
+    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+  }
+
+  function runPreviewFromFirstMobileTouch(event) {
+    if (!isSmallTouchScreen()) {
+      return;
+    }
+
+    if (previewButton.classList.contains("preview-locked")) {
+      return;
+    }
+
+    if (mobilePreviewTapStarted || isPdfGenerating) {
+      if (event && event.cancelable) {
+        event.preventDefault();
+      }
+      return;
+    }
+
+    mobilePreviewTapStarted = true;
+    startPreviewPdf(event);
+
+    setTimeout(function() {
+      mobilePreviewTapStarted = false;
+    }, 1200);
+  }
+
+  /*
+    Mobil ilk dokunuş düzeltmesi V7.5:
+    Bazı telefon tarayıcılarında fixed CTA ilk dokunuşta yalnızca focus/keyboard
+    kapatma davranışına düşebiliyor. Önizlemeyi touchstart/pointerdown anında
+    başlatıyoruz; click beklenmediği için ikinci basış gerekmiyor.
+  */
+  previewButton.addEventListener("touchstart", runPreviewFromFirstMobileTouch, { passive: false, capture: true });
+
+  previewButton.addEventListener("pointerdown", function(event) {
+    if (event.pointerType === "touch") {
+      runPreviewFromFirstMobileTouch(event);
+    }
+  }, { passive: false, capture: true });
+
   previewButton.addEventListener("touchend", function(event) {
+    if (isSmallTouchScreen()) {
+      if (event.cancelable) {
+        event.preventDefault();
+      }
+      return;
+    }
     startPreviewPdf(event);
   }, { passive: false });
 
