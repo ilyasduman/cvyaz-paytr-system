@@ -3262,3 +3262,5 @@ h1{
     padding-bottom: calc(var(--cvyaz-keyboard-inset, 0px) + 110px) !important;
   }
 }
+
+@media (max-width:768px){img[alt="CVYAZ Logo"]{max-width:180px!important;width:180px!important;height:auto!important;display:block;margin:0 auto;} }
