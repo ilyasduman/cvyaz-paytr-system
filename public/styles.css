@@ -3216,3 +3216,12 @@ h1{
   -webkit-tap-highlight-color: transparent !important;
   cursor: pointer;
 }
+
+
+/* CVYAZ WEB CLEAN START FIX V7.2
+   Web ve mobil ilk açılışta önizleme butonu kapalı kalır.
+   Sadece başlangıç butonu sonrası veya yasal sayfadan geri dönüşte açılır. */
+#previewCta.preview-locked,
+.download.preview-locked {
+  display: none !important;
+}

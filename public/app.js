@@ -275,6 +275,25 @@ function unlockPreviewCta() {
 
 }
 
+function lockPreviewCta() {
+
+  const previewButton = document.querySelector(".download");
+
+  if (!previewButton) {
+    return;
+  }
+
+  previewButton.classList.add("preview-locked");
+  document.body.classList.remove("cvyaz-show-preview-cta");
+
+  try {
+    localStorage.removeItem("cvyaz_preview_cta_unlocked_v71");
+  } catch (error) {
+    // storage kapalıysa sessiz geç.
+  }
+
+}
+
 document.querySelectorAll(".file-label").forEach(function(label) {
 
   /*
@@ -3283,9 +3302,10 @@ function cvyazFinishLegalReturnRestore() {
 const cvyazRestoreAfterLegalReturn = cvyazShouldRestoreDraftAfterLegalPage();
 
 if (!cvyazRestoreAfterLegalReturn) {
-  // V7.0: Site normal/temiz açılıyorsa eski CV bilgilerini gösterme.
-  // Ancak KVKK / sözleşme / gizlilik / iade sayfasından dönülüyorsa taslağı koru.
+  // V7.2: Site normal/temiz açılıyorsa eski CV bilgilerini ve önizleme CTA durumunu gösterme.
+  // Ancak KVKK / sözleşme / gizlilik / iade sayfasından dönülüyorsa taslağı ve CTA durumunu koru.
   cvyazClearStoredDraftForFreshVisit();
+  lockPreviewCta();
 }
 
 cvyazInstallDraftAutosave();
@@ -3335,12 +3355,16 @@ cvyazSaveDraft();
   }
 
   function setupMobileCtaVisibility(){
-    if(!isMobile()){ 
-      document.body.classList.add("cvyaz-show-preview-cta");
-      return; 
+    if(!isMobile()){
+      if (document.querySelector(".download.preview-locked")) {
+        document.body.classList.remove("cvyaz-show-preview-cta");
+      }
+      return;
     }
 
-    document.body.classList.remove("cvyaz-show-preview-cta");
+    if (document.querySelector(".download.preview-locked")) {
+      document.body.classList.remove("cvyaz-show-preview-cta");
+    }
 
     var formArea = document.querySelector(".app") || document.body;
     formArea.addEventListener("input", showPreviewCta, true);
