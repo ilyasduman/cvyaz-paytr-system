@@ -5404,3 +5404,25 @@ body.menu-open {
     line-height: 1.32 !important;
   }
 }
+
+
+
+/* V111 TRUST BAR REMOVED */
+
+.trust-bar,
+.feature-pills,
+.badges-row,
+.hero-badges,
+.info-badges {
+  display: none !important;
+}
+
+.hero {
+  margin-bottom: 22px !important;
+}
+
+@media (max-width:700px){
+  .hero{
+    margin-bottom: 18px !important;
+  }
+}
