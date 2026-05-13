@@ -6092,3 +6092,62 @@ select:focus {
       0 4px 10px rgba(18, 18, 68, .06) !important;
   }
 }
+
+
+
+/* =====================================================
+   V118 REMOVE HERO CORNER GRAY
+   - Açılı hero alt sol köşedeki gri üçgen/gölge tamamen kaldırıldı
+   - Sebep: clip-path kullanılan hero'da box-shadow arka planda gri leke bırakıyordu
+===================================================== */
+
+/* Hero'nun clip-path dışına taşan tüm gölgelerini kapat */
+.hero {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Hero altındaki sahte blur/gölge katmanları kesin kapalı */
+.hero::before {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Grain/noise kalsın ama sadece hero içinde; dışarı taşma yapmasın */
+.hero::after {
+  inset: 0 !important;
+  border-radius: inherit !important;
+  overflow: hidden !important;
+}
+
+/* Hero çevresindeki eski gri geçiş/shadow wrapper ihtimallerini temizle */
+.hero-wrap,
+.hero-shell,
+.hero-section,
+.hero-container {
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Form kendi premium gölgesini korusun ama hero köşesine taşmasın */
+.form-card,
+.personal-card,
+.card,
+.cv-form-card {
+  box-shadow:
+    0 24px 64px rgba(21,30,55,.09),
+    inset 0 1px 0 rgba(255,255,255,.90) !important;
+}
+
+/* Mobilde de kesin temiz */
+@media (max-width:700px) {
+  .hero {
+    box-shadow: none !important;
+    filter: none !important;
+  }
+}
