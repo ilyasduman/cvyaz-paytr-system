@@ -3059,3 +3059,60 @@ h1{
         letter-spacing:-2px !important;
     }
 }
+
+
+
+/* =====================================================
+   CVYAZ MOBILE CTA OVERLAP FIX V6.2
+   Yeşil sabit CTA mobilde "Fotoğraf Ekle" butonunun üstüne binmesin.
+===================================================== */
+
+@media (max-width: 767px) {
+  .download {
+    bottom: 18px !important;
+    width: calc(100vw - 44px) !important;
+    max-width: 680px !important;
+    min-height: 58px !important;
+    height: 58px !important;
+    border-radius: 18px !important;
+    font-size: 16px !important;
+    z-index: 80 !important;
+  }
+
+  .acc:first-of-type {
+    margin-top: 22px !important;
+  }
+
+  .acc:first-of-type .acc-body {
+    padding-top: 14px !important;
+  }
+
+  .photo-btn {
+    position: relative !important;
+    z-index: 120 !important;
+    margin-top: 6px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .photo-remove {
+    position: relative !important;
+    z-index: 110 !important;
+  }
+
+  body {
+    padding-bottom: 96px !important;
+  }
+
+  .app {
+    padding-bottom: 120px !important;
+  }
+}
+
+/* Masaüstünde CTA eski geniş ve ortalı kalsın */
+@media (min-width: 768px) {
+  .download {
+    bottom: 20px !important;
+    z-index: 90 !important;
+  }
+}
+
