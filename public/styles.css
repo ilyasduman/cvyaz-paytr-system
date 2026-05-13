@@ -43,11 +43,13 @@ body {
 }
 
 .brand-image img {
-  width: 100%;
-  max-width: 430px;
-  height: auto;
-  display: block;
-  opacity: .94;
+    width: 92%;
+    max-width: 430px;
+    height: 78px;
+    object-fit: contain;
+    display: block;
+    opacity: .94;
+    margin: 0 auto;
 }
 
 /* =====================================================
@@ -2890,14 +2892,8 @@ body{
 }
 
 .brand-image img{
-    width:100% !important;
-    max-width:520px !important;
-    height:auto !important;
-    display:block !important;
-    margin:0 auto !important;
-
-    border-radius:24px;
-    box-shadow:0 12px 40px rgba(0,0,0,.25);
+  border-radius:24px;
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
 }
 
 .hero h1{
@@ -3204,18 +3200,6 @@ h1{
   }
 }
 
-@media (max-width: 768px){
-
-  .brand-image img{
-      width:100% !important;
-      max-width:520px !important;
-      height:auto !important;
-      display:block !important;
-      margin:0 auto !important;
-  }
-
-}
-
 
 /* =====================================================
    WEB + MOBILE PREVIEW CTA FLOW FIX
@@ -3282,3 +3266,31 @@ h1{
 }
 
 @media (max-width:768px){img[alt="CVYAZ Logo"]{max-width:180px!important;width:180px!important;height:auto!important;display:block;margin:0 auto;} }
+
+/* =====================================================
+   CVYAZ MOBILE LOGO FULL WIDTH FINAL FIX V93
+   Web görünümü korunur. Mobilde logo tekrar geniş görünür.
+===================================================== */
+@media (max-width: 767px) {
+  .app .brand-image {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .app .brand-image img {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+    border-radius: 24px !important;
+  }
+}
