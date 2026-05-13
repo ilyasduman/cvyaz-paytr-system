@@ -4774,3 +4774,189 @@ body.menu-open {
     max-width: 320px !important;
   }
 }
+
+
+/* =====================================================
+   V104 TEXT LOGO + HERO READABILITY FIX
+   - PNG logo yerine HTML/CSS yazı logo kullanılır.
+   - Beyaz kutu problemi biter.
+   - Açıklama yazısı beyaz alana binmez.
+===================================================== */
+.hero-logo.hero-logo-text {
+  width: clamp(178px, 34vw, 250px) !important;
+  height: 52px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.hero-logo.hero-logo-text img { display: none !important; }
+
+.hero-logo-icon {
+  width: 38px !important;
+  height: 38px !important;
+  border: 3px solid rgba(255,255,255,.96) !important;
+  border-radius: 7px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: transparent !important;
+  position: relative !important;
+  flex: 0 0 38px !important;
+}
+.hero-logo-icon::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 8px !important;
+  top: 9px !important;
+  width: 17px !important;
+  height: 3px !important;
+  background: #fff !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 0 #fff, 0 16px 0 #fff !important;
+  opacity: .92 !important;
+}
+.hero-logo-icon::after {
+  content: "✓" !important;
+  position: absolute !important;
+  right: -8px !important;
+  bottom: -10px !important;
+  font-size: 28px !important;
+  line-height: 1 !important;
+  font-weight: 1000 !important;
+  color: #fff !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,.22) !important;
+}
+
+.hero-logo-wordwrap {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  min-width: 0 !important;
+}
+.hero-logo-wordwrap strong {
+  display: block !important;
+  font-size: clamp(28px, 3vw, 40px) !important;
+  line-height: .9 !important;
+  letter-spacing: .02em !important;
+  color: #fff !important;
+  font-weight: 1000 !important;
+  font-family: inherit !important;
+}
+.hero-logo-wordwrap em {
+  display: block !important;
+  margin-top: 4px !important;
+  font-style: normal !important;
+  font-size: clamp(6px, .72vw, 9px) !important;
+  line-height: 1 !important;
+  letter-spacing: .19em !important;
+  color: rgba(255,255,255,.86) !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+}
+
+.hero {
+  padding-bottom: 96px !important;
+}
+.hero::after {
+  bottom: -118px !important;
+  height: 104px !important;
+  transform: rotate(-3.5deg) !important;
+}
+.hero h1,
+.hero p,
+.hero-subtitle {
+  z-index: 7 !important;
+}
+.hero p,
+.hero-subtitle {
+  max-width: 640px !important;
+  color: rgba(255,255,255,.88) !important;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-top: 100px !important;
+    padding-bottom: 104px !important;
+  }
+  .hero::after {
+    bottom: -122px !important;
+    height: 112px !important;
+  }
+  .hero-logo.hero-logo-text {
+    width: 260px !important;
+    height: 54px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    padding-top: 82px !important;
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+    padding-bottom: 78px !important;
+  }
+  .hero::after {
+    bottom: -92px !important;
+    height: 88px !important;
+  }
+  .hero-nav {
+    top: 22px !important;
+    left: 28px !important;
+    right: 28px !important;
+  }
+  .hero-logo.hero-logo-text {
+    width: min(210px, calc(100vw - 128px)) !important;
+    height: 42px !important;
+    gap: 8px !important;
+  }
+  .hero-logo-icon {
+    width: 31px !important;
+    height: 31px !important;
+    border-width: 2.4px !important;
+    border-radius: 6px !important;
+    flex-basis: 31px !important;
+  }
+  .hero-logo-icon::before {
+    left: 7px !important;
+    top: 7px !important;
+    width: 14px !important;
+    height: 2px !important;
+    box-shadow: 0 7px 0 #fff, 0 14px 0 #fff !important;
+  }
+  .hero-logo-icon::after {
+    right: -7px !important;
+    bottom: -8px !important;
+    font-size: 22px !important;
+  }
+  .hero-logo-wordwrap strong {
+    font-size: 28px !important;
+    letter-spacing: .01em !important;
+  }
+  .hero-logo-wordwrap em {
+    margin-top: 3px !important;
+    font-size: 5.2px !important;
+    letter-spacing: .16em !important;
+  }
+  .hero h1 {
+    margin-top: 18px !important;
+    max-width: 330px !important;
+  }
+  .hero p,
+  .hero-subtitle {
+    max-width: 315px !important;
+  }
+  .hero-menu-btn {
+    width: 42px !important;
+    height: 42px !important;
+    flex-basis: 42px !important;
+  }
+}
