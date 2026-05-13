@@ -1,41 +1,885 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CVYAZ</title>
-<link rel="stylesheet" href="styles.css?v=105">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+
+<title>CVYAZ | Profesyonel CV Hazırlama</title>
+<meta name="description" content="CVYAZ ile CV / özgeçmişinizi hemen profesyonel şekilde hazırlayın, anında önizleyin ve PDF çıktısı alın.">
+<meta name="theme-color" content="#111111">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:title" content="CVYAZ - Profesyonel CV Hazırlama">
+<meta property="og:description" content="Bilgilerinizi girin, profesyonel CV stilinizi seçin, CV'nizi anında önizleyin.">
+<meta property="og:type" content="website">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<link rel="stylesheet" href="/styles.css?v=104">
+
 </head>
+
 <body>
-<div class="container">
+
+<!-- =====================================================
+     CVYAZ TRUST NAV / HAMBURGER MENU
+===================================================== -->
+<div id="top"></div>
+
+
+<div class="menu-overlay" id="menuOverlay" hidden></div>
+<nav class="side-menu" id="sideMenu" aria-label="CVYAZ Menü" aria-hidden="true">
+  <div class="side-menu-head">
+    <div>
+      <strong>CVYAZ</strong>
+      <small>Profesyonel CV oluşturucu</small>
+    </div>
+    <button type="button" class="menu-close" id="menuClose" aria-label="Menüyü kapat">×</button>
+  </div>
+  <a href="#top">Ana Sayfa</a>
+  <a href="#how-it-works">Nasıl Çalışır?</a>
+  <a href="#ats-nedir">ATS Nedir?</a>
+  <a href="#cv-examples">Örnek CV’ler</a>
+  <a href="#about-cvyaz">Hakkımızda</a>
+  <a href="#contact-cvyaz">İletişim</a>
+  <div class="side-menu-divider"></div>
+  <a href="/gizlilik.html" target="_blank" rel="noopener">Gizlilik Politikası</a>
+  <a href="/kvkk.html" target="_blank" rel="noopener">KVKK</a>
+  <a href="/mesafeli-satis.html" target="_blank" rel="noopener">Mesafeli Satış</a>
+  <a href="/iade.html" target="_blank" rel="noopener">İade Politikası</a>
+  <p>ATS uyumlu, sade ve hızlı PDF CV deneyimi.</p>
+</nav>
+<!-- =====================================================
+     PDF PREVIEW MODAL
+===================================================== -->
+
+<div class="pdf-modal" id="pdfModal">
+
+  <div class="pdf-top">
+
+    <span>
+      🔒 Bu PDF önizlemedir. Temiz PDF için satın alın.
+    </span>
+
+    <button type="button" class="buy" onclick="goPay()">
+      Satın Al / 59,99 TL
+    </button>
+
+    <button type="button" class="close" onclick="closePdf()">
+      Kapat
+    </button>
+
+  </div>
+
+  <iframe id="pdfFrame"></iframe>
+
+</div>
+
+<!-- =====================================================
+     APP
+===================================================== -->
+
+<div class="app">
+
+  <!-- LOGO -->
+
+  <div class="brand-image">
+    <img src="/logo-transparent.png?v=103" alt="CVYAZ Logo">
+  </div>
+
+  <!-- HERO -->
+
   <section class="hero">
-    <div class="hero-top">
-      <div class="logo">CVYAZ</div>
-      <div class="menu">☰</div>
+
+    <div class="hero-nav">
+      <a class="hero-logo hero-logo-text" href="#top" aria-label="CVYAZ Ana Sayfa">
+        <span class="hero-logo-icon" aria-hidden="true">▱</span>
+        <span class="hero-logo-wordwrap"><strong>CVYAZ</strong><em>ATS UYUMLU CV ŞABLONLARI</em></span>
+      </a>
+      <button type="button" class="hamburger-btn hero-menu-btn" id="hamburgerBtn" aria-label="Menüyü aç" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
 
-    <h1>5 dakikada<br>profesyonel CV oluştur.</h1>
+    <h1>
+      5 dakikada profesyonel CV oluştur.
+    </h1>
 
     <p>
       ATS uyumlu CV / özgeçmişini hemen hazırla.
       Canlı önizle, stilini seç, temiz PDF çıktısını anında al.
     </p>
+
   </section>
 
-  <div class="badges">
-    <div class="badge">✅ ATS Uyumlu</div>
-    <div class="badge">⚡ 5 Dakikada Hazır</div>
-    <div class="badge">📄 PDF Önizleme</div>
+  <!-- TRUST BAR -->
+
+  <section class="trust-bar" aria-label="CVYAZ güven özellikleri">
+    <div>✅ ATS Uyumlu</div>
+    <div>⚡ 5 Dakikada Hazır</div>
+    <div>📄 PDF Önizleme</div>
+  </section>
+
+  <!-- PERSONAL INFO -->
+
+  <div class="acc open">
+
+    <button type="button" class="acc-head" onclick="toggleAcc(this)">
+      Kişisel Bilgiler
+      <span>⌄</span>
+    </button>
+
+    <div class="acc-body">
+
+      <label class="file-label">
+        Fotoğraf Ekle • CV Oluşturmaya Başla
+        <input id="photoInput" type="file" accept="image/*" onchange="handlePhotoFile(this.files && this.files[0])">
+      </label>
+
+      <button type="button" class="mini-btn remove" onclick="removePhoto()">
+        Fotoğrafı Kaldır
+      </button>
+
+      <input id="name" placeholder="Ad Soyad">
+
+      <input id="job" list="jobs" placeholder="Meslek / Pozisyon yazın" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
+
+      <datalist id="jobs">
+        <option value="Yazılım Geliştirici">
+        <option value="Frontend Developer">
+        <option value="Backend Developer">
+        <option value="Full Stack Developer">
+        <option value="Mobil Uygulama Geliştirici">
+        <option value="Veri Analisti">
+        <option value="E-Ticaret Uzmanı">
+        <option value="Dijital Pazarlama Uzmanı">
+        <option value="Sosyal Medya Uzmanı">
+        <option value="SEO Uzmanı">
+        <option value="Satış Uzmanı">
+        <option value="Satış Danışmanı">
+        <option value="Pazarlama Yöneticisi">
+        <option value="Müşteri Temsilcisi">
+        <option value="Çağrı Merkezi Temsilcisi">
+        <option value="Muhasebe Uzmanı">
+        <option value="Ön Muhasebe Elemanı">
+        <option value="Finans Uzmanı">
+        <option value="İnsan Kaynakları Uzmanı">
+        <option value="Proje Yöneticisi">
+        <option value="Operasyon Uzmanı">
+        <option value="Grafik Tasarımcı">
+        <option value="UI/UX Tasarımcı">
+        <option value="Video Editörü">
+        <option value="İçerik Editörü">
+        <option value="Depo Personeli">
+        <option value="Lojistik Uzmanı">
+        <option value="Şoför">
+        <option value="Aşçı">
+        <option value="Garson">
+        <option value="Barista">
+        <option value="Mağaza Satış Danışmanı">
+        <option value="Güvenlik Görevlisi">
+        <option value="Temizlik Görevlisi">
+        <option value="Üretim Operatörü">
+        <option value="Makine Operatörü">
+        <option value="Elektrik Teknisyeni">
+        <option value="Mekanik Teknisyeni">
+        <option value="Hemşire">
+        <option value="Öğretmen">
+      </datalist>
+
+      <input id="phone" placeholder="Telefon">
+
+      <input id="email" placeholder="E-posta">
+
+      <input id="address" placeholder="Açık Adres">
+
+      <input id="district" list="districts" placeholder="İlçe yazın">
+
+      <input id="city" list="cities" placeholder="Şehir yazın">
+
+      <input id="country" list="countries" placeholder="Ülke yazın">
+
+      <datalist id="districts">
+        <option value="Seyhan">
+        <option value="Çukurova">
+        <option value="Yüreğir">
+        <option value="Sarıçam">
+        <option value="Ceyhan">
+        <option value="Kadıköy">
+        <option value="Üsküdar">
+        <option value="Beşiktaş">
+        <option value="Şişli">
+        <option value="Bakırköy">
+        <option value="Çankaya">
+        <option value="Keçiören">
+        <option value="Yenimahalle">
+        <option value="Nilüfer">
+        <option value="Osmangazi">
+        <option value="Yıldırım">
+        <option value="Karşıyaka">
+        <option value="Bornova">
+        <option value="Konak">
+        <option value="Muratpaşa">
+        <option value="Kepez">
+        <option value="Alanya">
+        <option value="Meram">
+        <option value="Selçuklu">
+        <option value="Şahinbey">
+        <option value="Şehitkamil">
+      </datalist>
+
+      <datalist id="cities">
+        <option value="Adana">
+        <option value="Adıyaman">
+        <option value="Afyonkarahisar">
+        <option value="Ağrı">
+        <option value="Amasya">
+        <option value="Ankara">
+        <option value="Antalya">
+        <option value="Artvin">
+        <option value="Aydın">
+        <option value="Balıkesir">
+        <option value="Bursa">
+        <option value="Çanakkale">
+        <option value="Denizli">
+        <option value="Diyarbakır">
+        <option value="Edirne">
+        <option value="Erzurum">
+        <option value="Eskişehir">
+        <option value="Gaziantep">
+        <option value="Hatay">
+        <option value="İstanbul">
+        <option value="İzmir">
+        <option value="Kayseri">
+        <option value="Kocaeli">
+        <option value="Konya">
+        <option value="Malatya">
+        <option value="Mersin">
+        <option value="Muğla">
+        <option value="Sakarya">
+        <option value="Samsun">
+        <option value="Şanlıurfa">
+        <option value="Tekirdağ">
+        <option value="Trabzon">
+        <option value="Van">
+      </datalist>
+
+      <datalist id="countries">
+        <option value="Türkiye">
+        <option value="Almanya">
+        <option value="Amerika Birleşik Devletleri">
+        <option value="Birleşik Krallık">
+        <option value="Fransa">
+        <option value="Hollanda">
+        <option value="Belçika">
+        <option value="İtalya">
+        <option value="İspanya">
+        <option value="Kanada">
+        <option value="Avustralya">
+        <option value="Birleşik Arap Emirlikleri">
+        <option value="Suudi Arabistan">
+        <option value="Katar">
+        <option value="Azerbaycan">
+      </datalist>
+
+      <input id="birth" type="text" placeholder="Doğum Tarihi"
+onfocus="this.type='date'; this.max='9999-12-31';"
+oninput="
+if(this.type==='date'){
+  let v=this.value.split('-');
+  if(v[0] && v[0].length>4){
+    v[0]=v[0].slice(0,4);
+    this.value=v.join('-');
+  }
+}"
+onblur="if(!this.value)this.type='text'">
+
+      <input id="marital" placeholder="Medeni Durum">
+
+      <select id="military" onchange="toggleMilitaryDate(); update();">
+        <option value="">Askerlik Durumu</option>
+        <option value="Yaptı">Yaptı</option>
+        <option value="Yapmadı">Yapmadı</option>
+        <option value="Muaf">Muaf</option>
+        <option value="Tecilli">Tecilli</option>
+      </select>
+
+      <input id="militaryUntil"
+type="text"
+placeholder="Tecil Bitiş Tarihi"
+style="display:none;"
+inputmode="numeric"
+maxlength="7"
+onfocus="this.type='month'; this.max='9999-12';"
+oninput="
+if(this.value){
+  let v=this.value.split('-');
+  if(v[0] && v[0].length>4){
+    v[0]=v[0].slice(0,4);
+    this.value=v.join('-');
+  }
+}"
+onblur="if(!this.value)this.type='text'">
+
+      <input id="driving" placeholder="Ehliyet">
+
+    </div>
+
   </div>
 
-  <section class="form-card">
-    <h2>Kişisel Bilgiler</h2>
-    <button class="main-btn">Fotoğraf Ekle • CV Oluşturmaya Başla</button>
-    <input placeholder="Ad Soyad">
-    <input placeholder="Meslek / Pozisyon yazın">
-    <input placeholder="Telefon">
-    <input placeholder="E-posta">
-  </section>
+  <!-- EDUCATION -->
+
+  <div class="acc">
+
+    <button type="button" class="acc-head" onclick="toggleAcc(this)">
+      Eğitim
+      <span>⌄</span>
+    </button>
+
+    <div class="acc-body">
+
+      <div id="eduList"></div>
+
+      <button type="button" class="mini-btn" onclick="addEdu()">
+        + Eğitim Ekle
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- ABOUT -->
+
+  <div class="acc">
+
+    <button type="button" class="acc-head" onclick="toggleAcc(this)">
+      Profesyonel Özet
+      <span>⌄</span>
+    </button>
+
+    <div class="acc-body">
+
+      <textarea
+        id="about"
+        placeholder="Kariyerinizi, deneyiminizi ve güçlü yönlerinizi kısa şekilde anlatın..."
+      ></textarea>
+
+      <div class="smart-row">
+        <button type="button" class="smart-btn" onclick="generateSmartSummary()">
+          5 Saniyede Profesyonel Özet Oluştur
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- EXPERIENCE -->
+
+  <div class="acc">
+
+    <button type="button" class="acc-head" onclick="toggleAcc(this)">
+      İş Deneyimi
+      <span>⌄</span>
+    </button>
+
+    <div class="acc-body">
+
+      <div class="hint">
+        Son çalıştığınız pozisyondan başlayın.
+      </div>
+
+      <div id="expList"></div>
+
+      <button type="button" class="mini-btn" onclick="addExp()">
+        + İş Deneyimi Ekle
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- SKILLS -->
+
+  <div class="acc">
+
+    <button type="button" class="acc-head" onclick="toggleAcc(this)">
+      Yetenekler
+      <span>⌄</span>
+    </button>
+
+    <div class="acc-body">
+
+      <textarea
+        id="skills"
+        placeholder="Örn: Excel, Photoshop, React, Satış"
+      ></textarea>
+
+    </div>
+
+  </div>
+
+  <!-- LANGUAGES -->
+
+  <div class="acc">
+
+    <button type="button" class="acc-head" onclick="toggleAcc(this)">
+      Diller
+      <span>⌄</span>
+    </button>
+
+    <div class="acc-body">
+
+      <datalist id="languageNames">
+        <option value="İngilizce">
+        <option value="Almanca">
+        <option value="Fransızca">
+        <option value="İspanyolca">
+        <option value="Arapça">
+        <option value="Rusça">
+        <option value="İtalyanca">
+        <option value="Flemenkçe">
+        <option value="Azerice">
+        <option value="Türkçe">
+      </datalist>
+
+      <div id="langList"></div>
+
+      <button type="button" class="mini-btn" onclick="addLang()">
+        + Dil Ekle
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- CERTIFICATES -->
+
+  <div class="acc">
+
+    <button type="button" class="acc-head" onclick="toggleAcc(this)">
+      Sertifikalar
+      <span>⌄</span>
+    </button>
+
+    <div class="acc-body">
+
+      <div id="certList"></div>
+
+      <button type="button" class="mini-btn" onclick="addCert()">
+        + Sertifika Ekle
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- PROJECTS -->
+
+  <div class="acc">
+
+    <button type="button" class="acc-head" onclick="toggleAcc(this)">
+      Projeler
+      <span>⌄</span>
+    </button>
+
+    <div class="acc-body">
+
+      <div id="projectList"></div>
+
+      <button type="button" class="mini-btn" onclick="addProject()">
+        + Proje Ekle
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- REFERENCES -->
+
+  <div class="acc">
+
+    <button type="button" class="acc-head" onclick="toggleAcc(this)">
+      Referanslar
+      <span>⌄</span>
+    </button>
+
+    <div class="acc-body">
+
+      <div id="refList"></div>
+
+      <button type="button" class="mini-btn" onclick="addRef()">
+        + Referans Ekle
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- DOCUMENTS -->
+
+  <div class="acc">
+
+    <button type="button" class="acc-head" onclick="toggleAcc(this)">
+      Ek Belgeler
+      <span>⌄</span>
+    </button>
+
+    <div class="acc-body">
+
+      <label class="file-label">
+        Belge Ekle — Maksimum 5
+        <input
+          id="docInput"
+          type="file"
+          multiple
+          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+         onchange="handleDocumentFiles(this.files)">
+      </label>
+
+      <div class="hint" id="docHint">
+        Diploma, sertifika, transkript veya portfolyo ekleyebilirsiniz.
+      </div>
+
+      <div class="doc-manager" id="docList"></div>
+
+    </div>
+
+  </div>
+
+  <!-- PREVIEW AT BOTTOM -->
+
+  <div class="preview-style-tabs">
+
+    <div class="bottom-tabs-title">
+      CV Stilini Seç — Canlı Gör
+    </div>
+
+    <p class="bottom-tabs-note">
+      Tıkladıkça aşağıdaki CV anında değişir. En uygun görünümü seç, sonra temiz PDF’e geç.
+    </p>
+
+    <div class="tabs">
+
+      <button type="button" class="tab active" data-template="modern" onclick="setTemplate('modern', this)">
+        ⚡ Modern
+        <small>Teknoloji / net düzen</small>
+      </button>
+
+      <button type="button" class="tab" data-template="minimal" onclick="setTemplate('minimal', this)">
+        🧊 ATS Sade
+        <small>Klasik beyaz CV</small>
+      </button>
+
+      <button type="button" class="tab" data-template="executive" onclick="setTemplate('executive', this)">
+        👔 Executive
+        <small>Üst düzey yönetici</small>
+      </button>
+
+      <button type="button" class="tab" data-template="corporate" onclick="setTemplate('corporate', this)">
+        🏢 Kurumsal
+        <small>Banka / holding</small>
+      </button>
+
+      <button type="button" class="tab" data-template="creative" onclick="setTemplate('creative', this)">
+        🎨 Yaratıcı
+        <small>Tasarım / medya</small>
+      </button>
+
+      <button type="button" class="tab" data-template="premium" onclick="setTemplate('premium', this)">
+        💎 Premium
+        <small>Prestijli beyaz stil</small>
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="preview-title">
+    CV’n Anında Oluşuyor
+  </div>
+
+  <p class="preview-sub">
+    Bilgi girdikçe CV’n otomatik güncellenir.
+    PDF önizlemede koruma yazısı bulunur.
+  </p>
+
+  <div class="cv-wrap" id="cvWrap">
+
+    <div id="cv" class="cv modern">
+
+      <div class="watermark-grid">
+
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+        <span>CVYAZ ÖNİZLEME</span>
+      </div>
+
+      <div class="cv-inner">
+
+        <div class="cv-top">
+
+          <div id="photoFrame" class="photo-frame">
+            <img id="pPhoto" class="photo">
+          </div>
+
+          <div>
+
+            <h2 id="pName">
+              Ad Soyad
+            </h2>
+
+            <div class="role" id="pJob">
+              Meslek / Pozisyon
+            </div>
+
+            <div class="contact" id="pContact"></div>
+
+            <div class="small-line" id="pAddress"></div>
+
+            <div class="small-line" id="pDigital"></div>
+
+            <div class="small-line" id="pExtra"></div>
+
+          </div>
+
+        </div>
+
+        <div class="sec" id="secEdu">
+          <h3 id="tEdu">EĞİTİM</h3>
+          <div id="pEdu"></div>
+        </div>
+
+        <div class="sec" id="secAbout">
+          <h3 id="tAbout">PROFESYONEL ÖZET</h3>
+          <p id="pAbout"></p>
+        </div>
+
+        <div class="sec" id="secExp">
+          <h3 id="tExp">İŞ DENEYİMİ</h3>
+          <div id="pExp"></div>
+        </div>
+
+        <div class="sec" id="secSkills">
+          <h3 id="tSkills">YETENEKLER</h3>
+          <div class="tags" id="pSkills"></div>
+        </div>
+
+        <div class="sec" id="secLang">
+          <h3 id="tLang">DİLLER</h3>
+          <div id="pLangs"></div>
+        </div>
+
+        <div class="sec" id="secCert">
+          <h3 id="tCert">SERTİFİKALAR</h3>
+          <div id="pCerts"></div>
+        </div>
+
+        <div class="sec" id="secProject">
+          <h3 id="tProject">PROJELER</h3>
+          <div id="pProjects"></div>
+        </div>
+
+        <div class="sec" id="secRef">
+          <h3 id="tRef">REFERANSLAR</h3>
+          <div id="pRefs"></div>
+        </div>
+
+        <div class="sec" id="secDocs">
+          <h3 id="tDocs">EK BELGELER</h3>
+          <div id="pDocs"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
+
+<!-- FIXED PDF BUTTON -->
+
+
+<!-- =====================================================
+     CVYAZ TRUST CONTENT SECTIONS
+===================================================== -->
+
+<section class="info-section" id="how-it-works">
+  <div class="section-kicker">Nasıl Çalışır?</div>
+  <h2>CV hazırlamak üç net adım.</h2>
+  <div class="step-grid">
+    <article>
+      <span>1</span>
+      <h3>Bilgilerini Gir</h3>
+      <p>Kişisel bilgiler, deneyimler, eğitim ve yeteneklerini sade form alanlarına ekle.</p>
+    </article>
+    <article>
+      <span>2</span>
+      <h3>Önizlemeyi Gör</h3>
+      <p>CV stilini seç, PDF önizlemesini kontrol et ve düzeni satın almadan incele.</p>
+    </article>
+    <article>
+      <span>3</span>
+      <h3>PDF İndir</h3>
+      <p>Tek ödeme sonrası temiz, yüksek kaliteli PDF CV çıktını indir.</p>
+    </article>
+  </div>
+</section>
+
+<section class="info-section ats-card" id="ats-nedir">
+  <div class="section-kicker">ATS Nedir?</div>
+  <h2>İşe alım sistemlerinin okuyabildiği CV düzeni.</h2>
+  <p>ATS, şirketlerin başvuruları otomatik olarak taramak için kullandığı işe alım yazılımıdır. CVYAZ şablonları; temiz başlıklar, okunabilir metin yapısı ve sade PDF düzeniyle ATS dostu olacak şekilde hazırlanır.</p>
+  <div class="mini-checks">
+    <span>✅ Temiz düzen</span>
+    <span>✅ Okunabilir PDF</span>
+    <span>✅ Profesyonel yapı</span>
+    <span>✅ Modern tasarım</span>
+  </div>
+  <small>Not: ATS uyumluluk, işe kabul garantisi değil; CV’nin sistemler tarafından daha sağlıklı okunmasına yardımcı olan profesyonel bir yapıdır.</small>
+</section>
+
+<section class="info-section" id="cv-examples">
+  <div class="section-kicker">Örnek CV’ler</div>
+  <h2>Farklı pozisyonlar için modern CV stilleri.</h2>
+  <div class="example-grid">
+    <article><b>Minimal</b><span>Sade ve net görünüm</span></article>
+    <article><b>Profesyonel</b><span>Kurumsal başvurular</span></article>
+    <article><b>ATS Clean</b><span>Sistem dostu düzen</span></article>
+    <article><b>Modern</b><span>Şık ve güçlü vitrin</span></article>
+  </div>
+</section>
+
+<section class="info-section" id="about-cvyaz">
+  <div class="section-kicker">Hakkımızda</div>
+  <h2>CVYAZ, hızlı ve profesyonel CV hazırlamak için geliştirildi.</h2>
+  <p>Karmaşık tasarım araçlarıyla uğraşmadan, modern ve ATS dostu CV oluşturmanı sağlar. Amaç basit: bilgilerini gir, görünümü seç, önizle ve temiz PDF çıktını al.</p>
+</section>
+
+<section class="info-section contact-card" id="contact-cvyaz">
+  <div class="section-kicker">İletişim</div>
+  <h2>Destek için bize ulaş.</h2>
+  <p>Sipariş, PDF veya ödeme sorunları için destek ekibine yazabilirsin.</p>
+  <div class="contact-actions">
+    <a href="mailto:destek@cvyaz.com.tr">destek@cvyaz.com.tr</a>
+    <a href="https://wa.me/905555555555" target="_blank" rel="noopener">WhatsApp Destek</a>
+  </div>
+</section>
+
+<!-- =====================================================
+     LEGAL / POLICY AREA
+===================================================== -->
+
+<div class="legal-box">
+
+  <div class="legal-title">Güvenli Dijital Satın Alma</div>
+
+  <div class="legal-check">
+    <input type="checkbox" id="acceptTerms">
+    <label for="acceptTerms">
+      Mesafeli satış sözleşmesini, KVKK aydınlatma metnini ve kullanım koşullarını kabul ediyorum.
+    </label>
+  </div>
+
+  <div class="legal-check">
+    <input type="checkbox" id="acceptDigital">
+    <label for="acceptDigital">
+      Temiz PDF teslim edilen dijital ürünlerde teslim sonrası iade yapılamayacağını kabul ediyorum.
+    </label>
+  </div>
+
+  <div class="legal-note">Ödeme işlemleri güvenli ödeme altyapısı üzerinden gerçekleştirilir.</div>
+
+  <div class="legal-links">
+    <a href="/mesafeli-satis.html" target="_blank" rel="noopener">Mesafeli Satış</a>
+    <a href="/kvkk.html" target="_blank" rel="noopener">KVKK</a>
+    <a href="/iade.html" target="_blank" rel="noopener">İade Politikası</a>
+    <a href="/gizlilik.html" target="_blank" rel="noopener">Gizlilik</a>
+  </div>
+
+</div>
+
+<button type="button" class="download preview-locked" id="previewCta">
+  CV PDF Önizleme Oluştur →</button>
+
+<!-- =====================================================
+     WHATSAPP SUPPORT FOOTER
+===================================================== -->
+
+<div class="support-footer">
+  <div class="support-title">Yardım mı lazım?</div>
+  <div class="support-sub">Sipariş, PDF veya ödeme sorunları için bize WhatsApp üzerinden ulaşabilirsiniz.</div>
+  <a class="support-whatsapp" href="https://wa.me/905555555555" target="_blank" rel="noopener">💬 WhatsApp Destek</a>
+  <div class="support-mail">destek@cvyaz.com.tr</div>
+</div>
+
+<!-- =====================================================
+     CVYAZ SITE FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+  <strong>CVYAZ</strong>
+  <p>ATS uyumlu, modern ve hızlı CV oluşturma deneyimi.</p>
+  <div>
+    <a href="#how-it-works">Nasıl Çalışır?</a>
+    <a href="#ats-nedir">ATS Nedir?</a>
+    <a href="#about-cvyaz">Hakkımızda</a>
+    <a href="#contact-cvyaz">İletişim</a>
+  </div>
+  <div>
+    <a href="/gizlilik.html" target="_blank" rel="noopener">Gizlilik</a>
+    <a href="/kvkk.html" target="_blank" rel="noopener">KVKK</a>
+    <a href="/mesafeli-satis.html" target="_blank" rel="noopener">Mesafeli Satış</a>
+    <a href="/iade.html" target="_blank" rel="noopener">İade</a>
+  </div>
+  <small>© 2026 CVYAZ — Tüm hakları saklıdır.</small>
+</footer>
+
+<script src="/app.js?v=99"></script>
 </body>
 </html>
+<!-- final no blank page build -->
