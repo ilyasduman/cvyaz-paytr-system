@@ -5323,3 +5323,84 @@ body.menu-open {
     max-width: 330px !important;
   }
 }
+
+
+
+/* =====================================================
+   V110 HERO KISALTMA
+   Açıklama alanı kısaltıldı, hero yüksekliği azaltıldı.
+===================================================== */
+
+.hero {
+  min-height: 390px !important;
+  padding-bottom: 76px !important;
+}
+
+.hero-nav {
+  margin-bottom: 38px !important;
+}
+
+.hero h1 {
+  margin-bottom: 18px !important;
+}
+
+.hero p,
+.hero-subtitle {
+  max-width: 560px !important;
+  font-size: clamp(14px, 1.25vw, 18px) !important;
+  line-height: 1.32 !important;
+}
+
+/* Mobil */
+@media (max-width: 700px) {
+  .hero {
+    min-height: 420px !important;
+    padding-bottom: 66px !important;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%) !important;
+  }
+
+  .hero-nav {
+    margin-bottom: 34px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 10.4vw, 54px) !important;
+    line-height: .93 !important;
+    margin-bottom: 16px !important;
+    max-width: 330px !important;
+  }
+
+  .hero p,
+  .hero-subtitle {
+    max-width: 330px !important;
+    font-size: clamp(14px, 3.8vw, 18px) !important;
+    line-height: 1.34 !important;
+  }
+
+  .trust-bar {
+    margin-top: -28px !important;
+  }
+}
+
+/* iPhone dar ekran */
+@media (max-width: 430px) {
+  .hero {
+    min-height: 400px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .hero-nav {
+    margin-bottom: 30px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 10vw, 48px) !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero p,
+  .hero-subtitle {
+    font-size: clamp(13px, 3.55vw, 16px) !important;
+    line-height: 1.32 !important;
+  }
+}
