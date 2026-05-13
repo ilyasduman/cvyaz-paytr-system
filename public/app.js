@@ -3032,6 +3032,7 @@ const CVYAZ_DRAFT_KEY = "cvyaz_form_draft_v71_session";
 const CVYAZ_DRAFT_PERSIST_KEY = "cvyaz_form_draft_v71_legal_return";
 const CVYAZ_LEGAL_RETURN_KEY = "cvyaz_legal_return_v71";
 const CVYAZ_PREVIEW_STATE_KEY = "cvyaz_preview_cta_unlocked_v71";
+const CVYAZ_LEGAL_SESSION_KEY = "cvyaz_legal_return_session_v73";
 const CVYAZ_LEGACY_DRAFT_KEY = "cvyaz_form_draft_v67";
 const CVYAZ_LEGACY_DRAFT_KEY_V70 = "cvyaz_form_draft_v70_legal_return";
 const CVYAZ_LEGACY_SESSION_KEY_V70 = "cvyaz_form_draft_v70_session";
@@ -3227,12 +3228,22 @@ function cvyazInstallDraftAutosave() {
 function cvyazMarkLegalNavigation() {
   try {
     cvyazSaveDraft();
+    const now = String(Date.now());
+
     if (cvyazIsPreviewCtaUnlocked()) {
       localStorage.setItem(CVYAZ_PREVIEW_STATE_KEY, "1");
     }
-    localStorage.setItem(CVYAZ_LEGAL_RETURN_KEY, String(Date.now()));
+
+    /*
+      V7.3 kritik ayrım:
+      localStorage tek başına güvenilir değil; eski oturumdan kalıp web ilk açılışta
+      önizleme butonunu yanlışlıkla gösterebiliyordu.
+      Bu yüzden yasal sayfaya gerçekten bu sekmeden gidildiğini sessionStorage ile işaretliyoruz.
+    */
+    sessionStorage.setItem(CVYAZ_LEGAL_SESSION_KEY, now);
+    localStorage.setItem(CVYAZ_LEGAL_RETURN_KEY, now);
   } catch (error) {
-    // localStorage kapalıysa sessiz geç.
+    // storage kapalıysa sessiz geç.
   }
 }
 
@@ -3257,15 +3268,21 @@ function cvyazInstallLegalLinkProtection() {
 
 function cvyazShouldRestoreDraftAfterLegalPage() {
   try {
-    const marker = Number(localStorage.getItem(CVYAZ_LEGAL_RETURN_KEY) || localStorage.getItem(CVYAZ_LEGACY_LEGAL_KEY_V70) || "0");
-    const markerFresh = marker && (Date.now() - marker < 1000 * 60 * 60 * 6);
+    const sessionMarker = Number(sessionStorage.getItem(CVYAZ_LEGAL_SESSION_KEY) || "0");
+    const sessionMarkerFresh = sessionMarker && (Date.now() - sessionMarker < 1000 * 60 * 60 * 6);
+
     const ref = (document.referrer || "").toLowerCase();
     const refIsLegal = ref.indexOf("kvkk") !== -1 ||
       ref.indexOf("mesafeli-satis") !== -1 ||
       ref.indexOf("iade") !== -1 ||
       ref.indexOf("gizlilik") !== -1;
 
-    return !!(markerFresh || refIsLegal);
+    /*
+      Local marker tek başına restore sebebi olamaz.
+      Aksi halde webde eski localStorage kalıntısı ilk açılışta Önizleme butonunu getirir.
+      Restore yalnızca aynı sekmedeki yasal sayfa dönüşünde veya referrer yasal sayfaysa yapılır.
+    */
+    return !!(sessionMarkerFresh || refIsLegal);
   } catch (error) {
     return false;
   }
@@ -3276,6 +3293,7 @@ function cvyazClearStoredDraftForFreshVisit() {
     sessionStorage.removeItem(CVYAZ_DRAFT_KEY);
     localStorage.removeItem(CVYAZ_DRAFT_PERSIST_KEY);
     localStorage.removeItem(CVYAZ_PREVIEW_STATE_KEY);
+    sessionStorage.removeItem(CVYAZ_LEGAL_SESSION_KEY);
     localStorage.removeItem(CVYAZ_LEGACY_DRAFT_KEY);
     localStorage.removeItem(CVYAZ_LEGACY_DRAFT_KEY_V70);
     sessionStorage.removeItem(CVYAZ_LEGACY_SESSION_KEY_V70);
@@ -3289,6 +3307,7 @@ function cvyazClearStoredDraftForFreshVisit() {
 
 function cvyazFinishLegalReturnRestore() {
   try {
+    sessionStorage.removeItem(CVYAZ_LEGAL_SESSION_KEY);
     localStorage.removeItem(CVYAZ_LEGAL_RETURN_KEY);
   } catch (error) {
     // storage kapalıysa sessiz geç.
