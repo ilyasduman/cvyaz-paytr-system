@@ -2999,11 +2999,12 @@ async function goPay() {
 
 
 /* =====================================================
-   CVYAZ FORM DRAFT AUTOSAVE V6.7
+   CVYAZ FORM DRAFT AUTOSAVE V6.9
    KVKK / sözleşme / gizlilik / iade sayfalarına gidip dönünce
    kullanıcının girdiği CV bilgileri kaldığı yerden devam eder.
 ===================================================== */
-const CVYAZ_DRAFT_KEY = "cvyaz_form_draft_v67";
+const CVYAZ_DRAFT_KEY = "cvyaz_form_draft_v69_session";
+const CVYAZ_LEGACY_DRAFT_KEY = "cvyaz_form_draft_v67";
 let CVYAZ_RESTORING_DRAFT = false;
 
 const CVYAZ_DYNAMIC_SECTIONS = [
@@ -3090,13 +3091,13 @@ function cvyazSaveDraft() {
       dynamic[section.listId] = Array.from(list.querySelectorAll(section.itemSelector)).map(cvyazCollectItemValues);
     });
 
-    localStorage.setItem(CVYAZ_DRAFT_KEY, JSON.stringify({
+    sessionStorage.setItem(CVYAZ_DRAFT_KEY, JSON.stringify({
       fixed: fixed,
       dynamic: dynamic,
       savedAt: Date.now()
     }));
   } catch (error) {
-    // localStorage kapalıysa uygulama çalışmaya devam eder.
+    // sessionStorage kapalıysa uygulama çalışmaya devam eder.
   }
 }
 
@@ -3104,7 +3105,7 @@ function cvyazRestoreDraft() {
   let draft = null;
 
   try {
-    draft = JSON.parse(localStorage.getItem(CVYAZ_DRAFT_KEY) || "null");
+    draft = JSON.parse(sessionStorage.getItem(CVYAZ_DRAFT_KEY) || "null");
   } catch (error) {
     draft = null;
   }
@@ -3168,6 +3169,16 @@ function cvyazInstallDraftAutosave() {
 /* =====================================================
    INITIALIZE
 ===================================================== */
+
+try {
+  // V6.9: Eski web tarayıcı localStorage taslağını temizle.
+  // Böylece site ilk kez açıldığında eski doldurulmuş CV bilgileri geri gelmez.
+  // Mevcut sekmede KVKK / sözleşme / gizlilik / iade sayfalarına gidip dönünce
+  // sessionStorage ile bilgiler korunmaya devam eder.
+  localStorage.removeItem(CVYAZ_LEGACY_DRAFT_KEY);
+} catch (error) {
+  // localStorage kapalıysa sessiz geç.
+}
 
 cvyazInstallDraftAutosave();
 
