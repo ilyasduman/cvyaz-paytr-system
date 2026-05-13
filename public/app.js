@@ -3587,3 +3587,111 @@ cvyazSaveDraft();
 
   window.addEventListener("load", installDatalistBlurFix);
 })();
+
+/* =====================================================
+   CVYAZ MOBILE FIRST PREVIEW REAL FIX V8.1
+   İlk sayfa açılışında meslek/autocomplete veya aktif input açıkken
+   ilk Önizleme dokunuşu boşa gitmesin diye preview motoru sayfa açılır açılmaz
+   hazırlanır; datalist seçiminden sonra focus kesin kapatılır.
+===================================================== */
+(function(){
+  function isMobileView(){
+    return window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
+  }
+
+  function blurActiveHard(){
+    try {
+      var active = document.activeElement;
+      if (active && active !== document.body && typeof active.blur === 'function') {
+        active.blur();
+      }
+      if (document.body && typeof document.body.focus === 'function') {
+        document.body.setAttribute('tabindex', '-1');
+        document.body.focus({preventScroll:true});
+      }
+    } catch(e) {}
+  }
+
+  function primePreviewEngine(){
+    try {
+      if (window.__cvyazPreviewPrimedV81) { return; }
+      window.__cvyazPreviewPrimedV81 = true;
+      if (typeof update === 'function') { update(); }
+      var frame = document.getElementById('pdfFrame');
+      if (frame && !frame.__cvyazPrimedV81) {
+        frame.__cvyazPrimedV81 = true;
+        frame.setAttribute('title', 'CV PDF Önizleme');
+      }
+    } catch(e) {}
+  }
+
+  function installHardAutocompleteBlur(){
+    if (!isMobileView()) { return; }
+
+    var job = document.getElementById('job');
+    if (job && !job.__cvyazHardBlurV81) {
+      job.__cvyazHardBlurV81 = true;
+
+      // Native datalist seçimi çoğu mobil tarayıcıda change ile netleşir.
+      // Seçim netleşir netleşmez focus kapatılır; ilk preview dokunuşu artık
+      // klavye/autocomplete kapatma dokunuşuna dönüşmez.
+      job.addEventListener('change', function(){
+        window.setTimeout(blurActiveHard, 0);
+        window.setTimeout(blurActiveHard, 80);
+      }, true);
+
+      job.addEventListener('keydown', function(ev){
+        if (ev.key === 'Enter' || ev.keyCode === 13) {
+          window.setTimeout(blurActiveHard, 0);
+        }
+      }, true);
+    }
+  }
+
+  function installPreviewCaptureOverride(){
+    if (window.__cvyazPreviewCaptureOverrideV81) { return; }
+    window.__cvyazPreviewCaptureOverrideV81 = true;
+
+    function shouldHandle(ev){
+      if (!isMobileView()) { return false; }
+      var target = ev.target;
+      var btn = target && target.closest ? target.closest('#previewCta') : null;
+      if (!btn || btn.classList.contains('preview-locked')) { return false; }
+      return true;
+    }
+
+    function firePreview(ev){
+      if (!shouldHandle(ev)) { return; }
+
+      try { ev.preventDefault && ev.preventDefault(); } catch(e) {}
+      try { ev.stopImmediatePropagation && ev.stopImmediatePropagation(); } catch(e) {}
+      try { ev.stopPropagation && ev.stopPropagation(); } catch(e) {}
+
+      blurActiveHard();
+      primePreviewEngine();
+
+      // İlk açılışta DOM/layout hazır değilse bile modal hemen açılsın.
+      window.setTimeout(function(){
+        if (typeof window.startPreviewPdf === 'function') {
+          window.startPreviewPdf();
+        }
+      }, 0);
+    }
+
+    document.addEventListener('touchstart', firePreview, {capture:true, passive:false});
+    document.addEventListener('touchend', firePreview, {capture:true, passive:false});
+    document.addEventListener('pointerdown', function(ev){
+      if (ev.pointerType === 'touch') { firePreview(ev); }
+    }, {capture:true, passive:false});
+  }
+
+  function boot(){
+    primePreviewEngine();
+    installHardAutocompleteBlur();
+    installPreviewCaptureOverride();
+  }
+
+  document.addEventListener('DOMContentLoaded', boot);
+  window.addEventListener('load', boot);
+  window.setTimeout(boot, 300);
+})();
