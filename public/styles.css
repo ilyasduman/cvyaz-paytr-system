@@ -4587,3 +4587,190 @@ body.menu-open {
     width: 210px !important;
   }
 }
+
+/* =====================================================
+   V103 HERO LOGO + READABILITY FIX
+   - Hero içindeki logo artık şeffaf PNG ile görünür.
+   - Beyaz eğim açıklama metninin üstüne binmez.
+   - Hamburger sağ üstte, logo ile aynı hizada kalır.
+===================================================== */
+.site-topbar,
+.site-header-logo,
+.site-mini-brand,
+.brand-image {
+  display: none !important;
+}
+
+.hero {
+  position: relative !important;
+  overflow: hidden !important;
+  background: radial-gradient(circle at 78% 12%, #312b83 0%, #211b68 38%, #111633 100%) !important;
+  color: #fff !important;
+  padding-top: 92px !important;
+  padding-left: 34px !important;
+  padding-right: 34px !important;
+  padding-bottom: 76px !important;
+}
+
+.hero::after {
+  z-index: 1 !important;
+  bottom: -76px !important;
+  height: 82px !important;
+  background: #eef1f5 !important;
+  opacity: 1 !important;
+  transform: rotate(-4deg) !important;
+  pointer-events: none !important;
+}
+
+.hero-nav {
+  position: absolute !important;
+  top: 24px !important;
+  left: 34px !important;
+  right: 34px !important;
+  z-index: 8 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  pointer-events: none !important;
+}
+
+.hero-logo {
+  pointer-events: auto !important;
+  width: clamp(164px, 36vw, 230px) !important;
+  height: 48px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.hero-logo img {
+  display: block !important;
+  width: 100% !important;
+  height: 44px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: brightness(0) invert(1) contrast(1.18) !important;
+}
+
+.hero-menu-btn {
+  pointer-events: auto !important;
+  position: static !important;
+  width: 48px !important;
+  height: 48px !important;
+  flex: 0 0 48px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+}
+
+.hero-menu-btn span,
+.hamburger-btn.hero-menu-btn span {
+  display: block !important;
+  width: 31px !important;
+  height: 3px !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+  box-shadow: 0 1px 10px rgba(0,0,0,.20) !important;
+}
+
+.hero h1,
+.hero p,
+.hero-subtitle {
+  position: relative !important;
+  z-index: 5 !important;
+  color: #fff !important;
+  text-shadow: 0 1px 12px rgba(0,0,0,.16) !important;
+}
+
+.hero p,
+.hero-subtitle {
+  color: rgba(255,255,255,.82) !important;
+  opacity: 1 !important;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-top: 98px !important;
+    padding-bottom: 82px !important;
+  }
+  .hero::after {
+    bottom: -82px !important;
+    height: 90px !important;
+  }
+  .hero-nav {
+    top: 26px !important;
+    left: 40px !important;
+    right: 40px !important;
+  }
+  .hero-logo {
+    width: 230px !important;
+    height: 52px !important;
+  }
+  .hero-logo img {
+    height: 48px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    margin-top: 0 !important;
+    padding-top: 78px !important;
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+    padding-bottom: 62px !important;
+    border-radius: 0 0 32px 32px !important;
+  }
+  .hero::after {
+    bottom: -70px !important;
+    height: 78px !important;
+  }
+  .hero-nav {
+    top: 20px !important;
+    left: 28px !important;
+    right: 28px !important;
+  }
+  .hero-logo {
+    width: min(190px, calc(100vw - 150px)) !important;
+    height: 42px !important;
+  }
+  .hero-logo img {
+    height: 38px !important;
+  }
+  .hero-menu-btn {
+    width: 42px !important;
+    height: 42px !important;
+    flex-basis: 42px !important;
+  }
+  .hero-menu-btn span,
+  .hamburger-btn.hero-menu-btn span {
+    width: 28px !important;
+    height: 3px !important;
+  }
+  .hero h1,
+  h1 {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 330px !important;
+  }
+  .hero p,
+  .hero-subtitle {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 320px !important;
+  }
+}
