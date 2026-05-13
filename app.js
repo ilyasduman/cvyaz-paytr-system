@@ -1854,19 +1854,24 @@ function startPreviewPdf(event) {
     return false;
   }
 
-  /*
-    V8.2 KÖK DÜZELTME:
-    Mobilde input/datalist/meslek otomatik seçiminden sonra ilk dokunuş bazen
-    sadece klavyeyi veya öneri panelini kapatıyordu. Eski akışta önce blur,
-    sonra modal açılıyordu; bazı mobil tarayıcılarda blur ilk dokunuşu yutuyordu.
-
-    Yeni akış:
-    1) Önce modalı ve loading ekranını ANINDA aç.
-    2) Sonra aktif input'u gecikmeli blur et.
-    3) PDF üretimini bir sonraki frame'de başlat.
-  */
   isPdfGenerating = true;
+
+  /*
+    MOBIL KÖK DÜZELTME V8.3:
+    iPhone/Android tarayıcılarında input veya meslek autocomplete focus açıkken
+    ilk dokunuş çoğu zaman sadece klavyeyi/öneri kutusunu kapatmaya gidiyor.
+    Bu yüzden önce blur değil, önce modal açılır. Böylece ilk dokunuşta
+    kullanıcı anında "CV PDF hazırlanıyor" ekranını görür.
+  */
   openPdfLoadingInstant();
+
+  const active = document.activeElement;
+
+  if (active && typeof active.blur === "function" && active !== document.body) {
+    setTimeout(function() {
+      try { active.blur(); } catch (error) {}
+    }, 0);
+  }
 
   const button = document.querySelector(".download");
 
@@ -1875,22 +1880,12 @@ function startPreviewPdf(event) {
     button.innerText = "CV PDF hazırlanıyor...";
   }
 
-  const active = document.activeElement;
-
-  setTimeout(function() {
-    if (active && typeof active.blur === "function" && active !== document.body) {
-      try {
-        active.blur();
-      } catch (error) {
-        // Mobil tarayıcı blur hatası verirse önizleme akışı devam eder.
-      }
-    }
-  }, 0);
-
+  // iPhone Safari'de input focus ilk dokunuşu yutmasın diye
+  // modal hemen açılır, üretim sonraki frame'de başlar.
   requestAnimationFrame(function() {
     setTimeout(function() {
       createPreviewPdf();
-    }, 80);
+    }, 40);
   });
 
   return false;
@@ -2033,68 +2028,6 @@ async function waitForImages(root) {
 
 }
 
-
-/* =====================================================
-   CVYAZ MOBILE DATALIST BLUR FIX V8.2
-   Meslek/şehir gibi native datalist seçimleri mobilde açık kalırsa
-   ilk Önizleme dokunuşu sadece öneri panelini kapatabiliyor.
-   Seçim yapıldığı an input'u yumuşak şekilde kapatıyoruz.
-===================================================== */
-document.addEventListener("DOMContentLoaded", function() {
-
-  function isMobileScreen() {
-    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
-  }
-
-  function valueMatchesDatalist(input) {
-    if (!input || !input.getAttribute) {
-      return false;
-    }
-
-    const listId = input.getAttribute("list");
-    if (!listId || !input.value) {
-      return false;
-    }
-
-    const list = document.getElementById(listId);
-    if (!list) {
-      return false;
-    }
-
-    const current = String(input.value).trim().toLowerCase();
-    return Array.from(list.querySelectorAll("option")).some(function(option) {
-      return String(option.value || "").trim().toLowerCase() === current;
-    });
-  }
-
-  function closeNativeSuggestionFocus(input) {
-    if (!isMobileScreen() || !valueMatchesDatalist(input)) {
-      return;
-    }
-
-    [40, 140, 320].forEach(function(delay) {
-      setTimeout(function() {
-        if (document.activeElement === input && typeof input.blur === "function") {
-          try {
-            input.blur();
-          } catch (error) {}
-        }
-      }, delay);
-    });
-  }
-
-  document.querySelectorAll("input[list]").forEach(function(input) {
-    input.addEventListener("input", function() {
-      closeNativeSuggestionFocus(input);
-    }, true);
-
-    input.addEventListener("change", function() {
-      closeNativeSuggestionFocus(input);
-    }, true);
-  });
-
-});
-
 /* =====================================================
    MOBILE ONE-TAP PREVIEW FIX V6.6
    iPhone Safari'de aynı butona touchstart + pointerdown + click
@@ -2167,6 +2100,87 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+
+
+/* =====================================================
+   CVYAZ MOBILE PREVIEW FIRST TAP ROOT FIX V8.3
+   Butonun kendi touch/click event'i bazı mobil tarayıcılarda input focus
+   açıkken ilk dokunuşta tetiklenmeyebiliyor. Bu yüzden dokunuşu document
+   seviyesinde yakalayıp koordinat gerçekten Önizleme butonunun üzerindeyse
+   preview'i ilk anda başlatıyoruz.
+===================================================== */
+(function() {
+
+  function isMobileViewport() {
+    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+  }
+
+  function getPreviewButton() {
+    return document.getElementById("previewCta") || document.querySelector(".download");
+  }
+
+  function pointInsideButton(x, y, button) {
+    if (!button) { return false; }
+
+    const rect = button.getBoundingClientRect();
+    const pad = 10;
+
+    return x >= rect.left - pad &&
+           x <= rect.right + pad &&
+           y >= rect.top - pad &&
+           y <= rect.bottom + pad;
+  }
+
+  let lastForcedPreviewAt = 0;
+
+  function forcePreviewFromPoint(event) {
+    if (!isMobileViewport()) { return; }
+
+    const button = getPreviewButton();
+
+    if (!button || button.classList.contains("preview-locked")) {
+      return;
+    }
+
+    let point = null;
+
+    if (event.touches && event.touches.length) {
+      point = event.touches[0];
+    } else if (event.changedTouches && event.changedTouches.length) {
+      point = event.changedTouches[0];
+    } else if (typeof event.clientX === "number") {
+      point = event;
+    }
+
+    if (!point) { return; }
+
+    if (!pointInsideButton(point.clientX, point.clientY, button)) {
+      return;
+    }
+
+    const now = Date.now();
+    if (now - lastForcedPreviewAt < 1200) {
+      if (event.cancelable) { event.preventDefault(); }
+      return;
+    }
+
+    lastForcedPreviewAt = now;
+
+    if (event.cancelable) { event.preventDefault(); }
+    if (event.stopPropagation) { event.stopPropagation(); }
+    if (event.stopImmediatePropagation) { event.stopImmediatePropagation(); }
+
+    startPreviewPdf(event);
+  }
+
+  document.addEventListener("touchstart", forcePreviewFromPoint, { passive: false, capture: true });
+  document.addEventListener("pointerdown", function(event) {
+    if (event.pointerType === "touch") {
+      forcePreviewFromPoint(event);
+    }
+  }, { passive: false, capture: true });
+
+})();
 
 async function createPreviewPdf() {
 
@@ -3563,3 +3577,89 @@ cvyazSaveDraft();
   window.addEventListener("load", setupMobileCtaVisibility);
 })();
 
+
+
+/* =====================================================
+   CVYAZ MOBILE DATALIST / AUTOCOMPLETE FIRST TAP FIX V8.4
+   Sorun: Mobil tarayıcıda Meslek/Pozisyon datalist seçimi açık kalınca
+   ilk Önizleme dokunuşu bazen sadece öneri kutusunu/klavyeyi kapatıyor.
+   Çözüm: Meslek alanında değer seçilince mobilde odağı güvenli şekilde kapat,
+   butona basıldığında da aktif form odağını preview başlamadan kilitleme.
+===================================================== */
+(function() {
+
+  function isMobileCvyaz() {
+    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+  }
+
+  function safeBlurElement(el) {
+    if (!el || typeof el.blur !== "function") { return; }
+    try { el.blur(); } catch (e) {}
+  }
+
+  function selectedFromDatalist(input) {
+    if (!input || !input.value) { return false; }
+    const listId = input.getAttribute("list");
+    if (!listId) { return false; }
+    const list = document.getElementById(listId);
+    if (!list) { return false; }
+    const value = String(input.value).trim().toLowerCase();
+    return Array.from(list.options).some(function(option) {
+      return String(option.value || "").trim().toLowerCase() === value;
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const jobInput = document.getElementById("job");
+
+    if (jobInput) {
+      jobInput.setAttribute("autocomplete", "off");
+      jobInput.setAttribute("autocorrect", "off");
+      jobInput.setAttribute("autocapitalize", "none");
+      jobInput.setAttribute("spellcheck", "false");
+
+      ["input", "change"].forEach(function(evtName) {
+        jobInput.addEventListener(evtName, function() {
+          if (!isMobileCvyaz()) { return; }
+
+          if (selectedFromDatalist(jobInput) || jobInput.value.trim().length >= 3) {
+            window.__cvyazMobileJustSelectedJob = true;
+
+            setTimeout(function() {
+              safeBlurElement(jobInput);
+            }, 80);
+
+            setTimeout(function() {
+              window.__cvyazMobileJustSelectedJob = false;
+            }, 900);
+          }
+        }, { passive: true });
+      });
+    }
+
+    const previewButton = document.getElementById("previewCta");
+
+    if (previewButton) {
+      function hardPreview(event) {
+        if (!isMobileCvyaz()) { return; }
+        if (previewButton.classList.contains("preview-locked")) { return; }
+
+        if (event && event.cancelable) { event.preventDefault(); }
+        if (event && event.stopPropagation) { event.stopPropagation(); }
+        if (event && event.stopImmediatePropagation) { event.stopImmediatePropagation(); }
+
+        const active = document.activeElement;
+        if (active && active !== document.body && typeof active.blur === "function") {
+          safeBlurElement(active);
+        }
+
+        // Modalı aynı frame içinde açtır. Böylece ilk dokunuş görsel cevap verir.
+        startPreviewPdf(event || window.event);
+      }
+
+      previewButton.addEventListener("touchstart", hardPreview, { passive: false, capture: true });
+      previewButton.addEventListener("mousedown", hardPreview, { passive: false, capture: true });
+    }
+  });
+
+})();
