@@ -24,25 +24,6 @@
 </head>
 
 <body>
-
-  <!-- CVYAZ RESPONSIVE TOP BAR V4 -->
-  <header class="desktop-clean-topbar">
-    <div class="desktop-clean-logo">
-      <img src="/favicon.png" alt="CVYAZ">
-      <div>
-        <strong>CVYAZ</strong>
-        <small>ATS UYUMLU CV ŞABLONLARI</small>
-      </div>
-    </div>
-    <nav>
-      <span>ATS Uyumlu</span>
-      <span>HR Dostu</span>
-      <span>Tek Sayfa</span>
-      <span>5 Dakikada Hazır</span>
-    </nav>
-    <button type="button" onclick="document.querySelector('.preview-style-tabs')?.scrollIntoView({behavior:'smooth', block:'center'});">Örnek CV’leri İncele</button>
-  </header>
-
 <!-- =====================================================
      PDF PREVIEW MODAL
 ===================================================== -->
@@ -580,75 +561,7 @@ onblur="if(!this.value)this.type='text'">
     PDF önizlemede koruma yazısı bulunur.
   </p>
 
-  
-  <!-- CVYAZ RESPONSIVE DESKTOP PREVIEW V4 -->
-  <aside class="desktop-live-stage" aria-label="Canlı CV Önizleme">
-    <div class="desktop-live-head">
-      <div>
-        <h2>Canlı CV Önizleme</h2>
-        <p>Bilgileri doldurdukça CV’niz burada anında oluşur.</p>
-      </div>
-      <span>● Gerçek zamanlı</span>
-    </div>
-
-    <div class="desktop-live-body">
-      <div class="desktop-cv-paper">
-        <aside class="desktop-cv-side">
-          <div class="desktop-cv-photo" id="dPhoto">👤</div>
-          <h4>YETENEKLER</h4>
-          <ul id="dSkills">
-            <li>İletişim</li>
-            <li>Planlama</li>
-            <li>MS Office</li>
-            <li>Takım çalışması</li>
-          </ul>
-          <h4>EĞİTİM</h4>
-          <p id="dEdu">Okul / Bölüm</p>
-          <h4>DİLLER</h4>
-          <p>Türkçe</p>
-        </aside>
-
-        <main class="desktop-cv-main">
-          <h1 id="dName">AD SOYAD</h1>
-          <h2 id="dJob">MESLEK / POZİSYON</h2>
-
-          <div class="desktop-cv-contact">
-            <span id="dPhone">5XX XXX XX XX</span>
-            <span id="dMail">ornek@email.com</span>
-            <span id="dLocation">Şehir / Ülke</span>
-          </div>
-
-          <section>
-            <h3>HAKKIMDA</h3>
-            <p id="dSummary">Profesyonel özetiniz burada canlı olarak görünür. Bilgi girdikçe bu alan otomatik güncellenir.</p>
-          </section>
-
-          <section>
-            <h3>DENEYİM</h3>
-            <p id="dExperience">İş deneyimleriniz ve görev açıklamalarınız burada özetlenir.</p>
-          </section>
-
-          <section>
-            <h3>PROJELER</h3>
-            <p id="dProjects">Projeleriniz, başarılarınız veya ek çalışmalarınız burada görünür.</p>
-          </section>
-
-          <div class="desktop-cv-watermark">CVYAZ ÖNİZLEME</div>
-        </main>
-      </div>
-
-      <div class="desktop-preview-note">🔒 Bu önizleme ücretsizdir. Temiz PDF satın alma sonrası indirilebilir.</div>
-    </div>
-
-    <div class="desktop-metrics-row">
-      <div><b>10.000+</b><span>Oluşturulan CV</span></div>
-      <div><b>%98</b><span>ATS Başarı Oranı</span></div>
-      <div><b>4.9/5</b><span>Kullanıcı Memnuniyeti</span></div>
-      <div><b>%100</b><span>Güvenli Ödeme</span></div>
-    </div>
-  </aside>
-
-<div class="cv-wrap" id="cvWrap">
+  <div class="cv-wrap" id="cvWrap">
 
     <div id="cv" class="cv modern">
 
