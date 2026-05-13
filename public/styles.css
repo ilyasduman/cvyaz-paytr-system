@@ -5426,3 +5426,73 @@ body.menu-open {
     margin-bottom: 18px !important;
   }
 }
+
+
+
+/* =====================================================
+   V112 POLISH UPDATE
+   1) Hero webde biraz genişletildi
+   2) Açıklama yazısı daha soft yapıldı
+   3) Form hero'ya biraz yaklaştırıldı
+===================================================== */
+
+/* Web: hero kartı biraz daha geniş ve daha premium */
+.app,
+.container,
+.page-shell,
+.main-wrap {
+  max-width: 680px !important;
+}
+
+.hero {
+  width: min(100%, 680px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Açıklama yazısı daha soft */
+.hero p,
+.hero-subtitle {
+  color: rgba(255, 255, 255, .82) !important;
+  font-weight: 500 !important;
+}
+
+/* Formu hero'ya yaklaştır */
+.form-card,
+.personal-card,
+.card,
+.cv-form-card {
+  margin-top: 14px !important;
+}
+
+/* Eğer hero sonrası ekstra boşluk varsa azalt */
+.hero {
+  margin-bottom: 14px !important;
+}
+
+/* Mobilde web genişletme etkisi olmasın, sadece spacing toparlansın */
+@media (max-width: 700px) {
+  .app,
+  .container,
+  .page-shell,
+  .main-wrap {
+    max-width: 100% !important;
+  }
+
+  .hero {
+    width: 100% !important;
+    margin-bottom: 12px !important;
+  }
+
+  .form-card,
+  .personal-card,
+  .card,
+  .cv-form-card {
+    margin-top: 12px !important;
+  }
+
+  .hero p,
+  .hero-subtitle {
+    color: rgba(255,255,255,.84) !important;
+  }
+}
