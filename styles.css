@@ -1,0 +1,3227 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f4f5f7;
+  color: #111;
+  padding-bottom: 120px;
+}
+
+/* =====================================================
+   APP WRAPPER
+===================================================== */
+
+.app {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.brand-image {
+  width: 100%;
+  margin: 0 0 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-image img {
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+  display: block;
+  opacity: .94;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 32px;
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: .68;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   TEMPLATE BUTTONS
+===================================================== */
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  margin: 0 0 12px;
+}
+
+.tab {
+  border: 0;
+  background: #fff;
+  padding: 10px 5px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: .25s ease;
+  min-height: 58px;
+  line-height: 1.18;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, .055);
+}
+
+.tab small {
+  display: block;
+  margin-top: 3px;
+  font-size: 8.7px;
+  font-weight: 700;
+  opacity: .66;
+  line-height: 1.16;
+}
+
+.tab:hover {
+  transform: translateY(-2px);
+}
+
+.tab.active {
+  background: #111;
+  color: #fff;
+  transform: scale(1.02);
+}
+
+.tab.active small {
+  opacity: .82;
+}
+
+.bottom-tabs-title {
+  font-size: 17px;
+  font-weight: 900;
+  margin: 18px 0 8px;
+}
+
+.bottom-tabs-note {
+  font-size: 12.5px;
+  opacity: .62;
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+
+.preview-style-tabs {
+  position: sticky;
+  top: 8px;
+  z-index: 20;
+  background: rgba(244, 245, 247, .94);
+  backdrop-filter: blur(10px);
+  padding: 10px 0 10px;
+  margin-bottom: 12px;
+}
+
+/* =====================================================
+   ACCORDION
+===================================================== */
+
+.acc {
+  background: #fff;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .05);
+}
+
+.acc-head {
+  width: 100%;
+  border: 0;
+  background: #fff;
+  padding: 18px;
+  font-size: 15px;
+  font-weight: 900;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.acc-body {
+  display: none;
+  padding: 0 18px 18px;
+}
+
+.acc.open .acc-body {
+  display: block;
+}
+
+/* =====================================================
+   FORM ELEMENTS
+===================================================== */
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: #f2f2f2;
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.file-label {
+  display: block;
+  background: #111;
+  color: #fff;
+  padding: 15px;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.file-label {
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.file-label input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: block;
+  cursor: pointer;
+}
+
+.mini-btn {
+  border: 0;
+  background: #111;
+  color: #fff;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 900;
+  width: 100%;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.remove {
+  background: #ececec;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.item {
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.hint {
+  font-size: 12px;
+  opacity: .55;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   PREVIEW TITLE
+===================================================== */
+
+.preview-title {
+  font-size: 22px;
+  font-weight: 900;
+  margin: 26px 0 6px;
+}
+
+.preview-sub {
+  font-size: 13px;
+  opacity: .6;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+/* =====================================================
+   CV PREVIEW WRAPPER
+===================================================== */
+
+.cv-wrap {
+  background: #dfe3ea;
+  border-radius: 26px;
+  padding: 12px;
+  overflow: hidden;
+}
+
+/* =====================================================
+   CV PAPER
+===================================================== */
+
+.cv {
+  background: #fff;
+  width: 794px;
+  min-height: 1123px;
+  padding: 54px 48px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .10);
+
+  transform: scale(.48);
+  transform-origin: top left;
+  margin-bottom: -565px;
+}
+
+/* =====================================================
+   WATERMARK GRID
+===================================================== */
+
+/* =====================================================
+   FINAL WATERMARK FIX V2
+===================================================== */
+
+.watermark-grid {
+  position: absolute !important;
+  inset: -80px !important;
+
+  display: grid !important;
+
+  grid-template-columns: repeat(4, 1fr) !important;
+
+  gap: 120px 90px !important;
+
+  place-items: center !important;
+
+  pointer-events: none !important;
+
+  z-index: 20 !important;
+
+  opacity: .18 !important;
+
+  transform: rotate(-24deg) !important;
+
+  overflow: hidden !important;
+}
+
+.watermark-grid span {
+
+  font-size: 42px !important;
+
+  font-weight: 900 !important;
+
+  letter-spacing: 2px !important;
+
+  white-space: nowrap !important;
+
+  color: rgba(17,17,17,.28) !important;
+
+  user-select: none !important;
+
+  line-height: 1 !important;
+}
+
+/* =====================================================
+   CV CONTENT
+===================================================== */
+
+.cv-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.cv-top {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 22px;
+  margin-bottom: 24px;
+}
+
+.photo-frame {
+  width: 112px;
+  height: 136px;
+  flex: 0 0 112px;
+  padding: 5px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .11);
+  display: none;
+  overflow: hidden;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: contain;
+  object-position: center;
+  background: #ffffff;
+  display: block;
+}
+
+.cv h2 {
+  font-size: 36px;
+  letter-spacing: -1px;
+  margin-bottom: 6px;
+}
+
+.role {
+  font-size: 18px;
+  font-weight: 900;
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.contact,
+.small-line {
+  font-size: 14px;
+  opacity: .72;
+  line-height: 1.65;
+}
+
+.sec {
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #ececec;
+  display: none;
+}
+
+.sec:last-child {
+  border-bottom: 0;
+}
+
+.sec h3 {
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: #2563eb;
+}
+
+.entry {
+  margin-bottom: 14px;
+}
+
+.entry b {
+  font-size: 16px;
+}
+
+.entry small {
+  display: block;
+  font-size: 13px;
+  opacity: .58;
+  margin: 4px 0;
+}
+
+.entry p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: #f1f5f9;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   TEMPLATE STYLES — PROFESSIONAL V2
+===================================================== */
+
+.cv,
+.modern,
+.minimal,
+.executive,
+.corporate,
+.creative,
+.premium {
+  background: #ffffff !important;
+}
+
+.cv {
+  color: #111827;
+}
+
+.cv-top {
+  transition: .25s ease;
+}
+
+.sec {
+  margin-bottom: 22px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #eeeeee;
+  display: none;
+}
+
+.sec:last-child {
+  border-bottom: 0;
+}
+
+.sec h3 {
+  font-size: 13px;
+  letter-spacing: 1.25px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.entry {
+  margin-bottom: 13px;
+}
+
+.entry b {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.entry small {
+  display: block;
+  font-size: 13px;
+  opacity: .62;
+  margin: 5px 0;
+}
+
+.entry p {
+  font-size: 15px;
+  line-height: 1.58;
+}
+
+.tag {
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* MODERN */
+.modern {
+  border-top: 11px solid #111827;
+}
+
+.modern .cv-top {
+  border-left: 6px solid #111827;
+  padding-left: 18px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modern .role,
+.modern .sec h3 {
+  color: #111827;
+}
+
+.modern .sec h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modern .sec h3::before {
+  content: "";
+  width: 18px;
+  height: 3px;
+  border-radius: 999px;
+  background: #111827;
+  display: inline-block;
+}
+
+.modern .tag {
+  background: #111827;
+  color: #fff;
+}
+
+/* ATS SADE */
+.minimal {
+  border: 1px solid #e5e7eb;
+  box-shadow: none;
+}
+
+.minimal .cv-top {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 16px;
+}
+
+.minimal h2 {
+  font-size: 34px;
+  letter-spacing: -.5px;
+}
+
+.minimal .role {
+  color: #374151;
+  font-weight: 800;
+}
+
+.minimal .sec h3 {
+  color: #6b7280;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 7px;
+}
+
+.minimal .tag {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* EXECUTIVE */
+.executive {
+  border-top: 15px solid #7c3aed;
+}
+
+.executive .cv-top {
+  border-bottom: 2px solid #ede9fe;
+}
+
+.executive h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 42px;
+  letter-spacing: .2px;
+}
+
+.executive .role {
+  color: #7c3aed;
+  font-weight: 800;
+}
+
+.executive .sec h3 {
+  color: #7c3aed;
+  border-bottom: 1px solid #ede9fe;
+  padding-bottom: 8px;
+}
+
+.executive .entry {
+  border-left: 2px solid #ede9fe;
+  padding-left: 14px;
+}
+
+.executive .tag {
+  background: #ede9fe;
+  color: #4c1d95;
+}
+
+/* KURUMSAL */
+.corporate {
+  border-left: 16px solid #0f172a;
+}
+
+.corporate .cv-top {
+  background: #f8fafc;
+  padding: 18px;
+  border-radius: 14px;
+  border-bottom: 0;
+}
+
+.corporate .role {
+  color: #0f172a;
+}
+
+.corporate .sec {
+  background: #fcfcfd;
+  padding: 15px 16px;
+  border-radius: 14px;
+  border: 1px solid #eef2f7;
+  margin-bottom: 16px;
+}
+
+.corporate .sec h3 {
+  color: #0f172a;
+}
+
+.corporate .tag {
+  background: #dbeafe;
+  color: #0f172a;
+}
+
+/* YARATICI */
+.creative {
+  border-top: 15px solid #ec4899;
+}
+
+.creative .cv-top {
+  border-bottom: 2px dashed #f9a8d4;
+}
+
+.creative h2 {
+  color: #ec4899;
+}
+
+.creative .role,
+.creative .sec h3 {
+  color: #ec4899;
+}
+
+.creative .sec {
+  position: relative;
+  padding-left: 18px;
+}
+
+.creative .sec::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 7px;
+  height: calc(100% - 22px);
+  border-radius: 999px;
+  background: #f9a8d4;
+}
+
+.creative .tag {
+  background: #ec4899;
+  color: #fff;
+}
+
+/* PREMIUM */
+.premium {
+  border: 2px solid #d4af37;
+  border-top: 16px solid #d4af37;
+}
+
+.premium .cv-top {
+  background: #fffef7;
+  border: 1px solid #f3e8c2;
+  padding: 18px;
+  border-radius: 16px;
+}
+
+.premium .photo-frame {
+  border-color: #d4af37;
+  background: #fffaf0;
+}
+
+.premium h2 {
+  color: #1f2937;
+  font-size: 40px;
+}
+
+.premium .role {
+  color: #b45309;
+}
+
+.premium .contact,
+.premium .small-line {
+  color: #374151;
+  opacity: .82;
+}
+
+.premium .sec h3 {
+  color: #b45309;
+}
+
+.premium .entry {
+  border-bottom: 1px dashed #f3e8c2;
+  padding-bottom: 12px;
+}
+
+.premium .entry:last-child {
+  border-bottom: 0;
+}
+
+.premium .tag {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* =====================================================
+   FIXED PDF BUTTON
+===================================================== */
+
+.download {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 36px);
+  max-width: 390px;
+  border: 0;
+  background: #111;
+  color: #fff;
+  padding: 18px;
+  border-radius: 18px;
+  font-size: 16px;
+  font-weight: 900;
+  z-index: 100;
+  cursor: pointer;
+}
+
+/* =====================================================
+   PDF MODAL
+===================================================== */
+
+.pdf-modal {
+  position: fixed;
+  inset: 0;
+  background: #f4f5f7;
+  z-index: 999;
+  display: none;
+  flex-direction: column;
+}
+
+.pdf-top {
+  background: #111;
+  color: #fff;
+  padding: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pdf-top span {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.pdf-top button {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.buy {
+  background: #2f80ff;
+  color: #fff;
+}
+
+.close {
+  background: #fff;
+  color: #111;
+}
+
+#pdfFrame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+/* =====================================================
+   PREMIUM UX POLISH
+===================================================== */
+
+.acc,
+.preview-style-tabs,
+.cv-wrap,
+.ats-card {
+  animation: softRise .35s ease both;
+}
+
+@keyframes softRise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.acc-head span {
+  transition: .2s ease;
+}
+
+.acc.open .acc-head span {
+  transform: rotate(180deg);
+}
+
+.ats-card {
+  background: #111;
+  color: #fff;
+  border-radius: 22px;
+  padding: 16px;
+  margin: 14px 0 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .16);
+}
+
+.ats-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.ats-title {
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.ats-score {
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.ats-bar {
+  width: 100%;
+  height: 9px;
+  background: rgba(255,255,255,.18);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.ats-fill {
+  height: 100%;
+  width: 0%;
+  background: #22c55e;
+  border-radius: 999px;
+  transition: width .3s ease;
+}
+
+.ats-text {
+  font-size: 12.5px;
+  line-height: 1.45;
+  opacity: .78;
+}
+
+.smart-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.smart-btn {
+  border: 0;
+  background: #2563eb;
+  color: #fff;
+  padding: 13px;
+  border-radius: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.smart-btn.secondary {
+  background: #ececec;
+  color: #111;
+}
+
+.jump-preview {
+  border: 0;
+  width: 100%;
+  background: #fff;
+  color: #111;
+  padding: 13px;
+  border-radius: 15px;
+  margin-top: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.cv-wrap {
+  transition: .25s ease;
+}
+
+.cv-wrap.pulse {
+  transform: scale(.995);
+}
+
+
+/* =====================================================
+   PRODUCTION FINAL TOUCHES
+===================================================== */
+
+button,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active,
+.tab:active,
+.mini-btn:active,
+.smart-btn:active,
+.download:active {
+  transform: scale(.985);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(17, 17, 17, .10);
+}
+
+.acc-head {
+  color: #111;
+}
+
+.acc-head span {
+  font-size: 18px;
+  opacity: .55;
+}
+
+.file-label:hover,
+.mini-btn:hover,
+.smart-btn:hover,
+.download:hover {
+  filter: brightness(.96);
+}
+
+.brand-image {
+  margin-top: 2px;
+}
+
+.hero h1 {
+  max-width: 390px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preview-style-tabs {
+  border-radius: 20px;
+}
+
+@media (max-width: 390px) {
+  .app {
+    padding: 12px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .tab {
+    min-height: 54px;
+    font-size: 10.4px;
+    padding: 9px 4px;
+  }
+
+  .tab small {
+    font-size: 8px;
+  }
+
+  .download {
+    padding: 16px;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+    padding: 0;
+  }
+
+  .app > *:not(.cv-wrap),
+  .pdf-modal,
+  .download {
+    display: none !important;
+  }
+
+  .cv-wrap {
+    padding: 0;
+    background: #fff;
+  }
+
+  .cv {
+    transform: none !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0;
+  }
+}
+
+
+/* =====================================================
+   FINAL CONVERSION / MOBILE POLISH
+===================================================== */
+
+.price-pill {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin: 12px auto 0;
+  padding: 8px 12px;
+  border-radius: 14px;
+  background: rgba(17, 17, 17, .045);
+  color: #111;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: none;
+  border: 1px solid rgba(17,17,17,.07);
+}
+
+.price-pill span {
+  font-size: 10.8px;
+  font-weight: 800;
+  opacity: .58;
+}
+
+.progress-card {
+  background: #fff;
+  border-radius: 22px;
+  padding: 15px;
+  margin: 8px 0 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.06);
+  border: 1px solid rgba(17,17,17,.04);
+}
+
+.progress-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 11px;
+}
+
+.progress-top b {
+  display: block;
+  font-size: 14px;
+  font-weight: 900;
+  margin-bottom: 3px;
+}
+
+.progress-top span {
+  display: block;
+  font-size: 12.5px;
+  opacity: .62;
+  line-height: 1.35;
+}
+
+.progress-top strong {
+  font-size: 22px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.progress-bar {
+  height: 9px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #eef0f4;
+  margin-bottom: 11px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #111, #2563eb);
+  transition: width .35s ease;
+}
+
+.progress-chips {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.progress-chips span {
+  padding: 7px 9px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.progress-chips span.done {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.tabs .tab {
+  position: relative;
+  overflow: hidden;
+}
+
+.tabs .tab::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 7px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(17,17,17,.13);
+}
+
+.tabs .tab.active::after {
+  background: rgba(255,255,255,.55);
+}
+
+.tab[data-template="modern"]::after { background: #111827; }
+.tab[data-template="minimal"]::after { background: #9ca3af; }
+.tab[data-template="executive"]::after { background: #7c3aed; }
+.tab[data-template="corporate"]::after { background: #0f172a; }
+.tab[data-template="creative"]::after { background: #ec4899; }
+.tab[data-template="premium"]::after { background: #d4af37; }
+
+.cv-wrap {
+  box-shadow: 0 18px 44px rgba(15,23,42,.13);
+  border: 1px solid rgba(255,255,255,.75);
+}
+
+.cv {
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.cv.template-flash {
+  opacity: .55;
+}
+
+.preview-title::after {
+  content: " canlı";
+  font-size: 11px;
+  background: #dcfce7;
+  color: #166534;
+  padding: 4px 8px;
+  border-radius: 999px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.download {
+  box-shadow: 0 12px 30px rgba(0,0,0,.20);
+}
+
+@media (max-width: 390px) {
+  .price-pill {
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+
+  .progress-card {
+    padding: 14px;
+  }
+
+  .progress-top strong {
+    font-size: 20px;
+  }
+}
+
+
+.mini-ats-text {
+  margin-top: 9px;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .58;
+  font-weight: 700;
+}
+
+
+
+
+
+/* =====================================================
+   FINAL PERSONAL INFO ALIGNMENT V3
+===================================================== */
+
+.info-row {
+  display: grid !important;
+  grid-template-columns: 120px minmax(0, 1fr) !important;
+  column-gap: 8px !important;
+  align-items: baseline !important;
+  font-size: 13.8px !important;
+  line-height: 1.5 !important;
+  margin: 1px 0 !important;
+  opacity: .88 !important;
+}
+
+.info-label {
+  font-weight: 900 !important;
+  color: #6b7280 !important;
+  opacity: 1 !important;
+  white-space: nowrap !important;
+}
+
+.info-value {
+  color: #111827 !important;
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+.info-row-inline {
+  display: grid !important;
+  grid-template-columns: 120px minmax(0, 1fr) !important;
+  column-gap: 8px !important;
+  align-items: baseline !important;
+  font-size: 13.8px !important;
+  line-height: 1.5 !important;
+  margin: 1px 0 !important;
+  opacity: .88 !important;
+}
+
+.info-dot {
+  display: none !important;
+}
+
+.premium .info-label {
+  color: #92400e !important;
+}
+
+.creative .info-label {
+  color: #be185d !important;
+}
+
+.executive .info-label {
+  color: #5b21b6 !important;
+}
+
+.corporate .info-label,
+.modern .info-label,
+.minimal .info-label {
+  color: #6b7280 !important;
+}
+
+
+/* =====================================================
+   DOCUMENT / CERTIFICATE IMAGE PREVIEW FIX
+===================================================== */
+
+.doc-image-entry {
+  margin: 12px 0 18px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.doc-image-entry b {
+  display: block;
+  font-size: 14px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.doc-image-entry img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 6px;
+}
+
+
+/* =====================================================
+   FINAL DOCUMENTS AFTER REFERENCES
+===================================================== */
+
+#secDocs {
+  page-break-before: always;
+  break-before: page;
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#secDocs .doc-image-entry {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  page-break-after: always;
+  break-after: page;
+  min-height: 1040px;
+  margin: 0;
+  padding: 0;
+}
+
+#secDocs .doc-image-entry:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+#secDocs .doc-image-entry b {
+  display: block;
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+#secDocs .doc-image-entry img {
+  width: 100%;
+  max-width: 100%;
+  max-height: 960px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: top center;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 6px;
+}
+
+
+/* Ek belgeler PDF'te CV'den ayrı tam sayfa olarak basılır. */
+#secDocs {
+  border-bottom: 0 !important;
+}
+
+
+/* PDF sayfa çerçevesi canvas üzerinde her sayfaya ayrı çizilir.
+   Uzun CV'lerde template çerçevesinin sayfa ortasında bitmesini engeller. */
+#cvPdfClone {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+
+/* =====================================================
+   FINAL NO OUTER FRAME MODE
+   Stiller kalsın, dış çerçeve/kenar çizgileri görünmesin.
+===================================================== */
+
+.cv,
+.modern,
+.minimal,
+.executive,
+.corporate,
+.creative,
+.premium,
+#cvPdfClone {
+  border: 0 !important;
+  border-top: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  border-left: 0 !important;
+  outline: 0 !important;
+}
+
+.modern .cv-top,
+.minimal .cv-top,
+.executive .cv-top,
+.corporate .cv-top,
+.creative .cv-top,
+.premium .cv-top {
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+
+/* Bölüm ayırıcı çizgiler kalabilir; onlar çerçeve değil, okunabilirlik için. */
+
+
+/* =====================================================
+   FINAL DISTINCT CV STYLE SYSTEM V4
+   Dış çerçeve yok. Her stil farklı karakterde.
+===================================================== */
+
+.cv {
+  border: 0 !important;
+  outline: 0 !important;
+  background: #ffffff !important;
+}
+
+/* Ortak section temizliği */
+.cv .sec {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.cv .sec h3 {
+  letter-spacing: 1.2px;
+  font-weight: 900;
+}
+
+/* -----------------------------
+   1) MODERN — koyu sol aks, net teknoloji
+------------------------------ */
+
+.cv.modern {
+  background: #ffffff !important;
+}
+
+.cv.modern .cv-top {
+  border-left: 9px solid #111827 !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  padding-left: 22px !important;
+  padding-bottom: 18px !important;
+  background: linear-gradient(90deg, #f9fafb 0%, #ffffff 72%) !important;
+  border-radius: 0 !important;
+}
+
+.cv.modern h2 {
+  color: #111827 !important;
+  font-size: 38px !important;
+  letter-spacing: -1px !important;
+}
+
+.cv.modern .role {
+  color: #2563eb !important;
+  font-weight: 900 !important;
+}
+
+.cv.modern .sec h3 {
+  color: #111827 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.cv.modern .sec h3::before {
+  content: "" !important;
+  width: 22px !important;
+  height: 4px !important;
+  background: #2563eb !important;
+  border-radius: 999px !important;
+  display: inline-block !important;
+}
+
+.cv.modern .entry {
+  padding-left: 14px !important;
+  border-left: 2px solid #dbeafe !important;
+}
+
+.cv.modern .tag {
+  background: #111827 !important;
+  color: #ffffff !important;
+}
+
+/* -----------------------------
+   2) ATS SADE — en temiz, klasik
+------------------------------ */
+
+.cv.minimal {
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.cv.minimal .cv-top {
+  border-bottom: 1px solid #e5e7eb !important;
+  padding-bottom: 16px !important;
+  background: #ffffff !important;
+}
+
+.cv.minimal h2 {
+  color: #111827 !important;
+  font-size: 34px !important;
+  letter-spacing: -.5px !important;
+}
+
+.cv.minimal .role {
+  color: #374151 !important;
+  font-weight: 800 !important;
+}
+
+.cv.minimal .sec {
+  border-bottom: 1px solid #eeeeee !important;
+  padding-bottom: 16px !important;
+}
+
+.cv.minimal .sec h3 {
+  color: #6b7280 !important;
+  border-bottom: 1px solid #f3f4f6 !important;
+  padding-bottom: 7px !important;
+}
+
+.cv.minimal .entry {
+  border-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.cv.minimal .tag {
+  background: #f3f4f6 !important;
+  color: #111827 !important;
+}
+
+/* -----------------------------
+   3) EXECUTIVE — serif, prestij, üst çizgi
+------------------------------ */
+
+.cv.executive {
+  background: #ffffff !important;
+}
+
+.cv.executive .cv-top {
+  border-top: 10px solid #7c3aed !important;
+  border-bottom: 2px solid #ede9fe !important;
+  padding-top: 22px !important;
+  padding-bottom: 18px !important;
+  background: #ffffff !important;
+}
+
+.cv.executive h2 {
+  font-family: Georgia, "Times New Roman", serif !important;
+  color: #111827 !important;
+  font-size: 44px !important;
+  letter-spacing: .2px !important;
+}
+
+.cv.executive .role {
+  color: #7c3aed !important;
+  font-weight: 900 !important;
+}
+
+.cv.executive .sec h3 {
+  color: #7c3aed !important;
+  border-bottom: 1px solid #ede9fe !important;
+  padding-bottom: 8px !important;
+}
+
+.cv.executive .entry {
+  border-left: 3px solid #ede9fe !important;
+  padding-left: 15px !important;
+}
+
+.cv.executive .tag {
+  background: #ede9fe !important;
+  color: #4c1d95 !important;
+}
+
+/* -----------------------------
+   4) KURUMSAL — kartlı, banka/holding
+------------------------------ */
+
+.cv.corporate {
+  background: #ffffff !important;
+}
+
+.cv.corporate .cv-top {
+  background: #f8fafc !important;
+  padding: 20px !important;
+  border-radius: 18px !important;
+  border-bottom: 0 !important;
+  box-shadow: inset 0 0 0 1px #e5e7eb !important;
+}
+
+.cv.corporate h2 {
+  color: #0f172a !important;
+  font-size: 36px !important;
+}
+
+.cv.corporate .role {
+  color: #0f172a !important;
+  font-weight: 900 !important;
+}
+
+.cv.corporate .sec {
+  background: #fcfcfd !important;
+  padding: 15px 16px !important;
+  border-radius: 14px !important;
+  border: 1px solid #eef2f7 !important;
+  margin-bottom: 16px !important;
+}
+
+.cv.corporate .sec h3 {
+  color: #0f172a !important;
+}
+
+.cv.corporate .entry {
+  padding-left: 0 !important;
+  border-left: 0 !important;
+}
+
+.cv.corporate .tag {
+  background: #dbeafe !important;
+  color: #0f172a !important;
+}
+
+/* -----------------------------
+   5) CREATIVE — pembe, dinamik sol mini aks
+------------------------------ */
+
+.cv.creative {
+  background: #ffffff !important;
+}
+
+.cv.creative .cv-top {
+  border-top: 9px solid #ec4899 !important;
+  border-bottom: 2px dashed #f9a8d4 !important;
+  padding-top: 20px !important;
+  padding-bottom: 18px !important;
+  background: linear-gradient(180deg, #fff7fb 0%, #ffffff 68%) !important;
+}
+
+.cv.creative h2 {
+  color: #ec4899 !important;
+  font-size: 38px !important;
+}
+
+.cv.creative .role,
+.cv.creative .sec h3 {
+  color: #ec4899 !important;
+}
+
+.cv.creative .sec {
+  position: relative !important;
+  padding-left: 20px !important;
+  border-bottom: 1px dashed #f9a8d4 !important;
+}
+
+.cv.creative .sec::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 6px !important;
+  width: 7px !important;
+  height: calc(100% - 22px) !important;
+  border-radius: 999px !important;
+  background: #f9a8d4 !important;
+}
+
+.cv.creative .entry {
+  border-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.cv.creative .tag {
+  background: #ec4899 !important;
+  color: #ffffff !important;
+}
+
+/* -----------------------------
+   6) PREMIUM — altın detay, lüks beyaz
+------------------------------ */
+
+.cv.premium {
+  background: #ffffff !important;
+}
+
+.cv.premium .cv-top {
+  background: linear-gradient(90deg, #fffdf2 0%, #ffffff 78%) !important;
+  border-top: 10px solid #d4af37 !important;
+  border-bottom: 1px solid #f3e8c2 !important;
+  padding: 20px !important;
+  border-radius: 16px !important;
+  box-shadow: inset 0 0 0 1px #f3e8c2 !important;
+}
+
+.cv.premium h2 {
+  color: #1f2937 !important;
+  font-size: 40px !important;
+}
+
+.cv.premium .role {
+  color: #b45309 !important;
+  font-weight: 900 !important;
+}
+
+.cv.premium .sec h3 {
+  color: #b45309 !important;
+}
+
+.cv.premium .entry {
+  border-bottom: 1px dashed #f3e8c2 !important;
+  padding-bottom: 12px !important;
+}
+
+.cv.premium .entry:last-child {
+  border-bottom: 0 !important;
+}
+
+.cv.premium .tag {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+}
+
+/* Fotoğraf tüm stillerde orantılı */
+.photo {
+  object-fit: contain !important;
+  object-position: center !important;
+  background: #ffffff !important;
+}
+
+/* PDF klonunda dış frame yok ama iç stil çizgileri kalsın */
+#cvPdfClone {
+  border: 0 !important;
+  outline: 0 !important;
+}
+
+
+
+/* =====================================================
+   IOS SAFARI INPUT ZOOM + YATAY KAYMA FIX
+   Çekirdek yapı korunur. Sadece mobil yatay taşma engellenir.
+===================================================== */
+html,
+body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+body {
+  position: relative !important;
+}
+
+.app {
+  width: 100% !important;
+  max-width: 430px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow-x: hidden !important;
+}
+
+input,
+textarea,
+select {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  font-size: 16px !important;
+  -webkit-text-size-adjust: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+textarea {
+  max-width: 100% !important;
+}
+
+.acc,
+.acc-body,
+.brand-image,
+.hero,
+.cv-wrap,
+.preview-style-tabs,
+.tabs,
+.item {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+img {
+  max-width: 100% !important;
+  height: auto;
+}
+
+.file-label,
+.mini-btn,
+.smart-btn,
+.jump-preview {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* =====================================================
+   PDF BUTTON WIDTH FIX
+   Masaüstünde butonun tam ekrana yayılmasını engeller.
+   Mobilde eski 390px premium genişlik korunur.
+===================================================== */
+.download {
+  width: calc(100% - 36px) !important;
+  max-width: 390px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  box-sizing: border-box !important;
+}
+
+@supports (-webkit-touch-callout: none) {
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+
+
+/* =====================================================
+   MOBILE PREVIEW IMAGE/DOC FIX FINAL
+   Ek sertifika görselleri önizlemede/PDF'te görünür.
+===================================================== */
+
+#cvPdfClone #secDocs {
+  page-break-before: always;
+  break-before: page;
+}
+
+#cvPdfClone #secDocs .doc-image-entry img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+
+/* =====================================================
+   FINAL PREVIEW ORDER + CLEAN WATERMARK PATCH V3
+   Çekirdek yapı korunur. Referanslar ek belgelerin üstünde kalır.
+   Watermark: koyu ama üst üste binmez.
+===================================================== */
+.watermark-grid {
+  position: absolute !important;
+  inset: -90px !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 125px 110px !important;
+  place-items: center !important;
+  pointer-events: none !important;
+  z-index: 20 !important;
+  opacity: .16 !important;
+  transform: rotate(-24deg) !important;
+  overflow: hidden !important;
+}
+
+.watermark-grid span {
+  font-size: 40px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  white-space: nowrap !important;
+  color: rgba(17, 24, 39, .30) !important;
+  user-select: none !important;
+  line-height: 1 !important;
+}
+
+#secRef {
+  order: 98;
+}
+
+#secDocs {
+  order: 99;
+}
+
+
+/* =====================================================
+   EK BELGE KALDIRMA + BELGE WATERMARK TEMİZLİĞİ
+   Çekirdek yapı korunur.
+===================================================== */
+
+.doc-manager {
+  display: grid;
+  gap: 8px;
+  margin: 8px 0 12px;
+}
+
+.doc-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  background: #f2f2f2;
+  border-radius: 14px;
+  padding: 10px 10px 10px 12px;
+}
+
+.doc-row-name {
+  min-width: 0;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #111827;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.doc-remove {
+  border: 0;
+  background: #111;
+  color: #fff;
+  border-radius: 12px;
+  padding: 9px 11px;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.doc-remove:active {
+  transform: scale(.97);
+}
+
+/* Ek belge önizleme canvas'ında belge üstüne ikinci watermark bindirilmez.
+   Watermark sadece boş sayfa zemini için canvas tarafında çok hafif çizilir. */
+#secDocs .watermark-grid {
+  display: none !important;
+}
+
+
+
+/* =====================================================
+   FINAL DISTINCT CV STYLE SYSTEM V5
+   Çekirdek yapı korunur. Dış çerçeve yok.
+   Her stil ilk bakışta farklı karakter verir.
+===================================================== */
+
+.cv {
+  border: 0 !important;
+  outline: 0 !important;
+  background: #ffffff !important;
+}
+
+.cv .cv-inner {
+  position: relative !important;
+}
+
+.cv .cv-top,
+.cv .sec,
+.cv .entry,
+.cv .tag,
+.cv h2,
+.cv .role,
+.cv .sec h3 {
+  transition: none !important;
+}
+
+/* Ortak okunabilirlik */
+.cv .contact,
+.cv .small-line,
+.cv .entry p,
+.cv .entry small {
+  color: #374151 !important;
+}
+
+.cv .entry b {
+  color: #111827 !important;
+}
+
+/* -----------------------------
+   1) MODERN — teknoloji/startup, güçlü sol aks
+------------------------------ */
+
+.cv.modern {
+  padding: 50px 46px !important;
+  background:
+    linear-gradient(90deg, rgba(37,99,235,.055) 0, rgba(37,99,235,.055) 22px, #ffffff 22px, #ffffff 100%) !important;
+}
+
+.cv.modern .cv-top {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 22px !important;
+  padding: 24px !important;
+  margin-bottom: 26px !important;
+  box-shadow: 0 14px 34px rgba(15,23,42,.18) !important;
+}
+
+.cv.modern h2 {
+  color: #ffffff !important;
+  font-size: 39px !important;
+  letter-spacing: -1.2px !important;
+}
+
+.cv.modern .role {
+  color: #93c5fd !important;
+  font-size: 17px !important;
+  text-transform: uppercase !important;
+  letter-spacing: .8px !important;
+}
+
+.cv.modern .contact,
+.cv.modern .small-line,
+.cv.modern .info-value {
+  color: rgba(255,255,255,.86) !important;
+}
+
+.cv.modern .info-label {
+  color: #93c5fd !important;
+}
+
+.cv.modern .photo-frame {
+  background: rgba(255,255,255,.10) !important;
+  border: 1px solid rgba(255,255,255,.22) !important;
+  box-shadow: none !important;
+}
+
+.cv.modern .sec {
+  border-bottom: 0 !important;
+  padding: 0 0 18px 18px !important;
+  margin-bottom: 20px !important;
+  border-left: 4px solid #dbeafe !important;
+}
+
+.cv.modern .sec h3 {
+  color: #2563eb !important;
+  font-size: 13px !important;
+  letter-spacing: 1.8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+}
+
+.cv.modern .sec h3::before {
+  content: "" !important;
+  width: 26px !important;
+  height: 5px !important;
+  border-radius: 999px !important;
+  background: #2563eb !important;
+  display: inline-block !important;
+}
+
+.cv.modern .entry {
+  border-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.cv.modern .tag {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+
+/* -----------------------------
+   2) ATS SADE — en klasik, en temiz
+------------------------------ */
+
+.cv.minimal {
+  padding: 58px 54px !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.cv.minimal .cv-top {
+  display: flex !important;
+  background: #ffffff !important;
+  border: 0 !important;
+  border-bottom: 1px solid #d1d5db !important;
+  border-radius: 0 !important;
+  padding: 0 0 18px !important;
+  margin-bottom: 22px !important;
+  box-shadow: none !important;
+}
+
+.cv.minimal h2 {
+  color: #111827 !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 33px !important;
+  letter-spacing: -.4px !important;
+}
+
+.cv.minimal .role {
+  color: #374151 !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+.cv.minimal .sec {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  border-radius: 0 !important;
+  padding: 0 0 15px !important;
+  margin-bottom: 18px !important;
+}
+
+.cv.minimal .sec h3 {
+  color: #111827 !important;
+  font-size: 12.5px !important;
+  border: 0 !important;
+  padding: 0 0 6px !important;
+  letter-spacing: 1.5px !important;
+}
+
+.cv.minimal .sec h3::before,
+.cv.minimal .sec::before {
+  display: none !important;
+}
+
+.cv.minimal .entry {
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+.cv.minimal .tag {
+  background: #f3f4f6 !important;
+  color: #111827 !important;
+  border-radius: 4px !important;
+  font-weight: 700 !important;
+}
+
+/* -----------------------------
+   3) EXECUTIVE — klasik, serif, yönetici
+------------------------------ */
+
+.cv.executive {
+  padding: 56px 52px !important;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #ffffff 86%, #fbf9ff 100%) !important;
+}
+
+.cv.executive .cv-top {
+  border: 0 !important;
+  border-bottom: 3px double #7c3aed !important;
+  border-top: 3px double #7c3aed !important;
+  border-radius: 0 !important;
+  padding: 22px 0 !important;
+  margin-bottom: 26px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.cv.executive h2 {
+  font-family: Georgia, "Times New Roman", serif !important;
+  color: #111827 !important;
+  font-size: 45px !important;
+  letter-spacing: .1px !important;
+  font-weight: 700 !important;
+}
+
+.cv.executive .role {
+  color: #6d28d9 !important;
+  font-size: 17px !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-style: italic !important;
+  letter-spacing: .4px !important;
+}
+
+.cv.executive .sec {
+  border-bottom: 1px solid #ede9fe !important;
+  padding-bottom: 18px !important;
+  margin-bottom: 22px !important;
+}
+
+.cv.executive .sec h3 {
+  color: #6d28d9 !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 15px !important;
+  letter-spacing: .6px !important;
+  text-transform: none !important;
+  border: 0 !important;
+  padding-bottom: 7px !important;
+}
+
+.cv.executive .sec h3::before,
+.cv.executive .sec::before {
+  display: none !important;
+}
+
+.cv.executive .entry {
+  border-left: 3px solid #ddd6fe !important;
+  padding-left: 16px !important;
+}
+
+.cv.executive .tag {
+  background: #f5f3ff !important;
+  color: #4c1d95 !important;
+  border-radius: 999px !important;
+  border: 1px solid #ddd6fe !important;
+}
+
+/* -----------------------------
+   4) KURUMSAL — banka/holding, kartlı sistem
+------------------------------ */
+
+.cv.corporate {
+  padding: 46px 44px !important;
+  background: #f8fafc !important;
+}
+
+.cv.corporate .cv-top {
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 18px !important;
+  padding: 22px !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 10px 24px rgba(15,23,42,.08) !important;
+}
+
+.cv.corporate h2 {
+  color: #0f172a !important;
+  font-size: 36px !important;
+  letter-spacing: -.6px !important;
+}
+
+.cv.corporate .role {
+  color: #0f172a !important;
+  font-weight: 900 !important;
+  background: #e2e8f0 !important;
+  display: inline-block !important;
+  padding: 6px 10px !important;
+  border-radius: 999px !important;
+}
+
+.cv.corporate .sec {
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 16px !important;
+  padding: 16px 18px !important;
+  margin-bottom: 14px !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,.055) !important;
+}
+
+.cv.corporate .sec h3 {
+  color: #0f172a !important;
+  background: #f1f5f9 !important;
+  display: inline-block !important;
+  border-radius: 999px !important;
+  padding: 7px 11px !important;
+  margin-bottom: 13px !important;
+}
+
+.cv.corporate .sec h3::before,
+.cv.corporate .sec::before {
+  display: none !important;
+}
+
+.cv.corporate .entry {
+  border-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.cv.corporate .tag {
+  background: #e0f2fe !important;
+  color: #075985 !important;
+  border-radius: 10px !important;
+}
+
+/* -----------------------------
+   5) CREATIVE — dinamik, renkli, portfolyo hissi
+------------------------------ */
+
+.cv.creative {
+  padding: 48px 46px !important;
+  background:
+    radial-gradient(circle at top right, rgba(236,72,153,.16) 0, rgba(236,72,153,.16) 115px, transparent 116px),
+    radial-gradient(circle at bottom left, rgba(168,85,247,.12) 0, rgba(168,85,247,.12) 105px, transparent 106px),
+    #ffffff !important;
+}
+
+.cv.creative .cv-top {
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 28px 8px 28px 8px !important;
+  padding: 24px !important;
+  margin-bottom: 25px !important;
+  box-shadow: 0 14px 34px rgba(236,72,153,.22) !important;
+}
+
+.cv.creative h2 {
+  color: #ffffff !important;
+  font-size: 39px !important;
+  letter-spacing: -.9px !important;
+}
+
+.cv.creative .role {
+  color: #fff7fb !important;
+  font-size: 17px !important;
+  font-weight: 900 !important;
+}
+
+.cv.creative .contact,
+.cv.creative .small-line,
+.cv.creative .info-value {
+  color: rgba(255,255,255,.88) !important;
+}
+
+.cv.creative .info-label {
+  color: #fce7f3 !important;
+}
+
+.cv.creative .photo-frame {
+  border-radius: 28px 8px 28px 8px !important;
+  background: rgba(255,255,255,.14) !important;
+  border: 1px solid rgba(255,255,255,.28) !important;
+  box-shadow: none !important;
+}
+
+.cv.creative .sec {
+  position: relative !important;
+  border: 0 !important;
+  border-bottom: 1px dashed #f9a8d4 !important;
+  padding: 0 0 18px 22px !important;
+  margin-bottom: 20px !important;
+}
+
+.cv.creative .sec::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 3px !important;
+  width: 9px !important;
+  height: calc(100% - 18px) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(180deg, #ec4899, #8b5cf6) !important;
+}
+
+.cv.creative .sec h3 {
+  color: #db2777 !important;
+  font-size: 13px !important;
+  letter-spacing: 2px !important;
+}
+
+.cv.creative .sec h3::before {
+  display: none !important;
+}
+
+.cv.creative .entry {
+  border-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.cv.creative .tag {
+  background: linear-gradient(135deg, #ec4899, #8b5cf6) !important;
+  color: #ffffff !important;
+  border-radius: 999px !important;
+}
+
+/* -----------------------------
+   6) PREMIUM — altın, lüks, butik
+------------------------------ */
+
+.cv.premium {
+  padding: 52px 50px !important;
+  background:
+    linear-gradient(180deg, #fffdf4 0%, #ffffff 38%, #ffffff 100%) !important;
+}
+
+.cv.premium .cv-top {
+  background: linear-gradient(135deg, #111827 0%, #2d2412 100%) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 20px !important;
+  padding: 24px !important;
+  margin-bottom: 26px !important;
+  box-shadow: 0 16px 36px rgba(17,24,39,.18) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.cv.premium .cv-top::after {
+  content: "" !important;
+  position: absolute !important;
+  right: -38px !important;
+  top: -38px !important;
+  width: 145px !important;
+  height: 145px !important;
+  border-radius: 50% !important;
+  border: 18px solid rgba(212,175,55,.28) !important;
+}
+
+.cv.premium .cv-top > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.cv.premium h2 {
+  color: #ffffff !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+}
+
+.cv.premium .role {
+  color: #facc15 !important;
+  font-weight: 900 !important;
+  letter-spacing: .7px !important;
+  text-transform: uppercase !important;
+}
+
+.cv.premium .contact,
+.cv.premium .small-line,
+.cv.premium .info-value {
+  color: rgba(255,255,255,.86) !important;
+}
+
+.cv.premium .info-label {
+  color: #fde68a !important;
+}
+
+.cv.premium .photo-frame {
+  border: 1px solid rgba(250,204,21,.52) !important;
+  background: rgba(255,255,255,.10) !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,.24) !important;
+}
+
+.cv.premium .sec {
+  border: 0 !important;
+  border-bottom: 1px solid #f3e8c2 !important;
+  padding-bottom: 19px !important;
+  margin-bottom: 22px !important;
+}
+
+.cv.premium .sec h3 {
+  color: #92400e !important;
+  font-size: 13px !important;
+  letter-spacing: 1.9px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.cv.premium .sec h3::before {
+  content: "" !important;
+  width: 32px !important;
+  height: 2px !important;
+  background: #d4af37 !important;
+  display: inline-block !important;
+}
+
+.cv.premium .entry {
+  border-bottom: 1px dashed #f3e8c2 !important;
+  border-left: 0 !important;
+  padding-left: 0 !important;
+  padding-bottom: 12px !important;
+}
+
+.cv.premium .entry:last-child {
+  border-bottom: 0 !important;
+}
+
+.cv.premium .tag {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+  border-radius: 999px !important;
+  border: 1px solid #f3e8c2 !important;
+}
+
+/* PDF klonunda dış frame yine kapalı, iç karakterler açık */
+#cvPdfClone {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+#cvPdfClone.cv.modern,
+#cvPdfClone.cv.minimal,
+#cvPdfClone.cv.executive,
+#cvPdfClone.cv.corporate,
+#cvPdfClone.cv.creative,
+#cvPdfClone.cv.premium {
+  border: 0 !important;
+  outline: 0 !important;
+}
+
+
+/* =====================================================
+   FINAL TEXT CENTER FIX
+===================================================== */
+
+.bottom-tabs-title,
+.bottom-tabs-note,
+.preview-title,
+.preview-sub {
+  width: 100% !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.bottom-tabs-title,
+.preview-title {
+  display: block !important;
+}
+
+.bottom-tabs-note,
+.preview-sub {
+  display: block !important;
+  max-width: 360px !important;
+  line-height: 1.65 !important;
+}
+
+.preview-title::after {
+  vertical-align: middle !important;
+}
+
+
+
+/* =====================================================
+   LEGAL / POLICY AREA FINAL
+===================================================== */
+
+.legal-box {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 0 10px 28px rgba(0,0,0,.06);
+  border: 1px solid rgba(17,17,17,.06);
+}
+
+.legal-title {
+  font-size: 15px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.legal-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.legal-check input {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  margin-top: 2px !important;
+  flex: 0 0 18px !important;
+  padding: 0 !important;
+  border-radius: 4px !important;
+  appearance: auto !important;
+  -webkit-appearance: checkbox !important;
+}
+
+.legal-check label {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #374151;
+}
+
+.legal-note {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: .68;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.legal-links a {
+  text-decoration: none;
+  background: #f3f4f6;
+  color: #111827;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.support-footer {
+  margin-top: 26px;
+  margin-bottom: 110px;
+  text-align: center;
+  padding: 22px 18px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.06);
+  border: 1px solid rgba(17,17,17,.06);
+}
+
+.support-title {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.support-sub {
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: .66;
+  max-width: 320px;
+  margin: 0 auto 16px;
+}
+
+.support-whatsapp {
+  display: inline-block;
+  text-decoration: none;
+  background: #16a34a;
+  color: #ffffff;
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 900;
+  box-shadow: 0 10px 22px rgba(22,163,74,.20);
+}
+
+.support-mail {
+  margin-top: 14px;
+  font-size: 12px;
+  opacity: .58;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   LEGAL + SUPPORT COMPACT WIDTH FIX
+   Sayfanın tamamına yayılmasını engeller.
+===================================================== */
+
+.legal-box,
+.support-footer {
+  width: 100% !important;
+  max-width: 430px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.legal-box {
+  padding: 16px !important;
+  margin-top: 18px !important;
+  margin-bottom: 18px !important;
+  border-radius: 22px !important;
+}
+
+.support-footer {
+  padding: 22px 18px !important;
+  margin-top: 22px !important;
+  margin-bottom: 115px !important;
+  border-radius: 24px !important;
+}
+
+.legal-check {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+.legal-links {
+  max-width: 360px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/* =====================================================
+   FINAL PDF PREVIEW WHATSAPP COLLISION FIX
+   PDF hazırlama/önizleme iframe içinde WhatsApp destek kartı görünmez.
+===================================================== */
+
+.pdf-modal {
+  background: #f4f5f7 !important;
+}
+
+#pdfFrame {
+  background: #f4f5f7 !important;
+}
+
+.pdf-modal .support-footer,
+.pdf-modal .legal-box {
+  display: none !important;
+}
+
+
+
+/* =====================================================
+   CVYAZ SAME MOBILE DESIGN ON DESKTOP V5
+   Telefon görünümü web'de de aynı kalır.
+   Sadece masaüstünde ortalanır ve kontrollü büyütülür.
+===================================================== */
+
+@media (min-width: 768px) {
+  html,
+  body {
+    width: 100% !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  body {
+    background: #f4f5f7 !important;
+  }
+
+  .app {
+    width: min(100%, 520px) !important;
+    max-width: 520px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .brand-image {
+    width: 100% !important;
+    max-width: 430px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .brand-image img {
+    width: 100% !important;
+    max-width: 430px !important;
+    height: auto !important;
+  }
+
+  .hero {
+    width: 100% !important;
+    max-width: 520px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 3vw, 44px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -1px !important;
+  }
+
+  .hero p {
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+  }
+
+  .acc,
+  .preview-style-tabs,
+  .cv-wrap,
+  .legal-box,
+  .support-footer {
+    width: 100% !important;
+    max-width: 520px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font-size: 16px !important;
+  }
+
+  .download {
+    width: min(520px, calc(100vw - 36px)) !important;
+    max-width: 520px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .cv-wrap {
+    overflow-x: hidden !important;
+  }
+
+  .cv {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (min-width: 1180px) {
+  .app {
+    max-width: 560px !important;
+  }
+
+  .brand-image,
+  .brand-image img {
+    max-width: 455px !important;
+  }
+
+  .acc,
+  .preview-style-tabs,
+  .cv-wrap,
+  .legal-box,
+  .support-footer {
+    max-width: 560px !important;
+  }
+
+  .download {
+    width: min(560px, calc(100vw - 36px)) !important;
+    max-width: 560px !important;
+  }
+}
+
+
+
+
+/* =====================================================
+   CVYAZ PREMIUM HERO V6
+===================================================== */
+
+body{
+  background:#eef1f5 !important;
+}
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding-top:32px !important;
+  padding-bottom:120px !important;
+  background:linear-gradient(135deg,#111827 0%,#1e1b4b 45%,#312e81 100%) !important;
+  border-bottom-left-radius:48px;
+  border-bottom-right-radius:48px;
+  box-shadow:0 20px 60px rgba(15,23,42,.18);
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  left:-5%;
+  right:-5%;
+  bottom:-70px;
+  height:140px;
+  background:#eef1f5;
+  transform:rotate(-4deg);
+}
+
+.brand-image{
+  position:relative;
+  z-index:2;
+}
+
+.brand-image img{
+  border-radius:24px;
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+}
+
+.hero h1{
+  position:relative;
+  z-index:2;
+  color:#fff !important;
+  text-shadow:0 8px 20px rgba(0,0,0,.18);
+}
+
+.hero p{
+  position:relative;
+  z-index:2;
+  color:rgba(255,255,255,.82) !important;
+}
+
+.acc,
+.preview-style-tabs,
+.cv-wrap,
+.legal-box,
+.support-footer{
+  position:relative;
+  z-index:5;
+  background:#fff !important;
+  border-radius:28px !important;
+  box-shadow:0 10px 35px rgba(15,23,42,.06);
+}
+
+.download{
+  background:#22c55e !important;
+  color:#fff !important;
+  box-shadow:0 12px 35px rgba(34,197,94,.35) !important;
+}
+
+.download:hover{
+  transform:translateX(-50%) translateY(-2px) !important;
+}
+
+@media (max-width:767px){
+
+  .hero{
+    padding-top:24px !important;
+    padding-bottom:90px !important;
+    border-bottom-left-radius:32px;
+    border-bottom-right-radius:32px;
+  }
+
+  .hero::after{
+    bottom:-60px;
+    height:110px;
+  }
+
+  .hero h1{
+    font-size:54px !important;
+    line-height:0.98 !important;
+    letter-spacing:-2px;
+  }
+
+  .hero p{
+    font-size:18px !important;
+  }
+}
+
+
+
+
+/* =====================================================
+   CVYAZ PREMIUM FORCE HERO V6.1
+===================================================== */
+
+html,
+body{
+    background:#eef1f5 !important;
+}
+
+/* ÜST ALAN */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:520px;
+    background:linear-gradient(135deg,#111827 0%,#1e1b4b 45%,#312e81 100%);
+    z-index:-2;
+}
+
+/* diagonal geçiş */
+body::after{
+    content:"";
+    position:fixed;
+    left:-5%;
+    width:110%;
+    top:420px;
+    height:180px;
+    background:#eef1f5;
+    transform:rotate(-4deg);
+    z-index:-1;
+}
+
+.brand-image img{
+    border-radius:22px !important;
+    box-shadow:0 18px 45px rgba(0,0,0,.25) !important;
+}
+
+.hero h1,
+h1{
+    color:#ffffff !important;
+    text-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.hero p,
+.hero-subtitle{
+    color:rgba(255,255,255,.88) !important;
+}
+
+.acc,
+.preview-style-tabs,
+.cv-wrap,
+.legal-box,
+.support-footer{
+    background:#ffffff !important;
+    border-radius:28px !important;
+    box-shadow:0 12px 40px rgba(15,23,42,.08) !important;
+}
+
+.download{
+    background:#22c55e !important;
+    color:#fff !important;
+    box-shadow:0 15px 35px rgba(34,197,94,.35) !important;
+}
+
+/* desktop dolgun görünüm */
+@media (min-width:768px){
+
+    .app{
+        max-width:640px !important;
+    }
+
+    .brand-image,
+    .brand-image img{
+        max-width:460px !important;
+    }
+
+    h1{
+        font-size:72px !important;
+        line-height:.95 !important;
+        letter-spacing:-3px !important;
+    }
+}
+
+/* mobil */
+@media (max-width:767px){
+
+    body::before{
+        height:620px;
+    }
+
+    body::after{
+        top:520px;
+    }
+
+    h1{
+        font-size:58px !important;
+        line-height:.96 !important;
+        letter-spacing:-2px !important;
+    }
+}
+
+
+
+/* =====================================================
+   CVYAZ MOBILE CTA OVERLAP FIX V6.2
+   Yeşil sabit CTA mobilde "Fotoğraf Ekle" butonunun üstüne binmesin.
+===================================================== */
+
+@media (max-width: 767px) {
+  .download {
+    bottom: 18px !important;
+    width: calc(100vw - 44px) !important;
+    max-width: 680px !important;
+    min-height: 58px !important;
+    height: 58px !important;
+    border-radius: 18px !important;
+    font-size: 16px !important;
+    z-index: 80 !important;
+  }
+
+  .acc:first-of-type {
+    margin-top: 22px !important;
+  }
+
+  .acc:first-of-type .acc-body {
+    padding-top: 14px !important;
+  }
+
+  .photo-btn {
+    position: relative !important;
+    z-index: 120 !important;
+    margin-top: 6px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .photo-remove {
+    position: relative !important;
+    z-index: 110 !important;
+  }
+
+  body {
+    padding-bottom: 96px !important;
+  }
+
+  .app {
+    padding-bottom: 120px !important;
+  }
+}
+
+/* Masaüstünde CTA eski geniş ve ortalı kalsın */
+@media (min-width: 768px) {
+  .download {
+    bottom: 20px !important;
+    z-index: 90 !important;
+  }
+}
+
+
+
+
+/* =====================================================
+   CVYAZ MOBILE START BUTTON VISIBLE FIX V6.3
+   Mobilde ilk açılışta sabit önizleme butonu gizlenir.
+   Fotoğraf Ekle / CV Oluşturmaya Başla butonu artık kapanmaz.
+===================================================== */
+
+@media (max-width: 767px) {
+  body:not(.cvyaz-show-preview-cta) .download {
+    display: none !important;
+  }
+
+  body.cvyaz-show-preview-cta .download {
+    display: flex !important;
+    position: fixed !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: 18px !important;
+    transform: translateX(-50%) !important;
+    width: calc(100vw - 44px) !important;
+    max-width: 680px !important;
+    min-height: 58px !important;
+    height: 58px !important;
+    border-radius: 18px !important;
+    z-index: 80 !important;
+  }
+
+  .photo-btn {
+    position: relative !important;
+    z-index: 150 !important;
+  }
+
+  .acc:first-of-type {
+    margin-top: 22px !important;
+  }
+}
+
+
+/* =====================================================
+   CVYAZ MOBILE HERO HEIGHT TIGHTEN V6.4
+   Mobil ilk ekranda açıklama alanını kısaltır;
+   Fotoğraf Ekle / CV Oluşturmaya Başla butonu yukarı gelir.
+===================================================== */
+
+@media (max-width: 767px) {
+  .hero {
+    padding-top: 20px !important;
+    padding-bottom: 54px !important;
+    margin-bottom: 14px !important;
+    border-bottom-left-radius: 34px !important;
+    border-bottom-right-radius: 34px !important;
+  }
+
+  .hero::after {
+    bottom: -46px !important;
+    height: 86px !important;
+  }
+
+  .hero h1,
+  h1 {
+    font-size: 48px !important;
+    line-height: 0.96 !important;
+    letter-spacing: -1.8px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero p,
+  .hero-subtitle {
+    font-size: 15.5px !important;
+    line-height: 1.38 !important;
+    max-width: 330px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .acc:first-of-type {
+    margin-top: 14px !important;
+  }
+}
+
+
+/* =====================================================
+   WEB + MOBILE PREVIEW CTA FLOW FIX
+   CV PDF Önizleme butonu ilk açılışta gizli kalır.
+   Kullanıcı Fotoğraf Ekle / CV Oluşturmaya Başla butonuna basınca açılır.
+===================================================== */
+.download.preview-locked {
+  display: none !important;
+}
+
+
+/* CVYAZ MOBILE ONE-TAP PREVIEW FIX V6.6 */
+#previewCta,
+.download {
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+  cursor: pointer;
+}
+
+
+/* CVYAZ WEB CLEAN START FIX V7.2
+   Web ve mobil ilk açılışta önizleme butonu kapalı kalır.
+   Sadece başlangıç butonu sonrası veya yasal sayfadan geri dönüşte açılır. */
+#previewCta.preview-locked,
+.download.preview-locked {
+  display: none !important;
+}
