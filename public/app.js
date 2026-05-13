@@ -265,6 +265,7 @@ function unlockPreviewCta() {
   }
 
   previewButton.classList.remove("preview-locked");
+  document.body.classList.add("cvyaz-show-preview-cta");
 
 }
 
@@ -1808,6 +1809,8 @@ function startPreviewPdf(event) {
     }
   }
 
+  unlockPreviewCta();
+
   if (isPdfGenerating) {
     return false;
   }
@@ -1976,6 +1979,29 @@ async function waitForImages(root) {
   }));
 
 }
+
+/* =====================================================
+   MOBILE ONE-TAP PREVIEW FIX V6.6
+   iPhone Safari'de aynı butona touchstart + pointerdown + click
+   birlikte bağlanınca ilk dokunuş bazen sadece odak/scroll yakalıyor.
+   Tek güvenli akış: buton görünür, ilk dokunuşta click ile modal açılır.
+===================================================== */
+document.addEventListener("DOMContentLoaded", function() {
+
+  const previewButton = document.getElementById("previewCta");
+
+  if (!previewButton) {
+    return;
+  }
+
+  previewButton.style.touchAction = "manipulation";
+
+  previewButton.addEventListener("touchend", function(event) {
+    startPreviewPdf(event);
+  }, { passive: false });
+
+});
+
 
 async function createPreviewPdf() {
 

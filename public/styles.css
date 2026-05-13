@@ -3207,3 +3207,12 @@ h1{
 .download.preview-locked {
   display: none !important;
 }
+
+
+/* CVYAZ MOBILE ONE-TAP PREVIEW FIX V6.6 */
+#previewCta,
+.download {
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+  cursor: pointer;
+}
