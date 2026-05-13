@@ -3262,3 +3262,26 @@ h1{
     padding-bottom: calc(var(--cvyaz-keyboard-inset, 0px) + 110px) !important;
   }
 }
+
+/* =====================================================
+   CVYAZ MOBILE UNIVERSAL FIRST TAP PREVIEW FIX V8.7
+   CTA klavye/Done animasyonu sırasında zıplamasın, her inputtan sonra
+   ilk dokunuşta yakalanacak kadar büyük ve üst katmanda kalsın.
+===================================================== */
+@media (max-width: 767px) {
+  body.cvyaz-show-preview-cta #previewCta,
+  body.cvyaz-show-preview-cta .download {
+    position: fixed !important;
+    left: 50% !important;
+    bottom: calc(var(--cvyaz-keyboard-inset, 0px) + env(safe-area-inset-bottom, 0px) + 18px) !important;
+    transform: translate3d(-50%, 0, 0) !important;
+    width: calc(100vw - 44px) !important;
+    min-height: 60px !important;
+    height: 60px !important;
+    z-index: 2147483647 !important;
+    pointer-events: auto !important;
+    touch-action: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    will-change: transform, bottom !important;
+  }
+}

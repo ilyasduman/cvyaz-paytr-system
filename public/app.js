@@ -3814,3 +3814,208 @@ cvyazSaveDraft();
   }
   window.addEventListener('load', function() { setTimeout(bind, 100); });
 })();
+
+/* =====================================================
+   CVYAZ MOBILE UNIVERSAL FIRST TAP PREVIEW FIX V8.7
+   iOS Safari'de input accessory ✓ / datalist / keyboard kapanış animasyonu
+   bazı inputlardan sonra ilk Önizleme dokunuşunu yutuyordu.
+   Bu final katman tüm inputlar için:
+   - klavye kapanırken CTA pozisyonunu kısa süre sabitler,
+   - dokunuşu yalnız buton değil, butonun gerçek ekran bölgesi + alt güvenli banttan yakalar,
+   - preview'i aynı frame içinde loading modal ile başlatır.
+===================================================== */
+(function(){
+  if (window.__CVYAZ_MOBILE_UNIVERSAL_FIRSTTAP_V87__) { return; }
+  window.__CVYAZ_MOBILE_UNIVERSAL_FIRSTTAP_V87__ = true;
+
+  var lastInset = 0;
+  var freezeUntil = 0;
+  var lastPreviewRun = 0;
+
+  function isMobile(){
+    return window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
+  }
+
+  function btn(){
+    return document.getElementById('previewCta') || document.querySelector('.download');
+  }
+
+  function editable(el){
+    if(!el) return false;
+    var t = (el.tagName || '').toLowerCase();
+    return t === 'input' || t === 'textarea' || t === 'select' || el.isContentEditable;
+  }
+
+  function currentInset(){
+    if(!window.visualViewport) return 0;
+    return Math.max(0, Math.round(window.innerHeight - window.visualViewport.height - window.visualViewport.offsetTop));
+  }
+
+  function setInset(px){
+    if(px > 0) lastInset = px;
+    document.documentElement.style.setProperty('--cvyaz-keyboard-inset', px + 'px');
+    if(document.body){ document.body.classList.toggle('cvyaz-keyboard-open', px > 80); }
+  }
+
+  function syncInsetStable(){
+    if(!isMobile()) { setInset(0); return; }
+    var now = Date.now();
+    var real = currentInset();
+
+    if(real > 80){
+      setInset(real);
+      return;
+    }
+
+    // iOS Done/✓ sonrası klavye kapanırken CTA zıplamasın.
+    if(now < freezeUntil && lastInset > 80){
+      setInset(lastInset);
+      return;
+    }
+
+    setInset(0);
+  }
+
+  function freezeKeyboardPosition(){
+    if(!isMobile()) return;
+    var real = currentInset();
+    if(real > 80) lastInset = real;
+    freezeUntil = Date.now() + 950;
+    syncInsetStable();
+  }
+
+  function point(evt){
+    if(!evt) return null;
+    if(evt.touches && evt.touches.length) return evt.touches[0];
+    if(evt.changedTouches && evt.changedTouches.length) return evt.changedTouches[0];
+    if(typeof evt.clientX === 'number') return evt;
+    return null;
+  }
+
+  function insideRect(p, r, pad){
+    return p && r && p.clientX >= r.left - pad && p.clientX <= r.right + pad && p.clientY >= r.top - pad && p.clientY <= r.bottom + pad;
+  }
+
+  function likelyPreviewTap(evt){
+    var b = btn();
+    if(!b || b.classList.contains('preview-locked')) return false;
+
+    if(evt && (evt.target === b || (evt.target && b.contains(evt.target)))) return true;
+
+    var p = point(evt);
+    if(!p) return false;
+
+    var r = b.getBoundingClientRect();
+    // Gerçek buton çevresi: iOS viewport animasyonunda küçük kaymalara tolerans.
+    if(insideRect(p, r, 34)) return true;
+
+    // Klavye kapanışında buton eski konumda görünüp rect yeni konuma kaymış olabilir.
+    // Bu yüzden son klavye inset'ine göre sanal CTA bölgesini de yakala.
+    if(lastInset > 80){
+      var width = Math.min(window.innerWidth - 44, 680);
+      var left = (window.innerWidth - width) / 2;
+      var virtualBottom = lastInset + 18;
+      var virtualTop = window.innerHeight - virtualBottom - 72;
+      var vr = { left:left, right:left+width, top:virtualTop, bottom:virtualTop+86 };
+      if(insideRect(p, vr, 38)) return true;
+    }
+
+    return false;
+  }
+
+  function hardBlurLater(){
+    setTimeout(function(){
+      var a = document.activeElement;
+      if(a && editable(a) && typeof a.blur === 'function'){
+        try { a.blur(); } catch(e) {}
+      }
+    }, 0);
+  }
+
+  function openFirstTap(evt){
+    if(!isMobile()) return;
+    var b = btn();
+    if(!b || b.classList.contains('preview-locked')) return;
+
+    var now = Date.now();
+    if(now - lastPreviewRun < 1300){
+      if(evt && evt.cancelable) evt.preventDefault();
+      return;
+    }
+    lastPreviewRun = now;
+
+    if(evt && evt.cancelable) evt.preventDefault();
+    if(evt && evt.stopPropagation) evt.stopPropagation();
+    if(evt && evt.stopImmediatePropagation) evt.stopImmediatePropagation();
+
+    try { if(typeof unlockPreviewCta === 'function') unlockPreviewCta(); } catch(e) {}
+    try { if(typeof openPdfLoadingInstant === 'function') openPdfLoadingInstant(); } catch(e) {}
+
+    freezeKeyboardPosition();
+    hardBlurLater();
+
+    setTimeout(function(){
+      try {
+        if(typeof startPreviewPdf === 'function') startPreviewPdf(null);
+      } catch(err) {
+        console.error('CVYAZ V8.7 preview error:', err);
+        lastPreviewRun = 0;
+      }
+    }, 45);
+  }
+
+  function capture(evt){
+    if(!isMobile()) return;
+    if(likelyPreviewTap(evt)) openFirstTap(evt);
+  }
+
+  function bind(){
+    syncInsetStable();
+    var b = btn();
+    if(b){
+      b.removeAttribute('onclick');
+      b.onclick = null;
+      b.style.touchAction = 'none';
+      b.style.webkitTapHighlightColor = 'transparent';
+      ['touchstart','pointerdown','mousedown','click'].forEach(function(type){
+        b.addEventListener(type, capture, { passive:false, capture:true });
+      });
+    }
+
+    ['touchstart','pointerdown','mousedown'].forEach(function(type){
+      document.addEventListener(type, capture, { passive:false, capture:true });
+    });
+
+    document.addEventListener('focusin', function(){
+      freezeKeyboardPosition();
+      setTimeout(syncInsetStable, 80);
+      setTimeout(syncInsetStable, 260);
+    }, true);
+
+    document.addEventListener('focusout', function(){
+      freezeKeyboardPosition();
+      setTimeout(syncInsetStable, 80);
+      setTimeout(syncInsetStable, 260);
+      setTimeout(syncInsetStable, 980);
+    }, true);
+
+    // Datalist/select/tick sonrası bütün inputlarda otomatik state temizliği.
+    Array.prototype.forEach.call(document.querySelectorAll('input, textarea, select'), function(el){
+      el.addEventListener('change', function(){
+        if(!isMobile()) return;
+        freezeKeyboardPosition();
+      }, true);
+    });
+  }
+
+  if(window.visualViewport){
+    window.visualViewport.addEventListener('resize', syncInsetStable);
+    window.visualViewport.addEventListener('scroll', syncInsetStable);
+  }
+  window.addEventListener('resize', syncInsetStable);
+  window.addEventListener('orientationchange', function(){ setTimeout(syncInsetStable, 300); });
+
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+  window.addEventListener('load', function(){ setTimeout(bind, 120); });
+})();
