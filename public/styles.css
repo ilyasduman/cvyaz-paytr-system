@@ -6052,3 +6052,43 @@ select:focus {
       inset 0 1px 0 rgba(255,255,255,.90) !important;
   }
 }
+
+
+
+/* =====================================================
+   V117 CLEAN HERO EDGE
+   - Hero alt sol köşedeki gri/blur taşması kaldırıldı
+   - Web + mobilde açılı alt kenar temizlendi
+===================================================== */
+
+/* V116'daki gri blur geçişini kapat */
+.hero::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Hero'nun altında kalan gri gölgeyi temizle */
+.hero {
+  box-shadow:
+    0 20px 44px rgba(18, 18, 68, .12),
+    0 6px 14px rgba(18, 18, 68, .07) !important;
+}
+
+/* Hero ile form arasında temiz beyaz geçiş */
+.form-card,
+.personal-card,
+.card,
+.cv-form-card {
+  box-shadow:
+    0 24px 64px rgba(21,30,55,.10),
+    inset 0 1px 0 rgba(255,255,255,.90) !important;
+}
+
+/* Mobilde sol alt köşe tamamen temiz */
+@media (max-width:700px) {
+  .hero {
+    box-shadow:
+      0 16px 34px rgba(18, 18, 68, .10),
+      0 4px 10px rgba(18, 18, 68, .06) !important;
+  }
+}
