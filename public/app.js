@@ -271,8 +271,16 @@ function unlockPreviewCta() {
 
 document.querySelectorAll(".file-label").forEach(function(label) {
 
-  label.addEventListener("click", unlockPreviewCta);
-  label.addEventListener("touchstart", unlockPreviewCta, { passive: true });
+  /*
+    Mobil tek dokunuş düzeltmesi:
+    Önceden touchstart/click anında preview CTA açılıyordu.
+    Mobil tarayıcıda bu reflow bazen file picker'ı iptal ediyor ve
+    fotoğraf seçici ancak 2. basışta açılıyordu.
+    Çözüm: dosya seçici doğal şekilde açılsın; CTA hemen ardından açılsın.
+  */
+  label.addEventListener("click", function() {
+    setTimeout(unlockPreviewCta, 250);
+  }, false);
 
 });
 
