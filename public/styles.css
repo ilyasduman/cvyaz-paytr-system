@@ -3116,3 +3116,42 @@ h1{
   }
 }
 
+
+
+
+/* =====================================================
+   CVYAZ MOBILE START BUTTON VISIBLE FIX V6.3
+   Mobilde ilk açılışta sabit önizleme butonu gizlenir.
+   Fotoğraf Ekle / CV Oluşturmaya Başla butonu artık kapanmaz.
+===================================================== */
+
+@media (max-width: 767px) {
+  body:not(.cvyaz-show-preview-cta) .download {
+    display: none !important;
+  }
+
+  body.cvyaz-show-preview-cta .download {
+    display: flex !important;
+    position: fixed !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: 18px !important;
+    transform: translateX(-50%) !important;
+    width: calc(100vw - 44px) !important;
+    max-width: 680px !important;
+    min-height: 58px !important;
+    height: 58px !important;
+    border-radius: 18px !important;
+    z-index: 80 !important;
+  }
+
+  .photo-btn {
+    position: relative !important;
+    z-index: 150 !important;
+  }
+
+  .acc:first-of-type {
+    margin-top: 22px !important;
+  }
+}
+

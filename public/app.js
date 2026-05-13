@@ -2954,3 +2954,45 @@ bindMobileLiveEvents();
 markJsActive();
 
 update();
+
+
+
+/* =====================================================
+   CVYAZ MOBILE START BUTTON VISIBLE FIX V6.3
+   Kullanıcı form ile etkileşime girince mobil sabit önizleme CTA görünür.
+===================================================== */
+(function(){
+  function isMobile(){
+    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+  }
+
+  function showPreviewCta(){
+    if(!isMobile()){ return; }
+    document.body.classList.add("cvyaz-show-preview-cta");
+  }
+
+  function setupMobileCtaVisibility(){
+    if(!isMobile()){ 
+      document.body.classList.add("cvyaz-show-preview-cta");
+      return; 
+    }
+
+    document.body.classList.remove("cvyaz-show-preview-cta");
+
+    var formArea = document.querySelector(".app") || document.body;
+    formArea.addEventListener("input", showPreviewCta, true);
+    formArea.addEventListener("change", showPreviewCta, true);
+
+    var photoButtons = document.querySelectorAll(".photo-btn, input[type='file']");
+    photoButtons.forEach(function(btn){
+      btn.addEventListener("click", function(){
+        setTimeout(showPreviewCta, 700);
+      }, true);
+      btn.addEventListener("change", showPreviewCta, true);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", setupMobileCtaVisibility);
+  window.addEventListener("load", setupMobileCtaVisibility);
+})();
+
