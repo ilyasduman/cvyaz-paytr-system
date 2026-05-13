@@ -2038,9 +2038,7 @@ document.addEventListener("DOMContentLoaded", function() {
   let mobilePreviewTapStarted = false;
 
   function isSmallTouchScreen() {
-    const narrow = window.matchMedia && window.matchMedia("(max-width: 900px)").matches;
-    const coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-    return !!(narrow || coarse || "ontouchstart" in window);
+    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
   }
 
   function runPreviewFromFirstMobileTouch(event) {
@@ -2048,29 +2046,13 @@ document.addEventListener("DOMContentLoaded", function() {
       return;
     }
 
-    /*
-      V7.8 gerçek mobil input-focus düzeltmesi:
-      Input içinde imleç varken bazı mobil tarayıcılar ilk dokunuşu sadece
-      klavyeyi kapatma/blur gibi kullanıyor. Ayrıca buton üzerinde eski
-      preview-locked class kalırsa touchend click'i de engelleyebiliyordu.
-      Bu yüzden ilk touch/pointer anında önce CTA kilidini kesin kaldırıyoruz,
-      aktif input'u blur ediyoruz ve önizlemeyi click beklemeden başlatıyoruz.
-    */
-    unlockPreviewCta();
-    previewButton.classList.remove("preview-locked");
-    document.body.classList.add("cvyaz-show-preview-cta");
-
-    const active = document.activeElement;
-    if (active && active !== document.body && typeof active.blur === "function") {
-      active.blur();
+    if (previewButton.classList.contains("preview-locked")) {
+      return;
     }
 
     if (mobilePreviewTapStarted || isPdfGenerating) {
       if (event && event.cancelable) {
         event.preventDefault();
-      }
-      if (event && event.stopPropagation) {
-        event.stopPropagation();
       }
       return;
     }
@@ -2080,7 +2062,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     setTimeout(function() {
       mobilePreviewTapStarted = false;
-    }, 1400);
+    }, 1200);
   }
 
   /*
@@ -2092,27 +2074,7 @@ document.addEventListener("DOMContentLoaded", function() {
   previewButton.addEventListener("touchstart", runPreviewFromFirstMobileTouch, { passive: false, capture: true });
 
   previewButton.addEventListener("pointerdown", function(event) {
-    if (event.pointerType === "touch" || isSmallTouchScreen()) {
-      runPreviewFromFirstMobileTouch(event);
-    }
-  }, { passive: false, capture: true });
-
-  previewButton.addEventListener("mousedown", function(event) {
-    if (isSmallTouchScreen()) {
-      runPreviewFromFirstMobileTouch(event);
-    }
-  }, { passive: false, capture: true });
-
-  document.addEventListener("touchstart", function(event) {
-    const target = event.target && event.target.closest ? event.target.closest("#previewCta") : null;
-    if (target) {
-      runPreviewFromFirstMobileTouch(event);
-    }
-  }, { passive: false, capture: true });
-
-  document.addEventListener("pointerdown", function(event) {
-    const target = event.target && event.target.closest ? event.target.closest("#previewCta") : null;
-    if (target && (event.pointerType === "touch" || isSmallTouchScreen())) {
+    if (event.pointerType === "touch") {
       runPreviewFromFirstMobileTouch(event);
     }
   }, { passive: false, capture: true });
@@ -2122,13 +2084,10 @@ document.addEventListener("DOMContentLoaded", function() {
       if (event.cancelable) {
         event.preventDefault();
       }
-      if (event.stopPropagation) {
-        event.stopPropagation();
-      }
       return;
     }
     startPreviewPdf(event);
-  }, { passive: false, capture: true });
+  }, { passive: false });
 
 });
 
@@ -3439,6 +3398,100 @@ function cvyazFinishLegalReturnRestore() {
     // storage kapalıysa sessiz geç.
   }
 }
+
+
+
+/* =====================================================
+   MOBILE DATALIST / AUTOCOMPLETE FOCUS FIX V7.9
+   Mobil tarayıcılarda meslek datalist seçildikten sonra klavye/öneri katmanı
+   açık kalırsa ilk dokunuş yalnızca o katmanı kapatabiliyor. Meslek ve diğer
+   datalist seçimlerinde input değiştiği anda odağı kapatıyoruz; preview CTA'ya
+   basınca da capture aşamasında doğrudan PDF önizleme başlatılıyor.
+===================================================== */
+document.addEventListener("DOMContentLoaded", function() {
+  function isSmallTouchScreenV79() {
+    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+  }
+
+  function blurDatalistFieldSoon(field) {
+    if (!isSmallTouchScreenV79() || !field || !field.matches || !field.matches('input[list]')) {
+      return;
+    }
+
+    window.setTimeout(function() {
+      try {
+        field.blur();
+      } catch (error) {}
+    }, 30);
+  }
+
+  document.addEventListener("change", function(event) {
+    blurDatalistFieldSoon(event.target);
+  }, true);
+
+  document.addEventListener("input", function(event) {
+    const target = event.target;
+    if (!target || !target.matches || !target.matches('input[list]')) {
+      return;
+    }
+
+    const listId = target.getAttribute("list");
+    const list = listId ? document.getElementById(listId) : null;
+    if (!list) {
+      return;
+    }
+
+    const value = (target.value || "").trim().toLowerCase();
+    const exactOption = Array.from(list.querySelectorAll("option")).some(function(option) {
+      return ((option.value || "").trim().toLowerCase() === value);
+    });
+
+    if (exactOption) {
+      blurDatalistFieldSoon(target);
+    }
+  }, true);
+
+  const previewButton = document.getElementById("previewCta");
+  if (!previewButton || previewButton.__cvyazV79Installed) {
+    return;
+  }
+
+  previewButton.__cvyazV79Installed = true;
+
+  function forcePreviewOnFirstTouchV79(event) {
+    if (!isSmallTouchScreenV79()) {
+      return;
+    }
+
+    if (previewButton.classList.contains("preview-locked") || isPdfGenerating) {
+      return;
+    }
+
+    if (event && event.cancelable) {
+      event.preventDefault();
+    }
+    if (event && event.stopImmediatePropagation) {
+      event.stopImmediatePropagation();
+    } else if (event && event.stopPropagation) {
+      event.stopPropagation();
+    }
+
+    const active = document.activeElement;
+    if (active && active !== document.body && typeof active.blur === "function") {
+      try { active.blur(); } catch (error) {}
+    }
+
+    startPreviewPdf(event);
+  }
+
+  previewButton.addEventListener("touchstart", forcePreviewOnFirstTouchV79, { passive: false, capture: true });
+  previewButton.addEventListener("mousedown", forcePreviewOnFirstTouchV79, { passive: false, capture: true });
+  previewButton.addEventListener("pointerdown", function(event) {
+    if (!event.pointerType || event.pointerType === "touch") {
+      forcePreviewOnFirstTouchV79(event);
+    }
+  }, { passive: false, capture: true });
+});
 
 /* =====================================================
    INITIALIZE
