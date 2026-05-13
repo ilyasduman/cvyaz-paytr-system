@@ -2029,95 +2029,158 @@ async function waitForImages(root) {
 }
 
 /* =====================================================
-   CVYAZ MOBILE PREVIEW FIRST TAP STABLE FIX V8.9
-   Sadece Önizleme butonunun gerçek dokunuşunu yakalar.
-   Document/global touch yakalama kaldırıldı; input değiştirirken
-   yanlışlıkla önizleme açılmaz. iOS klavye açıkken ilk dokunuşta
-   modal hemen açılır.
+   MOBILE ONE-TAP PREVIEW FIX V6.6
+   iPhone Safari'de aynı butona touchstart + pointerdown + click
+   birlikte bağlanınca ilk dokunuş bazen sadece odak/scroll yakalıyor.
+   Tek güvenli akış: buton görünür, ilk dokunuşta click ile modal açılır.
 ===================================================== */
 document.addEventListener("DOMContentLoaded", function() {
 
-  const previewButton = document.getElementById("previewCta") || document.querySelector(".download");
+  const previewButton = document.getElementById("previewCta");
 
   if (!previewButton) {
     return;
   }
 
   previewButton.style.touchAction = "manipulation";
-  previewButton.style.webkitTapHighlightColor = "transparent";
 
-  let previewLock = false;
-  let lastTouchStartAt = 0;
+  let mobilePreviewTapStarted = false;
+
+  function isSmallTouchScreen() {
+    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+  }
+
+  function runPreviewFromFirstMobileTouch(event) {
+    if (!isSmallTouchScreen()) {
+      return;
+    }
+
+    if (previewButton.classList.contains("preview-locked")) {
+      return;
+    }
+
+    if (mobilePreviewTapStarted || isPdfGenerating) {
+      if (event && event.cancelable) {
+        event.preventDefault();
+      }
+      return;
+    }
+
+    mobilePreviewTapStarted = true;
+    startPreviewPdf(event);
+
+    setTimeout(function() {
+      mobilePreviewTapStarted = false;
+    }, 1200);
+  }
+
+  /*
+    Mobil ilk dokunuş düzeltmesi V7.5:
+    Bazı telefon tarayıcılarında fixed CTA ilk dokunuşta yalnızca focus/keyboard
+    kapatma davranışına düşebiliyor. Önizlemeyi touchstart/pointerdown anında
+    başlatıyoruz; click beklenmediği için ikinci basış gerekmiyor.
+  */
+  previewButton.addEventListener("touchstart", runPreviewFromFirstMobileTouch, { passive: false, capture: true });
+
+  previewButton.addEventListener("pointerdown", function(event) {
+    if (event.pointerType === "touch") {
+      runPreviewFromFirstMobileTouch(event);
+    }
+  }, { passive: false, capture: true });
+
+  previewButton.addEventListener("touchend", function(event) {
+    if (isSmallTouchScreen()) {
+      if (event.cancelable) {
+        event.preventDefault();
+      }
+      return;
+    }
+    startPreviewPdf(event);
+  }, { passive: false });
+
+});
+
+
+
+/* =====================================================
+   CVYAZ MOBILE PREVIEW FIRST TAP ROOT FIX V8.3
+   Butonun kendi touch/click event'i bazı mobil tarayıcılarda input focus
+   açıkken ilk dokunuşta tetiklenmeyebiliyor. Bu yüzden dokunuşu document
+   seviyesinde yakalayıp koordinat gerçekten Önizleme butonunun üzerindeyse
+   preview'i ilk anda başlatıyoruz.
+===================================================== */
+(function() {
 
   function isMobileViewport() {
     return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
   }
 
-  function runPreview(event) {
-    if (previewButton.classList.contains("preview-locked")) {
-      return false;
-    }
-
-    if (event) {
-      if (event.cancelable) {
-        event.preventDefault();
-      }
-      if (event.stopPropagation) {
-        event.stopPropagation();
-      }
-      if (event.stopImmediatePropagation) {
-        event.stopImmediatePropagation();
-      }
-    }
-
-    if (previewLock || isPdfGenerating) {
-      return false;
-    }
-
-    previewLock = true;
-
-    try {
-      if (typeof saveDraftToSession === "function") {
-        saveDraftToSession();
-      }
-    } catch (error) {}
-
-    try {
-      if (typeof update === "function") {
-        update();
-      }
-    } catch (error) {}
-
-    startPreviewPdf(event || null);
-
-    setTimeout(function() {
-      previewLock = false;
-    }, 1400);
-
-    return false;
+  function getPreviewButton() {
+    return document.getElementById("previewCta") || document.querySelector(".download");
   }
 
-  // Mobilde click bekleme: iOS Safari input/Done durumunda click'i yutabiliyor.
-  previewButton.addEventListener("touchstart", function(event) {
-    if (!isMobileViewport()) {
+  function pointInsideButton(x, y, button) {
+    if (!button) { return false; }
+
+    const rect = button.getBoundingClientRect();
+    const pad = 10;
+
+    return x >= rect.left - pad &&
+           x <= rect.right + pad &&
+           y >= rect.top - pad &&
+           y <= rect.bottom + pad;
+  }
+
+  let lastForcedPreviewAt = 0;
+
+  function forcePreviewFromPoint(event) {
+    if (!isMobileViewport()) { return; }
+
+    const button = getPreviewButton();
+
+    if (!button || button.classList.contains("preview-locked")) {
       return;
     }
-    lastTouchStartAt = Date.now();
-    runPreview(event);
+
+    let point = null;
+
+    if (event.touches && event.touches.length) {
+      point = event.touches[0];
+    } else if (event.changedTouches && event.changedTouches.length) {
+      point = event.changedTouches[0];
+    } else if (typeof event.clientX === "number") {
+      point = event;
+    }
+
+    if (!point) { return; }
+
+    if (!pointInsideButton(point.clientX, point.clientY, button)) {
+      return;
+    }
+
+    const now = Date.now();
+    if (now - lastForcedPreviewAt < 1200) {
+      if (event.cancelable) { event.preventDefault(); }
+      return;
+    }
+
+    lastForcedPreviewAt = now;
+
+    if (event.cancelable) { event.preventDefault(); }
+    if (event.stopPropagation) { event.stopPropagation(); }
+    if (event.stopImmediatePropagation) { event.stopImmediatePropagation(); }
+
+    startPreviewPdf(event);
+  }
+
+  document.addEventListener("touchstart", forcePreviewFromPoint, { passive: false, capture: true });
+  document.addEventListener("pointerdown", function(event) {
+    if (event.pointerType === "touch") {
+      forcePreviewFromPoint(event);
+    }
   }, { passive: false, capture: true });
 
-  // Desktop ve mobil fallback.
-  previewButton.addEventListener("click", function(event) {
-    if (isMobileViewport() && Date.now() - lastTouchStartAt < 900) {
-      if (event.cancelable) {
-        event.preventDefault();
-      }
-      return false;
-    }
-    return runPreview(event);
-  }, { passive: false });
-
-});
+})();
 
 async function createPreviewPdf() {
 
@@ -3516,15 +3579,238 @@ cvyazSaveDraft();
 
 
 
+/* =====================================================
+   CVYAZ MOBILE DATALIST / AUTOCOMPLETE FIRST TAP FIX V8.4
+   Sorun: Mobil tarayıcıda Meslek/Pozisyon datalist seçimi açık kalınca
+   ilk Önizleme dokunuşu bazen sadece öneri kutusunu/klavyeyi kapatıyor.
+   Çözüm: Meslek alanında değer seçilince mobilde odağı güvenli şekilde kapat,
+   butona basıldığında da aktif form odağını preview başlamadan kilitleme.
+===================================================== */
+(function() {
 
-/* CVYAZ V8.8: old autocomplete hardPreview fix removed. */
+  function isMobileCvyaz() {
+    return window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+  }
+
+  function safeBlurElement(el) {
+    if (!el || typeof el.blur !== "function") { return; }
+    try { el.blur(); } catch (e) {}
+  }
+
+  function selectedFromDatalist(input) {
+    if (!input || !input.value) { return false; }
+    const listId = input.getAttribute("list");
+    if (!listId) { return false; }
+    const list = document.getElementById(listId);
+    if (!list) { return false; }
+    const value = String(input.value).trim().toLowerCase();
+    return Array.from(list.options).some(function(option) {
+      return String(option.value || "").trim().toLowerCase() === value;
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const jobInput = document.getElementById("job");
+
+    if (jobInput) {
+      jobInput.setAttribute("autocomplete", "off");
+      jobInput.setAttribute("autocorrect", "off");
+      jobInput.setAttribute("autocapitalize", "none");
+      jobInput.setAttribute("spellcheck", "false");
+
+      ["input", "change"].forEach(function(evtName) {
+        jobInput.addEventListener(evtName, function() {
+          if (!isMobileCvyaz()) { return; }
+
+          if (selectedFromDatalist(jobInput) || jobInput.value.trim().length >= 3) {
+            window.__cvyazMobileJustSelectedJob = true;
+
+            setTimeout(function() {
+              safeBlurElement(jobInput);
+            }, 80);
+
+            setTimeout(function() {
+              window.__cvyazMobileJustSelectedJob = false;
+            }, 900);
+          }
+        }, { passive: true });
+      });
+    }
+
+    const previewButton = document.getElementById("previewCta");
+
+    if (previewButton) {
+      function hardPreview(event) {
+        if (!isMobileCvyaz()) { return; }
+        if (previewButton.classList.contains("preview-locked")) { return; }
+
+        if (event && event.cancelable) { event.preventDefault(); }
+        if (event && event.stopPropagation) { event.stopPropagation(); }
+        if (event && event.stopImmediatePropagation) { event.stopImmediatePropagation(); }
+
+        const active = document.activeElement;
+        if (active && active !== document.body && typeof active.blur === "function") {
+          safeBlurElement(active);
+        }
+
+        // Modalı aynı frame içinde açtır. Böylece ilk dokunuş görsel cevap verir.
+        startPreviewPdf(event || window.event);
+      }
+
+      previewButton.addEventListener("touchstart", hardPreview, { passive: false, capture: true });
+      previewButton.addEventListener("mousedown", hardPreview, { passive: false, capture: true });
+    }
+  });
+
+})();
 
 
+/* =====================================================
+   CVYAZ MOBILE iOS KEYBOARD / ACCESSORY BAR ROOT FIX V8.6
+   Sorun: iOS Safari'de input aktifken klavyedeki ✓/Done bar ilk dokunuşu yutar.
+   Çözüm: CTA'yı visualViewport ile klavyenin üstüne taşı, dokunuşu capture aşamasında
+   yakala, modalı önce aç, sonra aktif input'u blur et, PDF üretimini başlat.
+===================================================== */
+(function() {
+  if (window.__CVYAZ_MOBILE_KEYBOARD_PREVIEW_FIX_V86__) { return; }
+  window.__CVYAZ_MOBILE_KEYBOARD_PREVIEW_FIX_V86__ = true;
 
+  function isMobile() {
+    return window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
+  }
 
-/* CVYAZ V8.8: V8.6 keyboard moving fix removed - stable CTA restored. */
+  function getPreviewBtn() {
+    return document.getElementById('previewCta') || document.querySelector('.download');
+  }
 
+  function syncKeyboardInset() {
+    if (!isMobile()) {
+      document.documentElement.style.setProperty('--cvyaz-keyboard-inset', '0px');
+      document.body && document.body.classList.remove('cvyaz-keyboard-open');
+      return;
+    }
 
+    var inset = 0;
+    if (window.visualViewport) {
+      inset = Math.max(0, Math.round(window.innerHeight - window.visualViewport.height - window.visualViewport.offsetTop));
+    }
 
-/* CVYAZ V8.9: Eski agresif mobil first-tap blokları kaldırıldı. */
+    document.documentElement.style.setProperty('--cvyaz-keyboard-inset', inset + 'px');
+    if (document.body) {
+      document.body.classList.toggle('cvyaz-keyboard-open', inset > 80);
+    }
+  }
 
+  function isEditable(el) {
+    if (!el) { return false; }
+    var tag = (el.tagName || '').toLowerCase();
+    return tag === 'input' || tag === 'textarea' || tag === 'select' || el.isContentEditable;
+  }
+
+  function safeBlurActive() {
+    var active = document.activeElement;
+    if (active && isEditable(active) && typeof active.blur === 'function') {
+      try { active.blur(); } catch (e) {}
+    }
+  }
+
+  function pointInsideButton(evt, btn) {
+    if (!evt || !btn) { return false; }
+    var p = null;
+    if (evt.touches && evt.touches.length) { p = evt.touches[0]; }
+    else if (evt.changedTouches && evt.changedTouches.length) { p = evt.changedTouches[0]; }
+    else if (typeof evt.clientX === 'number') { p = evt; }
+    if (!p) { return false; }
+    var r = btn.getBoundingClientRect();
+    var pad = 18;
+    return p.clientX >= r.left - pad && p.clientX <= r.right + pad && p.clientY >= r.top - pad && p.clientY <= r.bottom + pad;
+  }
+
+  var lastRun = 0;
+
+  function runPreviewNow(evt) {
+    if (!isMobile()) { return; }
+    var btn = getPreviewBtn();
+    if (!btn || btn.classList.contains('preview-locked')) { return; }
+
+    if (evt && evt.cancelable) { evt.preventDefault(); }
+    if (evt && evt.stopPropagation) { evt.stopPropagation(); }
+    if (evt && evt.stopImmediatePropagation) { evt.stopImmediatePropagation(); }
+
+    var now = Date.now();
+    if (now - lastRun < 1400) { return; }
+    lastRun = now;
+
+    try { if (typeof unlockPreviewCta === 'function') { unlockPreviewCta(); } } catch (e) {}
+
+    // Kullanıcı ilk dokunuşta cevap görsün: önce modal/loading.
+    try { if (typeof openPdfLoadingInstant === 'function') { openPdfLoadingInstant(); } } catch (e) {}
+
+    // Klavye/accessory bar kapanışı artık preview'i yutmasın.
+    setTimeout(safeBlurActive, 0);
+    setTimeout(syncKeyboardInset, 30);
+
+    // Asıl üretim: mevcut fonksiyona devret.
+    setTimeout(function() {
+      try {
+        if (typeof startPreviewPdf === 'function') {
+          startPreviewPdf(null);
+        }
+      } catch (err) {
+        console.error('CVYAZ preview start error:', err);
+        lastRun = 0;
+      }
+    }, 60);
+  }
+
+  function capturePreviewTouch(evt) {
+    if (!isMobile()) { return; }
+    var btn = getPreviewBtn();
+    if (!btn || btn.classList.contains('preview-locked')) { return; }
+    if (evt.currentTarget === btn || pointInsideButton(evt, btn)) {
+      runPreviewNow(evt);
+    }
+  }
+
+  function bind() {
+    syncKeyboardInset();
+    var btn = getPreviewBtn();
+    if (btn) {
+      btn.removeAttribute('onclick');
+      btn.onclick = null;
+      btn.style.touchAction = 'none';
+      btn.style.webkitTapHighlightColor = 'transparent';
+      ['touchstart', 'pointerdown', 'mousedown', 'click'].forEach(function(type) {
+        btn.addEventListener(type, capturePreviewTouch, { passive: false, capture: true });
+      });
+    }
+
+    // Bazı iOS durumlarında ilk dokunuş button'a değil document'e düşer; koordinattan yakala.
+    ['touchstart', 'pointerdown'].forEach(function(type) {
+      document.addEventListener(type, capturePreviewTouch, { passive: false, capture: true });
+    });
+
+    document.addEventListener('focusin', function() {
+      setTimeout(syncKeyboardInset, 80);
+      setTimeout(syncKeyboardInset, 250);
+    }, true);
+    document.addEventListener('focusout', function() {
+      setTimeout(syncKeyboardInset, 80);
+      setTimeout(syncKeyboardInset, 250);
+    }, true);
+  }
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', syncKeyboardInset);
+    window.visualViewport.addEventListener('scroll', syncKeyboardInset);
+  }
+  window.addEventListener('resize', syncKeyboardInset);
+  window.addEventListener('orientationchange', function() { setTimeout(syncKeyboardInset, 300); });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bind);
+  } else {
+    bind();
+  }
+  window.addEventListener('load', function() { setTimeout(bind, 100); });
+})();

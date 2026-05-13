@@ -3227,43 +3227,38 @@ h1{
 }
 
 
+/* =====================================================
+   CVYAZ MOBILE iOS KEYBOARD PREVIEW FIX V8.6
+   iPhone Safari'de klavye/accessory bar açıkken ilk dokunuş input'u kapatmaya gider.
+   CTA klavyenin üstüne taşınır ve dokunma hedefi en üst katmanda tutulur.
+===================================================== */
+:root {
+  --cvyaz-keyboard-inset: 0px;
+}
 
-/* CVYAZ V8.8: keyboard moving CSS removed. Stable bottom CTA restored. */
-
-
-/* CVYAZ MOBILE STABLE CTA RESTORE V8.8 */
 @media (max-width: 767px) {
   body.cvyaz-show-preview-cta #previewCta,
   body.cvyaz-show-preview-cta .download {
     display: flex !important;
     position: fixed !important;
-    left: 16px !important;
-    right: 16px !important;
-    bottom: max(14px, env(safe-area-inset-bottom)) !important;
-    width: auto !important;
-    max-width: none !important;
-    transform: none !important;
-    z-index: 99999 !important;
-    touch-action: manipulation !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: calc(var(--cvyaz-keyboard-inset, 0px) + 18px) !important;
+    transform: translate3d(-50%, 0, 0) !important;
+    width: calc(100vw - 44px) !important;
+    max-width: 680px !important;
+    min-height: 58px !important;
+    height: 58px !important;
+    border-radius: 18px !important;
+    z-index: 2147483000 !important;
+    pointer-events: auto !important;
+    touch-action: none !important;
     -webkit-tap-highlight-color: transparent !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
   }
-}
 
-
-/* CVYAZ V8.9: Mobil CTA stabil alt konum - input değiştirirken kendiliğinden açılma yok */
-@media (max-width: 767px) {
-  body.cvyaz-show-preview-cta #previewCta,
-  body.cvyaz-show-preview-cta .download {
-    position: fixed !important;
-    left: 16px !important;
-    right: 16px !important;
-    bottom: max(14px, env(safe-area-inset-bottom)) !important;
-    top: auto !important;
-    width: auto !important;
-    max-width: none !important;
-    transform: none !important;
-    z-index: 9999 !important;
-    touch-action: manipulation !important;
-    -webkit-tap-highlight-color: transparent !important;
+  body.cvyaz-keyboard-open {
+    padding-bottom: calc(var(--cvyaz-keyboard-inset, 0px) + 110px) !important;
   }
 }
