@@ -5979,3 +5979,76 @@ select:focus {
     font-size: 29px !important;
   }
 }
+
+
+
+/* =====================================================
+   V116 FINAL FINISH
+   - Hero açıklama yazısı %8-10 daha beyaz/net
+   - Hero ile form arasında hafif blur-shadow geçiş
+===================================================== */
+
+/* Hero açıklama daha okunur ama hâlâ soft */
+.hero p,
+.hero-subtitle {
+  color: rgba(255,255,255,.92) !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,.10) !important;
+}
+
+/* Hero altından forma premium geçiş */
+.hero {
+  position: relative !important;
+}
+
+.hero::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 4% !important;
+  right: 4% !important;
+  bottom: -22px !important;
+  height: 46px !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  background: radial-gradient(ellipse at center, rgba(33,24,105,.26) 0%, rgba(33,24,105,.12) 42%, transparent 72%) !important;
+  filter: blur(16px) !important;
+}
+
+/* Formun başlangıcı hero ile daha şık birleşsin */
+.form-card,
+.personal-card,
+.card,
+.cv-form-card {
+  position: relative !important;
+  z-index: 6 !important;
+  box-shadow:
+    0 -10px 28px rgba(255,255,255,.62),
+    0 26px 68px rgba(21,30,55,.11),
+    inset 0 1px 0 rgba(255,255,255,.90) !important;
+}
+
+/* Mobilde geçiş biraz daha yumuşak */
+@media (max-width:700px) {
+  .hero p,
+  .hero-subtitle {
+    color: rgba(255,255,255,.93) !important;
+  }
+
+  .hero::before {
+    left: 8% !important;
+    right: 8% !important;
+    bottom: -18px !important;
+    height: 38px !important;
+    filter: blur(14px) !important;
+    background: radial-gradient(ellipse at center, rgba(33,24,105,.22) 0%, rgba(33,24,105,.10) 48%, transparent 74%) !important;
+  }
+
+  .form-card,
+  .personal-card,
+  .card,
+  .cv-form-card {
+    box-shadow:
+      0 -8px 22px rgba(255,255,255,.60),
+      0 22px 58px rgba(21,30,55,.10),
+      inset 0 1px 0 rgba(255,255,255,.90) !important;
+  }
+}
