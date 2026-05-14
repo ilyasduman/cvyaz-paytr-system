@@ -7871,3 +7871,36 @@ button[aria-label="Close"] {
   border:none !important;
   box-shadow:0 10px 30px rgba(49,46,129,.25) !important;
 }
+
+
+
+/* =====================================================
+   V126 PREVIEW BALANCE FIX
+   Pencere içindeki CV kağıdını nefes alacak şekilde
+   biraz küçültür ve tam merkeze alır.
+===================================================== */
+
+.cv-wrap{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:flex-start !important;
+  overflow:hidden !important;
+}
+
+.cv{
+  transform:scale(.455) !important;
+  transform-origin:top center !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  margin-bottom:-610px !important;
+}
+
+@media (max-width: 700px){
+  .cv{
+    transform:scale(.435) !important;
+    transform-origin:top center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    margin-bottom:-635px !important;
+  }
+}
