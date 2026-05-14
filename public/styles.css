@@ -8670,7 +8670,7 @@ button[aria-label="Close"] {
   float: none !important;
 
   /* kritik satır: ölçek merkezden küçülsün */
-  transform: scale(.48) !important;
+  transform: scale(.56) !important;
   transform-origin: top center !important;
 }
 
@@ -8680,7 +8680,7 @@ button[aria-label="Close"] {
   right: auto !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  transform: scale(.48) !important;
+  transform: scale(.56) !important;
   transform-origin: top center !important;
 }
 
@@ -8699,7 +8699,7 @@ button[aria-label="Close"] {
   #cv,
   .cv-wrap > #cv,
   #cv[style] {
-    transform: scale(.45) !important;
+    transform: scale(.47) !important;
     transform-origin: top center !important;
     margin-left: auto !important;
     margin-right: auto !important;
