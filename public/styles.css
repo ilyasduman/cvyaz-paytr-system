@@ -8101,3 +8101,142 @@ button[aria-label="Close"] {
     max-width: calc(100vw - 64px) !important;
   }
 }
+
+
+
+/* =====================================================
+   V129 FORCE INNER PREVIEW CENTER
+   Ön izleme alanının içindeki CV kağıdı ZORLA tam ortaya alındı.
+   Web + mobil.
+===================================================== */
+
+/* Dış beyaz preview kutusu / sahne */
+.cv-preview-stage,
+.preview-stage,
+.preview-frame,
+.preview-shell,
+.preview-card,
+.preview-panel,
+.preview-wrapper,
+.preview-container,
+.live-preview,
+.live-preview-box,
+.pdf-preview,
+.cv-preview,
+#cvPreview,
+#previewArea,
+#livePreview,
+#resumePreviewWrap {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* İçteki gerçek CV kağıdı / sayfası */
+.cv-page,
+.resume-page,
+.resume-preview,
+.preview-page,
+.a4-preview,
+.cv-paper,
+.pdf-page,
+.generated-cv,
+#resumePreview,
+#previewPage,
+#cvPage,
+#generatedCv,
+#cvPaper {
+  display: block !important;
+  position: relative !important;
+  left: 50% !important;
+  right: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transform: translateX(-50%) !important;
+  float: none !important;
+  clear: both !important;
+  align-self: center !important;
+  justify-self: center !important;
+  box-sizing: border-box !important;
+}
+
+/* Eğer kağıt dışındaki ilk çocuk kayıyorsa onu da merkeze çek */
+.cv-preview > :first-child,
+.pdf-preview > :first-child,
+.preview-card > :first-child,
+.preview-panel > :first-child,
+.preview-wrapper > :first-child,
+.preview-container > :first-child,
+#cvPreview > :first-child,
+#previewArea > :first-child,
+#livePreview > :first-child {
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  float: none !important;
+}
+
+/* Watermark / içerik transform çakışmasını engelle */
+.cv-page .watermark,
+.resume-page .watermark,
+.resume-preview .watermark,
+.preview-page .watermark,
+.a4-preview .watermark,
+.cv-paper .watermark,
+.generated-cv .watermark,
+.preview-watermark {
+  left: 50% !important;
+  transform: translateX(-50%) rotate(-18deg) !important;
+  transform-origin: center center !important;
+}
+
+/* Desktopta önizleme kartı içinde boşluk dengesi */
+@media (min-width: 701px) {
+  .cv-preview-stage,
+  .preview-stage,
+  .preview-frame,
+  .preview-shell,
+  .preview-card,
+  .preview-panel,
+  .preview-wrapper,
+  .preview-container,
+  .live-preview,
+  .live-preview-box,
+  .pdf-preview,
+  .cv-preview,
+  #cvPreview,
+  #previewArea,
+  #livePreview,
+  #resumePreviewWrap {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* Mobilde taşmayı engelle */
+@media (max-width: 700px) {
+  .cv-page,
+  .resume-page,
+  .resume-preview,
+  .preview-page,
+  .a4-preview,
+  .cv-paper,
+  .pdf-page,
+  .generated-cv,
+  #resumePreview,
+  #previewPage,
+  #cvPage,
+  #generatedCv,
+  #cvPaper {
+    max-width: calc(100vw - 64px) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
