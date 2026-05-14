@@ -3935,98 +3935,37 @@ cvyazSaveDraft();
 
 
 
-/* V136 fit CV exactly inside preview window */
+/* V137 restore balanced preview */
 (function(){
-  function findPreviewParent(cv){
-    if(!cv) return null;
-
-    // Prefer #cvWrap parent, then walk up to the first big rounded preview frame.
-    var wrap = document.getElementById('cvWrap') || cv.closest('.cv-wrap');
-    var node = wrap || cv.parentElement;
-
-    while(node && node !== document.body){
-      var r = node.getBoundingClientRect();
-      var cls = (node.className || '').toString().toLowerCase();
-      var id = (node.id || '').toString().toLowerCase();
-
-      if (
-        r.width >= 260 &&
-        r.height >= 260 &&
-        /preview|live|mockup|canvas|stage|frame|card|wrap/.test(cls + ' ' + id)
-      ) {
-        return node;
-      }
-      node = node.parentElement;
-    }
-
-    return wrap || cv.parentElement;
-  }
-
-  function fitCvIntoPreview(){
+  function cvyazRestoreBalancedPreview(){
+    var wrap = document.getElementById('cvWrap');
     var cv = document.getElementById('cv');
-    var wrap = document.getElementById('cvWrap') || (cv && cv.closest('.cv-wrap'));
-    if(!cv || !wrap) return;
+    if(!wrap || !cv) return;
 
-    var frame = findPreviewParent(cv);
-    if(!frame) return;
-
-    // Frame'i merkezleme penceresi yap.
-    frame.style.position = 'relative';
-    frame.style.display = 'flex';
-    frame.style.justifyContent = 'center';
-    frame.style.alignItems = 'center';
-    frame.style.overflow = 'hidden';
-    frame.style.boxSizing = 'border-box';
-
-    wrap.style.width = '100%';
-    wrap.style.height = '100%';
     wrap.style.display = 'flex';
     wrap.style.justifyContent = 'center';
-    wrap.style.alignItems = 'center';
-    wrap.style.padding = '0';
-    wrap.style.margin = '0 auto';
+    wrap.style.alignItems = 'flex-start';
+    wrap.style.width = '100%';
+    wrap.style.paddingLeft = window.innerWidth <= 700 ? '10px' : '12px';
+    wrap.style.paddingRight = window.innerWidth <= 700 ? '10px' : '12px';
     wrap.style.overflow = 'hidden';
     wrap.style.boxSizing = 'border-box';
 
-    // CV'nin doğal boyutunu ölçmek için scale'i geçici kaldır.
     cv.style.position = 'relative';
     cv.style.left = 'auto';
     cv.style.right = 'auto';
     cv.style.top = 'auto';
-    cv.style.margin = '0 auto';
+    cv.style.marginLeft = 'auto';
+    cv.style.marginRight = 'auto';
     cv.style.float = 'none';
-    cv.style.transformOrigin = 'center center';
-    cv.style.transform = 'scale(1)';
-
-    var frameRect = frame.getBoundingClientRect();
-    var cvRect = cv.getBoundingClientRect();
-
-    if(!frameRect.width || !frameRect.height || !cvRect.width || !cvRect.height) return;
-
-    // İç boşluk: pencerenin içinde nefes kalsın ama tam dolu görünsün.
-    var padX = window.innerWidth <= 700 ? 26 : 34;
-    var padY = window.innerWidth <= 700 ? 28 : 34;
-
-    var scaleX = (frameRect.width - padX) / cvRect.width;
-    var scaleY = (frameRect.height - padY) / cvRect.height;
-
-    // Pencereye TAM sığdır: taşmasın, mümkün olduğu kadar büyük olsun.
-    var scale = Math.min(scaleX, scaleY);
-
-    // Mantıklı sınırlar: çok küçük/çok büyük sapmasın.
-    if(window.innerWidth <= 700){
-      scale = Math.max(0.48, Math.min(scale, 0.76));
-    } else {
-      scale = Math.max(0.55, Math.min(scale, 0.86));
-    }
-
-    cv.style.transform = 'scale(' + scale.toFixed(3) + ')';
+    cv.style.transformOrigin = 'top center';
+    cv.style.transform = window.innerWidth <= 700 ? 'scale(.50)' : 'scale(.58)';
   }
 
-  window.addEventListener('load', fitCvIntoPreview);
-  window.addEventListener('resize', fitCvIntoPreview);
-  document.addEventListener('input', function(){ setTimeout(fitCvIntoPreview, 60); }, true);
-  document.addEventListener('change', function(){ setTimeout(fitCvIntoPreview, 60); }, true);
-  document.addEventListener('click', function(){ setTimeout(fitCvIntoPreview, 100); }, true);
-  setInterval(fitCvIntoPreview, 900);
+  window.addEventListener('load', cvyazRestoreBalancedPreview);
+  window.addEventListener('resize', cvyazRestoreBalancedPreview);
+  document.addEventListener('input', function(){ setTimeout(cvyazRestoreBalancedPreview, 50); }, true);
+  document.addEventListener('change', function(){ setTimeout(cvyazRestoreBalancedPreview, 50); }, true);
+  document.addEventListener('click', function(){ setTimeout(cvyazRestoreBalancedPreview, 80); }, true);
+  setInterval(cvyazRestoreBalancedPreview, 1000);
 })();
