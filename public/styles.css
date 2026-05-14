@@ -7875,41 +7875,35 @@ button[aria-label="Close"] {
 
 
 /* =====================================================
-   V126 SADELESTIRME PATCH
-   Ana ekran + hamburger: tekrar eden alanlar sadeleştirildi.
+   V126 SAFE SECTION HIDE PATCH
+   DOM silinmez; layout iskeleti korunur.
+   Çarpı atılan bölümler kullanıcıya gösterilmez.
 ===================================================== */
 
+#cv-examples,
+#about-cvyaz,
+#contact-cvyaz,
 .support-footer{
   display:none !important;
 }
 
-.minimal-footer,
-.site-footer.minimal-footer{
-  padding:28px 22px !important;
-  border-radius:26px !important;
+/* Gizlenen alanlardan sonra legal/footer nefesli kalsın */
+.legal-box{
+  margin-top:32px !important;
+  margin-bottom:56px !important;
 }
 
-.minimal-footer .footer-links,
-.site-footer .footer-links{
-  display:flex !important;
-  justify-content:center !important;
-  align-items:center !important;
-  flex-wrap:wrap !important;
-  gap:8px !important;
-  margin-top:12px !important;
+.site-footer{
+  margin-top:48px !important;
 }
 
-.minimal-footer .footer-links a,
-.site-footer .footer-links a{
-  padding:8px 12px !important;
-  border-radius:999px !important;
-  background:rgba(255,255,255,.10) !important;
-  color:#fff !important;
-  text-decoration:none !important;
-  font-weight:800 !important;
-  font-size:12px !important;
+/* Sol altta kaçan eski WhatsApp kalıntılarını tamamen kapat */
+.support-whatsapp,
+.support-mail{
+  display:none !important;
 }
 
+/* Hamburger sade link görünümü */
 .side-menu a{
   font-weight:800 !important;
 }
