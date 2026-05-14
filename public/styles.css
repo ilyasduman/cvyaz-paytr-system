@@ -7907,3 +7907,13 @@ button[aria-label="Close"] {
 .side-menu a{
   font-weight:800 !important;
 }
+
+
+
+/* =====================================================
+   REMOVE BOTTOM FOOTER WINDOW
+===================================================== */
+
+.site-footer{
+  display:none !important;
+}
