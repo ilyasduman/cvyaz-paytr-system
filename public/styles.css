@@ -6269,3 +6269,91 @@ button[aria-label="Close"] {
   background: rgba(0,0,0,.48) !important;
   backdrop-filter: blur(2px) !important;
 }
+
+
+/* =====================================================
+   V120 MENU SOFT UI
+===================================================== */
+
+.menu-panel,
+.drawer,
+.mobile-menu,
+.side-menu,
+.nav-drawer,
+.menu-drawer,
+#menuPanel,
+#mobileMenu{
+  background:
+    linear-gradient(
+      180deg,
+      #101533 0%,
+      #151a42 100%
+    ) !important;
+}
+
+.menu-panel a,
+.drawer a,
+.mobile-menu a,
+.side-menu a,
+.nav-drawer a,
+.menu-drawer a,
+#menuPanel a,
+#mobileMenu a,
+.menu-panel button:not(.close-menu):not(.menu-close),
+.drawer button:not(.close-menu):not(.menu-close),
+.mobile-menu button:not(.close-menu):not(.menu-close),
+.side-menu button:not(.close-menu):not(.menu-close){
+
+  background: rgba(255,255,255,.94) !important;
+  color: #1a1a1a !important;
+
+  font-weight: 650 !important;
+  letter-spacing: -0.01em !important;
+
+  border-radius: 16px !important;
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,.10),
+    inset 0 1px 0 rgba(255,255,255,.35) !important;
+
+  transition: all .18s ease !important;
+}
+
+.menu-panel a:hover,
+.drawer a:hover,
+.mobile-menu a:hover,
+.side-menu a:hover,
+.nav-drawer a:hover,
+.menu-drawer a:hover,
+#menuPanel a:hover,
+#mobileMenu a:hover{
+
+  background: #ffffff !important;
+  transform: translateY(-1px) scale(1.01) !important;
+}
+
+.menu-title,
+.drawer-title,
+.menu-panel h1,
+.menu-panel h2,
+.menu-panel h3{
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+}
+
+.menu-note,
+.menu-footer-note{
+  background: rgba(0,0,0,.35) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 18px !important;
+  font-weight: 600 !important;
+}
+
+.menu-overlay,
+.drawer-overlay,
+.mobile-menu-overlay,
+#menuOverlay{
+  background: rgba(8,10,18,.42) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
