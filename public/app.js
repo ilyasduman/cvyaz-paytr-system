@@ -3954,9 +3954,9 @@ cvyazSaveDraft();
     cv.style.transformOrigin = 'top center';
 
     if (window.innerWidth <= 700) {
-      cv.style.transform = 'scale(.45)';
+      cv.style.transform = 'scale(.58)';
     } else {
-      cv.style.transform = 'scale(.48)';
+      cv.style.transform = 'scale(.68)';
     }
   }
 
