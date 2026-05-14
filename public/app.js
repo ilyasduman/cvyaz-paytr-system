@@ -3929,3 +3929,41 @@ cvyazSaveDraft();
   }
   window.addEventListener('load', bindMenu);
 })();
+
+
+
+/* V133 keep #cv truly centered */
+(function(){
+  function cvyazCenterMainCv(){
+    var wrap = document.getElementById('cvWrap');
+    var cv = document.getElementById('cv');
+    if(!wrap || !cv) return;
+
+    wrap.style.display = 'flex';
+    wrap.style.justifyContent = 'center';
+    wrap.style.alignItems = 'flex-start';
+    wrap.style.paddingLeft = '12px';
+    wrap.style.paddingRight = '12px';
+
+    cv.style.position = 'relative';
+    cv.style.left = 'auto';
+    cv.style.right = 'auto';
+    cv.style.marginLeft = 'auto';
+    cv.style.marginRight = 'auto';
+    cv.style.float = 'none';
+    cv.style.transformOrigin = 'top center';
+
+    if (window.innerWidth <= 700) {
+      cv.style.transform = 'scale(.45)';
+    } else {
+      cv.style.transform = 'scale(.48)';
+    }
+  }
+
+  window.addEventListener('load', cvyazCenterMainCv);
+  window.addEventListener('resize', cvyazCenterMainCv);
+  document.addEventListener('input', function(){ setTimeout(cvyazCenterMainCv, 50); }, true);
+  document.addEventListener('change', function(){ setTimeout(cvyazCenterMainCv, 50); }, true);
+  document.addEventListener('click', function(){ setTimeout(cvyazCenterMainCv, 80); }, true);
+  setInterval(cvyazCenterMainCv, 800);
+})();
