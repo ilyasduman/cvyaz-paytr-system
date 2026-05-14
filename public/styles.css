@@ -7871,3 +7871,45 @@ button[aria-label="Close"] {
   border:none !important;
   box-shadow:0 10px 30px rgba(49,46,129,.25) !important;
 }
+
+
+
+/* =====================================================
+   V126 SADELESTIRME PATCH
+   Ana ekran + hamburger: tekrar eden alanlar sadeleştirildi.
+===================================================== */
+
+.support-footer{
+  display:none !important;
+}
+
+.minimal-footer,
+.site-footer.minimal-footer{
+  padding:28px 22px !important;
+  border-radius:26px !important;
+}
+
+.minimal-footer .footer-links,
+.site-footer .footer-links{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+  margin-top:12px !important;
+}
+
+.minimal-footer .footer-links a,
+.site-footer .footer-links a{
+  padding:8px 12px !important;
+  border-radius:999px !important;
+  background:rgba(255,255,255,.10) !important;
+  color:#fff !important;
+  text-decoration:none !important;
+  font-weight:800 !important;
+  font-size:12px !important;
+}
+
+.side-menu a{
+  font-weight:800 !important;
+}
