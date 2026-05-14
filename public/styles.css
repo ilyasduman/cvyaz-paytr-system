@@ -7974,3 +7974,130 @@ button[aria-label="Close"] {
     transform-origin: top center !important;
   }
 }
+
+
+
+/* =====================================================
+   V128 INNER CV CENTER FIX
+   Ön izleme alanının içindeki gerçek CV kağıdı ortalandı.
+===================================================== */
+
+/* Dış ön izleme sahnesi */
+.preview-card,
+.pdf-preview,
+.cv-preview,
+.preview-panel,
+.preview-stage,
+.cv-preview-stage,
+.preview-wrapper,
+.preview-container,
+#previewArea,
+#cvPreview,
+#livePreview {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* İçte oluşan CV / A4 kağıdı */
+.preview-card .cv-page,
+.preview-card .resume-page,
+.preview-card .resume-preview,
+.preview-card .preview-page,
+.preview-card .a4-preview,
+.preview-card .cv-paper,
+.preview-card .pdf-page,
+.preview-card .generated-cv,
+.pdf-preview .cv-page,
+.pdf-preview .resume-page,
+.pdf-preview .resume-preview,
+.pdf-preview .preview-page,
+.pdf-preview .a4-preview,
+.pdf-preview .cv-paper,
+.pdf-preview .pdf-page,
+.pdf-preview .generated-cv,
+.cv-preview .cv-page,
+.cv-preview .resume-page,
+.cv-preview .resume-preview,
+.cv-preview .preview-page,
+.cv-preview .a4-preview,
+.cv-preview .cv-paper,
+.cv-preview .pdf-page,
+.cv-preview .generated-cv,
+#cvPreview .cv-page,
+#cvPreview .resume-page,
+#cvPreview .resume-preview,
+#cvPreview .preview-page,
+#cvPreview .a4-preview,
+#cvPreview .cv-paper,
+#cvPreview .pdf-page,
+#cvPreview .generated-cv,
+#previewArea .cv-page,
+#previewArea .resume-page,
+#previewArea .resume-preview,
+#previewArea .preview-page,
+#previewArea .a4-preview,
+#previewArea .cv-paper,
+#previewArea .pdf-page,
+#previewArea .generated-cv {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  align-self: center !important;
+  justify-self: center !important;
+  left: auto !important;
+  right: auto !important;
+  transform-origin: top center !important;
+}
+
+/* Eğer CV absolute/relative left ile kayıyorsa sıfırla */
+.cv-page,
+.resume-page,
+.resume-preview,
+.preview-page,
+.a4-preview,
+.cv-paper,
+.pdf-page,
+.generated-cv {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Önizleme içindeki watermark hizası bozulmasın */
+.watermark,
+.preview-watermark {
+  left: 50% !important;
+  transform-origin: center center !important;
+}
+
+/* Mobilde iç CV tam ortaya gelsin */
+@media (max-width: 700px) {
+  .preview-card,
+  .pdf-preview,
+  .cv-preview,
+  .preview-panel,
+  .preview-stage,
+  .cv-preview-stage,
+  .preview-wrapper,
+  .preview-container,
+  #previewArea,
+  #cvPreview,
+  #livePreview {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow-x: hidden !important;
+  }
+
+  .cv-page,
+  .resume-page,
+  .resume-preview,
+  .preview-page,
+  .a4-preview,
+  .cv-paper,
+  .pdf-page,
+  .generated-cv {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: calc(100vw - 64px) !important;
+  }
+}
