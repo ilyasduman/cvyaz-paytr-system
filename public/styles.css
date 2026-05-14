@@ -7856,38 +7856,50 @@ button[aria-label="Close"] {
 }
 
 /* =====================================================
-   V126 WEB ONLY PREVIEW FIX
-   Mobil görünüm korunur. Sadece web/tablet genişliğinde
-   CV kağıdı önizleme penceresini daha dolu kullanır.
+   V126 FINAL PREVIEW FIT FIX
+   Web aşağı taşma + mobil sağa taşma düzeltildi.
+   Çekirdek yapı korunur; sadece önizleme ölçeği/merkezi ayarlanır.
 ===================================================== */
-@media (min-width: 701px) and (max-width: 1179px) {
-  .cv-wrap {
-    padding: 12px !important;
-    overflow: hidden !important;
+.cv-wrap,
+#cvWrap {
+  position: relative !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  padding: 12px !important;
+}
+
+#cvWrap > #cv,
+.cv-wrap > .cv {
+  transform-origin: top left !important;
+  margin-right: 0 !important;
+}
+
+/* Mobil: sağa taşmayı bitirir, kart içinde dengeli kalır */
+@media (max-width: 700px) {
+  .cv-wrap,
+  #cvWrap {
+    min-height: 518px !important;
   }
 
-  .cv-wrap #cv,
-  .cv {
-    transform: scale(.55) !important;
-    transform-origin: top left !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    margin-bottom: -520px !important;
+  #cvWrap > #cv,
+  .cv-wrap > .cv {
+    transform: scale(.44) !important;
+    margin-left: calc(50% - 174.68px) !important; /* 794 * .44 / 2 */
+    margin-bottom: -629px !important; /* 1123 * (1 - .44) */
   }
 }
 
-@media (min-width: 1180px) {
-  .cv-wrap {
-    padding: 12px !important;
-    overflow: hidden !important;
+/* Web/tablet: büyütür ama aşağı taşırmaz */
+@media (min-width: 701px) {
+  .cv-wrap,
+  #cvWrap {
+    min-height: 586px !important;
   }
 
-  .cv-wrap #cv,
-  .cv {
-    transform: scale(.60) !important;
-    transform-origin: top left !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    margin-bottom: -470px !important;
+  #cvWrap > #cv,
+  .cv-wrap > .cv {
+    transform: scale(.50) !important;
+    margin-left: calc(50% - 198.5px) !important; /* 794 * .50 / 2 */
+    margin-bottom: -562px !important; /* 1123 * (1 - .50) */
   }
 }
