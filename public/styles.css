@@ -6357,3 +6357,225 @@ button[aria-label="Close"] {
   backdrop-filter: blur(5px) !important;
 }
 
+
+
+
+/* =====================================================
+   V121 WHITE MENU + BLUE ICON STYLE
+   - Hamburger drawer beyaz / soft glass panel
+   - İkonlar mavi-mor
+   - Yazılar daha zarif koyu gri
+   - Kartlar ince border + hafif shadow
+   - Desktop + mobil aynı tasarım dili
+===================================================== */
+
+.menu-panel,
+.drawer,
+.mobile-menu,
+.side-menu,
+.nav-drawer,
+.menu-drawer,
+#menuPanel,
+#mobileMenu {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(250,251,255,.96) 100%) !important;
+  color: #111827 !important;
+  border-left: 1px solid rgba(99,102,241,.12) !important;
+  box-shadow:
+    -18px 0 60px rgba(15,23,42,.14),
+    inset 1px 0 0 rgba(255,255,255,.80) !important;
+  backdrop-filter: blur(18px) !important;
+}
+
+/* Menü başlığı */
+.menu-panel h1,
+.menu-panel h2,
+.menu-panel h3,
+.drawer h1,
+.drawer h2,
+.drawer h3,
+.mobile-menu h1,
+.mobile-menu h2,
+.mobile-menu h3,
+.side-menu h1,
+.side-menu h2,
+.side-menu h3,
+.nav-drawer h1,
+.nav-drawer h2,
+.nav-drawer h3,
+.menu-title,
+.drawer-title {
+  color: #2b238f !important;
+  font-weight: 800 !important;
+  letter-spacing: -.035em !important;
+  opacity: 1 !important;
+}
+
+/* Menü açıklaması */
+.menu-panel p,
+.drawer p,
+.mobile-menu p,
+.side-menu p,
+.nav-drawer p,
+.menu-subtitle,
+.drawer-subtitle {
+  color: #7b8194 !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+
+/* Menü itemları */
+.menu-panel a,
+.drawer a,
+.mobile-menu a,
+.side-menu a,
+.nav-drawer a,
+.menu-drawer a,
+#menuPanel a,
+#mobileMenu a,
+.menu-panel button:not(.close-menu):not(.menu-close),
+.drawer button:not(.close-menu):not(.menu-close),
+.mobile-menu button:not(.close-menu):not(.menu-close),
+.side-menu button:not(.close-menu):not(.menu-close),
+.nav-drawer button:not(.close-menu):not(.menu-close) {
+  background: rgba(255,255,255,.94) !important;
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+  letter-spacing: -.012em !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(99,102,241,.12) !important;
+  text-shadow: none !important;
+  box-shadow:
+    0 6px 16px rgba(15,23,42,.055),
+    inset 0 1px 0 rgba(255,255,255,.90) !important;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease,
+    background .18s ease !important;
+}
+
+/* Menü item hover */
+.menu-panel a:hover,
+.drawer a:hover,
+.mobile-menu a:hover,
+.side-menu a:hover,
+.nav-drawer a:hover,
+.menu-drawer a:hover,
+#menuPanel a:hover,
+#mobileMenu a:hover {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: rgba(99,102,241,.25) !important;
+  transform: translateY(-1px) !important;
+  box-shadow:
+    0 10px 22px rgba(99,102,241,.11),
+    inset 0 1px 0 rgba(255,255,255,.95) !important;
+}
+
+/* Menüdeki ikonlar: emoji/svg/i/span fark etmeksizin mavi-mor */
+.menu-panel a svg,
+.drawer a svg,
+.mobile-menu a svg,
+.side-menu a svg,
+.nav-drawer a svg,
+.menu-drawer a svg,
+#menuPanel a svg,
+#mobileMenu a svg,
+.menu-icon,
+.menu-panel i,
+.drawer i,
+.mobile-menu i,
+.side-menu i,
+.nav-drawer i {
+  color: #5146e8 !important;
+  stroke: #5146e8 !important;
+  fill: none !important;
+}
+
+/* Kapatma butonu */
+.close-menu,
+.menu-close,
+.drawer-close,
+button[aria-label="Kapat"],
+button[aria-label="Close"] {
+  background: rgba(245,246,255,.96) !important;
+  color: #111827 !important;
+  border: 1px solid rgba(99,102,241,.12) !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,.08) !important;
+  font-weight: 700 !important;
+}
+
+/* Alt güven kutusu */
+.menu-panel .menu-note,
+.drawer .menu-note,
+.mobile-menu .menu-note,
+.side-menu .menu-note,
+.nav-drawer .menu-note,
+.menu-note,
+.menu-footer-note {
+  background:
+    linear-gradient(135deg, rgba(99,102,241,.075), rgba(139,92,246,.12)) !important;
+  color: #312e81 !important;
+  border: 1px solid rgba(99,102,241,.12) !important;
+  border-radius: 18px !important;
+  font-weight: 600 !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.65) !important;
+}
+
+/* Alt güven kutusu ikonları */
+.menu-note svg,
+.menu-footer-note svg,
+.menu-note i,
+.menu-footer-note i {
+  color: #5146e8 !important;
+  stroke: #5146e8 !important;
+}
+
+/* Overlay referanstaki gibi koyu ama yumuşak */
+.menu-overlay,
+.drawer-overlay,
+.mobile-menu-overlay,
+#menuOverlay {
+  background: rgba(10,14,24,.52) !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+/* Eğer panel içindeki yazılar önceki CSS'ten beyaz kalırsa zorla düzelt */
+.menu-panel *,
+.drawer *,
+.mobile-menu *,
+.side-menu *,
+.nav-drawer *,
+.menu-drawer *,
+#menuPanel *,
+#mobileMenu * {
+  text-shadow: none !important;
+}
+
+/* Mobil panel daha temiz */
+@media (max-width:700px) {
+  .menu-panel,
+  .drawer,
+  .mobile-menu,
+  .side-menu,
+  .nav-drawer,
+  .menu-drawer,
+  #menuPanel,
+  #mobileMenu {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.99) 0%, rgba(250,251,255,.98) 100%) !important;
+  }
+
+  .menu-panel a,
+  .drawer a,
+  .mobile-menu a,
+  .side-menu a,
+  .nav-drawer a,
+  .menu-drawer a,
+  #menuPanel a,
+  #mobileMenu a {
+    border-radius: 14px !important;
+    font-weight: 600 !important;
+  }
+}
