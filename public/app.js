@@ -3969,3 +3969,20 @@ cvyazSaveDraft();
   document.addEventListener('click', function(){ setTimeout(cvyazRestoreBalancedPreview, 80); }, true);
   setInterval(cvyazRestoreBalancedPreview, 1000);
 })();
+
+
+
+/* V138 wider preview cv */
+(function(){
+  function cvyazWiderPreview(){
+    var cv = document.getElementById('cv');
+    if(!cv) return;
+
+    cv.style.transformOrigin = 'top center';
+    cv.style.transform = window.innerWidth <= 700 ? 'scale(.56)' : 'scale(.64)';
+  }
+
+  window.addEventListener('load', cvyazWiderPreview);
+  window.addEventListener('resize', cvyazWiderPreview);
+  setInterval(cvyazWiderPreview, 1000);
+})();
