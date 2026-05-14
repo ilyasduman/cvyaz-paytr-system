@@ -7995,3 +7995,66 @@ button[aria-label="Close"] {
   }
 
 }
+
+
+
+
+/* =====================================================
+   LEGAL BOX WIDTH ALIGN FIX
+   En alttaki Güvenli Dijital Satın Alma penceresi
+   üstteki ATS penceresiyle aynı genişlik hizasına alınır.
+===================================================== */
+
+.enhanced-legal-box,
+.legal-box{
+  max-width:760px !important;
+  width:min(760px, calc(100% - 32px)) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  box-sizing:border-box !important;
+}
+
+@media (max-width:700px){
+  .enhanced-legal-box,
+  .legal-box{
+    width:calc(100% - 24px) !important;
+    max-width:none !important;
+  }
+}
+
+
+
+
+/* =====================================================
+   LEGAL EXACT WIDTH FIX
+   Güvenli Dijital Satın Alma kutusu ATS kutusuyla
+   birebir aynı dış genişliğe alınır.
+===================================================== */
+
+#ats-nedir,
+.info-section.ats-card{
+  max-width:760px !important;
+  width:min(760px, calc(100% - 32px)) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  box-sizing:border-box !important;
+}
+
+.enhanced-legal-box,
+.legal-box{
+  max-width:760px !important;
+  width:min(760px, calc(100% - 32px)) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  box-sizing:border-box !important;
+}
+
+@media (max-width:700px){
+  #ats-nedir,
+  .info-section.ats-card,
+  .enhanced-legal-box,
+  .legal-box{
+    width:calc(100% - 24px) !important;
+    max-width:none !important;
+  }
+}
