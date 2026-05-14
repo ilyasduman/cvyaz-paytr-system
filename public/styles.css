@@ -8388,3 +8388,119 @@ button[aria-label="Close"] {
     margin-right: auto !important;
   }
 }
+
+
+
+/* =====================================================
+   V131 EXACT CV PAPER CENTER
+   Beyaz ön izleme kartının içindeki CV kağıdı tam merkeze alındı.
+   Önceki genel merkezleme kuralları yetmediği için bu sürüm
+   CV kağıdını kendi parent'ının gerçek ortasına konumlandırır.
+===================================================== */
+
+/* Büyük beyaz mockup / ön izleme kartı parent olarak çalışsın */
+.cv-preview,
+.pdf-preview,
+.preview-card,
+.preview-panel,
+.preview-stage,
+.cv-preview-stage,
+.preview-wrapper,
+.preview-container,
+.live-preview,
+.live-preview-box,
+#cvPreview,
+#previewArea,
+#livePreview,
+#resumePreviewWrap {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+}
+
+/* İçte oluşan gerçek CV kağıdı: parent'ın tam merkezine */
+.cv-page,
+.resume-page,
+.resume-preview,
+.preview-page,
+.a4-preview,
+.cv-paper,
+.pdf-page,
+.generated-cv,
+#resumePreview,
+#previewPage,
+#cvPage,
+#generatedCv,
+#cvPaper {
+  position: relative !important;
+  left: 50% !important;
+  right: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transform: translateX(-50%) !important;
+  float: none !important;
+  clear: both !important;
+}
+
+/* En sık görünen yapı: beyaz kartın ilk çocuk elementi CV kağıdı */
+.cv-preview > *:first-child,
+.pdf-preview > *:first-child,
+.preview-card > *:first-child,
+.preview-panel > *:first-child,
+.preview-stage > *:first-child,
+.cv-preview-stage > *:first-child,
+.preview-wrapper > *:first-child,
+.preview-container > *:first-child,
+.live-preview > *:first-child,
+.live-preview-box > *:first-child,
+#cvPreview > *:first-child,
+#previewArea > *:first-child,
+#livePreview > *:first-child {
+  position: relative !important;
+  left: 50% !important;
+  right: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transform: translateX(-50%) !important;
+  float: none !important;
+}
+
+/* Eğer parent içinde ikinci bir paper wrapper varsa onu da merkeze çek */
+.cv-preview > div,
+.pdf-preview > div,
+.preview-card > div,
+.preview-panel > div,
+#cvPreview > div,
+#previewArea > div {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Watermark CV sayfasını kaydırmasın */
+.watermark,
+.preview-watermark {
+  pointer-events: none !important;
+}
+
+/* Mobilde de aynı */
+@media (max-width: 700px) {
+  .cv-page,
+  .resume-page,
+  .resume-preview,
+  .preview-page,
+  .a4-preview,
+  .cv-paper,
+  .pdf-page,
+  .generated-cv,
+  #resumePreview,
+  #previewPage,
+  #cvPage,
+  #generatedCv,
+  #cvPaper {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    max-width: calc(100vw - 64px) !important;
+  }
+}
