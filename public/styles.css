@@ -8504,3 +8504,139 @@ button[aria-label="Close"] {
     max-width: calc(100vw - 64px) !important;
   }
 }
+
+
+
+/* =====================================================
+   V132 LIVE PREVIEW INSIDE CENTER
+   "CV’n Anında Oluşuyor" bölümünde beyaz kartın içindeki
+   gerçek CV sayfası tam merkeze alındı.
+===================================================== */
+
+/* Canlı önizleme bölümündeki büyük beyaz kutu */
+.live-preview-card,
+.live-preview-frame,
+.live-preview-box,
+.cv-live-card,
+.cv-live-preview,
+.instant-preview-card,
+.instant-preview-box,
+.preview-mockup,
+.preview-mockup-card,
+.preview-device,
+.preview-device-card,
+.preview-canvas,
+.preview-canvas-wrap {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: center !important;
+}
+
+/* Bu bölümde oluşan CV kağıdı */
+.live-preview-card .resume-preview,
+.live-preview-card .cv-preview,
+.live-preview-card .cv-paper,
+.live-preview-card .preview-paper,
+.live-preview-card .preview-page,
+.live-preview-card .a4-preview,
+.live-preview-frame .resume-preview,
+.live-preview-frame .cv-preview,
+.live-preview-frame .cv-paper,
+.live-preview-frame .preview-paper,
+.live-preview-frame .preview-page,
+.live-preview-frame .a4-preview,
+.live-preview-box .resume-preview,
+.live-preview-box .cv-preview,
+.live-preview-box .cv-paper,
+.live-preview-box .preview-paper,
+.live-preview-box .preview-page,
+.live-preview-box .a4-preview,
+.preview-mockup .resume-preview,
+.preview-mockup .cv-preview,
+.preview-mockup .cv-paper,
+.preview-mockup .preview-paper,
+.preview-mockup .preview-page,
+.preview-mockup .a4-preview,
+.preview-device .resume-preview,
+.preview-device .cv-preview,
+.preview-device .cv-paper,
+.preview-device .preview-paper,
+.preview-device .preview-page,
+.preview-device .a4-preview,
+.preview-canvas .resume-preview,
+.preview-canvas .cv-preview,
+.preview-canvas .cv-paper,
+.preview-canvas .preview-paper,
+.preview-canvas .preview-page,
+.preview-canvas .a4-preview {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  transform: none !important;
+  translate: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  float: none !important;
+  align-self: center !important;
+  justify-self: center !important;
+}
+
+/* Eğer sayfa generic class ile render ediliyorsa: büyük beyaz preview kartının ilk çocuğunu ortala */
+.live-preview-card > *,
+.live-preview-frame > *,
+.live-preview-box > *,
+.cv-live-card > *,
+.cv-live-preview > *,
+.instant-preview-card > *,
+.instant-preview-box > *,
+.preview-mockup > *,
+.preview-mockup-card > *,
+.preview-device > *,
+.preview-device-card > *,
+.preview-canvas > *,
+.preview-canvas-wrap > * {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  float: none !important;
+}
+
+/* Görseldeki problem: kağıt kartın soluna yapışıyor.
+   Kartın içindeki A4 ölçülü öğeleri transform yerine flex merkezine al. */
+[class*="preview"][class*="paper"],
+[class*="preview"][class*="page"],
+[class*="resume"][class*="preview"],
+[class*="cv"][class*="paper"],
+[class*="a4"] {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Mobilde de aynı merkez */
+@media (max-width: 700px) {
+  .live-preview-card,
+  .live-preview-frame,
+  .live-preview-box,
+  .cv-live-card,
+  .cv-live-preview,
+  .instant-preview-card,
+  .instant-preview-box,
+  .preview-mockup,
+  .preview-mockup-card,
+  .preview-device,
+  .preview-device-card,
+  .preview-canvas,
+  .preview-canvas-wrap {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow-x: hidden !important;
+  }
+}
