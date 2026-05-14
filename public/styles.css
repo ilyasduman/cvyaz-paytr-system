@@ -7855,165 +7855,61 @@ button[aria-label="Close"] {
   }
 }
 
+
+/* CTA COLOR BALANCE FINAL */
+.file-label{
+  background: linear-gradient(135deg,#16a34a,#22c55e) !important;
+  color:#fff !important;
+  border:none !important;
+  box-shadow:0 10px 24px rgba(34,197,94,.28) !important;
+}
+
+.download,
+#previewCta{
+  background: linear-gradient(135deg,#1e1b4b,#312e81) !important;
+  color:#fff !important;
+  border:none !important;
+  box-shadow:0 10px 30px rgba(49,46,129,.25) !important;
+}
+
+
+
 /* =====================================================
-   V126 FINAL PREVIEW FIT FIX
-   Web aşağı taşma + mobil sağa taşma düzeltildi.
-   Çekirdek yapı korunur; sadece önizleme ölçeği/merkezi ayarlanır.
+   V126 SADELESTIRME PATCH
+   Ana ekran + hamburger: tekrar eden alanlar sadeleştirildi.
 ===================================================== */
-.cv-wrap,
-#cvWrap {
-  position: relative !important;
-  box-sizing: border-box !important;
-  overflow: hidden !important;
-  padding: 12px !important;
+
+.support-footer{
+  display:none !important;
 }
 
-#cvWrap > #cv,
-.cv-wrap > .cv {
-  transform-origin: top left !important;
-  margin-right: 0 !important;
+.minimal-footer,
+.site-footer.minimal-footer{
+  padding:28px 22px !important;
+  border-radius:26px !important;
 }
 
-/* Mobil: sağa taşmayı bitirir, kart içinde dengeli kalır */
-@media (max-width: 700px) {
-  .cv-wrap,
-  #cvWrap {
-    min-height: 518px !important;
-  }
-
-  #cvWrap > #cv,
-  .cv-wrap > .cv {
-    transform: scale(.44) !important;
-    margin-left: calc(50% - 174.68px) !important; /* 794 * .44 / 2 */
-    margin-bottom: -629px !important; /* 1123 * (1 - .44) */
-  }
+.minimal-footer .footer-links,
+.site-footer .footer-links{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+  margin-top:12px !important;
 }
 
-/* Web/tablet: büyütür ama aşağı taşırmaz */
-@media (min-width: 701px) {
-  .cv-wrap,
-  #cvWrap {
-    min-height: 586px !important;
-  }
-
-  #cvWrap > #cv,
-  .cv-wrap > .cv {
-    transform: scale(.50) !important;
-    margin-left: calc(50% - 198.5px) !important; /* 794 * .50 / 2 */
-    margin-bottom: -562px !important; /* 1123 * (1 - .50) */
-  }
+.minimal-footer .footer-links a,
+.site-footer .footer-links a{
+  padding:8px 12px !important;
+  border-radius:999px !important;
+  background:rgba(255,255,255,.10) !important;
+  color:#fff !important;
+  text-decoration:none !important;
+  font-weight:800 !important;
+  font-size:12px !important;
 }
 
-/* =====================================================
-   v126 DESIGN TOUCH 01
-   - Ana fotoğraf/başla CTA yeşil premium gradient
-   - Form inputları daha canlı border + yeşil focus glow
-   Not: Preview fit ayarlarına dokunmaz.
-   ===================================================== */
-
-/* Fotoğraf Ekle • CV Oluşturmaya Başla */
-.file-label,
-.photo-btn,
-.upload-btn,
-.start-btn,
-.main-btn,
-.btn-primary,
-button[onclick*="photo"],
-button[onclick*="file"] {
-  background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%) !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255,255,255,.24) !important;
-  box-shadow:
-    0 16px 34px rgba(34,197,94,.34),
-    inset 0 1px 0 rgba(255,255,255,.26) !important;
-  text-shadow: 0 1px 0 rgba(0,0,0,.12) !important;
-}
-
-.file-label:hover,
-.photo-btn:hover,
-.upload-btn:hover,
-.start-btn:hover,
-.main-btn:hover,
-.btn-primary:hover,
-button[onclick*="photo"]:hover,
-button[onclick*="file"]:hover {
-  background: linear-gradient(135deg, #15803d 0%, #16a34a 48%, #22c55e 100%) !important;
-  box-shadow:
-    0 20px 42px rgba(34,197,94,.42),
-    inset 0 1px 0 rgba(255,255,255,.30) !important;
-  transform: translateY(-1px) !important;
-}
-
-.file-label:active,
-.photo-btn:active,
-.upload-btn:active,
-.start-btn:active,
-.main-btn:active,
-.btn-primary:active,
-button[onclick*="photo"]:active,
-button[onclick*="file"]:active {
-  transform: translateY(0) scale(.99) !important;
-}
-
-/* İkincil / kaldır butonları yeşile dönmesin */
-.mini-btn.remove,
-.remove-photo-btn,
-button.remove,
-button.gray-btn,
-.secondary-btn {
-  background: linear-gradient(180deg, #f7f7f7 0%, #ececec 100%) !important;
-  color: #111827 !important;
-  border: 1px solid rgba(17,24,39,.06) !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.9) !important;
-  text-shadow: none !important;
-}
-
-/* Inputlar: daha net ve premium */
-input,
-textarea,
-select {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
-  border: 1px solid #d4d4d8 !important;
-  color: #111827 !important;
-  box-shadow:
-    inset 0 1px 1px rgba(255,255,255,.90),
-    0 1px 0 rgba(255,255,255,.72) !important;
-  transition:
-    background .18s ease,
-    border-color .18s ease,
-    box-shadow .18s ease,
-    transform .18s ease !important;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #9ca3af !important;
-  opacity: 1 !important;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none !important;
-  background: #ffffff !important;
-  border-color: #22c55e !important;
-  box-shadow:
-    0 0 0 4px rgba(34,197,94,.15),
-    0 10px 24px rgba(15,23,42,.08),
-    inset 0 1px 1px rgba(255,255,255,.92) !important;
-  transform: translateY(-1px) !important;
-}
-
-@media (max-width: 768px) {
-  .file-label {
-    background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%) !important;
-    box-shadow:
-      0 14px 30px rgba(34,197,94,.34),
-      inset 0 1px 0 rgba(255,255,255,.26) !important;
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    color: #a1a1aa !important;
-  }
+.side-menu a{
+  font-weight:800 !important;
 }
