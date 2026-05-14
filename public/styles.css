@@ -7854,3 +7854,123 @@ button[aria-label="Close"] {
     font-size: 14px !important;
   }
 }
+
+
+
+/* =====================================================
+   V127 PREVIEW CENTER FIX
+   Ana sayfadaki CV önizleme alanı web + mobil ortalandı.
+===================================================== */
+
+/* Önizleme bölümünün ana kapsayıcıları */
+.preview-section,
+.live-preview-section,
+.cv-preview-section,
+.preview-area,
+.preview-wrapper,
+.preview-container,
+#previewArea,
+#cvPreview,
+#livePreview,
+.pdf-preview-wrap,
+.pdf-preview-section {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+/* Önizleme kartını tam merkeze al */
+.preview-card,
+.pdf-preview,
+.cv-preview,
+.preview-paper,
+.cv-paper,
+.resume-preview,
+.resume-paper,
+.a4-preview,
+.preview-page,
+#previewPage,
+#resumePreview {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  align-self: center !important;
+}
+
+/* İçteki beyaz önizleme kutusu ve sayfa hizası */
+.preview-card > *,
+.pdf-preview > *,
+.cv-preview > *,
+.preview-wrapper > *,
+.preview-container > * {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Eğer grid/kolon yapısı sağa kaydırıyorsa merkezle */
+.preview-layout,
+.preview-grid,
+.preview-panel,
+.preview-stage,
+.cv-preview-stage {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Başlık ve açıklama da önizlemeyle aynı merkez aksında */
+.preview-section h2,
+.live-preview-section h2,
+.cv-preview-section h2,
+.preview-section p,
+.live-preview-section p,
+.cv-preview-section p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Mobilde sağ/sol taşma olmasın */
+@media (max-width: 700px) {
+  .preview-section,
+  .live-preview-section,
+  .cv-preview-section,
+  .preview-area,
+  .preview-wrapper,
+  .preview-container,
+  #previewArea,
+  #cvPreview,
+  #livePreview,
+  .pdf-preview-wrap,
+  .pdf-preview-section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    align-items: center !important;
+    overflow-x: hidden !important;
+  }
+
+  .preview-card,
+  .pdf-preview,
+  .cv-preview,
+  .preview-paper,
+  .cv-paper,
+  .resume-preview,
+  .resume-paper,
+  .a4-preview,
+  .preview-page,
+  #previewPage,
+  #resumePreview {
+    max-width: calc(100vw - 32px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    transform-origin: top center !important;
+  }
+}
