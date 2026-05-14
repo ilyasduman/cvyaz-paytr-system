@@ -7149,3 +7149,194 @@ button[aria-label="Close"] {
     font-size: 15px !important;
   }
 }
+
+
+
+/* =====================================================
+   V124 MENU REFERENCE EXACT POLISH
+   - Menü başlık/logo rengi referanstaki gibi koyu mor
+   - Alt açıklama kartı siyah değil pastel mor/beyaz
+   - Menü ikon/yazı/ok renkleri referansa daha yakın
+===================================================== */
+
+/* Panel: tam beyaz, temiz */
+.menu-panel,
+.drawer,
+.mobile-menu,
+.side-menu,
+.nav-drawer,
+.menu-drawer,
+#menuPanel,
+#mobileMenu {
+  background: #ffffff !important;
+  color: #151827 !important;
+  border-left: 1px solid rgba(99,102,241,.10) !important;
+  box-shadow: -24px 0 70px rgba(15,23,42,.12) !important;
+}
+
+/* CVYAZ logo/başlık: siyah değil referanstaki koyu mor */
+.menu-panel h1,
+.menu-panel h2,
+.menu-panel h3,
+.drawer h1,
+.drawer h2,
+.drawer h3,
+.mobile-menu h1,
+.mobile-menu h2,
+.mobile-menu h3,
+.side-menu h1,
+.side-menu h2,
+.side-menu h3,
+.nav-drawer h1,
+.nav-drawer h2,
+.nav-drawer h3,
+.menu-title,
+.drawer-title,
+.menu-brand,
+.side-menu-logo {
+  color: #312e81 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.035em !important;
+  opacity: 1 !important;
+}
+
+/* Profesyonel CV oluşturucu açıklaması */
+.menu-panel p,
+.drawer p,
+.mobile-menu p,
+.side-menu p,
+.nav-drawer p,
+.menu-subtitle,
+.drawer-subtitle,
+.side-menu-sub {
+  color: #8b90a5 !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+
+/* Menü kartları */
+.menu-panel a,
+.drawer a,
+.mobile-menu a,
+.side-menu a,
+.nav-drawer a,
+.menu-drawer a,
+#menuPanel a,
+#mobileMenu a,
+.menu-panel button:not(.close-menu):not(.menu-close),
+.drawer button:not(.close-menu):not(.menu-close),
+.mobile-menu button:not(.close-menu):not(.menu-close),
+.side-menu button:not(.close-menu):not(.menu-close),
+.nav-drawer button:not(.close-menu):not(.menu-close) {
+  background: #ffffff !important;
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+  border: 1px solid #e9ecf5 !important;
+  box-shadow: 0 5px 14px rgba(15,23,42,.045) !important;
+}
+
+/* Sol ikonlar mavi */
+.menu-panel a::before,
+.drawer a::before,
+.mobile-menu a::before,
+.side-menu a::before,
+.nav-drawer a::before,
+.menu-drawer a::before,
+#menuPanel a::before,
+#mobileMenu a::before {
+  color: #2563ff !important;
+  border-color: #2563ff !important;
+}
+
+/* Sağ ok */
+.menu-panel a::after,
+.drawer a::after,
+.mobile-menu a::after,
+.side-menu a::after,
+.nav-drawer a::after,
+.menu-drawer a::after,
+#menuPanel a::after,
+#mobileMenu a::after {
+  color: #9aa1b6 !important;
+}
+
+/* Kapatma butonu referanstaki gibi açık mor zemin */
+.close-menu,
+.menu-close,
+.drawer-close,
+button[aria-label="Kapat"],
+button[aria-label="Close"] {
+  background: #f5f3ff !important;
+  color: #111827 !important;
+  border: 1px solid rgba(99,102,241,.12) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,.08) !important;
+}
+
+/* EN ÖNEMLİ: alt açıklama siyah değil, pastel mor kart */
+.menu-note,
+.menu-footer-note,
+.menu-panel .menu-note,
+.drawer .menu-note,
+.mobile-menu .menu-note,
+.side-menu .menu-note,
+.nav-drawer .menu-note,
+.side-menu-footer {
+  background: linear-gradient(135deg, rgba(99,102,241,.08), rgba(139,92,246,.13)) !important;
+  color: #312e81 !important;
+  border: 1px solid rgba(99,102,241,.12) !important;
+  border-radius: 18px !important;
+  font-weight: 600 !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.75) !important;
+}
+
+/* Alt açıklama iç yazılar siyah/beyaz kalmasın */
+.menu-note *,
+.menu-footer-note *,
+.side-menu-footer *,
+.menu-panel .menu-note *,
+.drawer .menu-note *,
+.mobile-menu .menu-note *,
+.side-menu .menu-note *,
+.nav-drawer .menu-note * {
+  color: #312e81 !important;
+  font-weight: 600 !important;
+}
+
+/* Alt açıklama ikonu */
+.menu-note::before,
+.menu-footer-note::before,
+.side-menu-footer::before {
+  color: #2563ff !important;
+  background: rgba(37,99,255,.08) !important;
+}
+
+/* Eğer önceki CSS siyah arka planı inline/strong üzerine bastıysa kır */
+.menu-note strong,
+.menu-footer-note strong,
+.side-menu-footer strong {
+  color: #312e81 !important;
+}
+
+/* Hover referans gibi soft */
+.menu-panel a:hover,
+.drawer a:hover,
+.mobile-menu a:hover,
+.side-menu a:hover,
+.nav-drawer a:hover,
+.menu-drawer a:hover,
+#menuPanel a:hover,
+#mobileMenu a:hover {
+  background: #fbfcff !important;
+  border-color: rgba(99,102,241,.22) !important;
+  box-shadow: 0 10px 24px rgba(99,102,241,.09) !important;
+}
+
+/* Overlay aynı kalsın: koyu blur */
+.menu-overlay,
+.drawer-overlay,
+.mobile-menu-overlay,
+#menuOverlay {
+  background: rgba(9,13,24,.54) !important;
+  backdrop-filter: blur(6px) !important;
+}
