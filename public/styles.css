@@ -7856,22 +7856,38 @@ button[aria-label="Close"] {
 }
 
 /* =====================================================
-   V126 PREVIEW CENTER FIX - SAFE PATCH
-   Çekirdek yapı korunur. Sadece CV kağıdının beyaz
-   pencere içinde görsel olarak ortalanması sağlanır.
+   V126 WEB ONLY PREVIEW FIX
+   Mobil görünüm korunur. Sadece web/tablet genişliğinde
+   CV kağıdı önizleme penceresini daha dolu kullanır.
 ===================================================== */
-.cv-wrap,
-#cvWrap {
-  position: relative !important;
-  display: block !important;
-  box-sizing: border-box !important;
-  overflow: hidden !important;
+@media (min-width: 701px) and (max-width: 1179px) {
+  .cv-wrap {
+    padding: 12px !important;
+    overflow: hidden !important;
+  }
+
+  .cv-wrap #cv,
+  .cv {
+    transform: scale(.55) !important;
+    transform-origin: top left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: -520px !important;
+  }
 }
 
-.cv-wrap > .cv,
-#cvWrap > #cv,
-#cvWrap .cv {
-  transform-origin: top left !important;
-  margin-left: calc(50% - 190.56px) !important; /* 794px x 0.48 / 2 */
-  margin-right: 0 !important;
+@media (min-width: 1180px) {
+  .cv-wrap {
+    padding: 12px !important;
+    overflow: hidden !important;
+  }
+
+  .cv-wrap #cv,
+  .cv {
+    transform: scale(.60) !important;
+    transform-origin: top left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: -470px !important;
+  }
 }
