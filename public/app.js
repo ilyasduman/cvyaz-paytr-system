@@ -3979,7 +3979,7 @@ cvyazSaveDraft();
     if(!cv) return;
 
     cv.style.transformOrigin = 'top center';
-    cv.style.transform = window.innerWidth <= 700 ? 'scale(.56)' : 'scale(.64)';
+    cv.style.transform = window.innerWidth <= 700 ? 'scale(.61)' : 'scale(.70)';
   }
 
   window.addEventListener('load', cvyazWiderPreview);
