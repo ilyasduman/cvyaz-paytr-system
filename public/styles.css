@@ -6151,3 +6151,121 @@ select:focus {
     filter: none !important;
   }
 }
+
+
+
+/* =====================================================
+   V119 MENU READABILITY FIX
+   Hamburger menü yazıları web + mobilde okunur hale getirildi.
+===================================================== */
+
+.menu-panel,
+.drawer,
+.mobile-menu,
+.side-menu,
+.nav-drawer,
+.menu-drawer,
+#menuPanel,
+#mobileMenu {
+  background: #0b0d22 !important;
+  color: #ffffff !important;
+}
+
+.menu-panel h1,
+.menu-panel h2,
+.menu-panel h3,
+.drawer h1,
+.drawer h2,
+.drawer h3,
+.mobile-menu h1,
+.mobile-menu h2,
+.mobile-menu h3,
+.side-menu h1,
+.side-menu h2,
+.side-menu h3,
+.nav-drawer h1,
+.nav-drawer h2,
+.nav-drawer h3,
+.menu-title,
+.drawer-title {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.menu-panel p,
+.drawer p,
+.mobile-menu p,
+.side-menu p,
+.nav-drawer p,
+.menu-subtitle,
+.drawer-subtitle {
+  color: rgba(255,255,255,.78) !important;
+  opacity: 1 !important;
+}
+
+.menu-panel a,
+.drawer a,
+.mobile-menu a,
+.side-menu a,
+.nav-drawer a,
+.menu-drawer a,
+#menuPanel a,
+#mobileMenu a,
+.menu-panel button:not(.close-menu):not(.menu-close),
+.drawer button:not(.close-menu):not(.menu-close),
+.mobile-menu button:not(.close-menu):not(.menu-close),
+.side-menu button:not(.close-menu):not(.menu-close),
+.nav-drawer button:not(.close-menu):not(.menu-close) {
+  color: #111827 !important;
+  background: rgba(255,255,255,.97) !important;
+  opacity: 1 !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+  border: 1px solid rgba(255,255,255,.20) !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,.14) !important;
+}
+
+.menu-panel a:hover,
+.drawer a:hover,
+.mobile-menu a:hover,
+.side-menu a:hover,
+.nav-drawer a:hover,
+.menu-drawer a:hover,
+#menuPanel a:hover,
+#mobileMenu a:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  transform: translateY(-1px) !important;
+}
+
+.close-menu,
+.menu-close,
+.drawer-close,
+button[aria-label="Kapat"],
+button[aria-label="Close"] {
+  color: #111827 !important;
+  background: #ffffff !important;
+  opacity: 1 !important;
+  font-weight: 900 !important;
+}
+
+.menu-panel .menu-note,
+.drawer .menu-note,
+.mobile-menu .menu-note,
+.side-menu .menu-note,
+.nav-drawer .menu-note,
+.menu-note,
+.menu-footer-note {
+  background: rgba(0,0,0,.88) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  opacity: 1 !important;
+}
+
+.menu-overlay,
+.drawer-overlay,
+.mobile-menu-overlay,
+#menuOverlay {
+  background: rgba(0,0,0,.48) !important;
+  backdrop-filter: blur(2px) !important;
+}
