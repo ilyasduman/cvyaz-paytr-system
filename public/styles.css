@@ -6579,3 +6579,229 @@ button[aria-label="Close"] {
     font-weight: 600 !important;
   }
 }
+
+
+
+/* =====================================================
+   V122 MENU ICONS
+   Menü öğelerine referans görseldeki gibi mavi ikonlar eklendi.
+===================================================== */
+
+.menu-panel a,
+.drawer a,
+.mobile-menu a,
+.side-menu a,
+.nav-drawer a,
+.menu-drawer a,
+#menuPanel a,
+#mobileMenu a {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding-left: 46px !important;
+}
+
+/* Sağ ok */
+.menu-panel a::after,
+.drawer a::after,
+.mobile-menu a::after,
+.side-menu a::after,
+.nav-drawer a::after,
+.menu-drawer a::after,
+#menuPanel a::after,
+#mobileMenu a::after {
+  content: "›" !important;
+  position: absolute !important;
+  right: 18px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8b91a6 !important;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+}
+
+/* Sol mavi ikon alanı */
+.menu-panel a::before,
+.drawer a::before,
+.mobile-menu a::before,
+.side-menu a::before,
+.nav-drawer a::before,
+.menu-drawer a::before,
+#menuPanel a::before,
+#mobileMenu a::before {
+  position: absolute !important;
+  left: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 22px !important;
+  height: 22px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #2563ff !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+/* Sıralı ikonlar */
+.menu-panel a:nth-of-type(1)::before,
+.drawer a:nth-of-type(1)::before,
+.mobile-menu a:nth-of-type(1)::before,
+.side-menu a:nth-of-type(1)::before,
+.nav-drawer a:nth-of-type(1)::before,
+#menuPanel a:nth-of-type(1)::before,
+#mobileMenu a:nth-of-type(1)::before {
+  content: "⌂" !important;
+}
+
+.menu-panel a:nth-of-type(2)::before,
+.drawer a:nth-of-type(2)::before,
+.mobile-menu a:nth-of-type(2)::before,
+.side-menu a:nth-of-type(2)::before,
+.nav-drawer a:nth-of-type(2)::before,
+#menuPanel a:nth-of-type(2)::before,
+#mobileMenu a:nth-of-type(2)::before {
+  content: "?" !important;
+  border: 2px solid #2563ff !important;
+  border-radius: 50% !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+.menu-panel a:nth-of-type(3)::before,
+.drawer a:nth-of-type(3)::before,
+.mobile-menu a:nth-of-type(3)::before,
+.side-menu a:nth-of-type(3)::before,
+.nav-drawer a:nth-of-type(3)::before,
+#menuPanel a:nth-of-type(3)::before,
+#mobileMenu a:nth-of-type(3)::before {
+  content: "♡" !important;
+}
+
+.menu-panel a:nth-of-type(4)::before,
+.drawer a:nth-of-type(4)::before,
+.mobile-menu a:nth-of-type(4)::before,
+.side-menu a:nth-of-type(4)::before,
+.nav-drawer a:nth-of-type(4)::before,
+#menuPanel a:nth-of-type(4)::before,
+#mobileMenu a:nth-of-type(4)::before {
+  content: "▣" !important;
+}
+
+.menu-panel a:nth-of-type(5)::before,
+.drawer a:nth-of-type(5)::before,
+.mobile-menu a:nth-of-type(5)::before,
+.side-menu a:nth-of-type(5)::before,
+.nav-drawer a:nth-of-type(5)::before,
+#menuPanel a:nth-of-type(5)::before,
+#mobileMenu a:nth-of-type(5)::before {
+  content: "♙" !important;
+}
+
+.menu-panel a:nth-of-type(6)::before,
+.drawer a:nth-of-type(6)::before,
+.mobile-menu a:nth-of-type(6)::before,
+.side-menu a:nth-of-type(6)::before,
+.nav-drawer a:nth-of-type(6)::before,
+#menuPanel a:nth-of-type(6)::before,
+#mobileMenu a:nth-of-type(6)::before {
+  content: "☎" !important;
+}
+
+.menu-panel a:nth-of-type(7)::before,
+.drawer a:nth-of-type(7)::before,
+.mobile-menu a:nth-of-type(7)::before,
+.side-menu a:nth-of-type(7)::before,
+.nav-drawer a:nth-of-type(7)::before,
+#menuPanel a:nth-of-type(7)::before,
+#mobileMenu a:nth-of-type(7)::before {
+  content: "▢" !important;
+}
+
+.menu-panel a:nth-of-type(8)::before,
+.drawer a:nth-of-type(8)::before,
+.mobile-menu a:nth-of-type(8)::before,
+.side-menu a:nth-of-type(8)::before,
+.nav-drawer a:nth-of-type(8)::before,
+#menuPanel a:nth-of-type(8)::before,
+#mobileMenu a:nth-of-type(8)::before {
+  content: "♢" !important;
+}
+
+.menu-panel a:nth-of-type(9)::before,
+.drawer a:nth-of-type(9)::before,
+.mobile-menu a:nth-of-type(9)::before,
+.side-menu a:nth-of-type(9)::before,
+.nav-drawer a:nth-of-type(9)::before,
+#menuPanel a:nth-of-type(9)::before,
+#mobileMenu a:nth-of-type(9)::before {
+  content: "▱" !important;
+}
+
+.menu-panel a:nth-of-type(10)::before,
+.drawer a:nth-of-type(10)::before,
+.mobile-menu a:nth-of-type(10)::before,
+.side-menu a:nth-of-type(10)::before,
+.nav-drawer a:nth-of-type(10)::before,
+#menuPanel a:nth-of-type(10)::before,
+#mobileMenu a:nth-of-type(10)::before {
+  content: "↺" !important;
+}
+
+/* Menü alt güven kutusuna ikon */
+.menu-note,
+.menu-footer-note {
+  position: relative !important;
+  padding-left: 58px !important;
+}
+
+.menu-note::before,
+.menu-footer-note::before {
+  content: "♢" !important;
+  position: absolute !important;
+  left: 20px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 28px !important;
+  height: 28px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #2563ff !important;
+  background: rgba(37,99,255,.08) !important;
+  border-radius: 10px !important;
+  font-size: 19px !important;
+  font-weight: 800 !important;
+}
+
+/* Mobilde ikonlar biraz küçülsün */
+@media (max-width:700px) {
+  .menu-panel a,
+  .drawer a,
+  .mobile-menu a,
+  .side-menu a,
+  .nav-drawer a,
+  .menu-drawer a,
+  #menuPanel a,
+  #mobileMenu a {
+    padding-left: 42px !important;
+    gap: 12px !important;
+  }
+
+  .menu-panel a::before,
+  .drawer a::before,
+  .mobile-menu a::before,
+  .side-menu a::before,
+  .nav-drawer a::before,
+  .menu-drawer a::before,
+  #menuPanel a::before,
+  #mobileMenu a::before {
+    left: 14px !important;
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 16px !important;
+  }
+}
