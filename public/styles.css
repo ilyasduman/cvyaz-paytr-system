@@ -9048,3 +9048,277 @@ footer,
     min-width:0 !important;
   }
 }
+
+
+
+
+/* =====================================================
+   FINAL PROFESSIONAL LEGAL PANEL ALIGNMENT
+   ATS kutusu ile aynı genişlik + kompakt ama premium iç düzen.
+===================================================== */
+
+/* Dış kutu: ATS kutusuyla aynı hizaya geri al */
+.enhanced-legal-box,
+.legal-box{
+  width:min(760px, calc(100% - 32px)) !important;
+  max-width:760px !important;
+  margin:42px auto 64px !important;
+  padding:26px 30px 24px !important;
+  border-radius:30px !important;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(79,70,229,.045), transparent 30%),
+    linear-gradient(180deg,#ffffff,#fbfcff) !important;
+  border:1px solid rgba(15,23,42,.075) !important;
+  box-shadow:0 24px 72px rgba(15,23,42,.105) !important;
+  box-sizing:border-box !important;
+  overflow:hidden !important;
+}
+
+/* Üst çizgi: daha profesyonel, kısa ve ince */
+.enhanced-legal-box::before,
+.legal-box::before{
+  content:"" !important;
+  position:absolute !important;
+  top:0 !important;
+  left:34px !important;
+  right:34px !important;
+  height:3px !important;
+  border-radius:0 0 999px 999px !important;
+  background:linear-gradient(90deg,#16a34a,#2563eb,#4f46e5) !important;
+}
+
+/* Başlık */
+.legal-title{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  gap:10px !important;
+  margin:0 0 8px !important;
+  font-size:26px !important;
+  line-height:1.12 !important;
+  font-weight:950 !important;
+  letter-spacing:-.035em !important;
+  color:#111827 !important;
+}
+
+/* Açıklama */
+.legal-sub,
+.enhanced-legal-box > p,
+.legal-box > p{
+  max-width:610px !important;
+  margin:0 auto 18px !important;
+  text-align:center !important;
+  font-size:13.5px !important;
+  line-height:1.58 !important;
+  color:#64748b !important;
+}
+
+/* Checkbox alanları */
+.legal-check{
+  max-width:650px !important;
+  margin:0 auto 9px !important;
+  padding:10px 13px !important;
+  min-height:0 !important;
+  display:grid !important;
+  grid-template-columns:18px 1fr !important;
+  align-items:center !important;
+  gap:11px !important;
+  border-radius:15px !important;
+  background:#ffffff !important;
+  border:1px solid rgba(15,23,42,.09) !important;
+  box-shadow:0 5px 16px rgba(15,23,42,.035) !important;
+}
+
+.legal-check input{
+  width:16px !important;
+  height:16px !important;
+  margin:0 !important;
+  accent-color:#16a34a !important;
+}
+
+.legal-check label{
+  font-size:12.9px !important;
+  line-height:1.35 !important;
+  color:#334155 !important;
+}
+
+/* Güvenli ödeme notu */
+.legal-note{
+  margin:13px auto 10px !important;
+  text-align:center !important;
+  color:#94a3b8 !important;
+  font-size:12px !important;
+  line-height:1.35 !important;
+}
+
+.legal-note::before{
+  content:"🛡️ " !important;
+}
+
+/* Legal butonlar: tek düzen premium pill */
+.legal-links{
+  max-width:650px !important;
+  margin:0 auto 22px !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  flex-wrap:wrap !important;
+  gap:9px !important;
+}
+
+.legal-links a{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:34px !important;
+  padding:8px 14px !important;
+  border-radius:999px !important;
+  background:linear-gradient(180deg,#ffffff,#f4f6f9) !important;
+  border:1px solid rgba(15,23,42,.08) !important;
+  color:#111827 !important;
+  text-decoration:none !important;
+  font-size:12.5px !important;
+  font-weight:900 !important;
+  box-shadow:0 7px 18px rgba(15,23,42,.045) !important;
+  white-space:nowrap !important;
+}
+
+/* WhatsApp: profesyonel yatay kart */
+.bottom-support-box{
+  max-width:650px !important;
+  margin:0 auto !important;
+  padding:18px 20px !important;
+  border-radius:22px !important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.96),rgba(245,247,255,.94)) !important;
+  border:1px solid rgba(79,70,229,.14) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9) !important;
+  display:grid !important;
+  grid-template-columns:1fr auto !important;
+  align-items:center !important;
+  gap:20px !important;
+  text-align:left !important;
+}
+
+.bottom-support-title{
+  margin:0 0 4px !important;
+  font-size:18px !important;
+  line-height:1.15 !important;
+  font-weight:950 !important;
+  letter-spacing:-.02em !important;
+  color:#1e1b4b !important;
+}
+
+.bottom-support-sub{
+  margin:0 !important;
+  font-size:12.8px !important;
+  line-height:1.45 !important;
+  color:#64748b !important;
+}
+
+.bottom-support-btn{
+  min-width:225px !important;
+  min-height:44px !important;
+  padding:12px 22px !important;
+  border-radius:999px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:linear-gradient(135deg,#16a34a,#22c55e) !important;
+  color:#ffffff !important;
+  font-size:14.5px !important;
+  font-weight:950 !important;
+  text-decoration:none !important;
+  box-shadow:0 12px 26px rgba(34,197,94,.22) !important;
+}
+
+.bottom-support-btn::before{
+  content:"💬" !important;
+  margin-right:8px !important;
+}
+
+/* Copyright */
+.legal-copyright{
+  margin-top:18px !important;
+  padding-top:14px !important;
+  border-top:1px solid rgba(15,23,42,.07) !important;
+  text-align:center !important;
+  color:#9ca3af !important;
+  font-size:12px !important;
+}
+
+/* Önceki ultra compact patch'ten kalan bozuk grid etkilerini temizle */
+.bottom-support-box > *{
+  min-width:0 !important;
+}
+
+@media (max-width:700px){
+  .enhanced-legal-box,
+  .legal-box{
+    width:calc(100% - 24px) !important;
+    max-width:none !important;
+    margin:32px auto 58px !important;
+    padding:23px 16px 22px !important;
+    border-radius:26px !important;
+  }
+
+  .enhanced-legal-box::before,
+  .legal-box::before{
+    left:20px !important;
+    right:20px !important;
+  }
+
+  .legal-title{
+    font-size:21px !important;
+    line-height:1.18 !important;
+  }
+
+  .legal-sub,
+  .enhanced-legal-box > p,
+  .legal-box > p{
+    font-size:13px !important;
+    line-height:1.55 !important;
+    text-align:center !important;
+    margin-bottom:16px !important;
+  }
+
+  .legal-check{
+    grid-template-columns:18px 1fr !important;
+    padding:10px 11px !important;
+    align-items:flex-start !important;
+  }
+
+  .legal-links{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:8px !important;
+    margin-bottom:18px !important;
+  }
+
+  .legal-links a{
+    white-space:normal !important;
+    font-size:11.5px !important;
+    padding:8px 8px !important;
+    text-align:center !important;
+  }
+
+  .bottom-support-box{
+    display:block !important;
+    text-align:center !important;
+    padding:18px 14px !important;
+    border-radius:20px !important;
+  }
+
+  .bottom-support-title{
+    font-size:18px !important;
+  }
+
+  .bottom-support-sub{
+    margin-bottom:14px !important;
+  }
+
+  .bottom-support-btn{
+    width:100% !important;
+    min-width:0 !important;
+  }
+}
