@@ -10252,3 +10252,15 @@ footer,
   border-radius:24px 24px 0 0 !important;
   background:linear-gradient(90deg,#22c55e 0%,#06b6d4 35%,#2563eb 68%,#7c3aed 100%) !important;
 }
+
+
+
+
+/* =====================================================
+   REMOVE TOP COLOR LINE
+===================================================== */
+.enhanced-legal-box::before,
+.legal-box::before{
+    display:none !important;
+    content:none !important;
+}
