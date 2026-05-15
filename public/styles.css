@@ -10787,3 +10787,43 @@ footer,
     margin-bottom:-360px !important;
   }
 }
+
+/* =====================================================
+   WEB ANA SAYFA CV SWEET SPOT FIX V129
+   V128'de sağ tarafta oluşan kırpılmayı düzeltir.
+   CV hâlâ eskiye göre geniştir ama artık pencere içinde tam merkezde kalır.
+   Mobil görünüme dokunmaz.
+===================================================== */
+@media (min-width:701px){
+  #cvWrap,
+  .cv-wrap{
+    width:min(690px, calc(100vw - 56px)) !important;
+    max-width:690px !important;
+    min-height:560px !important;
+    max-height:590px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    margin-bottom:22px !important;
+    padding:12px 20px 0 !important;
+    display:flex !important;
+    justify-content:center !important;
+    align-items:flex-start !important;
+    overflow:hidden !important;
+    box-sizing:border-box !important;
+    text-align:left !important;
+  }
+
+  #cvWrap > #cv,
+  .cv-wrap > .cv{
+    width:794px !important;
+    min-width:794px !important;
+    max-width:794px !important;
+    flex:0 0 auto !important;
+    transform:scale(.64) !important;
+    transform-origin:top center !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    margin-top:0 !important;
+    margin-bottom:-405px !important;
+  }
+}
