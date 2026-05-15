@@ -10294,3 +10294,81 @@ footer,
   }
 
 }
+
+
+
+
+/* =====================================================
+   STRONG MOBILE GAP FIX
+   Mobilde CV önizleme penceresi ile “Nasıl Çalışır?”
+   arasındaki büyük boşluğu gerçek selector'lara karşı zorla azaltır.
+===================================================== */
+@media (max-width:700px){
+
+  /* Preview alanının alt boşluklarını sıfıra yaklaştır */
+  .live-preview,
+  .preview-live,
+  .preview-section,
+  .live-preview-section,
+  .preview-area,
+  .cv-preview-area,
+  .cv-preview-section,
+  .cv-live-section,
+  .auto-preview,
+  .instant-preview,
+  .preview-card,
+  .cv-wrap,
+  #cvWrap,
+  #preview,
+  #livePreview,
+  #cvPreview{
+    margin-bottom:12px !important;
+    padding-bottom:0 !important;
+  }
+
+  /* CV penceresini takip eden tüm kardeşlerde fazla üst boşluğu kır */
+  .cv-wrap + *,
+  #cvWrap + *,
+  .preview-section + *,
+  .live-preview-section + *,
+  .cv-preview-section + *,
+  .instant-preview + *,
+  .auto-preview + *{
+    margin-top:12px !important;
+  }
+
+  /* Nasıl Çalışır kartını yukarı çek */
+  #how-it-works,
+  #howItWorks,
+  .how-it-works,
+  .how-section,
+  .steps-section,
+  .steps-card,
+  section[id*="how"],
+  section[class*="how"],
+  section[class*="steps"]{
+    margin-top:12px !important;
+    padding-top:20px !important;
+  }
+
+  /* Bazı yapılarda card kendi margin'iyle aşağı iner */
+  #how-it-works .info-section,
+  .how-section .info-section,
+  .steps-section .info-section,
+  .info-section{
+    margin-top:18px !important;
+  }
+
+  /* Önizleme kartı yüksekliği kaynaklı ekstra alanı kıs */
+  .cv-wrap{
+    max-height:560px !important;
+  }
+
+  /* Eğer parent büyük boşluk bırakıyorsa negatif çekme */
+  #how-it-works,
+  .how-section,
+  .steps-section{
+    transform:translateY(-56px) !important;
+    margin-bottom:-56px !important;
+  }
+}
