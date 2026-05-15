@@ -71,7 +71,7 @@ ul{
   color:#1e1b4b;
   font-weight:700;
 }
-.back-btn{
+.back-btn{border:0;cursor:pointer;font-family:inherit;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -109,10 +109,21 @@ ul{
     <section class="legal-card">
       <h2>1. Genel</h2><p>CVYAZ, kullanıcıların kişisel verilerinin gizliliğini önemser ve hizmetin gerektirdiği ölçü dışında veri toplamamaya özen gösterir.</p><h2>2. Toplanan Bilgiler</h2><ul><li>CV oluşturmak için kullanıcı tarafından girilen kişisel ve mesleki bilgiler.</li><li>İsteğe bağlı yüklenen fotoğraf ve ek belgeler.</li><li>Teknik işlem kayıtları ve site kullanımına ilişkin sınırlı veriler.</li><li>Destek taleplerinde paylaşılan iletişim bilgileri.</li></ul><h2>3. Kullanım Amaçları</h2><ul><li>CV önizleme ve PDF oluşturma hizmetini sunmak.</li><li>Ödeme ve sipariş sürecini tamamlamak.</li><li>Teknik destek sağlamak.</li><li>Hizmet kalitesini ve güvenliğini artırmak.</li></ul><h2>4. Çerezler</h2><p>Site deneyimini iyileştirmek, temel işlevleri çalıştırmak ve güvenliği sağlamak amacıyla sınırlı çerezler kullanılabilir.</p><h2>5. Güvenlik</h2><p>Kullanıcı verilerinin yetkisiz erişime karşı korunması için makul teknik ve idari önlemler uygulanır. Ancak internet üzerinden veri iletiminin tamamen risksiz olmadığı kullanıcı tarafından kabul edilir.</p><h2>6. Üçüncü Taraf Bağlantılar</h2><p>Site içinde ödeme, destek veya yasal bilgilendirme amacıyla üçüncü taraf hizmetlere yönlendirme yapılabilir. Bu hizmetlerin kendi gizlilik politikaları geçerlidir.</p><h2>7. İletişim</h2><p>Gizlilik ve veri işleme süreçleriyle ilgili sorular için destek@cvyaz.com.tr adresi üzerinden iletişime geçilebilir.</p>
       <div class="notice">Bu sayfa bilgilendirme amacıyla hazırlanmıştır. Satın alma veya kullanım sırasında ilgili metinleri kabul ederek işlem yaparsınız.</div>
-      <a class="back-btn" href="/">← Sayfaya Dön</a>
+      <button type="button" class="back-btn" onclick="cvyazGoBack()">← Sayfaya Dön</button>
     </section>
 
     <div class="footer-note">© 2026 CVYAZ — Tüm hakları saklıdır.</div>
   </main>
+
+<script>
+function cvyazGoBack(){
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = "/";
+  }
+}
+</script>
+
 </body>
 </html>

@@ -71,7 +71,7 @@ ul{
   color:#1e1b4b;
   font-weight:700;
 }
-.back-btn{
+.back-btn{border:0;cursor:pointer;font-family:inherit;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -109,10 +109,21 @@ ul{
     <section class="legal-card">
       <h2>1. Genel İlke</h2><p>CVYAZ dijital CV oluşturma ve PDF teslim hizmetidir. Temiz PDF çıktısı kullanıcıya teslim edildikten sonra dijital ürün niteliği gereği iade yapılamayabilir.</p><h2>2. İade Yapılabilecek Durumlar</h2><ul><li>Ödeme alınmasına rağmen temiz PDF erişimi sağlanmamışsa.</li><li>Sistemsel hata nedeniyle PDF hiç oluşturulamamışsa.</li><li>Aynı işlem için mükerrer ödeme alınmışsa.</li><li>CVYAZ kaynaklı teknik arıza nedeniyle hizmet hiç sunulamamışsa.</li></ul><h2>3. İade Yapılamayabilecek Durumlar</h2><ul><li>Kullanıcının yanlış, eksik veya hatalı bilgi girmesi.</li><li>Temiz PDF’nin başarıyla teslim edilmiş olması.</li><li>Kullanıcının sonradan tasarım veya içerik değişikliği talep etmesi.</li><li>Fotoğraf veya ek belge kalitesinin kullanıcı kaynaklı düşük olması.</li></ul><h2>4. Talep Süreci</h2><p>İade veya destek talepleri destek@cvyaz.com.tr adresine sipariş bilgileriyle birlikte iletilmelidir. Talep incelendikten sonra kullanıcıya dönüş yapılır.</p><h2>5. Değerlendirme</h2><p>Her talep hizmet kayıtları, ödeme durumu ve teslimat bilgileri üzerinden değerlendirilir. Uygun görülen iadeler ödeme altyapısının süreçlerine göre gerçekleştirilir.</p>
       <div class="notice">Bu sayfa bilgilendirme amacıyla hazırlanmıştır. Satın alma veya kullanım sırasında ilgili metinleri kabul ederek işlem yaparsınız.</div>
-      <a class="back-btn" href="/">← Sayfaya Dön</a>
+      <button type="button" class="back-btn" onclick="cvyazGoBack()">← Sayfaya Dön</button>
     </section>
 
     <div class="footer-note">© 2026 CVYAZ — Tüm hakları saklıdır.</div>
   </main>
+
+<script>
+function cvyazGoBack(){
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = "/";
+  }
+}
+</script>
+
 </body>
 </html>

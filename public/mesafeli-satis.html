@@ -71,7 +71,7 @@ ul{
   color:#1e1b4b;
   font-weight:700;
 }
-.back-btn{
+.back-btn{border:0;cursor:pointer;font-family:inherit;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -109,10 +109,21 @@ ul{
     <section class="legal-card">
       <h2>1. Taraflar</h2><p>Bu sözleşme, CVYAZ internet sitesi üzerinden dijital CV oluşturma/PDF teslim hizmeti satın alan kullanıcı ile CVYAZ arasında elektronik ortamda kurulmuştur.</p><h2>2. Hizmetin Konusu</h2><p>Kullanıcı, CVYAZ üzerinden kişisel bilgilerini girerek CV şablonu oluşturur, önizleme alır ve ödeme sonrası koruma yazısı bulunmayan temiz PDF çıktısına erişir.</p><h2>3. Ürün/Hizmet Niteliği</h2><p>Sunulan hizmet fiziksel ürün değil, elektronik ortamda hazırlanan ve teslim edilen dijital içerik niteliğindedir. PDF çıktısı kullanıcı tarafından girilen bilgiler üzerinden oluşturulur.</p><h2>4. Fiyat ve Ödeme</h2><p>Hizmet bedeli ödeme ekranında gösterilen tutardır. Ödeme işlemleri güvenli ödeme altyapısı üzerinden gerçekleştirilir. Ödeme tamamlanmadan temiz PDF teslim edilmez.</p><h2>5. Teslimat</h2><p>Dijital PDF, ödeme işleminin başarıyla tamamlanmasının ardından sistem üzerinden kullanıcıya sunulur. Teslimat elektronik ortamda yapılır.</p><h2>6. Kullanıcının Sorumlulukları</h2><ul><li>Kullanıcı, girdiği bilgilerin doğru ve güncel olmasından sorumludur.</li><li>Yanlış, eksik veya hatalı bilgi girilmesi nedeniyle oluşacak CV içeriğinden kullanıcı sorumludur.</li><li>Kullanıcı, üçüncü kişilere ait görsel veya belge yüklerken gerekli izinlere sahip olduğunu kabul eder.</li></ul><h2>7. Cayma Hakkı</h2><p>Dijital içeriğin teslim edilmesiyle birlikte, ilgili mevzuat kapsamında cayma hakkının kullanılamayabileceği kullanıcı tarafından kabul edilir. Temiz PDF tesliminden sonra iade koşulları ayrıca İade Politikası içinde belirtilmiştir.</p><h2>8. Uyuşmazlık</h2><p>Taraflar arasında doğabilecek uyuşmazlıklarda yürürlükteki Türkiye Cumhuriyeti mevzuatı uygulanır.</p>
       <div class="notice">Bu sayfa bilgilendirme amacıyla hazırlanmıştır. Satın alma veya kullanım sırasında ilgili metinleri kabul ederek işlem yaparsınız.</div>
-      <a class="back-btn" href="/">← Sayfaya Dön</a>
+      <button type="button" class="back-btn" onclick="cvyazGoBack()">← Sayfaya Dön</button>
     </section>
 
     <div class="footer-note">© 2026 CVYAZ — Tüm hakları saklıdır.</div>
   </main>
+
+<script>
+function cvyazGoBack(){
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = "/";
+  }
+}
+</script>
+
 </body>
 </html>

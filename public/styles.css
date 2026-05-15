@@ -8478,3 +8478,13 @@ button[aria-label="Close"] {
   box-shadow:0 24px 80px rgba(17,24,39,.10) !important;
   border:1px solid rgba(17,24,39,.07) !important;
 }
+
+
+
+/* =====================================================
+   HIDE BLACK FOOTER WINDOW
+===================================================== */
+.site-footer,
+.cvyaz-footer-v2{
+  display:none !important;
+}
