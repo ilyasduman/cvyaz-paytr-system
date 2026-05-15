@@ -10747,3 +10747,43 @@ footer,
     margin-right:auto !important;
   }
 }
+
+/* =====================================================
+   WEB ANA SAYFA CV ORTA + GENISLIK FIX V128
+   V127'deki yatay scale bozulmasını temizler.
+   Sadece web görünümünde CV kağıdını uniform büyütür,
+   pencerenin tam merkezinde tutar ve sağ/sol boşluğu azaltır.
+   Mobil görünüme dokunmaz.
+===================================================== */
+@media (min-width:701px){
+  #cvWrap,
+  .cv-wrap{
+    width:min(680px, calc(100vw - 44px)) !important;
+    max-width:680px !important;
+    min-height:560px !important;
+    max-height:590px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    margin-bottom:22px !important;
+    padding:12px 14px 0 !important;
+    display:flex !important;
+    justify-content:center !important;
+    align-items:flex-start !important;
+    overflow:hidden !important;
+    box-sizing:border-box !important;
+    text-align:left !important;
+  }
+
+  #cvWrap > #cv,
+  .cv-wrap > .cv{
+    width:794px !important;
+    min-width:794px !important;
+    max-width:794px !important;
+    transform:scale(.68) !important;
+    transform-origin:top center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    margin-top:0 !important;
+    margin-bottom:-360px !important;
+  }
+}
