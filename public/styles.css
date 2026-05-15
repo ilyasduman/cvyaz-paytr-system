@@ -8488,3 +8488,21 @@ button[aria-label="Close"] {
 .cvyaz-footer-v2{
   display:none !important;
 }
+
+
+/* FORCE REMOVE BOTTOM BLACK FOOTER */
+footer,
+.footer,
+.site-footer,
+.cvyaz-footer,
+.cvyaz-footer-v2,
+.main-footer,
+.bottom-footer{
+    display:none !important;
+    visibility:hidden !important;
+    opacity:0 !important;
+    height:0 !important;
+    overflow:hidden !important;
+    padding:0 !important;
+    margin:0 !important;
+}
