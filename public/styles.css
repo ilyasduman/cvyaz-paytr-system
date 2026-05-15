@@ -10372,3 +10372,32 @@ footer,
     margin-bottom:-56px !important;
   }
 }
+
+
+
+
+/* =====================================================
+   FINAL MOBILE GAP TIGHTEN
+===================================================== */
+@media (max-width:700px){
+
+  #how-it-works,
+  #howItWorks,
+  .how-it-works,
+  .how-section,
+  .steps-section{
+    transform:translateY(-82px) !important;
+    margin-bottom:-82px !important;
+    margin-top:0 !important;
+    padding-top:12px !important;
+  }
+
+  .cv-wrap,
+  #cvWrap,
+  .preview-section,
+  .live-preview-section{
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+  }
+
+}
