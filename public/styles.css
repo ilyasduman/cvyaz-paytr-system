@@ -10626,27 +10626,30 @@ footer,
 }
 
 /* =====================================================
-   V130 - WEB CV PREVIEW CENTER FIX
-   Sadece web görünümünde ana sayfadaki pencere içindeki CV'yi
-   gerçek merkezde tutar ve çok hafif sağa dengeler.
-   Mobil görünüm etkilenmez.
+   V131 WEB CV PREVIEW GERÇEK ORTALAMA FIX
+   - Sadece masaüstü görünümünde çalışır.
+   - CV kağıdı pencere içinde gerçek merkezde durur.
+   - Mobil görünüme dokunmaz.
+   - Eski left/translate denemelerini ezer.
 ===================================================== */
 @media (min-width: 1024px) {
-  .cv-wrap,
-  #cvWrap {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: flex-start !important;
+  #cvWrap.cv-wrap {
+    width: 560px !important;
+    max-width: 560px !important;
+    padding: 12px !important;
+    overflow: hidden !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
-  .cv-wrap > .cv,
-  #cvWrap > #cv {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+  #cvWrap > #cv.cv,
+  #cvWrap > .cv {
+    position: relative !important;
     left: auto !important;
     right: auto !important;
-    transform-origin: top center !important;
-    transform: translateX(16px) scale(.48) !important;
+    margin-left: 78px !important;
+    margin-right: 0 !important;
+    transform: scale(.48) !important;
+    transform-origin: top left !important;
   }
 }
-
