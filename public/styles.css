@@ -10624,3 +10624,15 @@ footer,
       margin-bottom:-54px !important;
   }
 }
+
+
+/* V129.1 WEB PREVIEW MICRO RIGHT OFFSET */
+@media (min-width: 1024px){
+  .cv-page,
+  .cv-paper,
+  .resume-page,
+  #cvPreview > div:first-child{
+    position: relative !important;
+    left: 12px !important;
+  }
+}
