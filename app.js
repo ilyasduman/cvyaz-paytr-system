@@ -3663,3 +3663,269 @@ cvyazSaveDraft();
   });
 
 })();
+
+
+/* =====================================================
+   CVYAZ MOBILE iOS KEYBOARD / ACCESSORY BAR ROOT FIX V8.6
+   Sorun: iOS Safari'de input aktifken klavyedeki ✓/Done bar ilk dokunuşu yutar.
+   Çözüm: CTA'yı visualViewport ile klavyenin üstüne taşı, dokunuşu capture aşamasında
+   yakala, modalı önce aç, sonra aktif input'u blur et, PDF üretimini başlat.
+===================================================== */
+(function() {
+  if (window.__CVYAZ_MOBILE_KEYBOARD_PREVIEW_FIX_V86__) { return; }
+  window.__CVYAZ_MOBILE_KEYBOARD_PREVIEW_FIX_V86__ = true;
+
+  function isMobile() {
+    return window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
+  }
+
+  function getPreviewBtn() {
+    return document.getElementById('previewCta') || document.querySelector('.download');
+  }
+
+  function syncKeyboardInset() {
+    if (!isMobile()) {
+      document.documentElement.style.setProperty('--cvyaz-keyboard-inset', '0px');
+      document.body && document.body.classList.remove('cvyaz-keyboard-open');
+      return;
+    }
+
+    var inset = 0;
+    if (window.visualViewport) {
+      inset = Math.max(0, Math.round(window.innerHeight - window.visualViewport.height - window.visualViewport.offsetTop));
+    }
+
+    document.documentElement.style.setProperty('--cvyaz-keyboard-inset', inset + 'px');
+    if (document.body) {
+      document.body.classList.toggle('cvyaz-keyboard-open', inset > 80);
+    }
+  }
+
+  function isEditable(el) {
+    if (!el) { return false; }
+    var tag = (el.tagName || '').toLowerCase();
+    return tag === 'input' || tag === 'textarea' || tag === 'select' || el.isContentEditable;
+  }
+
+  function safeBlurActive() {
+    var active = document.activeElement;
+    if (active && isEditable(active) && typeof active.blur === 'function') {
+      try { active.blur(); } catch (e) {}
+    }
+  }
+
+  function pointInsideButton(evt, btn) {
+    if (!evt || !btn) { return false; }
+    var p = null;
+    if (evt.touches && evt.touches.length) { p = evt.touches[0]; }
+    else if (evt.changedTouches && evt.changedTouches.length) { p = evt.changedTouches[0]; }
+    else if (typeof evt.clientX === 'number') { p = evt; }
+    if (!p) { return false; }
+    var r = btn.getBoundingClientRect();
+    var pad = 18;
+    return p.clientX >= r.left - pad && p.clientX <= r.right + pad && p.clientY >= r.top - pad && p.clientY <= r.bottom + pad;
+  }
+
+  var lastRun = 0;
+
+  function runPreviewNow(evt) {
+    if (!isMobile()) { return; }
+    var btn = getPreviewBtn();
+    if (!btn || btn.classList.contains('preview-locked')) { return; }
+
+    if (evt && evt.cancelable) { evt.preventDefault(); }
+    if (evt && evt.stopPropagation) { evt.stopPropagation(); }
+    if (evt && evt.stopImmediatePropagation) { evt.stopImmediatePropagation(); }
+
+    var now = Date.now();
+    if (now - lastRun < 1400) { return; }
+    lastRun = now;
+
+    try { if (typeof unlockPreviewCta === 'function') { unlockPreviewCta(); } } catch (e) {}
+
+    // Kullanıcı ilk dokunuşta cevap görsün: önce modal/loading.
+    try { if (typeof openPdfLoadingInstant === 'function') { openPdfLoadingInstant(); } } catch (e) {}
+
+    // Klavye/accessory bar kapanışı artık preview'i yutmasın.
+    setTimeout(safeBlurActive, 0);
+    setTimeout(syncKeyboardInset, 30);
+
+    // Asıl üretim: mevcut fonksiyona devret.
+    setTimeout(function() {
+      try {
+        if (typeof startPreviewPdf === 'function') {
+          startPreviewPdf(null);
+        }
+      } catch (err) {
+        console.error('CVYAZ preview start error:', err);
+        lastRun = 0;
+      }
+    }, 60);
+  }
+
+  function capturePreviewTouch(evt) {
+    if (!isMobile()) { return; }
+    var btn = getPreviewBtn();
+    if (!btn || btn.classList.contains('preview-locked')) { return; }
+    if (evt.currentTarget === btn || pointInsideButton(evt, btn)) {
+      runPreviewNow(evt);
+    }
+  }
+
+  function bind() {
+    syncKeyboardInset();
+    var btn = getPreviewBtn();
+    if (btn) {
+      btn.removeAttribute('onclick');
+      btn.onclick = null;
+      btn.style.touchAction = 'none';
+      btn.style.webkitTapHighlightColor = 'transparent';
+      ['touchstart', 'pointerdown', 'mousedown', 'click'].forEach(function(type) {
+        btn.addEventListener(type, capturePreviewTouch, { passive: false, capture: true });
+      });
+    }
+
+    // Bazı iOS durumlarında ilk dokunuş button'a değil document'e düşer; koordinattan yakala.
+    ['touchstart', 'pointerdown'].forEach(function(type) {
+      document.addEventListener(type, capturePreviewTouch, { passive: false, capture: true });
+    });
+
+    document.addEventListener('focusin', function() {
+      setTimeout(syncKeyboardInset, 80);
+      setTimeout(syncKeyboardInset, 250);
+    }, true);
+    document.addEventListener('focusout', function() {
+      setTimeout(syncKeyboardInset, 80);
+      setTimeout(syncKeyboardInset, 250);
+    }, true);
+  }
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', syncKeyboardInset);
+    window.visualViewport.addEventListener('scroll', syncKeyboardInset);
+  }
+  window.addEventListener('resize', syncKeyboardInset);
+  window.addEventListener('orientationchange', function() { setTimeout(syncKeyboardInset, 300); });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bind);
+  } else {
+    bind();
+  }
+  window.addEventListener('load', function() { setTimeout(bind, 100); });
+})();
+
+
+/* =====================================================
+   CVYAZ DESKTOP PREVIEW CLICK RESTORE V8.6.1
+   V86 mobil iOS klavye fix'i web tarafında onclick'i temizlediği için
+   masaüstünde Önizleme Oluştur butonu çalışmayabiliyordu.
+   Mobil davranışa dokunmadan, sadece web/desktop click akışı geri bağlanır.
+===================================================== */
+(function() {
+  if (window.__CVYAZ_DESKTOP_PREVIEW_CLICK_RESTORE_V861__) { return; }
+  window.__CVYAZ_DESKTOP_PREVIEW_CLICK_RESTORE_V861__ = true;
+
+  function isDesktopPreviewViewport() {
+    return !(window.matchMedia && window.matchMedia('(max-width: 767px)').matches);
+  }
+
+  function getPreviewButton() {
+    return document.getElementById('previewCta') || document.querySelector('.download');
+  }
+
+  function runDesktopPreview(event) {
+    if (!isDesktopPreviewViewport()) { return; }
+
+    var button = getPreviewButton();
+    if (!button || button.classList.contains('preview-locked')) { return; }
+
+    if (event && event.cancelable) { event.preventDefault(); }
+    if (event && event.stopPropagation) { event.stopPropagation(); }
+
+    if (typeof startPreviewPdf === 'function') {
+      startPreviewPdf(event || window.event);
+    }
+  }
+
+  function bindDesktopPreviewClick() {
+    var button = getPreviewButton();
+    if (!button || button.dataset.desktopPreviewRestore === '1') { return; }
+
+    button.dataset.desktopPreviewRestore = '1';
+    button.addEventListener('click', runDesktopPreview, { passive: false });
+    button.addEventListener('mousedown', function(event) {
+      if (!isDesktopPreviewViewport()) { return; }
+      // Webde hover/click hissi korunsun; asıl işlem click'te başlar.
+    }, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindDesktopPreviewClick);
+  } else {
+    bindDesktopPreviewClick();
+  }
+
+  window.addEventListener('load', function() {
+    setTimeout(bindDesktopPreviewClick, 100);
+    setTimeout(bindDesktopPreviewClick, 600);
+  });
+})();
+
+/* =====================================================
+   CVYAZ TRUST MENU V95
+   Hamburger menü aç/kapat. CV üretim çekirdeğine dokunmaz.
+===================================================== */
+(function() {
+  if (window.__CVYAZ_TRUST_MENU_V95__) { return; }
+  window.__CVYAZ_TRUST_MENU_V95__ = true;
+
+  function setMenu(open) {
+    var body = document.body;
+    var btn = document.getElementById('hamburgerBtn');
+    var menu = document.getElementById('sideMenu');
+    var overlay = document.getElementById('menuOverlay');
+    if (!body || !btn || !menu || !overlay) { return; }
+
+    if (open) {
+      overlay.hidden = false;
+      requestAnimationFrame(function() { body.classList.add('menu-open'); });
+      btn.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+    } else {
+      body.classList.remove('menu-open');
+      btn.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+      setTimeout(function() {
+        if (!body.classList.contains('menu-open')) { overlay.hidden = true; }
+      }, 240);
+    }
+  }
+
+  function bindMenu() {
+    var btn = document.getElementById('hamburgerBtn');
+    var close = document.getElementById('menuClose');
+    var overlay = document.getElementById('menuOverlay');
+    var menu = document.getElementById('sideMenu');
+    if (!btn || !close || !overlay || !menu || btn.dataset.boundTrustMenu === '1') { return; }
+
+    btn.dataset.boundTrustMenu = '1';
+    btn.addEventListener('click', function() { setMenu(!document.body.classList.contains('menu-open')); });
+    close.addEventListener('click', function() { setMenu(false); });
+    overlay.addEventListener('click', function() { setMenu(false); });
+    menu.addEventListener('click', function(event) {
+      var link = event.target && event.target.closest ? event.target.closest('a') : null;
+      if (link) { setMenu(false); }
+    });
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') { setMenu(false); }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindMenu);
+  } else {
+    bindMenu();
+  }
+  window.addEventListener('load', bindMenu);
+})();
