@@ -10518,3 +10518,62 @@ body > *:last-child{
       margin-bottom:-20px !important;
   }
 }
+
+
+
+
+/* =========================================
+   EXTREME FINAL BOTTOM TIGHTEN
+========================================= */
+
+html,
+body{
+    overflow-x:hidden !important;
+    margin-bottom:-34px !important;
+    padding-bottom:0 !important;
+}
+
+body > *:last-child{
+    margin-bottom:-34px !important;
+    padding-bottom:0 !important;
+}
+
+/* footer / legal */
+footer,
+.site-footer,
+.page-end,
+.enhanced-legal-box,
+.legal-box{
+    margin-bottom:-30px !important;
+    padding-bottom:0 !important;
+    min-height:auto !important;
+}
+
+/* son spacerları öldür */
+.spacer,
+.bottom-space,
+.last-space,
+.empty-space{
+    display:none !important;
+    height:0 !important;
+}
+
+/* mobil */
+@media (max-width:700px){
+
+  html,
+  body{
+      margin-bottom:-42px !important;
+  }
+
+  body > *:last-child{
+      margin-bottom:-40px !important;
+  }
+
+  footer,
+  .site-footer,
+  .page-end,
+  .enhanced-legal-box{
+      margin-bottom:-38px !important;
+  }
+}
