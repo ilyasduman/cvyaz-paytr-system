@@ -1,0 +1,110 @@
+/* =========================================================
+   CVYAZ — WEB PREVIEW OPTICAL CENTER FINAL FIX
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   WEB DESKTOP ONLY
+--------------------------------------------------------- */
+@media (min-width: 1024px) {
+
+  /* =====================================================
+     PREVIEW ANA WRAPPER
+  ===================================================== */
+  .preview-container,
+  .preview-wrapper,
+  .preview-area,
+  .preview-panel,
+  .cv-preview,
+  .cv-preview-wrapper,
+  .resume-preview,
+  .resume-preview-wrapper {
+
+    width: 100% !important;
+    height: 100% !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+
+    overflow: hidden !important;
+
+    position: relative !important;
+  }
+
+  /* =====================================================
+     CV PAPER / PDF / CANVAS
+  ===================================================== */
+  .cv-paper,
+  .cv-page,
+  .preview-paper,
+  .resume-paper,
+  .resume-page,
+  .pdf-page,
+  iframe,
+  canvas {
+
+    display: block !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    left: auto !important;
+    right: auto !important;
+
+    position: relative !important;
+
+    transform-origin: top center !important;
+
+    transform:
+      translateX(-16px)
+      translateY(0px)
+      scale(1) !important;
+
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .react-pdf__Page,
+  .react-pdf__Page__canvas,
+  .react-pdf__Page canvas {
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    transform-origin: top center !important;
+
+    transform:
+      translateX(-16px)
+      translateY(0px)
+      scale(1) !important;
+  }
+
+  .cv-paper,
+  .cv-page,
+  .preview-paper,
+  .resume-paper,
+  .resume-page {
+
+    top: auto !important;
+    bottom: auto !important;
+  }
+
+}
+
+@media (max-width: 1023px) {
+
+  .cv-paper,
+  .cv-page,
+  .preview-paper,
+  .resume-paper,
+  .resume-page,
+  iframe,
+  canvas,
+  .react-pdf__Page,
+  .react-pdf__Page__canvas {
+
+    transform: none !important;
+    transform-origin: center top !important;
+  }
+
+}
