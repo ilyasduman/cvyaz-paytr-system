@@ -10624,3 +10624,39 @@ footer,
       margin-bottom:-54px !important;
   }
 }
+
+
+
+
+/* =====================================================
+   WEB PREVIEW CV CENTER FIX
+   Sadece web görünümünde ana ekrandaki pencere içindeki
+   CV kağıdını tam ortaya alır.
+===================================================== */
+
+@media (min-width:701px){
+
+  #cvWrap,
+  .cv-wrap{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:flex-start !important;
+    text-align:left !important;
+  }
+
+  #cvWrap > #cv,
+  .cv-wrap > .cv{
+    margin-left:auto !important;
+    margin-right:auto !important;
+    transform-origin:top center !important;
+  }
+
+  .preview-card,
+  .preview-section,
+  .live-preview-section,
+  .cv-preview-section{
+    display:flex !important;
+    justify-content:center !important;
+  }
+
+}
