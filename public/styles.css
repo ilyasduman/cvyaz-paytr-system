@@ -10401,3 +10401,120 @@ footer,
   }
 
 }
+
+
+
+
+/* =====================================================
+   REMOVE FINAL PAGE BOTTOM WHITESPACE
+===================================================== */
+
+/* Body / root */
+html,
+body{
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+    min-height:auto !important;
+}
+
+/* Son section / footer */
+footer,
+.site-footer,
+.bottom-footer,
+.final-footer,
+.last-section,
+.page-end,
+.main-container,
+.app-container,
+.page-wrapper{
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+}
+
+/* Son kart */
+.enhanced-legal-box,
+.legal-box{
+    margin-bottom:0 !important;
+}
+
+/* En son elemandan sonraki görünmez boşluğu kaldır */
+body > *:last-child,
+main > *:last-child,
+.page-wrapper > *:last-child,
+.app-container > *:last-child{
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+}
+
+/* Mobil ekstra güvenlik */
+@media (max-width:700px){
+
+  body{
+      overflow-x:hidden !important;
+  }
+
+  footer,
+  .site-footer,
+  .bottom-footer,
+  .page-end{
+      padding-bottom:0 !important;
+      margin-bottom:0 !important;
+  }
+}
+
+
+
+
+/* =====================================================
+   FINAL ULTRA BOTTOM GAP FIX
+===================================================== */
+
+html,
+body{
+    height:auto !important;
+    min-height:100% !important;
+    padding-bottom:0 !important;
+    margin-bottom:-18px !important;
+}
+
+/* Son görünür alan */
+body::after{
+    content:none !important;
+    display:none !important;
+}
+
+/* Son section */
+.enhanced-legal-box,
+.legal-box,
+footer,
+.site-footer,
+.page-end{
+    margin-bottom:-14px !important;
+    padding-bottom:0 !important;
+}
+
+/* Son child */
+body > *:last-child{
+    margin-bottom:-16px !important;
+    padding-bottom:0 !important;
+}
+
+/* Mobil */
+@media (max-width:700px){
+
+  html,
+  body{
+      margin-bottom:-24px !important;
+      padding-bottom:0 !important;
+  }
+
+  body > *:last-child{
+      margin-bottom:-22px !important;
+  }
+
+  footer,
+  .site-footer,
+  .page-end{
+      margin-bottom:-20px !important;
+  }
+}
