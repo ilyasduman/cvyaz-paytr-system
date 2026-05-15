@@ -10085,3 +10085,151 @@ footer,
     min-width:0 !important;
   }
 }
+
+
+/* TOP LINE FULL WIDTH FIX */
+.enhanced-legal-box::before,
+.legal-box::before{
+  left:0 !important;
+  right:0 !important;
+  width:100% !important;
+  border-radius:30px 30px 0 0 !important;
+}
+
+
+
+
+/* =====================================================
+   FINAL EXACT POLISH PATCH
+   - Üst renk çizgisi seçilen görseldeki gibi inset ve tam uzun
+   - WhatsApp üzerindeki konuşma ikonu kaldırıldı
+   - Sözleşme butonları tek satır yapıldı
+===================================================== */
+
+/* Renk çizgisi: kutu içine oturan uzun premium çizgi */
+.enhanced-legal-box::before,
+.legal-box::before{
+  content:"" !important;
+  position:absolute !important;
+  top:0 !important;
+  left:18px !important;
+  right:18px !important;
+  width:auto !important;
+  height:3px !important;
+  border-radius:0 0 999px 999px !important;
+  background:linear-gradient(90deg,#16a34a 0%,#22c55e 12%,#2563eb 55%,#7c3aed 100%) !important;
+}
+
+/* Sözleşme butonları tek satır, taşmadan */
+.legal-links{
+  max-width:700px !important;
+  width:100% !important;
+  margin:0 auto 24px !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  flex-wrap:nowrap !important;
+  gap:8px !important;
+}
+
+.legal-links a{
+  min-height:36px !important;
+  padding:8px 13px !important;
+  font-size:12px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  flex:0 0 auto !important;
+}
+
+/* Konuşma ikonunu kaldır */
+.bottom-support-box::before{
+  content:none !important;
+  display:none !important;
+}
+
+/* WhatsApp bölümü seçilen görseldeki gibi merkezli */
+.bottom-support-box{
+  max-width:650px !important;
+  margin:0 auto !important;
+  padding:28px 20px 26px !important;
+  border-radius:0 !important;
+  border:0 !important;
+  border-top:1px solid rgba(15,23,42,.075) !important;
+  border-bottom:1px solid rgba(15,23,42,.075) !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:14px !important;
+  text-align:center !important;
+}
+
+.bottom-support-title{
+  display:none !important;
+}
+
+.bottom-support-sub{
+  margin:0 !important;
+  max-width:560px !important;
+  color:#64748b !important;
+  font-size:14px !important;
+  line-height:1.45 !important;
+  text-align:center !important;
+}
+
+.bottom-support-btn{
+  margin:0 auto !important;
+  min-width:300px !important;
+  min-height:46px !important;
+  padding:13px 28px !important;
+  border-radius:999px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  background:linear-gradient(135deg,#059669,#22c55e) !important;
+  color:#ffffff !important;
+  font-size:15px !important;
+  font-weight:950 !important;
+  text-decoration:none !important;
+  white-space:nowrap !important;
+  box-shadow:0 14px 28px rgba(34,197,94,.22) !important;
+}
+
+.bottom-support-btn::before{
+  content:"💬" !important;
+  margin-right:8px !important;
+}
+
+@media (max-width:700px){
+  .enhanced-legal-box::before,
+  .legal-box::before{
+    left:14px !important;
+    right:14px !important;
+  }
+
+  .legal-links{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:8px !important;
+    flex-wrap:wrap !important;
+  }
+
+  .legal-links a{
+    font-size:11.5px !important;
+    padding:8px 7px !important;
+    white-space:nowrap !important;
+  }
+
+  .bottom-support-box{
+    padding:24px 10px 22px !important;
+  }
+
+  .bottom-support-btn{
+    width:100% !important;
+    min-width:0 !important;
+  }
+}
