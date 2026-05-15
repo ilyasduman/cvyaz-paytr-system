@@ -10723,3 +10723,50 @@ footer,
     margin-top:18px !important;
   }
 }
+
+
+
+
+/* =====================================================
+   WEB PREVIEW RATIO FIX
+   Daha geniş + daha kısa görünüm
+===================================================== */
+
+@media (min-width:701px){
+
+  #cvWrap,
+  .cv-wrap{
+    max-width:760px !important;
+    width:760px !important;
+    max-height:520px !important;
+    min-height:520px !important;
+
+    padding-top:10px !important;
+    padding-bottom:8px !important;
+
+    overflow:hidden !important;
+
+    border-radius:34px !important;
+  }
+
+  #cvWrap > #cv,
+  .cv-wrap > .cv{
+    transform:scale(.70) !important;
+    transform-origin:top center !important;
+  }
+
+  .preview-card,
+  .preview-section,
+  .live-preview-section,
+  .cv-preview-section{
+      margin-bottom:10px !important;
+  }
+
+  #how-it-works,
+  #howItWorks,
+  .how-it-works,
+  .how-section,
+  .steps-section{
+      margin-top:4px !important;
+  }
+}
