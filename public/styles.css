@@ -10264,3 +10264,33 @@ footer,
     display:none !important;
     content:none !important;
 }
+
+
+
+
+/* =====================================================
+   MOBILE PREVIEW / HOW IT WORKS GAP FIX
+   Sadece mobilde CV önizleme penceresi ile
+   “Nasıl Çalışır?” bölümü arasındaki fazla boşluğu azaltır.
+===================================================== */
+
+@media (max-width:700px){
+
+  .cv-wrap{
+    margin-bottom:24px !important;
+  }
+
+  #how-it-works,
+  .how-section,
+  .steps-section,
+  .info-section:first-of-type{
+    margin-top:24px !important;
+  }
+
+  .preview-section,
+  .live-preview-section{
+    margin-bottom:24px !important;
+    padding-bottom:0 !important;
+  }
+
+}
