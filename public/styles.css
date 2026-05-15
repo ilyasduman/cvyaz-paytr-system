@@ -10233,3 +10233,22 @@ footer,
     min-width:0 !important;
   }
 }
+
+
+
+
+/* =====================================================
+   TOP COLOR LINE FULL WIDTH FINAL
+===================================================== */
+.enhanced-legal-box::before,
+.legal-box::before{
+  content:"" !important;
+  position:absolute !important;
+  top:0 !important;
+  left:0 !important;
+  right:0 !important;
+  width:100% !important;
+  height:4px !important;
+  border-radius:24px 24px 0 0 !important;
+  background:linear-gradient(90deg,#22c55e 0%,#06b6d4 35%,#2563eb 68%,#7c3aed 100%) !important;
+}
