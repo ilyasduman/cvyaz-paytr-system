@@ -10723,3 +10723,27 @@ footer,
     margin-top:18px !important;
   }
 }
+
+/* =====================================================
+   WEB ANA SAYFA CV GENİŞLİK AYARI V127
+   Sadece web görünümünde önizleme penceresinin içindeki
+   CV kağıdını sağa-sola genişletir. Mobil görünüme dokunmaz.
+===================================================== */
+@media (min-width:701px){
+  #cvWrap,
+  .cv-wrap{
+    padding-left:6px !important;
+    padding-right:6px !important;
+    justify-content:center !important;
+    align-items:flex-start !important;
+    overflow:hidden !important;
+  }
+
+  #cvWrap > #cv,
+  .cv-wrap > .cv{
+    transform:scale(.62) scaleX(1.12) !important;
+    transform-origin:top center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+}
