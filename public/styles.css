@@ -10624,3 +10624,29 @@ footer,
       margin-bottom:-54px !important;
   }
 }
+
+/* =====================================================
+   V130 - WEB CV PREVIEW CENTER FIX
+   Sadece web görünümünde ana sayfadaki pencere içindeki CV'yi
+   gerçek merkezde tutar ve çok hafif sağa dengeler.
+   Mobil görünüm etkilenmez.
+===================================================== */
+@media (min-width: 1024px) {
+  .cv-wrap,
+  #cvWrap {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+  }
+
+  .cv-wrap > .cv,
+  #cvWrap > #cv {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    transform-origin: top center !important;
+    transform: translateX(16px) scale(.48) !important;
+  }
+}
+
