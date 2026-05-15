@@ -10626,38 +10626,24 @@ footer,
 }
 
 
-/* =========================================================
-   WEB CV PREVIEW TRUE CENTER FIX
-   ========================================================= */
-
-@media (min-width: 1024px) {
-
-  .preview-container,
-  .cv-preview-wrapper,
-  .cv-preview,
-  .preview-area,
-  .preview-panel {
-    display: grid !important;
-    place-items: center !important;
-    width: 100% !important;
-    height: 100% !important;
-    overflow: hidden !important;
+/* =====================================================
+   V135 WEB CV PREVIEW TRUE CENTER FIX
+   Sorun: #cv scale(.48) iken transform-origin top left olduğu için
+   kağıt pencere içinde sola yaslı görünüyordu.
+   Çözüm: Sadece webde ölçek merkezden alınır; boyut büyümez,
+   pencere ve mobil yapı korunur.
+===================================================== */
+@media (min-width:1024px){
+  #cvWrap{
+    margin-left:auto !important;
+    margin-right:auto !important;
+    overflow:hidden !important;
   }
 
-  .cv-paper,
-  .cv-page,
-  .preview-paper,
-  .resume-paper,
-  .resume-page,
-  iframe,
-  canvas {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    transform: none !important;
-    left: auto !important;
-    right: auto !important;
-    position: relative !important;
-    display: block !important;
+  #cvWrap > #cv{
+    transform:scale(.48) !important;
+    transform-origin:top center !important;
+    left:auto !important;
+    right:auto !important;
   }
-
 }
