@@ -10177,3 +10177,42 @@ footer,
 .cv.premium .cv-top .info-value {
   color: #111827 !important;
 }
+/* MODERN / CREATIVE / PREMIUM PDF + PREVIEW YAZI GÖRÜNÜRLÜK FINAL */
+
+.cv.modern *,
+.cv.creative *,
+.cv.premium *,
+#cvPdfClone.modern *,
+#cvPdfClone.creative *,
+#cvPdfClone.premium *,
+#cvPdfClone.cv.modern *,
+#cvPdfClone.cv.creative *,
+#cvPdfClone.cv.premium * {
+  color: #111827 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #111827 !important;
+}
+
+/* Meslek / Pozisyon renkleri */
+.cv.modern .role,
+#cvPdfClone.modern .role,
+#cvPdfClone.cv.modern .role {
+  color: #2563eb !important;
+  -webkit-text-fill-color: #2563eb !important;
+}
+
+.cv.creative .role,
+#cvPdfClone.creative .role,
+#cvPdfClone.cv.creative .role {
+  color: #ec4899 !important;
+  -webkit-text-fill-color: #ec4899 !important;
+}
+
+.cv.premium .role,
+#cvPdfClone.premium .role,
+#cvPdfClone.cv.premium .role {
+  color: #b45309 !important;
+  -webkit-text-fill-color: #b45309 !important;
+}
