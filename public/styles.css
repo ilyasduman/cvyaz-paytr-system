@@ -11198,3 +11198,136 @@ footer,
     margin-right: auto !important;
   }
 }
+/* =====================================================
+   TÜM EKRANLARDA ANA SAYFA METİN ORTALAMA — FINAL
+   Mobil dikey + mobil yatay + web
+===================================================== */
+
+/* GENEL */
+.bottom-tabs-title,
+.bottom-tabs-note,
+.preview-title,
+.preview-sub,
+.how-section,
+.how-section *,
+.steps-section,
+.steps-section *,
+.info-section,
+.info-section *,
+.ats-card,
+.ats-card *,
+#ats-nedir,
+#ats-nedir * {
+  text-align: center !important;
+}
+
+/* Genişliği ortala */
+.bottom-tabs-title,
+.bottom-tabs-note,
+.preview-title,
+.preview-sub,
+.how-section,
+.steps-section,
+.info-section,
+.ats-card,
+#ats-nedir {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Açıklama yazıları çok yayılmasın */
+.bottom-tabs-note,
+.preview-sub,
+.how-section p,
+.steps-section p,
+.info-section p,
+.ats-card p,
+#ats-nedir p {
+  max-width: 620px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Nasıl çalışır numaraları */
+.step-number {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ATS tik listesi */
+.ats-card ul,
+#ats-nedir ul,
+.info-section ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.ats-card li,
+#ats-nedir li,
+.info-section li {
+  text-align: center !important;
+}
+
+/* MOBİL YATAY + WEB OVERRIDE */
+@media (min-width: 481px) {
+
+  .bottom-tabs-title,
+  .bottom-tabs-note,
+  .preview-title,
+  .preview-sub,
+  .how-section,
+  .how-section *,
+  .steps-section,
+  .steps-section *,
+  .info-section,
+  .info-section *,
+  .ats-card,
+  .ats-card *,
+  #ats-nedir,
+  #ats-nedir * {
+    text-align: center !important;
+  }
+
+  .bottom-tabs-note,
+  .preview-sub,
+  .how-section p,
+  .steps-section p,
+  .info-section p,
+  .ats-card p,
+  #ats-nedir p {
+    max-width: 620px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .step-number {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* WEB ÖZEL SON DARBE */
+@media (min-width: 768px) {
+
+  .app .bottom-tabs-title,
+  .app .bottom-tabs-note,
+  .app .preview-title,
+  .app .preview-sub,
+  .app .how-section,
+  .app .steps-section,
+  .app .info-section,
+  .app .ats-card,
+  .app #ats-nedir {
+    text-align: center !important;
+  }
+
+  .app .how-section *,
+  .app .steps-section *,
+  .app .info-section *,
+  .app .ats-card *,
+  .app #ats-nedir * {
+    text-align: center !important;
+  }
+}
