@@ -456,14 +456,7 @@ function updatePersonalInfo() {
 
   $("pName").innerText = val("name") || "Ad Soyad";
 
-  const jobValue =
-  val("job") ||
-  document.querySelector('input[name="job"]')?.value?.trim() ||
-  document.querySelector('[placeholder*="Meslek"]')?.value?.trim() ||
-  document.querySelector('[placeholder*="Pozisyon"]')?.value?.trim() ||
-  "";
-
-$("pJob").innerText = jobValue || "Meslek / Pozisyon";
+  $("pJob").innerText = val("job") || "Meslek / Pozisyon";
 
   const contactItems = [];
 
