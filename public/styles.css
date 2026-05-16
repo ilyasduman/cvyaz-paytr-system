@@ -11052,63 +11052,64 @@ footer,
   }
 
 }
-/* =======================================================
-   GENEL METİN ORTALAMA DÜZENİ
-   WEB + MOBİL
-======================================================= */
+/* =========================================================
+   TÜM ANA SAYFA BAŞLIK + AÇIKLAMA ORTALAMA
+========================================================= */
 
-/* CV Stilini Seç alanı */
-.style-selector-section,
-.style-selector-section h2,
-.style-selector-section p {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* CV'n Anında Oluşuyor alanı */
-.live-preview-section,
-.live-preview-section h2,
-.live-preview-section p {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* Nasıl Çalışır alanı */
-.how-it-works,
-.how-it-works h2,
-.how-it-works p,
-.how-it-works .step,
-.how-it-works .step-title,
-.how-it-works .step-desc {
+h1,
+h2,
+h3,
+.hero-title,
+.hero-subtitle,
+.section-title,
+.section-subtitle,
+.live-title,
+.live-subtitle,
+.ats-title,
+.ats-subtitle,
+.how-title,
+.how-subtitle {
   text-align: center !important;
 }
 
-/* Adım kutularını ortala */
-.how-it-works .steps-grid {
+/* PARAGRAFLAR */
+p {
+  text-align: center !important;
+}
+
+/* NASIL ÇALIŞIR KARTLARI */
+.steps-grid,
+.steps-container,
+.how-steps {
+  display: flex !important;
   justify-content: center !important;
-  align-items: stretch !important;
+  gap: 20px !important;
+  flex-wrap: wrap !important;
 }
 
-/* ATS alanı */
-.ats-section,
-.ats-section h2,
-.ats-section h3,
-.ats-section p,
-.ats-section li,
-.ats-section .ats-note {
+/* KART İÇLERİ */
+.step,
+.step-card,
+.how-card {
   text-align: center !important;
 }
 
-/* ATS tikleri ortalı */
-.ats-section ul {
-  list-style: none !important;
-  padding-left: 0 !important;
+/* ATS ALANI */
+ul,
+li {
+  text-align: center !important;
+  list-style-position: inside !important;
 }
 
-/* ATS içerik kutusu ortalı */
-.ats-section .ats-content {
-  margin-left: auto !important;
-  margin-right: auto !important;
+/* MOBİL İNCE AYAR */
+@media (max-width: 768px) {
+
+  h1,
+  h2,
+  h3,
+  p,
+  li {
+    text-align: center !important;
+  }
+
 }
