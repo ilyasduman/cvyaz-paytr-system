@@ -11014,3 +11014,8 @@ footer,
   border: 1px solid #f3e8c2 !important;
   border-radius: 999px !important;
 }
+   @media (max-width: 768px) {
+  .watermark {
+    opacity: 0.06 !important;
+  }
+}
