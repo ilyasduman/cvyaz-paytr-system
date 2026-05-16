@@ -10095,3 +10095,45 @@ footer,
   width:100% !important;
   border-radius:30px 30px 0 0 !important;
 }
+
+/* MODERN / CREATIVE / PREMIUM YAZI GÖRÜNÜRLÜK FIX */
+
+.cv.modern h2,
+.cv.modern .role,
+.cv.modern .contact,
+.cv.modern .small-line,
+.cv.modern .info-label,
+.cv.modern .info-value {
+  color: #111827 !important;
+}
+
+.cv.creative h2,
+.cv.creative .role,
+.cv.creative .contact,
+.cv.creative .small-line,
+.cv.creative .info-label,
+.cv.creative .info-value {
+  color: #111827 !important;
+}
+
+.cv.premium h2,
+.cv.premium .role,
+.cv.premium .contact,
+.cv.premium .small-line,
+.cv.premium .info-label,
+.cv.premium .info-value {
+  color: #111827 !important;
+}
+
+/* Rol renkleri ayrı karakterli kalsın */
+.cv.modern .role {
+  color: #2563eb !important;
+}
+
+.cv.creative .role {
+  color: #ec4899 !important;
+}
+
+.cv.premium .role {
+  color: #b45309 !important;
+}
