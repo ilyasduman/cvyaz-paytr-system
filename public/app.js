@@ -4058,3 +4058,55 @@ cvyazSaveDraft();
   });
 
 })();
+/* =====================================================
+   ATS ROZETLERİNİ ORTALA
+===================================================== */
+(function() {
+
+  function centerAtsBadges() {
+    const badgeTexts = [
+      "✅ Temiz düzen",
+      "✅ Okunabilir PDF",
+      "✅ Profesyonel yapı",
+      "✅ Modern tasarım"
+    ];
+
+    document.querySelectorAll("div, section, article").forEach(function(box) {
+      const text = (box.textContent || "").replace(/\s+/g, " ").trim();
+
+      const hasAllBadges = badgeTexts.every(function(item) {
+        return text.includes(item.replace("✅ ", ""));
+      });
+
+      if (hasAllBadges) {
+        box.style.textAlign = "center";
+
+        box.querySelectorAll("span, div, li").forEach(function(el) {
+          const t = (el.textContent || "").replace(/\s+/g, " ").trim();
+
+          if (
+            t.includes("Temiz düzen") ||
+            t.includes("Okunabilir PDF") ||
+            t.includes("Profesyonel yapı") ||
+            t.includes("Modern tasarım")
+          ) {
+            el.style.display = "inline-flex";
+            el.style.alignItems = "center";
+            el.style.justifyContent = "center";
+            el.style.margin = "6px";
+            el.style.textAlign = "center";
+            el.style.whiteSpace = "nowrap";
+          }
+        });
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", centerAtsBadges);
+  window.addEventListener("load", centerAtsBadges);
+  window.addEventListener("resize", centerAtsBadges);
+  window.addEventListener("orientationchange", function() {
+    setTimeout(centerAtsBadges, 250);
+  });
+
+})();
