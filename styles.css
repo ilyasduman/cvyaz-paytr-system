@@ -10137,3 +10137,43 @@ footer,
 .cv.premium .role {
   color: #b45309 !important;
 }
+
+/* MODERN / CREATIVE / PREMIUM — TÜM ÜST KART YAZILARI ZORLA GÖRÜNÜR */
+
+.cv.modern .cv-top,
+.cv.modern .cv-top *,
+.cv.creative .cv-top,
+.cv.creative .cv-top *,
+.cv.premium .cv-top,
+.cv.premium .cv-top * {
+  color: #111827 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Meslek / pozisyon renkleri */
+.cv.modern .cv-top .role {
+  color: #2563eb !important;
+}
+
+.cv.creative .cv-top .role {
+  color: #ec4899 !important;
+}
+
+.cv.premium .cv-top .role {
+  color: #b45309 !important;
+}
+
+/* Bilgi etiketleri */
+.cv.modern .cv-top .info-label,
+.cv.creative .cv-top .info-label,
+.cv.premium .cv-top .info-label {
+  color: #6b7280 !important;
+}
+
+/* Bilgi değerleri */
+.cv.modern .cv-top .info-value,
+.cv.creative .cv-top .info-value,
+.cv.premium .cv-top .info-value {
+  color: #111827 !important;
+}
