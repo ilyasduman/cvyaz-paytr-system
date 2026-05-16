@@ -4025,3 +4025,36 @@ cvyazSaveDraft();
     setTimeout(runCenterFix, 300);
   });
 })();
+/* =====================================================
+   SADECE 2 AÇIKLAMA YAZISINI ORTALA
+===================================================== */
+(function() {
+
+  function centerExactTextLine(targetText) {
+    document.querySelectorAll("p, div, span").forEach(function(el) {
+      const text = (el.textContent || "").replace(/\s+/g, " ").trim();
+
+      if (text === targetText) {
+        el.style.textAlign = "center";
+        el.style.marginLeft = "auto";
+        el.style.marginRight = "auto";
+        el.style.display = "block";
+        el.style.width = "100%";
+        el.style.maxWidth = "620px";
+      }
+    });
+  }
+
+  function cvyazCenterOnlyTwoTexts() {
+    centerExactTextLine("Tıkladıkça aşağıdaki CV anında değişir. En uygun görünümü seç, sonra temiz PDF’e geç.");
+    centerExactTextLine("Bilgi girdikçe CV’n otomatik güncellenir. PDF önizlemede koruma yazısı bulunur.");
+  }
+
+  document.addEventListener("DOMContentLoaded", cvyazCenterOnlyTwoTexts);
+  window.addEventListener("load", cvyazCenterOnlyTwoTexts);
+  window.addEventListener("resize", cvyazCenterOnlyTwoTexts);
+  window.addEventListener("orientationchange", function() {
+    setTimeout(cvyazCenterOnlyTwoTexts, 250);
+  });
+
+})();
