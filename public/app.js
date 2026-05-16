@@ -3971,3 +3971,57 @@ cvyazSaveDraft();
   }
   window.addEventListener('load', bindMenu);
 })();
+/* ANA SAYFA METİNLERİ ORTALAMA FINAL */
+(function () {
+  function centerBlockByText(text) {
+    document.querySelectorAll("h1,h2,h3,p,div,section,article").forEach(function (el) {
+      if (el.closest("#cv") || el.closest("#cvWrap") || el.closest(".pdf-modal")) return;
+
+      if ((el.textContent || "").includes(text)) {
+        let box = el;
+
+        for (let i = 0; i < 3; i++) {
+          if (box.parentElement && !box.parentElement.classList.contains("app")) {
+            box = box.parentElement;
+          }
+        }
+
+        box.style.textAlign = "center";
+        box.querySelectorAll("h1,h2,h3,p,span,div,li,b,strong").forEach(function (child) {
+          child.style.textAlign = "center";
+        });
+
+        box.querySelectorAll("ul").forEach(function (ul) {
+          ul.style.listStyle = "none";
+          ul.style.paddingLeft = "0";
+          ul.style.marginLeft = "auto";
+          ul.style.marginRight = "auto";
+        });
+      }
+    });
+  }
+
+  function runCenterFix() {
+    [
+      "CV Stilini Seç",
+      "Tıkladıkça aşağıdaki CV",
+      "CV’n Anında Oluşuyor",
+      "Bilgi girdikçe CV’n",
+      "Nasıl Çalışır",
+      "CV hazırlamak üç net adım",
+      "Bilgilerini Gir",
+      "Önizlemeyi Gör",
+      "PDF İndir",
+      "ATS Nedir",
+      "İşe alım sistemlerinin",
+      "ATS, şirketlerin"
+    ].forEach(centerBlockByText);
+  }
+
+  document.addEventListener("DOMContentLoaded", runCenterFix);
+  window.addEventListener("load", runCenterFix);
+  window.addEventListener("resize", runCenterFix);
+  window.addEventListener("orientationchange", function () {
+    setTimeout(runCenterFix, 300);
+  });
+})();
