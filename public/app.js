@@ -3109,12 +3109,54 @@ async function goPay() {
   const acceptDigital = document.getElementById("acceptDigital");
 
 if (!acceptTerms || !acceptTerms.checked) {
-  alert("Devam etmek için sözleşme ve KVKK onayı gerekli.");
-  return;
-}
+    alert("Devam etmek için sözleşme ve KVKK onayı gerekli.");
+
+    closePdf();
+
+    setTimeout(function() {
+      const legalBox =
+        document.querySelector(".enhanced-legal-box") ||
+        document.querySelector(".legal-box") ||
+        document.getElementById("acceptTerms");
+
+      if (legalBox) {
+        legalBox.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      }
+
+      if (acceptTerms) {
+        acceptTerms.focus();
+      }
+    }, 250);
+
+    return;
+  }
 
   if (!acceptDigital || !acceptDigital.checked) {
     alert("Dijital ürün iade koşulunu kabul etmelisiniz.");
+
+    closePdf();
+
+    setTimeout(function() {
+      const legalBox =
+        document.querySelector(".enhanced-legal-box") ||
+        document.querySelector(".legal-box") ||
+        document.getElementById("acceptDigital");
+
+      if (legalBox) {
+        legalBox.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      }
+
+      if (acceptDigital) {
+        acceptDigital.focus();
+      }
+    }, 250);
+
     return;
   }
 
