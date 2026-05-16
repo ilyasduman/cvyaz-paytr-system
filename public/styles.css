@@ -11495,3 +11495,39 @@ footer,
     max-width: 360px !important;
   }
 }
+/* SADECE 2 AÇIKLAMA YAZISI — FINAL CENTER */
+body .app .bottom-tabs-note,
+body .bottom-tabs-note,
+html body .bottom-tabs-note {
+  display: block !important;
+  width: 100% !important;
+  max-width: 620px !important;
+  margin: 8px auto 16px auto !important;
+  text-align: center !important;
+  align-self: center !important;
+}
+
+body .app .preview-sub,
+body .preview-sub,
+html body .preview-sub {
+  display: block !important;
+  width: 100% !important;
+  max-width: 620px !important;
+  margin: 8px auto 18px auto !important;
+  text-align: center !important;
+  align-self: center !important;
+}
+
+@media (max-width: 768px) {
+  body .app .bottom-tabs-note,
+  body .bottom-tabs-note,
+  html body .bottom-tabs-note,
+  body .app .preview-sub,
+  body .preview-sub,
+  html body .preview-sub {
+    max-width: 340px !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
