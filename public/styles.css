@@ -306,7 +306,7 @@ textarea {
   box-shadow: 0 14px 40px rgba(0, 0, 0, .10);
 
   transform: scale(.48);
-  transform-origin: top center;
+  transform-origin: top left;
   margin-bottom: -565px;
 }
 
