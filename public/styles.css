@@ -11042,7 +11042,7 @@ footer,
   #cv.cv.modern .watermark-grid,
   #cv.cv.creative .watermark-grid,
   #cv.cv.premium .watermark-grid {
-    opacity: 0.20 !important;
+    opacity: 0.25 !important;
   }
 
   #cv.cv.modern .watermark-grid span,
