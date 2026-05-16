@@ -11042,13 +11042,13 @@ footer,
   #cv.cv.modern .watermark-grid,
   #cv.cv.creative .watermark-grid,
   #cv.cv.premium .watermark-grid {
-    opacity: 0.15 !important;
+    opacity: 0.20 !important;
   }
 
   #cv.cv.modern .watermark-grid span,
   #cv.cv.creative .watermark-grid span,
   #cv.cv.premium .watermark-grid span {
-    color: rgba(17, 24, 39, 0.22) !important;
+    color: rgba(17, 24, 39, 0.30) !important;
   }
 
 }
