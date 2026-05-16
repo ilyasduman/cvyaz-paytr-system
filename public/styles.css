@@ -305,7 +305,7 @@ textarea {
   border-radius: 18px;
   box-shadow: 0 14px 40px rgba(0, 0, 0, .10);
 
-  transform: translateX(28px) scale(.48);
+  transform: translateX(38px) scale(.48);
   transform-origin: top left;
   margin-bottom: -565px;
 }
