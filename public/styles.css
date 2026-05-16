@@ -11331,3 +11331,20 @@ footer,
     text-align: center !important;
   }
 }
+/* DESKTOP PREMIUM POLISH — hafif genişletme */
+@media (min-width: 1024px) {
+
+  .app {
+    max-width: 760px !important;
+  }
+
+  #cvWrap {
+    max-width: 720px !important;
+  }
+
+  #cv {
+    transform: scale(0.52) !important;
+    transform-origin: top left !important;
+  }
+
+}
