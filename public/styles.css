@@ -10645,3 +10645,281 @@ footer,
     max-height: 430px !important;
   }
 }
+
+
+/* =====================================================
+   CVYAZ — 6 STİL SIFIRDAN TEMİZ TASARIM
+   Konum / scale / translate ayarlarına dokunmaz.
+===================================================== */
+
+/* Ortak temizlik */
+.cv {
+  background: #fff !important;
+  color: #111827 !important;
+}
+
+.cv .cv-top {
+  display: flex !important;
+  gap: 20px !important;
+  align-items: flex-start !important;
+  margin-bottom: 24px !important;
+}
+
+.cv h2 {
+  font-size: 36px !important;
+  font-weight: 900 !important;
+  letter-spacing: -1px !important;
+  color: #111827 !important;
+}
+
+.cv .role {
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .6px !important;
+}
+
+.cv .sec {
+  display: block;
+  margin-bottom: 22px !important;
+  padding-bottom: 16px !important;
+}
+
+.cv .sec h3 {
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1.4px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 10px !important;
+}
+
+.cv .entry b {
+  font-size: 15px !important;
+  font-weight: 900 !important;
+}
+
+.cv .entry p,
+.cv .entry small,
+.cv .contact,
+.cv .small-line {
+  color: #374151 !important;
+}
+
+/* 1 — MODERN */
+.cv.modern .cv-top {
+  background: #111827 !important;
+  color: #fff !important;
+  padding: 22px !important;
+  border-radius: 22px !important;
+  box-shadow: 0 14px 34px rgba(17,24,39,.20) !important;
+  border: 0 !important;
+}
+
+.cv.modern h2,
+.cv.modern .role,
+.cv.modern .contact,
+.cv.modern .small-line {
+  color: #fff !important;
+}
+
+.cv.modern .role {
+  color: #93c5fd !important;
+}
+
+.cv.modern .sec {
+  border-left: 4px solid #2563eb !important;
+  padding-left: 16px !important;
+  border-bottom: 0 !important;
+}
+
+.cv.modern .sec h3 {
+  color: #2563eb !important;
+}
+
+.cv.modern .tag {
+  background: #111827 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+}
+
+/* 2 — ATS SADE */
+.cv.minimal {
+  box-shadow: none !important;
+}
+
+.cv.minimal .cv-top {
+  padding-bottom: 18px !important;
+  border-bottom: 1px solid #d1d5db !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+.cv.minimal .role {
+  color: #4b5563 !important;
+}
+
+.cv.minimal .sec {
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.cv.minimal .sec h3 {
+  color: #111827 !important;
+}
+
+.cv.minimal .tag {
+  background: #f3f4f6 !important;
+  color: #111827 !important;
+  border-radius: 4px !important;
+}
+
+/* 3 — EXECUTIVE */
+.cv.executive .cv-top {
+  padding: 22px 0 !important;
+  border-top: 3px double #7c3aed !important;
+  border-bottom: 3px double #7c3aed !important;
+  background: #fff !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.cv.executive h2 {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 42px !important;
+}
+
+.cv.executive .role,
+.cv.executive .sec h3 {
+  color: #6d28d9 !important;
+}
+
+.cv.executive .sec {
+  border-bottom: 1px solid #ede9fe !important;
+}
+
+.cv.executive .entry {
+  border-left: 3px solid #ddd6fe !important;
+  padding-left: 14px !important;
+}
+
+.cv.executive .tag {
+  background: #f5f3ff !important;
+  color: #4c1d95 !important;
+  border: 1px solid #ddd6fe !important;
+}
+
+/* 4 — KURUMSAL */
+.cv.corporate {
+  background: #f8fafc !important;
+}
+
+.cv.corporate .cv-top {
+  background: #fff !important;
+  padding: 22px !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 24px rgba(15,23,42,.08) !important;
+  border: 0 !important;
+}
+
+.cv.corporate .role,
+.cv.corporate .sec h3 {
+  color: #0f172a !important;
+}
+
+.cv.corporate .sec {
+  background: #fff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 14px !important;
+  padding: 15px 16px !important;
+}
+
+.cv.corporate .tag {
+  background: #e0f2fe !important;
+  color: #075985 !important;
+  border-radius: 10px !important;
+}
+
+/* 5 — YARATICI */
+.cv.creative .cv-top {
+  background: linear-gradient(135deg, #ec4899, #8b5cf6) !important;
+  color: #fff !important;
+  padding: 22px !important;
+  border-radius: 28px 8px 28px 8px !important;
+  box-shadow: 0 14px 34px rgba(236,72,153,.22) !important;
+  border: 0 !important;
+}
+
+.cv.creative h2,
+.cv.creative .role,
+.cv.creative .contact,
+.cv.creative .small-line {
+  color: #fff !important;
+}
+
+.cv.creative .sec {
+  position: relative !important;
+  padding-left: 20px !important;
+  border-bottom: 1px dashed #f9a8d4 !important;
+}
+
+.cv.creative .sec::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 4px !important;
+  width: 7px !important;
+  height: calc(100% - 18px) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(#ec4899, #8b5cf6) !important;
+}
+
+.cv.creative .sec h3 {
+  color: #db2777 !important;
+}
+
+.cv.creative .tag {
+  background: #ec4899 !important;
+  color: #fff !important;
+}
+
+/* 6 — PREMIUM */
+.cv.premium {
+  background: linear-gradient(180deg, #fffdf4, #fff 42%) !important;
+}
+
+.cv.premium .cv-top {
+  background: linear-gradient(135deg, #111827, #3f2f12) !important;
+  color: #fff !important;
+  padding: 24px !important;
+  border-radius: 20px !important;
+  box-shadow: 0 16px 36px rgba(17,24,39,.20) !important;
+  border: 0 !important;
+}
+
+.cv.premium h2 {
+  font-family: Georgia, "Times New Roman", serif !important;
+  color: #fff !important;
+}
+
+.cv.premium .role {
+  color: #facc15 !important;
+}
+
+.cv.premium .contact,
+.cv.premium .small-line {
+  color: rgba(255,255,255,.86) !important;
+}
+
+.cv.premium .sec {
+  border-bottom: 1px solid #f3e8c2 !important;
+}
+
+.cv.premium .sec h3 {
+  color: #92400e !important;
+}
+
+.cv.premium .tag {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+  border: 1px solid #f3e8c2 !important;
+}
