@@ -11019,13 +11019,3 @@ footer,
     opacity: 0.06 !important;
   }
 }
-   /* MOBİL ANA SAYFA CV WATERMARK HAFİFLETME */
-@media (max-width: 768px) {
-  .watermark-grid {
-    opacity: 0.045 !important;
-  }
-
-  .watermark-grid span {
-    color: rgba(17, 24, 39, 0.08) !important;
-  }
-}
