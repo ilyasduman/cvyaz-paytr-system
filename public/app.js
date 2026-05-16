@@ -3971,142 +3971,150 @@ cvyazSaveDraft();
   }
   window.addEventListener('load', bindMenu);
 })();
-/* ANA SAYFA METİNLERİ ORTALAMA FINAL */
-(function () {
-  function centerBlockByText(text) {
-    document.querySelectorAll("h1,h2,h3,p,div,section,article").forEach(function (el) {
-      if (el.closest("#cv") || el.closest("#cvWrap") || el.closest(".pdf-modal")) return;
 
-      if ((el.textContent || "").includes(text)) {
-        let box = el;
-
-        for (let i = 0; i < 3; i++) {
-          if (box.parentElement && !box.parentElement.classList.contains("app")) {
-            box = box.parentElement;
-          }
-        }
-
-        box.style.textAlign = "center";
-        box.querySelectorAll("h1,h2,h3,p,span,div,li,b,strong").forEach(function (child) {
-          child.style.textAlign = "center";
-        });
-
-        box.querySelectorAll("ul").forEach(function (ul) {
-          ul.style.listStyle = "none";
-          ul.style.paddingLeft = "0";
-          ul.style.marginLeft = "auto";
-          ul.style.marginRight = "auto";
-        });
-      }
-    });
-  }
-
-  function runCenterFix() {
-    [
-      "CV Stilini Seç",
-      "Tıkladıkça aşağıdaki CV",
-      "CV’n Anında Oluşuyor",
-      "Bilgi girdikçe CV’n",
-      "Nasıl Çalışır",
-      "CV hazırlamak üç net adım",
-      "Bilgilerini Gir",
-      "Önizlemeyi Gör",
-      "PDF İndir",
-      "ATS Nedir",
-      "İşe alım sistemlerinin",
-      "ATS, şirketlerin"
-    ].forEach(centerBlockByText);
-  }
-
-  document.addEventListener("DOMContentLoaded", runCenterFix);
-  window.addEventListener("load", runCenterFix);
-  window.addEventListener("resize", runCenterFix);
-  window.addEventListener("orientationchange", function () {
-    setTimeout(runCenterFix, 300);
-  });
-})();
 /* =====================================================
-   SADECE 2 AÇIKLAMA YAZISINI ORTALA
+   CVYAZ FINAL SAFE ALIGNMENT PATCH
+   Sadece ana sayfadaki iki açıklama metnini ve ATS rozetlerini ortalar.
+   #cv, #cvPdfClone ve PDF modal içindeki CV tasarımına dokunmaz.
 ===================================================== */
 (function() {
 
-  function centerExactTextLine(targetText) {
-    document.querySelectorAll("p, div, span").forEach(function(el) {
-      const text = (el.textContent || "").replace(/\s+/g, " ").trim();
+  function isInsideCvArea(el) {
+    return !!(
+      el.closest("#cv") ||
+      el.closest("#cvPdfClone") ||
+      el.closest("#cvWrap") ||
+      el.closest("#pdfModal") ||
+      el.closest(".cv")
+    );
+  }
 
-      if (text === targetText) {
+  function normalizeText(value) {
+    return String(value || "").replace(/\s+/g, " ").trim();
+  }
+
+  function centerExactTextLine(targetText) {
+    const target = normalizeText(targetText);
+
+    document.querySelectorAll("p, div, span").forEach(function(el) {
+      if (isInsideCvArea(el)) {
+        return;
+      }
+
+      const text = normalizeText(el.textContent);
+
+      if (text === target) {
         el.style.textAlign = "center";
         el.style.marginLeft = "auto";
         el.style.marginRight = "auto";
         el.style.display = "block";
         el.style.width = "100%";
-        el.style.maxWidth = "620px";
+        el.style.maxWidth = window.innerWidth <= 768 ? "360px" : "620px";
       }
     });
   }
 
-  function cvyazCenterOnlyTwoTexts() {
-    centerExactTextLine("Tıkladıkça aşağıdaki CV anında değişir. En uygun görünümü seç, sonra temiz PDF’e geç.");
-    centerExactTextLine("Bilgi girdikçe CV’n otomatik güncellenir. PDF önizlemede koruma yazısı bulunur.");
-  }
-
-  document.addEventListener("DOMContentLoaded", cvyazCenterOnlyTwoTexts);
-  window.addEventListener("load", cvyazCenterOnlyTwoTexts);
-  window.addEventListener("resize", cvyazCenterOnlyTwoTexts);
-  window.addEventListener("orientationchange", function() {
-    setTimeout(cvyazCenterOnlyTwoTexts, 250);
-  });
-
-})();
-/* =====================================================
-   ATS ROZETLERİNİ ORTALA
-===================================================== */
-(function() {
-
-  function centerAtsBadges() {
-    const badgeTexts = [
-      "✅ Temiz düzen",
-      "✅ Okunabilir PDF",
-      "✅ Profesyonel yapı",
-      "✅ Modern tasarım"
+  function centerAtsBadgesOnly() {
+    const badgeWords = [
+      "Temiz düzen",
+      "Okunabilir PDF",
+      "Profesyonel yapı",
+      "Modern tasarım"
     ];
 
     document.querySelectorAll("div, section, article").forEach(function(box) {
-      const text = (box.textContent || "").replace(/\s+/g, " ").trim();
+      if (isInsideCvArea(box)) {
+        return;
+      }
 
-      const hasAllBadges = badgeTexts.every(function(item) {
-        return text.includes(item.replace("✅ ", ""));
+      const boxText = normalizeText(box.textContent);
+      const hasAllBadges = badgeWords.every(function(word) {
+        return boxText.indexOf(word) !== -1;
       });
 
-      if (hasAllBadges) {
-        box.style.textAlign = "center";
-
-        box.querySelectorAll("span, div, li").forEach(function(el) {
-          const t = (el.textContent || "").replace(/\s+/g, " ").trim();
-
-          if (
-            t.includes("Temiz düzen") ||
-            t.includes("Okunabilir PDF") ||
-            t.includes("Profesyonel yapı") ||
-            t.includes("Modern tasarım")
-          ) {
-            el.style.display = "inline-flex";
-            el.style.alignItems = "center";
-            el.style.justifyContent = "center";
-            el.style.margin = "6px";
-            el.style.textAlign = "center";
-            el.style.whiteSpace = "nowrap";
-          }
-        });
+      if (!hasAllBadges) {
+        return;
       }
+
+      const badgeElements = [];
+
+      box.querySelectorAll("span, div, li, p").forEach(function(el) {
+        if (isInsideCvArea(el)) {
+          return;
+        }
+
+        const text = normalizeText(el.textContent);
+        const isBadge = badgeWords.some(function(word) {
+          return text === word || text === "✅ " + word || text.indexOf(word) !== -1;
+        });
+
+        if (isBadge && text.length <= 40) {
+          badgeElements.push(el);
+        }
+      });
+
+      if (!badgeElements.length) {
+        return;
+      }
+
+      const row = badgeElements[0].parentElement;
+
+      if (row && !isInsideCvArea(row)) {
+        row.style.display = "flex";
+        row.style.flexWrap = "wrap";
+        row.style.justifyContent = "center";
+        row.style.alignItems = "center";
+        row.style.gap = "10px";
+        row.style.width = "100%";
+        row.style.marginLeft = "auto";
+        row.style.marginRight = "auto";
+        row.style.textAlign = "center";
+      }
+
+      badgeElements.forEach(function(el) {
+        el.style.display = "inline-flex";
+        el.style.alignItems = "center";
+        el.style.justifyContent = "center";
+        el.style.textAlign = "center";
+        el.style.whiteSpace = "nowrap";
+        el.style.margin = "0";
+      });
     });
   }
 
-  document.addEventListener("DOMContentLoaded", centerAtsBadges);
-  window.addEventListener("load", centerAtsBadges);
-  window.addEventListener("resize", centerAtsBadges);
+  function clearAccidentalCvInlineAlignment() {
+    document.querySelectorAll("#cv, #cvPdfClone").forEach(function(cv) {
+      cv.style.textAlign = "";
+      cv.querySelectorAll("*").forEach(function(el) {
+        if (el.style && el.style.textAlign) {
+          el.style.textAlign = "";
+        }
+      });
+    });
+  }
+
+  function runCvyazSafeAlignmentFix() {
+    clearAccidentalCvInlineAlignment();
+
+    centerExactTextLine("Tıkladıkça aşağıdaki CV anında değişir. En uygun görünümü seç, sonra temiz PDF’e geç.");
+    centerExactTextLine("Bilgi girdikçe CV’n otomatik güncellenir. PDF önizlemede koruma yazısı bulunur.");
+
+    centerAtsBadgesOnly();
+  }
+
+  document.addEventListener("DOMContentLoaded", runCvyazSafeAlignmentFix);
+  window.addEventListener("load", runCvyazSafeAlignmentFix);
+  window.addEventListener("resize", runCvyazSafeAlignmentFix);
   window.addEventListener("orientationchange", function() {
-    setTimeout(centerAtsBadges, 250);
+    setTimeout(runCvyazSafeAlignmentFix, 300);
+  });
+
+  document.addEventListener("input", function() {
+    setTimeout(runCvyazSafeAlignmentFix, 0);
+  });
+
+  document.addEventListener("change", function() {
+    setTimeout(runCvyazSafeAlignmentFix, 0);
   });
 
 })();
