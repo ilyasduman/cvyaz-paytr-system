@@ -11151,3 +11151,50 @@ footer,
   margin-left: auto !important;
   margin-right: auto !important;
 }
+/* WEB METİN ORTALAMA FINAL OVERRIDE */
+@media (min-width: 768px) {
+
+  .bottom-tabs-title,
+  .bottom-tabs-note,
+  .preview-title,
+  .preview-sub,
+  #how-it-works,
+  #howItWorks,
+  .how-it-works,
+  .how-section,
+  .steps-section,
+  .info-section,
+  #ats-nedir,
+  .info-section.ats-card {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #how-it-works *,
+  #howItWorks *,
+  .how-it-works *,
+  .how-section *,
+  .steps-section *,
+  .info-section *,
+  #ats-nedir *,
+  .info-section.ats-card * {
+    text-align: center !important;
+  }
+
+  .step-number {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .bottom-tabs-note,
+  .preview-sub,
+  .how-section p,
+  .steps-section p,
+  .info-section p,
+  #ats-nedir p {
+    max-width: 620px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
