@@ -10655,3 +10655,362 @@ footer,
   outline: 0 !important;
   box-shadow: none !important;
 }
+
+/* =====================================================
+   CVYAZ FINAL STYLE RE-MAP V7
+   Problemli Modern / Yaratıcı / Premium sıfırlandı.
+   Konum / scale / translate / mobil ayarlarına dokunmaz.
+   Mantık:
+   - Modern  = ATS Sade temeli + mavi modern vurgu
+   - Yaratıcı = Kurumsal temeli + pembe/mor vurgu
+   - Premium = Executive temeli + altın prestij vurgu
+===================================================== */
+
+/* Eski problemli görsel efektleri öldür */
+.cv.modern,
+.cv.creative,
+.cv.premium,
+#cvPdfClone.cv.modern,
+#cvPdfClone.cv.creative,
+#cvPdfClone.cv.premium {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 0 !important;
+  outline: 0 !important;
+}
+
+/* Tüm kaybolan yazıları güvenli renge çek */
+.cv.modern *,
+.cv.creative *,
+.cv.premium *,
+#cvPdfClone.cv.modern *,
+#cvPdfClone.cv.creative *,
+#cvPdfClone.cv.premium * {
+  opacity: 1 !important;
+  visibility: visible !important;
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: none !important;
+}
+
+/* Ortak üst alan */
+.cv.modern .cv-top,
+.cv.creative .cv-top,
+.cv.premium .cv-top,
+#cvPdfClone.cv.modern .cv-top,
+#cvPdfClone.cv.creative .cv-top,
+#cvPdfClone.cv.premium .cv-top {
+  display: flex !important;
+  gap: 20px !important;
+  align-items: flex-start !important;
+  margin-bottom: 24px !important;
+  min-height: 120px !important;
+  color: #111827 !important;
+}
+
+/* Ortak metin güvenliği */
+.cv.modern h2,
+.cv.creative h2,
+.cv.premium h2,
+#cvPdfClone.cv.modern h2,
+#cvPdfClone.cv.creative h2,
+#cvPdfClone.cv.premium h2 {
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+  font-size: 36px !important;
+  font-weight: 900 !important;
+  letter-spacing: -1px !important;
+  line-height: 1.08 !important;
+  margin-bottom: 6px !important;
+}
+
+.cv.modern .role,
+.cv.creative .role,
+.cv.premium .role,
+#cvPdfClone.cv.modern .role,
+#cvPdfClone.cv.creative .role,
+#cvPdfClone.cv.premium .role {
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  line-height: 1.25 !important;
+  letter-spacing: .45px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 10px !important;
+}
+
+.cv.modern .contact,
+.cv.modern .small-line,
+.cv.modern .info-value,
+.cv.creative .contact,
+.cv.creative .small-line,
+.cv.creative .info-value,
+.cv.premium .contact,
+.cv.premium .small-line,
+.cv.premium .info-value,
+#cvPdfClone.cv.modern .contact,
+#cvPdfClone.cv.modern .small-line,
+#cvPdfClone.cv.modern .info-value,
+#cvPdfClone.cv.creative .contact,
+#cvPdfClone.cv.creative .small-line,
+#cvPdfClone.cv.creative .info-value,
+#cvPdfClone.cv.premium .contact,
+#cvPdfClone.cv.premium .small-line,
+#cvPdfClone.cv.premium .info-value {
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+}
+
+.cv.modern .info-label,
+.cv.creative .info-label,
+.cv.premium .info-label,
+#cvPdfClone.cv.modern .info-label,
+#cvPdfClone.cv.creative .info-label,
+#cvPdfClone.cv.premium .info-label {
+  color: #6b7280 !important;
+  -webkit-text-fill-color: #6b7280 !important;
+  font-weight: 900 !important;
+}
+
+/* =====================================================
+   1) MODERN — ATS temeli, mavi teknoloji dokunuşu
+===================================================== */
+
+.cv.modern,
+#cvPdfClone.cv.modern {
+  padding: 58px 54px !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.cv.modern .cv-top,
+#cvPdfClone.cv.modern .cv-top {
+  background: #ffffff !important;
+  border: 0 !important;
+  border-bottom: 2px solid #dbeafe !important;
+  border-left: 7px solid #2563eb !important;
+  border-radius: 0 !important;
+  padding: 0 0 18px 18px !important;
+  box-shadow: none !important;
+}
+
+.cv.modern .role,
+#cvPdfClone.cv.modern .role {
+  color: #2563eb !important;
+  -webkit-text-fill-color: #2563eb !important;
+}
+
+.cv.modern .sec,
+#cvPdfClone.cv.modern .sec {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  border-radius: 0 !important;
+  padding: 0 0 15px !important;
+  margin-bottom: 18px !important;
+  box-shadow: none !important;
+}
+
+.cv.modern .sec h3,
+#cvPdfClone.cv.modern .sec h3 {
+  color: #2563eb !important;
+  -webkit-text-fill-color: #2563eb !important;
+  border-bottom: 1px solid #dbeafe !important;
+  padding-bottom: 7px !important;
+  background: transparent !important;
+}
+
+.cv.modern .entry,
+#cvPdfClone.cv.modern .entry {
+  border: 0 !important;
+  padding-left: 0 !important;
+}
+
+.cv.modern .tag,
+#cvPdfClone.cv.modern .tag {
+  background: #dbeafe !important;
+  color: #1d4ed8 !important;
+  -webkit-text-fill-color: #1d4ed8 !important;
+  border-radius: 6px !important;
+  border: 1px solid #bfdbfe !important;
+}
+
+/* =====================================================
+   2) YARATICI — Kurumsal temeli, pembe/mor karakter
+===================================================== */
+
+.cv.creative,
+#cvPdfClone.cv.creative {
+  padding: 46px 44px !important;
+  background: #fdf2f8 !important;
+}
+
+.cv.creative .cv-top,
+#cvPdfClone.cv.creative .cv-top {
+  background: #ffffff !important;
+  border: 1px solid #fbcfe8 !important;
+  border-left: 8px solid #ec4899 !important;
+  border-radius: 18px !important;
+  padding: 22px !important;
+  box-shadow: 0 10px 24px rgba(236,72,153,.10) !important;
+}
+
+.cv.creative h2,
+#cvPdfClone.cv.creative h2 {
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+}
+
+.cv.creative .role,
+#cvPdfClone.cv.creative .role {
+  display: inline-block !important;
+  color: #be185d !important;
+  -webkit-text-fill-color: #be185d !important;
+  background: #fce7f3 !important;
+  padding: 6px 10px !important;
+  border-radius: 999px !important;
+}
+
+.cv.creative .info-label,
+#cvPdfClone.cv.creative .info-label {
+  color: #be185d !important;
+  -webkit-text-fill-color: #be185d !important;
+}
+
+.cv.creative .sec,
+#cvPdfClone.cv.creative .sec {
+  background: #ffffff !important;
+  border: 1px solid #fbcfe8 !important;
+  border-radius: 15px !important;
+  padding: 15px 16px !important;
+  margin-bottom: 14px !important;
+  box-shadow: 0 8px 20px rgba(236,72,153,.06) !important;
+}
+
+.cv.creative .sec::before,
+#cvPdfClone.cv.creative .sec::before {
+  display: none !important;
+  content: none !important;
+}
+
+.cv.creative .sec h3,
+#cvPdfClone.cv.creative .sec h3 {
+  color: #be185d !important;
+  -webkit-text-fill-color: #be185d !important;
+  background: #fce7f3 !important;
+  display: inline-block !important;
+  border-radius: 999px !important;
+  padding: 7px 11px !important;
+  border: 0 !important;
+}
+
+.cv.creative .entry,
+#cvPdfClone.cv.creative .entry {
+  border: 0 !important;
+  padding-left: 0 !important;
+}
+
+.cv.creative .tag,
+#cvPdfClone.cv.creative .tag {
+  background: #fce7f3 !important;
+  color: #be185d !important;
+  -webkit-text-fill-color: #be185d !important;
+  border-radius: 999px !important;
+  border: 1px solid #fbcfe8 !important;
+}
+
+/* =====================================================
+   3) PREMIUM — Executive temeli, altın prestij
+===================================================== */
+
+.cv.premium,
+#cvPdfClone.cv.premium {
+  padding: 56px 52px !important;
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 86%, #fffdf4 100%) !important;
+}
+
+.cv.premium .cv-top,
+#cvPdfClone.cv.premium .cv-top {
+  background: transparent !important;
+  border: 0 !important;
+  border-top: 3px double #d4af37 !important;
+  border-bottom: 3px double #d4af37 !important;
+  border-radius: 0 !important;
+  padding: 22px 0 !important;
+  box-shadow: none !important;
+}
+
+.cv.premium h2,
+#cvPdfClone.cv.premium h2 {
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 44px !important;
+  font-weight: 700 !important;
+  letter-spacing: .1px !important;
+}
+
+.cv.premium .role,
+#cvPdfClone.cv.premium .role {
+  color: #b45309 !important;
+  -webkit-text-fill-color: #b45309 !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-style: italic !important;
+  text-transform: none !important;
+  letter-spacing: .35px !important;
+}
+
+.cv.premium .info-label,
+#cvPdfClone.cv.premium .info-label {
+  color: #92400e !important;
+  -webkit-text-fill-color: #92400e !important;
+}
+
+.cv.premium .sec,
+#cvPdfClone.cv.premium .sec {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid #f3e8c2 !important;
+  padding-bottom: 18px !important;
+  margin-bottom: 22px !important;
+  box-shadow: none !important;
+}
+
+.cv.premium .sec h3,
+#cvPdfClone.cv.premium .sec h3 {
+  color: #92400e !important;
+  -webkit-text-fill-color: #92400e !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 15px !important;
+  text-transform: none !important;
+  letter-spacing: .6px !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.cv.premium .sec h3::before,
+#cvPdfClone.cv.premium .sec h3::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 32px !important;
+  height: 2px !important;
+  background: #d4af37 !important;
+  margin-right: 10px !important;
+  vertical-align: middle !important;
+}
+
+.cv.premium .entry,
+#cvPdfClone.cv.premium .entry {
+  border-left: 3px solid #f3e8c2 !important;
+  border-bottom: 0 !important;
+  padding-left: 14px !important;
+  padding-bottom: 0 !important;
+}
+
+.cv.premium .tag,
+#cvPdfClone.cv.premium .tag {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+  -webkit-text-fill-color: #92400e !important;
+  border: 1px solid #f3e8c2 !important;
+  border-radius: 999px !important;
+}
