@@ -10624,3 +10624,28 @@ footer,
       margin-bottom:-54px !important;
   }
 }
+
+
+/* =====================================================
+   WEB ANA SAYFA CV PREVIEW — TAM ORTALAMA DENEME
+===================================================== */
+
+@media (min-width: 768px) {
+  .cv-wrap {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    overflow: hidden !important;
+  }
+
+  .cv {
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    transform: scale(.48) !important;
+    transform-origin: top center !important;
+
+    left: auto !important;
+    right: auto !important;
+  }
+}
