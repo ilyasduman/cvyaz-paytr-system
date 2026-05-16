@@ -3109,7 +3109,7 @@ async function goPay() {
   const acceptDigital = document.getElementById("acceptDigital");
 
 if (!acceptTerms || !acceptTerms.checked) {
-  window.location.href = "https://cvyaz.myshopify.com";
+  alert("Devam etmek için sözleşme ve KVKK onayı gerekli.");
   return;
 }
 
