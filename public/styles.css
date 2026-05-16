@@ -11019,3 +11019,19 @@ footer,
     opacity: 0.06 !important;
   }
 }
+/* MOBİL ANA SAYFA WATERMARK DÜZELTME */
+@media (max-width: 768px) {
+
+  .cv-preview.modern .watermark,
+  .cv-preview.creative .watermark,
+  .cv-preview.premium .watermark {
+    opacity: 0.04 !important;
+  }
+
+  .cv-preview.modern .watermark span,
+  .cv-preview.creative .watermark span,
+  .cv-preview.premium .watermark span {
+    color: rgba(0,0,0,0.05) !important;
+  }
+
+}
