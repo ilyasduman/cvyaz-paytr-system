@@ -4065,14 +4065,62 @@ cvyazSaveDraft();
 })();
 
 /* =====================================================
-   CVYAZ SAFE PAGE TEXT PATCH V3
-   CV stillerine dokunmadan sadece ana sayfa açıklama metinleri
-   ve ATS rozetlerini tekrar ortalar.
+   CVYAZ SAFE PAGE TEXT PATCH V4
+   - Ana sayfadaki iki açıklama metnini ortalar.
+   - ATS rozetlerini ortalar.
+   - Canlı CV (#cv) ve PDF clone (#cvPdfClone) içindeki CV tasarımını
+     global ortalama etkisinden korur.
 ===================================================== */
 (function() {
 
   function normalizeText(value) {
     return String(value || "").replace(/\s+/g, " ").trim();
+  }
+
+  function installLiveCvAlignmentShield() {
+    if (document.querySelector('style[data-cvyaz-live-cv-align-shield="1"]')) {
+      return;
+    }
+
+    const style = document.createElement("style");
+    style.setAttribute("data-cvyaz-live-cv-align-shield", "1");
+    style.textContent = `
+      #cv,
+      #cv * {
+        text-align: initial !important;
+      }
+
+      #cv .cv-top,
+      #cv .cv-top *,
+      #cv .info-row,
+      #cv .info-label,
+      #cv .info-value,
+      #cv .entry,
+      #cv .entry *,
+      #cv .sec,
+      #cv .sec * {
+        text-align: left !important;
+      }
+
+      #cv h2,
+      #cv .role,
+      #cv .contact,
+      #cv .small-line,
+      #cv #pContact,
+      #cv #pAddress,
+      #cv #pExtra,
+      #cv #pEdu,
+      #cv #pExp,
+      #cv #pSkills,
+      #cv #pLangs,
+      #cv #pCerts,
+      #cv #pProjects,
+      #cv #pRefs,
+      #cv #pDocs {
+        text-align: left !important;
+      }
+    `;
+    document.head.appendChild(style);
   }
 
   function isForbiddenArea(el) {
@@ -4111,10 +4159,6 @@ cvyazSaveDraft();
         return;
       }
 
-      /*
-        Çok büyük container'ı değil, metnin gerçek olduğu küçük elemanı hedefle.
-        Böylece CV stil kartlarına veya sayfa düzenine bulaşmaz.
-      */
       if (text.length > 260) {
         return;
       }
@@ -4185,19 +4229,8 @@ cvyazSaveDraft();
     });
   }
 
-  function protectLiveCvAlignment() {
-    document.querySelectorAll("#cv, #cvWrap .cv").forEach(function(cv) {
-      cv.style.textAlign = "";
-      cv.querySelectorAll("*").forEach(function(el) {
-        if (el.style && el.style.textAlign) {
-          el.style.textAlign = "";
-        }
-      });
-    });
-  }
-
-  function runCvyazSafeTextPatchV3() {
-    protectLiveCvAlignment();
+  function runCvyazSafeTextPatchV4() {
+    installLiveCvAlignmentShield();
 
     centerTextByContains("Tıkladıkça aşağıdaki CV anında değişir");
     centerTextByContains("Bilgi girdikçe CV’n otomatik güncellenir");
@@ -4205,11 +4238,19 @@ cvyazSaveDraft();
     centerAtsBadgesOnly();
   }
 
-  document.addEventListener("DOMContentLoaded", runCvyazSafeTextPatchV3);
-  window.addEventListener("load", runCvyazSafeTextPatchV3);
-  window.addEventListener("resize", runCvyazSafeTextPatchV3);
+  document.addEventListener("DOMContentLoaded", runCvyazSafeTextPatchV4);
+  window.addEventListener("load", runCvyazSafeTextPatchV4);
+  window.addEventListener("resize", runCvyazSafeTextPatchV4);
   window.addEventListener("orientationchange", function() {
-    setTimeout(runCvyazSafeTextPatchV3, 300);
+    setTimeout(runCvyazSafeTextPatchV4, 300);
+  });
+
+  document.addEventListener("input", function() {
+    setTimeout(runCvyazSafeTextPatchV4, 0);
+  });
+
+  document.addEventListener("change", function() {
+    setTimeout(runCvyazSafeTextPatchV4, 0);
   });
 
 })();
