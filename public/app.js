@@ -4110,3 +4110,28 @@ cvyazSaveDraft();
   });
 
 })();
+/* =====================================================
+   CV PREVIEW İÇERİĞİNİ SOLA SABİTLE
+===================================================== */
+(function () {
+
+  function resetCvPreviewAlignment() {
+
+    document.querySelectorAll(
+      '.cv-preview, .cv-page, .cv-paper, .template-preview, .resume-preview'
+    ).forEach(function(el) {
+
+      el.style.textAlign = 'left';
+
+      el.querySelectorAll('*').forEach(function(child) {
+        child.style.textAlign = '';
+      });
+
+    });
+
+  }
+
+  document.addEventListener('DOMContentLoaded', resetCvPreviewAlignment);
+  window.addEventListener('load', resetCvPreviewAlignment);
+
+})();
