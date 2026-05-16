@@ -10624,25 +10624,24 @@ footer,
       margin-bottom:-54px !important;
   }
    
-}
-/* MOBİL DİKEY */
+/* MOBİL DİKEY - TELEFON NORMAL */
 @media (max-width: 767px) and (orientation: portrait) {
   .cv {
-    transform: translateX(0px) scale(.26) !important;
+    transform: translateX(18px) scale(.31) !important;
     transform-origin: top left !important;
-    margin-bottom: -820px !important;
+    margin-bottom: -770px !important;
   }
 }
 
-/* MOBİL YATAY */
+/* MOBİL YATAY - TELEFON YAN */
 @media (max-width: 932px) and (orientation: landscape) {
   .cv {
-    transform: translateX(0px) scale(.18) !important;
+    transform: translateX(32px) scale(.32) !important;
     transform-origin: top left !important;
-    margin-bottom: -900px !important;
+    margin-bottom: -760px !important;
   }
 
   .cv-wrap {
-    max-height: 520px !important;
+    max-height: 430px !important;
   }
 }
