@@ -10623,4 +10623,26 @@ footer,
   .legal-box{
       margin-bottom:-54px !important;
   }
+   
+}
+/* MOBİL DİKEY */
+@media (max-width: 767px) and (orientation: portrait) {
+  .cv {
+    transform: translateX(0px) scale(.26) !important;
+    transform-origin: top left !important;
+    margin-bottom: -820px !important;
+  }
+}
+
+/* MOBİL YATAY */
+@media (max-width: 932px) and (orientation: landscape) {
+  .cv {
+    transform: translateX(0px) scale(.18) !important;
+    transform-origin: top left !important;
+    margin-bottom: -900px !important;
+  }
+
+  .cv-wrap {
+    max-height: 520px !important;
+  }
 }
