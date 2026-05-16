@@ -11052,64 +11052,102 @@ footer,
   }
 
 }
-/* =========================================================
-   TÜM ANA SAYFA BAŞLIK + AÇIKLAMA ORTALAMA
-========================================================= */
+/* =====================================================
+   ANA SAYFA METİN ORTALAMA FINAL
+   Web + Mobil
+===================================================== */
 
-h1,
-h2,
-h3,
-.hero-title,
-.hero-subtitle,
-.section-title,
-.section-subtitle,
-.live-title,
-.live-subtitle,
-.ats-title,
-.ats-subtitle,
-.how-title,
-.how-subtitle {
+/* 1 — CV Stilini Seç */
+.bottom-tabs-title,
+.bottom-tabs-note,
+.preview-style-tabs,
+.preview-style-tabs * {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 2 — CV’n Anında Oluşuyor */
+.preview-title,
+.preview-sub {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+}
+
+/* 3 — Nasıl Çalışır */
+#how-it-works,
+#howItWorks,
+.how-it-works,
+.how-section,
+.steps-section,
+.steps-card,
+.info-section {
   text-align: center !important;
 }
 
-/* PARAGRAFLAR */
-p {
+#how-it-works *,
+#howItWorks *,
+.how-it-works *,
+.how-section *,
+.steps-section *,
+.steps-card * {
   text-align: center !important;
 }
 
-/* NASIL ÇALIŞIR KARTLARI */
-.steps-grid,
-.steps-container,
-.how-steps {
-  display: flex !important;
-  justify-content: center !important;
-  gap: 20px !important;
-  flex-wrap: wrap !important;
-}
-
-/* KART İÇLERİ */
-.step,
 .step-card,
+.step,
 .how-card {
   text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* ATS ALANI */
-ul,
-li {
+.step-number {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 4 — ATS Nedir */
+#ats-nedir,
+.info-section.ats-card,
+.ats-card {
+  text-align: center !important;
+}
+
+#ats-nedir *,
+.info-section.ats-card *,
+.ats-card * {
+  text-align: center !important;
+}
+
+#ats-nedir ul,
+.info-section.ats-card ul,
+.ats-card ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#ats-nedir li,
+.info-section.ats-card li,
+.ats-card li {
   text-align: center !important;
   list-style-position: inside !important;
 }
 
-/* MOBİL İNCE AYAR */
-@media (max-width: 768px) {
-
-  h1,
-  h2,
-  h3,
-  p,
-  li {
-    text-align: center !important;
-  }
-
+/* Paragraflar çok geniş yayılmasın */
+.bottom-tabs-note,
+.preview-sub,
+#how-it-works p,
+#howItWorks p,
+.how-section p,
+.steps-section p,
+#ats-nedir p,
+.info-section.ats-card p {
+  max-width: 620px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
