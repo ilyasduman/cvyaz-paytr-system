@@ -11478,3 +11478,20 @@ footer,
   margin-left: auto !important;
   margin-right: auto !important;
 }
+/* SADECE 2 AÇIKLAMA YAZISINI ORTALA */
+.bottom-tabs-note,
+.preview-sub {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  max-width: 620px !important;
+  width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .bottom-tabs-note,
+  .preview-sub {
+    max-width: 360px !important;
+  }
+}
