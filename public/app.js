@@ -3108,10 +3108,10 @@ async function goPay() {
   const acceptTerms = document.getElementById("acceptTerms");
   const acceptDigital = document.getElementById("acceptDigital");
 
-  if (!acceptTerms || !acceptTerms.checked) {
-    alert("Devam etmek için sözleşme ve KVKK onayı gerekli.");
-    return;
-  }
+if (!acceptTerms || !acceptTerms.checked) {
+  window.location.href = "https://cvyaz.myshopify.com";
+  return;
+}
 
   if (!acceptDigital || !acceptDigital.checked) {
     alert("Dijital ürün iade koşulunu kabul etmelisiniz.");
