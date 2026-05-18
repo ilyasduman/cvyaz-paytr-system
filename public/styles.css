@@ -7102,6 +7102,13 @@ button[aria-label="Close"] {
   color:rgba(255,255,255,.72) !important;
 }
 
+.footer-location{
+  margin-bottom:6px;
+  font-size:12px;
+  letter-spacing:.8px;
+  opacity:.75;
+}
+
 .legal-copyright a{
   color:inherit !important;
   text-decoration:none;
