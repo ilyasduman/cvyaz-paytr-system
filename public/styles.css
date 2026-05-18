@@ -10366,3 +10366,9 @@ footer,
   margin-left: 70px;
   margin-bottom: -565px;
 }
+/* ANA SAYFA CV ÖNİZLEME — SAĞA SON İTME */
+body .app .cv-wrap > .cv {
+  margin-left: 64px !important;
+  transform: scale(.48) !important;
+  transform-origin: top left !important;
+}
