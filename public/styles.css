@@ -10394,7 +10394,7 @@ body .app .cv-wrap > .cv {
   }
 
   body .app .cv-wrap > .cv {
-    margin-left: 1px !important;
+    margin-left: -6px !important;
     transform: scale(.46) !important;
     transform-origin: top left !important;
   }
