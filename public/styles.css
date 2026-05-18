@@ -10443,3 +10443,13 @@ body .app .cv-wrap > .cv {
   }
 
 }
+/* MOBİL — CV PENCERESİ İLE NASIL ÇALIŞIR ARASI BOŞLUK */
+@media (max-width: 767px) {
+  body .app .cv-wrap {
+    margin-bottom: -70px !important;
+  }
+
+  body .app .cv-wrap + * {
+    margin-top: 0 !important;
+  }
+}
