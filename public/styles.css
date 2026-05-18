@@ -7096,10 +7096,17 @@ button[aria-label="Close"] {
 }
 
 .legal-copyright{
-  margin-top:28px !important;
+  margin-top:18px !important;
   text-align:center !important;
   font-size:13px !important;
   color:rgba(255,255,255,.72) !important;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  gap:4px;
 }
 
 .footer-location{
