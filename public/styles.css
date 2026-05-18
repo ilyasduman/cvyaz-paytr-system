@@ -10253,19 +10253,19 @@ footer,
   }
 
 }
-/* SADECE MOBİL ANA SAYFA — MODERN / YARATICI / PREMIUM WATERMARK HAFİFLETME */
+/* SADECE MOBİL ANA SAYFA — MODERN / YARATICI / PREMIUM WATERMARK DENGE */
 @media (max-width: 768px) {
 
   #cv.cv.modern .watermark-grid,
   #cv.cv.creative .watermark-grid,
   #cv.cv.premium .watermark-grid {
-    opacity: 0.035 !important;
+    opacity: 0.075 !important;
   }
 
   #cv.cv.modern .watermark-grid span,
   #cv.cv.creative .watermark-grid span,
   #cv.cv.premium .watermark-grid span {
-    color: rgba(17, 24, 39, 0.06) !important;
+    color: rgba(17, 24, 39, 0.14) !important;
   }
 
 }
