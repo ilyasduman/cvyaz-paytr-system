@@ -10511,43 +10511,22 @@ body .app .cv-wrap > .cv {
   color: rgba(17, 24, 39, .08) !important;
   -webkit-text-fill-color: rgba(17, 24, 39, .08) !important;
 }
-/* WATERMARK KESİN AYAR — style text fix bloğunu ezer */
+/* MODERN / YARATICI / PREMIUM WATERMARK ONLY */
+.cv.modern .watermark-grid span,
+.cv.creative .watermark-grid span,
+.cv.premium .watermark-grid span,
+#cvPdfClone.cv.modern .watermark-grid span,
+#cvPdfClone.cv.creative .watermark-grid span,
+#cvPdfClone.cv.premium .watermark-grid span {
+  color: rgba(17, 24, 39, .09) !important;
+  -webkit-text-fill-color: rgba(17, 24, 39, .09) !important;
+}
+
 .cv.modern .watermark-grid,
 .cv.creative .watermark-grid,
 .cv.premium .watermark-grid,
-#cvPdfClone.modern .watermark-grid,
-#cvPdfClone.creative .watermark-grid,
-#cvPdfClone.premium .watermark-grid,
 #cvPdfClone.cv.modern .watermark-grid,
 #cvPdfClone.cv.creative .watermark-grid,
 #cvPdfClone.cv.premium .watermark-grid {
   opacity: .055 !important;
-}
-
-.cv.modern .watermark-grid span,
-.cv.creative .watermark-grid span,
-.cv.premium .watermark-grid span,
-#cvPdfClone.modern .watermark-grid span,
-#cvPdfClone.creative .watermark-grid span,
-#cvPdfClone.premium .watermark-grid span,
-#cvPdfClone.cv.modern .watermark-grid span,
-#cvPdfClone.cv.creative .watermark-grid span,
-#cvPdfClone.cv.premium .watermark-grid span {
-  color: rgba(17, 24, 39, .10) !important;
-  -webkit-text-fill-color: rgba(17, 24, 39, .10) !important;
-  opacity: 1 !important;
-}
-
-/* ATS / Executive / Kurumsal görünür kalsın */
-.cv.minimal .watermark-grid,
-.cv.executive .watermark-grid,
-.cv.corporate .watermark-grid {
-  opacity: .12 !important;
-}
-
-.cv.minimal .watermark-grid span,
-.cv.executive .watermark-grid span,
-.cv.corporate .watermark-grid span {
-  color: rgba(17, 24, 39, .22) !important;
-  -webkit-text-fill-color: rgba(17, 24, 39, .22) !important;
 }
