@@ -10329,3 +10329,21 @@ footer,
   margin-left: auto !important;
   margin-right: auto !important;
 }
+/* =====================================================
+   WEB WATERMARK DARKNESS FIX
+   Modern / Yaratıcı / Premium watermark çok koyu görünmesin
+===================================================== */
+
+@media (min-width: 768px) {
+  .cv.modern .watermark-grid,
+  .cv.creative .watermark-grid,
+  .cv.premium .watermark-grid {
+    opacity: .075 !important;
+  }
+
+  .cv.modern .watermark-grid span,
+  .cv.creative .watermark-grid span,
+  .cv.premium .watermark-grid span {
+    color: rgba(17, 24, 39, .16) !important;
+  }
+}
