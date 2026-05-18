@@ -10372,3 +10372,18 @@ body .app .cv-wrap > .cv {
   transform: scale(.48) !important;
   transform-origin: top left !important;
 }
+/* =====================================================
+   MOBİL DİK GÖRÜNÜM — CV ORTALAMA FIX
+===================================================== */
+
+@media (max-width: 767px) and (orientation: portrait) {
+
+  body .app .cv-wrap > .cv {
+    margin-left: 0 !important;
+
+    transform: translateX(-22px) scale(.48) !important;
+
+    transform-origin: top left !important;
+  }
+
+}
