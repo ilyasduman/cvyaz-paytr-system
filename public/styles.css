@@ -7095,20 +7095,6 @@ button[aria-label="Close"] {
   box-shadow:0 10px 30px rgba(34,197,94,.24) !important;
 }
 
-.legal-copyright{
-  margin-top:18px !important;
-  text-align:center !important;
-  font-size:13px !important;
-  color:rgba(255,255,255,.72) !important;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-
-  gap:4px;
-}
-
 .footer-location{
   margin-bottom:6px;
   font-size:12px;
@@ -7119,10 +7105,6 @@ button[aria-label="Close"] {
 .legal-copyright a{
   color:inherit !important;
   text-decoration:none;
-}
-.footer-location,
-.legal-copyright a{
-  word-break:break-word;
 }
 
 .legal-copyright a{
