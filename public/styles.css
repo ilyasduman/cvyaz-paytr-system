@@ -7095,13 +7095,6 @@ button[aria-label="Close"] {
   box-shadow:0 10px 30px rgba(34,197,94,.24) !important;
 }
 
-.footer-location{
-  margin-bottom:6px;
-  font-size:12px;
-  letter-spacing:.8px;
-  opacity:.75;
-}
-
 .legal-copyright a{
   color:inherit !important;
   text-decoration:none;
