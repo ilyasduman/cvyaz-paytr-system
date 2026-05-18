@@ -10373,6 +10373,6 @@ footer,
 ===================================================== */
 
 .cv-wrap > .cv {
-  transform: translateX(15px) scale(.55) !important;
+  transform: translateX(15px) scale(.45) !important;
   transform-origin: top left !important;
 }
