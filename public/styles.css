@@ -10446,20 +10446,10 @@ body .app .cv-wrap > .cv {
 /* MOBİL — CV PENCERESİ İLE NASIL ÇALIŞIR ARASI BOŞLUK */
 @media (max-width: 767px) {
   body .app .cv-wrap {
-    margin-bottom: -90px !important;
+    margin-bottom: -110px !important;
   }
 
   body .app .cv-wrap + * {
     margin-top: 0 !important;
-  }
-}
-/* MOBİL — CV PENCERESİ İLE NASIL ÇALIŞIR ARASI BOŞLUK KAPATMA */
-@media (max-width: 767px) {
-  #cvWrap {
-    margin-bottom: -150px !important;
-  }
-
-  .how-it-works {
-    margin-top: -80px !important;
   }
 }
