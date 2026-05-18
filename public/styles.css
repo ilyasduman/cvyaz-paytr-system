@@ -10343,7 +10343,12 @@ footer,
   .cv.premium .watermark-grid {
     opacity: .045 !important;
   }
-
+   #pdfFrame .watermark-grid span,
+.pdf-modal .watermark-grid span,
+#cvPdfClone .watermark-grid span {
+  color: rgba(17, 24, 39, .10) !important;
+  -webkit-text-fill-color: rgba(17, 24, 39, .10) !important;
+}
   .cv.modern .watermark-grid span,
   .cv.creative .watermark-grid span,
   .cv.premium .watermark-grid span {
