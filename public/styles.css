@@ -10488,3 +10488,26 @@ body .app .cv-wrap > .cv {
   color: rgba(17, 24, 39, .08) !important;
   -webkit-text-fill-color: rgba(17, 24, 39, .08) !important;
 }
+/* WATERMARK — TÜM STİLLER DENGELİ */
+.cv .watermark-grid {
+  opacity: .12 !important;
+}
+
+.cv .watermark-grid span {
+  color: rgba(17, 24, 39, .22) !important;
+  -webkit-text-fill-color: rgba(17, 24, 39, .22) !important;
+}
+
+/* Modern / Yaratıcı / Premium fazla koyulaştığı için ayrıca düşür */
+.cv.modern .watermark-grid,
+.cv.creative .watermark-grid,
+.cv.premium .watermark-grid {
+  opacity: .045 !important;
+}
+
+.cv.modern .watermark-grid span,
+.cv.creative .watermark-grid span,
+.cv.premium .watermark-grid span {
+  color: rgba(17, 24, 39, .08) !important;
+  -webkit-text-fill-color: rgba(17, 24, 39, .08) !important;
+}
