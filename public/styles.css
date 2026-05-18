@@ -10368,11 +10368,8 @@ footer,
   -webkit-text-fill-color: rgba(17, 24, 39, 0.08) !important;
   opacity: 1 !important;
 }
-/* =====================================================
-   ANA SAYFA CV ÖNİZLEME SAĞA KAYDIRMA
-===================================================== */
-
+/* ANA SAYFA CV ÖNİZLEME OPTİK MERKEZ */
 .cv-wrap > .cv {
-  transform: translateX(38px) scale(.47) !important;
+  transform: translateX(-8px) scale(.48) !important;
   transform-origin: top left !important;
 }
