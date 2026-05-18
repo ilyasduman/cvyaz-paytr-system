@@ -10453,3 +10453,14 @@ body .app .cv-wrap > .cv {
     margin-top: 0 !important;
   }
 }
+/* MODERN / YARATICI / PREMIUM WATERMARK FIX */
+.cv.modern .watermark,
+.cv.creative .watermark,
+.cv.premium .watermark,
+.cv.modern .watermark-grid,
+.cv.creative .watermark-grid,
+.cv.premium .watermark-grid {
+  opacity: .06 !important;
+  color: rgba(15, 23, 42, 0.06) !important;
+  font-weight: 600 !important;
+}
