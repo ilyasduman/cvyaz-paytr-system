@@ -7099,7 +7099,12 @@ button[aria-label="Close"] {
   margin-top:28px !important;
   text-align:center !important;
   font-size:13px !important;
-  opacity:.58 !important;
+  opacity:.78 !important;
+}
+
+.legal-copyright a{
+  color:inherit !important;
+  text-decoration:none;
 }
 
 .legal-copyright a{
