@@ -10350,30 +10350,19 @@ footer,
     color: rgba(17, 24, 39, .16) !important;
   }
 }
-/* =====================================================
-   KESİN ÇÖZÜM — MODERN / YARATICI / PREMIUM WATERMARK
-   Üstteki opacity:1 yazı fixini ezer.
-===================================================== */
-
-#cv.cv.modern .watermark-grid,
-#cv.cv.creative .watermark-grid,
-#cv.cv.premium .watermark-grid {
-  opacity: 0.065 !important;
-}
-
-#cv.cv.modern .watermark-grid span,
-#cv.cv.creative .watermark-grid span,
-#cv.cv.premium .watermark-grid span {
-  color: rgba(17, 24, 39, 0.08) !important;
-  -webkit-text-fill-color: rgba(17, 24, 39, 0.08) !important;
-  opacity: 1 !important;
-}
-.cv-wrap {
-  background: #dfe3ea;
-  border-radius: 26px;
-  padding: 12px;
+.cv {
+  background: #fff;
+  width: 794px;
+  min-height: 1123px;
+  padding: 54px 48px;
+  position: relative;
   overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .10);
 
-  display: flex;
-  justify-content: center;
+  transform: scale(.48);
+  transform-origin: top left;
+
+  margin-left: 52px;
+  margin-bottom: -565px;
 }
