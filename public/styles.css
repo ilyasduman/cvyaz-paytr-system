@@ -10394,8 +10394,8 @@ body .app .cv-wrap > .cv {
   }
 
   body .app .cv-wrap > .cv {
-    margin-left: -6px !important;
-    transform: scale(.46) !important;
+    margin-left: -9px !important;
+    transform: scale(.48) !important;
     transform-origin: top left !important;
   }
 }
