@@ -10390,8 +10390,8 @@ body .app .cv-wrap > .cv {
 /* MOBİL DİK — CV ÖNİZLEME ORTALAMA */
 @media (max-width: 767px) and (orientation: portrait) {
   body .app .cv-wrap > .cv {
-    margin-left: 32px !important;
-    transform: scale(.44) !important;
+    margin-left: 30px !important;
+    transform: scale(.48) !important;
     transform-origin: top left !important;
   }
 }
