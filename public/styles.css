@@ -7120,6 +7120,10 @@ button[aria-label="Close"] {
   color:inherit !important;
   text-decoration:none;
 }
+.footer-location,
+.legal-copyright a{
+  word-break:break-word;
+}
 
 .legal-copyright a{
   color:#d4d4d8;
