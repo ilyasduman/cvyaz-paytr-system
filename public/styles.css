@@ -10479,3 +10479,12 @@ body .app .cv-wrap > .cv {
     opacity: .04 !important;
   }
 }
+/* GLOBAL WATERMARK FIX */
+.watermark-grid {
+  opacity: .045 !important;
+}
+
+.watermark-grid span {
+  color: rgba(17, 24, 39, .08) !important;
+  -webkit-text-fill-color: rgba(17, 24, 39, .08) !important;
+}
