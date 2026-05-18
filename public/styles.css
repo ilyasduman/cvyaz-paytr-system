@@ -10451,7 +10451,7 @@ body .app .cv-wrap > .cv {
 /* MOBİL — CV PENCERESİ İLE NASIL ÇALIŞIR ARASI BOŞLUK */
 @media (max-width: 767px) {
   body .app .cv-wrap {
-    margin-bottom: -100px !important;
+    margin-bottom: -95px !important;
   }
 
   body .app .cv-wrap + * {
