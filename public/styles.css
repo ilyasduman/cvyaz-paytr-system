@@ -7102,12 +7102,15 @@ button[aria-label="Close"] {
   opacity:.58 !important;
 }
 
-@media (max-width:700px){
+.legal-copyright a{
+  color:#d4d4d8;
+  text-decoration:none;
+  transition:.2s ease;
+}
 
-  .enhanced-legal-box{
-    padding:26px 18px !important;
-    border-radius:26px !important;
-  }
+.legal-copyright a:hover{
+  color:#22c55e;
+}
 
   .bottom-support-box{
     padding:18px !important;
