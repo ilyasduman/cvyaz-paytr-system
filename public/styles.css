@@ -10530,3 +10530,15 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.premium .watermark-grid {
   opacity: .055 !important;
 }
+/* WATERMARK ONLY — güvenli sürüm */
+.cv.modern .watermark-grid,
+.cv.creative .watermark-grid,
+.cv.premium .watermark-grid {
+  opacity: .055 !important;
+}
+
+.cv.modern .watermark-grid span,
+.cv.creative .watermark-grid span,
+.cv.premium .watermark-grid span {
+  color: rgba(17, 24, 39, .09) !important;
+}
