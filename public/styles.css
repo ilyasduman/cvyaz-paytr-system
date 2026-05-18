@@ -10096,531 +10096,123 @@ footer,
   border-radius:30px 30px 0 0 !important;
 }
 
+/* MODERN / CREATIVE / PREMIUM YAZI GÖRÜNÜRLÜK FIX */
 
-
-
-/* =====================================================
-   FINAL EXACT POLISH PATCH
-   - Üst renk çizgisi seçilen görseldeki gibi inset ve tam uzun
-   - WhatsApp üzerindeki konuşma ikonu kaldırıldı
-   - Sözleşme butonları tek satır yapıldı
-===================================================== */
-
-/* Renk çizgisi: kutu içine oturan uzun premium çizgi */
-.enhanced-legal-box::before,
-.legal-box::before{
-  content:"" !important;
-  position:absolute !important;
-  top:0 !important;
-  left:18px !important;
-  right:18px !important;
-  width:auto !important;
-  height:3px !important;
-  border-radius:0 0 999px 999px !important;
-  background:linear-gradient(90deg,#16a34a 0%,#22c55e 12%,#2563eb 55%,#7c3aed 100%) !important;
+.cv.modern h2,
+.cv.modern .role,
+.cv.modern .contact,
+.cv.modern .small-line,
+.cv.modern .info-label,
+.cv.modern .info-value {
+  color: #111827 !important;
 }
 
-/* Sözleşme butonları tek satır, taşmadan */
-.legal-links{
-  max-width:700px !important;
-  width:100% !important;
-  margin:0 auto 24px !important;
-  display:flex !important;
-  justify-content:center !important;
-  align-items:center !important;
-  flex-wrap:nowrap !important;
-  gap:8px !important;
+.cv.creative h2,
+.cv.creative .role,
+.cv.creative .contact,
+.cv.creative .small-line,
+.cv.creative .info-label,
+.cv.creative .info-value {
+  color: #111827 !important;
 }
 
-.legal-links a{
-  min-height:36px !important;
-  padding:8px 13px !important;
-  font-size:12px !important;
-  line-height:1 !important;
-  white-space:nowrap !important;
-  word-break:keep-all !important;
-  flex:0 0 auto !important;
+.cv.premium h2,
+.cv.premium .role,
+.cv.premium .contact,
+.cv.premium .small-line,
+.cv.premium .info-label,
+.cv.premium .info-value {
+  color: #111827 !important;
 }
 
-/* Konuşma ikonunu kaldır */
-.bottom-support-box::before{
-  content:none !important;
-  display:none !important;
+/* Rol renkleri ayrı karakterli kalsın */
+.cv.modern .role {
+  color: #2563eb !important;
 }
 
-/* WhatsApp bölümü seçilen görseldeki gibi merkezli */
-.bottom-support-box{
-  max-width:650px !important;
-  margin:0 auto !important;
-  padding:28px 20px 26px !important;
-  border-radius:0 !important;
-  border:0 !important;
-  border-top:1px solid rgba(15,23,42,.075) !important;
-  border-bottom:1px solid rgba(15,23,42,.075) !important;
-  background:transparent !important;
-  box-shadow:none !important;
-  display:flex !important;
-  flex-direction:column !important;
-  align-items:center !important;
-  justify-content:center !important;
-  gap:14px !important;
-  text-align:center !important;
+.cv.creative .role {
+  color: #ec4899 !important;
 }
 
-.bottom-support-title{
-  display:none !important;
+.cv.premium .role {
+  color: #b45309 !important;
 }
 
-.bottom-support-sub{
-  margin:0 !important;
-  max-width:560px !important;
-  color:#64748b !important;
-  font-size:14px !important;
-  line-height:1.45 !important;
-  text-align:center !important;
+/* MODERN / CREATIVE / PREMIUM — TÜM ÜST KART YAZILARI ZORLA GÖRÜNÜR */
+
+.cv.modern .cv-top,
+.cv.modern .cv-top *,
+.cv.creative .cv-top,
+.cv.creative .cv-top *,
+.cv.premium .cv-top,
+.cv.premium .cv-top * {
+  color: #111827 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-.bottom-support-btn{
-  margin:0 auto !important;
-  min-width:300px !important;
-  min-height:46px !important;
-  padding:13px 28px !important;
-  border-radius:999px !important;
-  display:inline-flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  text-align:center !important;
-  background:linear-gradient(135deg,#059669,#22c55e) !important;
-  color:#ffffff !important;
-  font-size:15px !important;
-  font-weight:950 !important;
-  text-decoration:none !important;
-  white-space:nowrap !important;
-  box-shadow:0 14px 28px rgba(34,197,94,.22) !important;
+/* Meslek / pozisyon renkleri */
+.cv.modern .cv-top .role {
+  color: #2563eb !important;
 }
 
-.bottom-support-btn::before{
-  content:"💬" !important;
-  margin-right:8px !important;
+.cv.creative .cv-top .role {
+  color: #ec4899 !important;
 }
 
-@media (max-width:700px){
-  .enhanced-legal-box::before,
-  .legal-box::before{
-    left:14px !important;
-    right:14px !important;
-  }
-
-  .legal-links{
-    display:grid !important;
-    grid-template-columns:1fr 1fr !important;
-    gap:8px !important;
-    flex-wrap:wrap !important;
-  }
-
-  .legal-links a{
-    font-size:11.5px !important;
-    padding:8px 7px !important;
-    white-space:nowrap !important;
-  }
-
-  .bottom-support-box{
-    padding:24px 10px 22px !important;
-  }
-
-  .bottom-support-btn{
-    width:100% !important;
-    min-width:0 !important;
-  }
+.cv.premium .cv-top .role {
+  color: #b45309 !important;
 }
 
-
-
-
-/* =====================================================
-   TOP COLOR LINE FULL WIDTH FINAL
-===================================================== */
-.enhanced-legal-box::before,
-.legal-box::before{
-  content:"" !important;
-  position:absolute !important;
-  top:0 !important;
-  left:0 !important;
-  right:0 !important;
-  width:100% !important;
-  height:4px !important;
-  border-radius:24px 24px 0 0 !important;
-  background:linear-gradient(90deg,#22c55e 0%,#06b6d4 35%,#2563eb 68%,#7c3aed 100%) !important;
+/* Bilgi etiketleri */
+.cv.modern .cv-top .info-label,
+.cv.creative .cv-top .info-label,
+.cv.premium .cv-top .info-label {
+  color: #6b7280 !important;
 }
 
+/* Bilgi değerleri */
+.cv.modern .cv-top .info-value,
+.cv.creative .cv-top .info-value,
+.cv.premium .cv-top .info-value {
+  color: #111827 !important;
+}
+/* MODERN / CREATIVE / PREMIUM PDF + PREVIEW YAZI GÖRÜNÜRLÜK FINAL */
 
-
-
-/* =====================================================
-   REMOVE TOP COLOR LINE
-===================================================== */
-.enhanced-legal-box::before,
-.legal-box::before{
-    display:none !important;
-    content:none !important;
+.cv.modern *,
+.cv.creative *,
+.cv.premium *,
+#cvPdfClone.modern *,
+#cvPdfClone.creative *,
+#cvPdfClone.premium *,
+#cvPdfClone.cv.modern *,
+#cvPdfClone.cv.creative *,
+#cvPdfClone.cv.premium * {
+  color: #111827 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #111827 !important;
 }
 
-
-
-
-/* =====================================================
-   MOBILE PREVIEW / HOW IT WORKS GAP FIX
-   Sadece mobilde CV önizleme penceresi ile
-   “Nasıl Çalışır?” bölümü arasındaki fazla boşluğu azaltır.
-===================================================== */
-
-@media (max-width:700px){
-
-  .cv-wrap{
-    margin-bottom:24px !important;
-  }
-
-  #how-it-works,
-  .how-section,
-  .steps-section,
-  .info-section:first-of-type{
-    margin-top:24px !important;
-  }
-
-  .preview-section,
-  .live-preview-section{
-    margin-bottom:24px !important;
-    padding-bottom:0 !important;
-  }
-
+/* Meslek / Pozisyon renkleri */
+.cv.modern .role,
+#cvPdfClone.modern .role,
+#cvPdfClone.cv.modern .role {
+  color: #2563eb !important;
+  -webkit-text-fill-color: #2563eb !important;
 }
 
-
-
-
-/* =====================================================
-   STRONG MOBILE GAP FIX
-   Mobilde CV önizleme penceresi ile “Nasıl Çalışır?”
-   arasındaki büyük boşluğu gerçek selector'lara karşı zorla azaltır.
-===================================================== */
-@media (max-width:700px){
-
-  /* Preview alanının alt boşluklarını sıfıra yaklaştır */
-  .live-preview,
-  .preview-live,
-  .preview-section,
-  .live-preview-section,
-  .preview-area,
-  .cv-preview-area,
-  .cv-preview-section,
-  .cv-live-section,
-  .auto-preview,
-  .instant-preview,
-  .preview-card,
-  .cv-wrap,
-  #cvWrap,
-  #preview,
-  #livePreview,
-  #cvPreview{
-    margin-bottom:12px !important;
-    padding-bottom:0 !important;
-  }
-
-  /* CV penceresini takip eden tüm kardeşlerde fazla üst boşluğu kır */
-  .cv-wrap + *,
-  #cvWrap + *,
-  .preview-section + *,
-  .live-preview-section + *,
-  .cv-preview-section + *,
-  .instant-preview + *,
-  .auto-preview + *{
-    margin-top:12px !important;
-  }
-
-  /* Nasıl Çalışır kartını yukarı çek */
-  #how-it-works,
-  #howItWorks,
-  .how-it-works,
-  .how-section,
-  .steps-section,
-  .steps-card,
-  section[id*="how"],
-  section[class*="how"],
-  section[class*="steps"]{
-    margin-top:12px !important;
-    padding-top:20px !important;
-  }
-
-  /* Bazı yapılarda card kendi margin'iyle aşağı iner */
-  #how-it-works .info-section,
-  .how-section .info-section,
-  .steps-section .info-section,
-  .info-section{
-    margin-top:18px !important;
-  }
-
-  /* Önizleme kartı yüksekliği kaynaklı ekstra alanı kıs */
-  .cv-wrap{
-    max-height:560px !important;
-  }
-
-  /* Eğer parent büyük boşluk bırakıyorsa negatif çekme */
-  #how-it-works,
-  .how-section,
-  .steps-section{
-    transform:translateY(-56px) !important;
-    margin-bottom:-56px !important;
-  }
+.cv.creative .role,
+#cvPdfClone.creative .role,
+#cvPdfClone.cv.creative .role {
+  color: #ec4899 !important;
+  -webkit-text-fill-color: #ec4899 !important;
 }
 
-
-
-
-/* =====================================================
-   FINAL MOBILE GAP TIGHTEN
-===================================================== */
-@media (max-width:700px){
-
-  #how-it-works,
-  #howItWorks,
-  .how-it-works,
-  .how-section,
-  .steps-section{
-    transform:translateY(-82px) !important;
-    margin-bottom:-82px !important;
-    margin-top:0 !important;
-    padding-top:12px !important;
-  }
-
-  .cv-wrap,
-  #cvWrap,
-  .preview-section,
-  .live-preview-section{
-    margin-bottom:0 !important;
-    padding-bottom:0 !important;
-  }
-
-}
-
-
-
-
-/* =====================================================
-   REMOVE FINAL PAGE BOTTOM WHITESPACE
-===================================================== */
-
-/* Body / root */
-html,
-body{
-    margin-bottom:0 !important;
-    padding-bottom:0 !important;
-    min-height:auto !important;
-}
-
-/* Son section / footer */
-footer,
-.site-footer,
-.bottom-footer,
-.final-footer,
-.last-section,
-.page-end,
-.main-container,
-.app-container,
-.page-wrapper{
-    margin-bottom:0 !important;
-    padding-bottom:0 !important;
-}
-
-/* Son kart */
-.enhanced-legal-box,
-.legal-box{
-    margin-bottom:0 !important;
-}
-
-/* En son elemandan sonraki görünmez boşluğu kaldır */
-body > *:last-child,
-main > *:last-child,
-.page-wrapper > *:last-child,
-.app-container > *:last-child{
-    margin-bottom:0 !important;
-    padding-bottom:0 !important;
-}
-
-/* Mobil ekstra güvenlik */
-@media (max-width:700px){
-
-  body{
-      overflow-x:hidden !important;
-  }
-
-  footer,
-  .site-footer,
-  .bottom-footer,
-  .page-end{
-      padding-bottom:0 !important;
-      margin-bottom:0 !important;
-  }
-}
-
-
-
-
-/* =====================================================
-   FINAL ULTRA BOTTOM GAP FIX
-===================================================== */
-
-html,
-body{
-    height:auto !important;
-    min-height:100% !important;
-    padding-bottom:0 !important;
-    margin-bottom:-18px !important;
-}
-
-/* Son görünür alan */
-body::after{
-    content:none !important;
-    display:none !important;
-}
-
-/* Son section */
-.enhanced-legal-box,
-.legal-box,
-footer,
-.site-footer,
-.page-end{
-    margin-bottom:-14px !important;
-    padding-bottom:0 !important;
-}
-
-/* Son child */
-body > *:last-child{
-    margin-bottom:-16px !important;
-    padding-bottom:0 !important;
-}
-
-/* Mobil */
-@media (max-width:700px){
-
-  html,
-  body{
-      margin-bottom:-24px !important;
-      padding-bottom:0 !important;
-  }
-
-  body > *:last-child{
-      margin-bottom:-22px !important;
-  }
-
-  footer,
-  .site-footer,
-  .page-end{
-      margin-bottom:-20px !important;
-  }
-}
-
-
-
-
-/* =========================================
-   EXTREME FINAL BOTTOM TIGHTEN
-========================================= */
-
-html,
-body{
-    overflow-x:hidden !important;
-    margin-bottom:-34px !important;
-    padding-bottom:0 !important;
-}
-
-body > *:last-child{
-    margin-bottom:-34px !important;
-    padding-bottom:0 !important;
-}
-
-/* footer / legal */
-footer,
-.site-footer,
-.page-end,
-.enhanced-legal-box,
-.legal-box{
-    margin-bottom:-30px !important;
-    padding-bottom:0 !important;
-    min-height:auto !important;
-}
-
-/* son spacerları öldür */
-.spacer,
-.bottom-space,
-.last-space,
-.empty-space{
-    display:none !important;
-    height:0 !important;
-}
-
-/* mobil */
-@media (max-width:700px){
-
-  html,
-  body{
-      margin-bottom:-42px !important;
-  }
-
-  body > *:last-child{
-      margin-bottom:-40px !important;
-  }
-
-  footer,
-  .site-footer,
-  .page-end,
-  .enhanced-legal-box{
-      margin-bottom:-38px !important;
-  }
-}
-
-
-
-
-/* =========================================
-   LAST PIXEL BOTTOM GAP FIX
-========================================= */
-
-html,
-body{
-    margin-bottom:-52px !important;
-    padding-bottom:0 !important;
-}
-
-body > *:last-child{
-    margin-bottom:-52px !important;
-    padding-bottom:0 !important;
-}
-
-footer,
-.site-footer,
-.page-end,
-.enhanced-legal-box,
-.legal-box{
-    margin-bottom:-48px !important;
-    padding-bottom:0 !important;
-}
-
-@media (max-width:700px){
-
-  html,
-  body{
-      margin-bottom:-58px !important;
-  }
-
-  body > *:last-child{
-      margin-bottom:-56px !important;
-  }
-
-  footer,
-  .site-footer,
-  .page-end,
-  .enhanced-legal-box,
-  .legal-box{
-      margin-bottom:-54px !important;
-  }
+.cv.premium .role,
+#cvPdfClone.premium .role,
+#cvPdfClone.cv.premium .role {
+  color: #b45309 !important;
+  -webkit-text-fill-color: #b45309 !important;
 }
