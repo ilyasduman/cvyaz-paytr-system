@@ -10481,7 +10481,7 @@ body .app .cv-wrap > .cv {
 }
 /* GLOBAL WATERMARK FIX */
 .watermark-grid {
-  opacity: .045 !important;
+  opacity: .030 !important;
 }
 
 .watermark-grid span {
