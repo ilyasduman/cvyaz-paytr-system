@@ -10378,6 +10378,6 @@ footer,
 ===================================================== */
 
 body .app .cv-wrap > .cv {
-  transform: translateX(10px) scale(.48) !important;
+  transform: translateX(30px) scale(.48) !important;
   transform-origin: top left !important;
 }
