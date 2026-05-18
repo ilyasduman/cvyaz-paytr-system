@@ -307,6 +307,9 @@ textarea {
 
   transform: scale(.48);
   transform-origin: top left;
+
+  margin-left: 14px;
+
   margin-bottom: -565px;
 }
 
