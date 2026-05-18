@@ -10381,3 +10381,13 @@ body .app .cv-wrap > .cv {
   transform: translateX(30px) scale(.48) !important;
   transform-origin: top left !important;
 }
+.cv {
+  background: #fff;
+  width: 794px;
+  min-height: 1123px;
+
+  transform: scale(.48);
+  transform-origin: top center;
+
+  margin-bottom: -565px;
+}
