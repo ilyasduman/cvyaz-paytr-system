@@ -10430,7 +10430,7 @@ body .app .cv-wrap > .cv {
   body .app .cv-wrap > .cv {
     width: 710px !important;
 
-    margin-left: 2px !important;
+    margin-left: -5px !important;
 
     transform: scale(.48) !important;
     transform-origin: top left !important;
