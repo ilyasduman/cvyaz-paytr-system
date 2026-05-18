@@ -10232,35 +10232,24 @@ footer,
   }
 
 }
-/* SADECE MOBİL ANA SAYFA — MODERN / YARATICI / PREMIUM WATERMARK DENGE */
 @media (max-width: 768px) {
-
-  #cv.cv.modern .watermark-grid,
-  #cv.cv.creative .watermark-grid,
-  #cv.cv.premium .watermark-grid {
-    opacity: 0.075 !important;
+  .watermark {
+    opacity: 0.06 !important;
   }
-
-  #cv.cv.modern .watermark-grid span,
-  #cv.cv.creative .watermark-grid span,
-  #cv.cv.premium .watermark-grid span {
-    color: rgba(17, 24, 39, 0.14) !important;
-  }
-
 }
-/* SADECE MOBİL ANA SAYFA — MODERN / YARATICI / PREMIUM WATERMARK DENGE */
+/* SADECE ANA SAYFA CANLI ÖNİZLEME WATERMARK */
 @media (max-width: 768px) {
 
-  #cv.cv.modern .watermark-grid,
-  #cv.cv.creative .watermark-grid,
-  #cv.cv.premium .watermark-grid {
-    opacity: 0.075 !important;
+  .live-preview .watermark-grid,
+  .cv-preview .watermark-grid,
+  .preview-paper .watermark-grid {
+    opacity: 0.035 !important;
   }
 
-  #cv.cv.modern .watermark-grid span,
-  #cv.cv.creative .watermark-grid span,
-  #cv.cv.premium .watermark-grid span {
-    color: rgba(17, 24, 39, 0.14) !important;
+  .live-preview .watermark-grid span,
+  .cv-preview .watermark-grid span,
+  .preview-paper .watermark-grid span {
+    color: rgba(17, 24, 39, 0.06) !important;
   }
 
 }
