@@ -10341,7 +10341,7 @@ footer,
   .cv.modern .watermark-grid,
   .cv.creative .watermark-grid,
   .cv.premium .watermark-grid {
-    opacity: .045 !important;
+    opacity: .025 !important;
   }
    #pdfFrame .watermark-grid span,
 .pdf-modal .watermark-grid span,
