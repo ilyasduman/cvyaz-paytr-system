@@ -10370,6 +10370,6 @@ footer,
 }
 /* ANA SAYFA CV ÖNİZLEME OPTİK MERKEZ */
 .cv-wrap > .cv {
-  transform: translateX(30px) scale(.48) !important;
+  transform: translateX(40px) scale(.48) !important;
   transform-origin: top left !important;
 }
