@@ -2313,7 +2313,6 @@ async function createPreviewPdf() {
 
     pdfClone = cv.cloneNode(true);
     pdfClone.id = "cvPdfClone";
-    pdfClone.classList.add("cvyaz-pdf-clone-safe-align");
 
     pdfClone.style.position = "fixed";
     pdfClone.style.left = "-10000px";
@@ -2363,38 +2362,6 @@ async function createPreviewPdf() {
     }
 
     document.body.appendChild(pdfClone);
-
-    const cloneSafeAlignStyle = document.createElement("style");
-    cloneSafeAlignStyle.setAttribute("data-cvyaz-safe-align", "1");
-    cloneSafeAlignStyle.textContent = `
-      #cvPdfClone,
-      #cvPdfClone * {
-        text-align: initial !important;
-      }
-
-      #cvPdfClone .cv-top,
-      #cvPdfClone .cv-top *,
-      #cvPdfClone .info-row,
-      #cvPdfClone .info-label,
-      #cvPdfClone .info-value,
-      #cvPdfClone .entry,
-      #cvPdfClone .entry *,
-      #cvPdfClone .sec,
-      #cvPdfClone .sec * {
-        text-align: left !important;
-      }
-
-      #cvPdfClone h2,
-      #cvPdfClone .role,
-      #cvPdfClone .contact,
-      #cvPdfClone .small-line,
-      #cvPdfClone #pContact,
-      #cvPdfClone #pAddress,
-      #cvPdfClone #pExtra {
-        text-align: left !important;
-      }
-    `;
-    document.head.appendChild(cloneSafeAlignStyle);
 
     await new Promise(function(resolve) {
       requestAnimationFrame(function() {
@@ -2852,11 +2819,6 @@ async function createPreviewPdf() {
       pdfClone.parentNode.removeChild(pdfClone);
     }
 
-    const oldCloneSafeAlignStyle = document.querySelector('style[data-cvyaz-safe-align="1"]');
-    if (oldCloneSafeAlignStyle && oldCloneSafeAlignStyle.parentNode) {
-      oldCloneSafeAlignStyle.parentNode.removeChild(oldCloneSafeAlignStyle);
-    }
-
     if (button) {
       button.innerText = "CV PDF Önizleme Oluştur →";
       button.disabled = false;
@@ -3146,55 +3108,13 @@ async function goPay() {
   const acceptTerms = document.getElementById("acceptTerms");
   const acceptDigital = document.getElementById("acceptDigital");
 
-if (!acceptTerms || !acceptTerms.checked) {
+  if (!acceptTerms || !acceptTerms.checked) {
     alert("Devam etmek için sözleşme ve KVKK onayı gerekli.");
-
-    closePdf();
-
-    setTimeout(function() {
-      const legalBox =
-        document.querySelector(".enhanced-legal-box") ||
-        document.querySelector(".legal-box") ||
-        document.getElementById("acceptTerms");
-
-      if (legalBox) {
-        legalBox.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        });
-      }
-
-      if (acceptTerms) {
-        acceptTerms.focus();
-      }
-    }, 250);
-
     return;
   }
 
   if (!acceptDigital || !acceptDigital.checked) {
     alert("Dijital ürün iade koşulunu kabul etmelisiniz.");
-
-    closePdf();
-
-    setTimeout(function() {
-      const legalBox =
-        document.querySelector(".enhanced-legal-box") ||
-        document.querySelector(".legal-box") ||
-        document.getElementById("acceptDigital");
-
-      if (legalBox) {
-        legalBox.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        });
-      }
-
-      if (acceptDigital) {
-        acceptDigital.focus();
-      }
-    }, 250);
-
     return;
   }
 
@@ -4008,249 +3928,4 @@ cvyazSaveDraft();
     bindMenu();
   }
   window.addEventListener('load', bindMenu);
-})();
-/* ANA SAYFA METİNLERİ ORTALAMA FINAL */
-(function () {
-  function centerBlockByText(text) {
-    document.querySelectorAll("h1,h2,h3,p,div,section,article").forEach(function (el) {
-      if (el.closest("#cv") || el.closest("#cvWrap") || el.closest(".pdf-modal")) return;
-
-      if ((el.textContent || "").includes(text)) {
-        let box = el;
-
-        for (let i = 0; i < 3; i++) {
-          if (box.parentElement && !box.parentElement.classList.contains("app")) {
-            box = box.parentElement;
-          }
-        }
-
-        box.style.textAlign = "center";
-        box.querySelectorAll("h1,h2,h3,p,span,div,li,b,strong").forEach(function (child) {
-          child.style.textAlign = "center";
-        });
-
-        box.querySelectorAll("ul").forEach(function (ul) {
-          ul.style.listStyle = "none";
-          ul.style.paddingLeft = "0";
-          ul.style.marginLeft = "auto";
-          ul.style.marginRight = "auto";
-        });
-      }
-    });
-  }
-
-  function runCenterFix() {
-    [
-      "CV Stilini Seç",
-      "Tıkladıkça aşağıdaki CV",
-      "CV’n Anında Oluşuyor",
-      "Bilgi girdikçe CV’n",
-      "Nasıl Çalışır",
-      "CV hazırlamak üç net adım",
-      "Bilgilerini Gir",
-      "Önizlemeyi Gör",
-      "PDF İndir",
-      "ATS Nedir",
-      "İşe alım sistemlerinin",
-      "ATS, şirketlerin"
-    ].forEach(centerBlockByText);
-  }
-
-  document.addEventListener("DOMContentLoaded", runCenterFix);
-  window.addEventListener("load", runCenterFix);
-  window.addEventListener("resize", runCenterFix);
-  window.addEventListener("orientationchange", function () {
-    setTimeout(runCenterFix, 300);
-  });
-})();
-
-/* =====================================================
-   CVYAZ SAFE PAGE TEXT PATCH V4
-   - Ana sayfadaki iki açıklama metnini ortalar.
-   - ATS rozetlerini ortalar.
-   - Canlı CV (#cv) ve PDF clone (#cvPdfClone) içindeki CV tasarımını
-     global ortalama etkisinden korur.
-===================================================== */
-(function() {
-
-  function normalizeText(value) {
-    return String(value || "").replace(/\s+/g, " ").trim();
-  }
-
-  function installLiveCvAlignmentShield() {
-    if (document.querySelector('style[data-cvyaz-live-cv-align-shield="1"]')) {
-      return;
-    }
-
-    const style = document.createElement("style");
-    style.setAttribute("data-cvyaz-live-cv-align-shield", "1");
-    style.textContent = `
-      #cv,
-      #cv * {
-        text-align: initial !important;
-      }
-
-      #cv .cv-top,
-      #cv .cv-top *,
-      #cv .info-row,
-      #cv .info-label,
-      #cv .info-value,
-      #cv .entry,
-      #cv .entry *,
-      #cv .sec,
-      #cv .sec * {
-        text-align: left !important;
-      }
-
-      #cv h2,
-      #cv .role,
-      #cv .contact,
-      #cv .small-line,
-      #cv #pContact,
-      #cv #pAddress,
-      #cv #pExtra,
-      #cv #pEdu,
-      #cv #pExp,
-      #cv #pSkills,
-      #cv #pLangs,
-      #cv #pCerts,
-      #cv #pProjects,
-      #cv #pRefs,
-      #cv #pDocs {
-        text-align: left !important;
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  function isForbiddenArea(el) {
-    return !!(
-      el.closest("#cv") ||
-      el.closest("#cvPdfClone") ||
-      el.closest("#cvWrap") ||
-      el.closest("#pdfModal") ||
-      el.closest(".cv") ||
-      el.closest("iframe")
-    );
-  }
-
-  function centerOnlyThisElement(el, maxWeb, maxMobile) {
-    if (!el || isForbiddenArea(el)) {
-      return;
-    }
-
-    el.style.textAlign = "center";
-    el.style.display = "block";
-    el.style.width = "100%";
-    el.style.maxWidth = window.innerWidth <= 768 ? maxMobile : maxWeb;
-    el.style.marginLeft = "auto";
-    el.style.marginRight = "auto";
-  }
-
-  function centerTextByContains(phrase) {
-    document.querySelectorAll("p, span, div, h1, h2, h3").forEach(function(el) {
-      if (isForbiddenArea(el)) {
-        return;
-      }
-
-      const text = normalizeText(el.textContent);
-
-      if (!text || text.indexOf(phrase) === -1) {
-        return;
-      }
-
-      if (text.length > 260) {
-        return;
-      }
-
-      centerOnlyThisElement(el, "620px", "360px");
-    });
-  }
-
-  function centerAtsBadgesOnly() {
-    const words = ["Temiz düzen", "Okunabilir PDF", "Profesyonel yapı", "Modern tasarım"];
-
-    document.querySelectorAll("section, article, div").forEach(function(box) {
-      if (isForbiddenArea(box)) {
-        return;
-      }
-
-      const boxText = normalizeText(box.textContent);
-      const hasAll = words.every(function(word) {
-        return boxText.indexOf(word) !== -1;
-      });
-
-      if (!hasAll) {
-        return;
-      }
-
-      const badgeEls = [];
-      box.querySelectorAll("span, li, div").forEach(function(el) {
-        if (isForbiddenArea(el)) {
-          return;
-        }
-
-        const text = normalizeText(el.textContent);
-        const isBadge = words.some(function(word) {
-          return (text === word || text === "✅ " + word || text.indexOf(word) !== -1) && text.length <= 45;
-        });
-
-        if (isBadge) {
-          badgeEls.push(el);
-        }
-      });
-
-      if (!badgeEls.length) {
-        return;
-      }
-
-      const row = badgeEls[0].parentElement;
-
-      if (row && !isForbiddenArea(row)) {
-        row.style.display = "flex";
-        row.style.flexWrap = "wrap";
-        row.style.justifyContent = "center";
-        row.style.alignItems = "center";
-        row.style.gap = "10px";
-        row.style.width = "100%";
-        row.style.marginLeft = "auto";
-        row.style.marginRight = "auto";
-        row.style.textAlign = "center";
-      }
-
-      badgeEls.forEach(function(el) {
-        el.style.display = "inline-flex";
-        el.style.alignItems = "center";
-        el.style.justifyContent = "center";
-        el.style.whiteSpace = "nowrap";
-        el.style.margin = "0";
-        el.style.textAlign = "center";
-      });
-    });
-  }
-
-  function runCvyazSafeTextPatchV4() {
-    installLiveCvAlignmentShield();
-
-    centerTextByContains("Tıkladıkça aşağıdaki CV anında değişir");
-    centerTextByContains("Bilgi girdikçe CV’n otomatik güncellenir");
-
-    centerAtsBadgesOnly();
-  }
-
-  document.addEventListener("DOMContentLoaded", runCvyazSafeTextPatchV4);
-  window.addEventListener("load", runCvyazSafeTextPatchV4);
-  window.addEventListener("resize", runCvyazSafeTextPatchV4);
-  window.addEventListener("orientationchange", function() {
-    setTimeout(runCvyazSafeTextPatchV4, 300);
-  });
-
-  document.addEventListener("input", function() {
-    setTimeout(runCvyazSafeTextPatchV4, 0);
-  });
-
-  document.addEventListener("change", function() {
-    setTimeout(runCvyazSafeTextPatchV4, 0);
-  });
-
 })();
