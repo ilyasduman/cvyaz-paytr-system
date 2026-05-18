@@ -10368,3 +10368,11 @@ footer,
   -webkit-text-fill-color: rgba(17, 24, 39, 0.08) !important;
   opacity: 1 !important;
 }
+/* =====================================================
+   ANA SAYFA CV ÖNİZLEME SAĞA KAYDIRMA
+===================================================== */
+
+.cv-wrap > .cv {
+  transform: translateX(18px) scale(.58) !important;
+  transform-origin: top left !important;
+}
