@@ -10347,3 +10347,21 @@ footer,
     color: rgba(17, 24, 39, .16) !important;
   }
 }
+/* =====================================================
+   KESİN ÇÖZÜM — MODERN / YARATICI / PREMIUM WATERMARK
+   Üstteki opacity:1 yazı fixini ezer.
+===================================================== */
+
+#cv.cv.modern .watermark-grid,
+#cv.cv.creative .watermark-grid,
+#cv.cv.premium .watermark-grid {
+  opacity: 0.045 !important;
+}
+
+#cv.cv.modern .watermark-grid span,
+#cv.cv.creative .watermark-grid span,
+#cv.cv.premium .watermark-grid span {
+  color: rgba(17, 24, 39, 0.08) !important;
+  -webkit-text-fill-color: rgba(17, 24, 39, 0.08) !important;
+  opacity: 1 !important;
+}
