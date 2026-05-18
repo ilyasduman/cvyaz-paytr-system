@@ -10432,3 +10432,14 @@ body .app .cv-wrap > .cv {
   }
 
 }
+/* MOBİL — ÖNİZLEME İLE NASIL ÇALIŞIR ARASI */
+@media (max-width: 767px) {
+
+  .cv-live-preview,
+  .live-preview-section,
+  .preview-section {
+    margin-bottom: 28px !important;
+    padding-bottom: 0 !important;
+  }
+
+}
