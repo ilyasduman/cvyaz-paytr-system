@@ -10464,3 +10464,13 @@ body .app .cv-wrap > .cv {
   color: rgba(15, 23, 42, 0.06) !important;
   font-weight: 600 !important;
 }
+@media (max-width: 767px) {
+  .cv.modern .watermark,
+  .cv.creative .watermark,
+  .cv.premium .watermark,
+  .cv.modern .watermark-grid,
+  .cv.creative .watermark-grid,
+  .cv.premium .watermark-grid {
+    opacity: .04 !important;
+  }
+}
