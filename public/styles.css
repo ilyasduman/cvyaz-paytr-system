@@ -10389,9 +10389,13 @@ body .app .cv-wrap > .cv {
 }
 /* MOBİL DİK — CV ÖNİZLEME ORTALAMA */
 @media (max-width: 767px) and (orientation: portrait) {
+  body .app .cv-wrap {
+    overflow: hidden !important;
+  }
+
   body .app .cv-wrap > .cv {
     margin-left: 1px !important;
-    transform: scale(.48) !important;
+    transform: scale(.46) !important;
     transform-origin: top left !important;
   }
 }
