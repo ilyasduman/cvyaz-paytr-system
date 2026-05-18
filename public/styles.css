@@ -10453,3 +10453,13 @@ body .app .cv-wrap > .cv {
     margin-top: 0 !important;
   }
 }
+/* MOBİL — CV PENCERESİ İLE NASIL ÇALIŞIR ARASI BOŞLUK KAPATMA */
+@media (max-width: 767px) {
+  #cvWrap {
+    margin-bottom: -150px !important;
+  }
+
+  .how-it-works {
+    margin-top: -80px !important;
+  }
+}
