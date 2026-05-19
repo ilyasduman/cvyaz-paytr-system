@@ -10205,4 +10205,23 @@ body .app .cv-wrap > .cv {
     -webkit-text-fill-color: rgba(17, 24, 39, .08) !important;
   }
 }
+/* =====================================================
+   PDF ÖNİZLEME — MODERN / YARATICI / PREMIUM WATERMARK
+   Görünür ama rahatsız etmeyen seviye
+===================================================== */
 
+#cvPdfClone.cv.modern .watermark-grid,
+#cvPdfClone.cv.creative .watermark-grid,
+#cvPdfClone.cv.premium .watermark-grid {
+  display: grid !important;
+  opacity: .13 !important;
+  z-index: 20 !important;
+}
+
+#cvPdfClone.cv.modern .watermark-grid span,
+#cvPdfClone.cv.creative .watermark-grid span,
+#cvPdfClone.cv.premium .watermark-grid span {
+  color: rgba(17, 24, 39, .24) !important;
+  -webkit-text-fill-color: rgba(17, 24, 39, .24) !important;
+  opacity: 1 !important;
+}
