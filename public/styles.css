@@ -10458,3 +10458,20 @@ body .app .cv-wrap > .cv {
     margin-top: 0 !important;
   }
 }
+/* =====================================================
+   PDF PREVIEW — WATERMARK FIX
+   Modern / Yaratıcı / Premium
+===================================================== */
+
+#cvPdfClone.cv.modern .watermark-grid,
+#cvPdfClone.cv.creative .watermark-grid,
+#cvPdfClone.cv.premium .watermark-grid {
+  opacity: .045 !important;
+}
+
+#cvPdfClone.cv.modern .watermark-grid span,
+#cvPdfClone.cv.creative .watermark-grid span,
+#cvPdfClone.cv.premium .watermark-grid span {
+  color: rgba(17, 24, 39, .07) !important;
+  -webkit-text-fill-color: rgba(17, 24, 39, .07) !important;
+}
