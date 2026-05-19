@@ -14,10 +14,7 @@ body{
   line-height:1.7;
   padding:28px 16px 60px;
 }
-.legal-page{
-  max-width:920px;
-  margin:0 auto;
-}
+.legal-page{max-width:920px;margin:0 auto}
 .legal-header{
   background:linear-gradient(135deg,#111827,#312e81);
   color:#fff;
@@ -26,20 +23,13 @@ body{
   box-shadow:0 24px 70px rgba(17,24,39,.18);
   margin-bottom:22px;
 }
-.logo{
-  font-size:28px;
-  font-weight:950;
-  letter-spacing:-.03em;
-  margin-bottom:12px;
-}
-.legal-header h1{
-  font-size:34px;
-  line-height:1.15;
-  margin-bottom:10px;
-}
+.logo{font-size:28px;font-weight:950;letter-spacing:-.03em;margin-bottom:12px}
+.legal-header h1{font-size:34px;line-height:1.15;margin-bottom:10px}
 .legal-header p{
-  opacity:.82;
+  color:#dbeafe;
   font-size:15px;
+  font-weight:500;
+  opacity:1;
 }
 .legal-card{
   background:#fff;
@@ -48,20 +38,12 @@ body{
   box-shadow:0 18px 55px rgba(17,24,39,.10);
   border:1px solid rgba(17,24,39,.07);
 }
-h2{
-  font-size:20px;
-  margin:28px 0 10px;
-  color:#111827;
-}
+h2{font-size:20px;margin:28px 0 10px;color:#111827}
 h2:first-child{margin-top:0}
-p,li{
-  font-size:15px;
-  color:#374151;
-}
-ul{
-  padding-left:22px;
-  margin:10px 0 0;
-}
+p,li{font-size:15px;color:#374151}
+ul{padding-left:22px;margin:10px 0 0}
+a{color:#2563eb;font-weight:800;text-decoration:none}
+a:hover{text-decoration:underline}
 .notice{
   background:#f5f7ff;
   border:1px solid #dfe4ff;
@@ -71,7 +53,10 @@ ul{
   color:#1e1b4b;
   font-weight:700;
 }
-.back-btn{border:0;cursor:pointer;font-family:inherit;
+.back-btn{
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -90,6 +75,12 @@ ul{
   color:#6b7280;
   font-size:13px;
 }
+.footer-note a{
+  color:inherit;
+  text-decoration:none;
+  font-weight:800;
+}
+.footer-note a:hover{text-decoration:underline}
 @media(max-width:700px){
   body{padding:18px 12px 48px}
   .legal-header,.legal-card{border-radius:22px;padding:26px 20px}
@@ -107,12 +98,68 @@ ul{
     </header>
 
     <section class="legal-card">
-      <h2>1. Veri Sorumlusu</h2><p>CVYAZ, hizmetin sunulması kapsamında kullanıcı tarafından sağlanan kişisel verileri, 6698 sayılı Kişisel Verilerin Korunması Kanunu’na uygun şekilde işler.</p><h2>2. İşlenen Kişisel Veriler</h2><ul><li>Ad, soyad, meslek/pozisyon, iletişim bilgileri ve adres bilgileri.</li><li>Eğitim, iş deneyimi, yetenek, dil, sertifika ve referans bilgileri.</li><li>Kullanıcının isteğe bağlı olarak yüklediği fotoğraf ve ek belgeler.</li><li>Ödeme ve işlem güvenliği için gerekli sınırlı işlem kayıtları.</li></ul><h2>3. İşleme Amaçları</h2><ul><li>CV oluşturma ve PDF önizleme/teslim işlemlerini gerçekleştirmek.</li><li>Kullanıcı desteği sağlamak.</li><li>Ödeme ve sipariş süreçlerini yürütmek.</li><li>Hukuki yükümlülükleri yerine getirmek.</li></ul><h2>4. Aktarım</h2><p>Kişisel veriler, hizmetin sağlanması için gerekli olduğu ölçüde ödeme altyapısı, barındırma hizmeti ve teknik destek sağlayıcılarıyla paylaşılabilir. Gereksiz veri paylaşımı yapılmaz.</p><h2>5. Saklama Süresi</h2><p>Kişisel veriler, hizmetin sunulması ve yasal yükümlülüklerin yerine getirilmesi için gerekli süre boyunca saklanır. Kullanıcı talebi halinde mevzuata uygun olarak silme veya anonimleştirme işlemleri yapılabilir.</p><h2>6. Haklarınız</h2><ul><li>Verilerinizin işlenip işlenmediğini öğrenme.</li><li>İşlenen veriler hakkında bilgi talep etme.</li><li>Eksik veya yanlış işlenen verilerin düzeltilmesini isteme.</li><li>Mevzuatta öngörülen şartlarda silme veya yok etme talep etme.</li><li>Başvuru için destek@cvyaz.com.tr adresi üzerinden iletişime geçme.</li></ul>
-      <div class="notice">Bu sayfa bilgilendirme amacıyla hazırlanmıştır. Satın alma veya kullanım sırasında ilgili metinleri kabul ederek işlem yaparsınız.</div>
+      <h2>1. Veri Sorumlusu</h2>
+      <p>CVYAZ, hizmetin sunulması kapsamında kullanıcı tarafından sağlanan kişisel verileri, 6698 sayılı Kişisel Verilerin Korunması Kanunu’na uygun şekilde işler.</p>
+      <ul>
+        <li><strong>Veri Sorumlusu:</strong> CVYAZ</li>
+        <li><strong>Web Sitesi:</strong> https://cvyaz.com.tr</li>
+        <li><strong>E-posta:</strong> <a href="mailto:info@cvyaz.com.tr">info@cvyaz.com.tr</a></li>
+        <li><strong>Konum:</strong> Adana / Türkiye</li>
+      </ul>
+
+      <h2>2. İşlenen Kişisel Veriler</h2>
+      <ul>
+        <li>Ad, soyad, meslek/pozisyon, telefon, e-posta ve adres bilgileri.</li>
+        <li>Eğitim, iş deneyimi, yetenek, dil, sertifika, proje ve referans bilgileri.</li>
+        <li>Kullanıcının isteğe bağlı olarak yüklediği fotoğraf ve ek belgeler.</li>
+        <li>CV şablonu, renk tercihi ve önizleme tercihleri gibi kullanım tercihleri.</li>
+        <li>Ödeme ve işlem güvenliği için gerekli sınırlı işlem kayıtları.</li>
+      </ul>
+
+      <h2>3. İşleme Amaçları</h2>
+      <ul>
+        <li>CV oluşturma, canlı önizleme ve PDF teslim işlemlerini gerçekleştirmek.</li>
+        <li>Kullanıcının seçtiği şablon ve tasarım tercihlerini uygulamak.</li>
+        <li>Ödeme ve sipariş süreçlerini yürütmek.</li>
+        <li>Kullanıcı desteği sağlamak.</li>
+        <li>Hizmet güvenliğini sağlamak ve kötüye kullanımı önlemek.</li>
+        <li>Hukuki yükümlülükleri yerine getirmek.</li>
+      </ul>
+
+      <h2>4. Hukuki Sebep</h2>
+      <p>Kişisel veriler; sözleşmenin kurulması ve ifası, hukuki yükümlülüklerin yerine getirilmesi, meşru menfaatler ve kullanıcının açık rızası kapsamında işlenebilir.</p>
+
+      <h2>5. Aktarım</h2>
+      <p>Kişisel veriler, hizmetin sağlanması için gerekli olduğu ölçüde ödeme altyapısı, barındırma hizmeti, teknik destek sağlayıcıları ve yasal yükümlülükler kapsamında yetkili kurumlarla paylaşılabilir. Gereksiz veri paylaşımı yapılmaz.</p>
+
+      <h2>6. Saklama Süresi</h2>
+      <p>Kişisel veriler, hizmetin sunulması ve yasal yükümlülüklerin yerine getirilmesi amacıyla gerekli süre boyunca saklanır. Kullanıcı talebi halinde mevzuata uygun olarak silme, yok etme veya anonimleştirme işlemleri yapılabilir.</p>
+
+      <h2>7. Fotoğraf ve Ek Belgeler</h2>
+      <p>Kullanıcı tarafından yüklenen fotoğraf ve ek belgeler yalnızca CV önizleme/PDF oluşturma amacıyla kullanılır. Kullanıcı, yüklediği görsel ve belgeler üzerinde gerekli haklara veya izinlere sahip olduğunu kabul eder.</p>
+
+      <h2>8. Haklarınız</h2>
+      <ul>
+        <li>Verilerinizin işlenip işlenmediğini öğrenme.</li>
+        <li>İşlenen veriler hakkında bilgi talep etme.</li>
+        <li>Eksik veya yanlış işlenen verilerin düzeltilmesini isteme.</li>
+        <li>Mevzuatta öngörülen şartlarda silme veya yok etme talep etme.</li>
+        <li>İşleme faaliyetlerine itiraz etme.</li>
+        <li>Başvuru için <a href="mailto:info@cvyaz.com.tr">info@cvyaz.com.tr</a> adresi üzerinden iletişime geçme.</li>
+      </ul>
+
+      <div class="notice">
+        Bu sayfa bilgilendirme amacıyla hazırlanmıştır. Satın alma veya kullanım sırasında ilgili metinleri kabul ederek işlem yaparsınız.
+      </div>
+
       <button type="button" class="back-btn" onclick="cvyazGoBack()">← Sayfaya Dön</button>
     </section>
 
-    <div class="footer-note">© 2026 CVYAZ — Tüm hakları saklıdır.</div>
+    <div class="footer-note">
+      © 2026 CVYAZ — Tüm hakları saklıdır. ·
+      <a href="mailto:info@cvyaz.com.tr">info@cvyaz.com.tr</a>
+      · Adana / TÜRKİYE
+    </div>
   </main>
 
 <script>
