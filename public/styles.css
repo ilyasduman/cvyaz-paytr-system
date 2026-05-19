@@ -10709,3 +10709,12 @@ body .app .cv-wrap > .cv {
   color: #ffffff !important;
   border-color: var(--cv-accent) !important;
 }
+.legal-copyright a{
+  color: inherit !important;
+  text-decoration: none !important;
+  font-weight: 800 !important;
+}
+
+.legal-copyright a:hover{
+  text-decoration: underline !important;
+}
