@@ -10309,3 +10309,57 @@ body .app .cv-wrap > .cv {
 .color-dot.active{
   outline:3px solid #111827;
 }
+:root{
+  --cv-accent:#2563eb;
+}
+
+/* CV içindeki değişecek ana renkler */
+.cv .role,
+.cv .sec h3 {
+  color: var(--cv-accent) !important;
+}
+
+.cv .sec h3::before {
+  background: var(--cv-accent) !important;
+}
+
+.cv .tag {
+  background: var(--cv-accent) !important;
+  color:#fff !important;
+}
+
+/* Modern üst kart rengi */
+.cv.modern .cv-top {
+  background: var(--cv-accent) !important;
+}
+
+/* Modern sol çizgi */
+.cv.modern {
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--cv-accent) 10%, transparent) 0,
+      color-mix(in srgb, var(--cv-accent) 10%, transparent) 22px,
+      #ffffff 22px,
+      #ffffff 100%
+    ) !important;
+}
+
+/* Creative */
+.cv.creative .cv-top,
+.cv.creative .tag {
+  background: var(--cv-accent) !important;
+}
+
+.cv.creative .sec::before {
+  background: var(--cv-accent) !important;
+}
+
+/* Premium */
+.cv.premium .cv-top {
+  background: var(--cv-accent) !important;
+}
+
+.cv.premium .sec h3::before {
+  background: var(--cv-accent) !important;
+}
