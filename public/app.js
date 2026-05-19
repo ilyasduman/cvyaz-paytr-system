@@ -4278,3 +4278,20 @@ colorDots.forEach(dot => {
   });
 
 });
+/* =========================================
+   CV RENK DEĞİŞTİRME
+========================================= */
+
+document.querySelectorAll(".color-dot").forEach(dot => {
+  dot.addEventListener("click", () => {
+    const color = dot.getAttribute("data-color");
+
+    document.documentElement.style.setProperty("--cv-accent", color);
+
+    document.querySelectorAll(".color-dot").forEach(d => {
+      d.classList.remove("active");
+    });
+
+    dot.classList.add("active");
+  });
+});
