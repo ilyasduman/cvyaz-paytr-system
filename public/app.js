@@ -4295,3 +4295,54 @@ document.querySelectorAll(".color-dot").forEach(dot => {
     dot.classList.add("active");
   });
 });
+/* =====================================================
+   CVYAZ COLOR SYSTEM FINAL
+   ANA SAYFA + PDF ÖNİZLEME
+===================================================== */
+
+window.cvyazSelectedAccent =
+  window.cvyazSelectedAccent || "#2563eb";
+
+function applyCvAccentColor(color) {
+
+  window.cvyazSelectedAccent = color;
+
+  document.documentElement.style.setProperty(
+    "--cv-accent",
+    color
+  );
+
+  const liveCv = document.getElementById("cv");
+
+  if (liveCv) {
+    liveCv.style.setProperty("--cv-accent", color);
+  }
+
+  const pdfClone = document.getElementById("cvPdfClone");
+
+  if (pdfClone) {
+    pdfClone.style.setProperty("--cv-accent", color);
+  }
+
+}
+
+document.querySelectorAll(".color-dot").forEach(function(dot) {
+
+  dot.addEventListener("click", function() {
+
+    const color =
+      dot.getAttribute("data-color") || "#2563eb";
+
+    applyCvAccentColor(color);
+
+    document
+      .querySelectorAll(".color-dot")
+      .forEach(function(d) {
+        d.classList.remove("active");
+      });
+
+    dot.classList.add("active");
+
+  });
+
+});
