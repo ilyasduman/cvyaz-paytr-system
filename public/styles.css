@@ -10214,7 +10214,7 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.creative .watermark-grid,
 #cvPdfClone.cv.premium .watermark-grid {
   display: grid !important;
-  opacity: .13 !important;
+  opacity: .16 !important;
   z-index: 20 !important;
 }
 
