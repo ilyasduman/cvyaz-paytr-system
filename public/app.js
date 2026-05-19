@@ -4254,3 +4254,27 @@ cvyazSaveDraft();
   });
 
 })();
+/* =========================================
+   CV RENK DEĞİŞTİRME
+========================================= */
+
+const colorDots = document.querySelectorAll(".color-dot");
+
+colorDots.forEach(dot => {
+
+  dot.addEventListener("click", () => {
+
+    colorDots.forEach(d => d.classList.remove("active"));
+
+    dot.classList.add("active");
+
+    const color = dot.dataset.color;
+
+    document.documentElement.style.setProperty(
+      "--cv-accent",
+      color
+    );
+
+  });
+
+});
