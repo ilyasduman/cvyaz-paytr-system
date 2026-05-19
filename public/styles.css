@@ -10225,3 +10225,22 @@ body .app .cv-wrap > .cv {
   -webkit-text-fill-color: rgba(17, 24, 39, .24) !important;
   opacity: 1 !important;
 }
+/* =====================================================
+   ANA SAYFA CANLI ÖNİZLEME — MODERN / YARATICI / PREMIUM WATERMARK
+===================================================== */
+
+.cv.modern .watermark-grid,
+.cv.creative .watermark-grid,
+.cv.premium .watermark-grid {
+  display: grid !important;
+  opacity: .12 !important;
+  z-index: 20 !important;
+}
+
+.cv.modern .watermark-grid span,
+.cv.creative .watermark-grid span,
+.cv.premium .watermark-grid span {
+  color: rgba(17, 24, 39, .22) !important;
+  -webkit-text-fill-color: rgba(17, 24, 39, .22) !important;
+  opacity: 1 !important;
+}
