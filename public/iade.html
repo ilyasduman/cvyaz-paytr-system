@@ -14,10 +14,7 @@ body{
   line-height:1.7;
   padding:28px 16px 60px;
 }
-.legal-page{
-  max-width:920px;
-  margin:0 auto;
-}
+.legal-page{max-width:920px;margin:0 auto}
 .legal-header{
   background:linear-gradient(135deg,#111827,#312e81);
   color:#fff;
@@ -26,20 +23,13 @@ body{
   box-shadow:0 24px 70px rgba(17,24,39,.18);
   margin-bottom:22px;
 }
-.logo{
-  font-size:28px;
-  font-weight:950;
-  letter-spacing:-.03em;
-  margin-bottom:12px;
-}
-.legal-header h1{
-  font-size:34px;
-  line-height:1.15;
-  margin-bottom:10px;
-}
+.logo{font-size:28px;font-weight:950;letter-spacing:-.03em;margin-bottom:12px}
+.legal-header h1{font-size:34px;line-height:1.15;margin-bottom:10px}
 .legal-header p{
-  opacity:.82;
+  color:#dbeafe;
   font-size:15px;
+  font-weight:500;
+  opacity:1;
 }
 .legal-card{
   background:#fff;
@@ -48,20 +38,12 @@ body{
   box-shadow:0 18px 55px rgba(17,24,39,.10);
   border:1px solid rgba(17,24,39,.07);
 }
-h2{
-  font-size:20px;
-  margin:28px 0 10px;
-  color:#111827;
-}
+h2{font-size:20px;margin:28px 0 10px;color:#111827}
 h2:first-child{margin-top:0}
-p,li{
-  font-size:15px;
-  color:#374151;
-}
-ul{
-  padding-left:22px;
-  margin:10px 0 0;
-}
+p,li{font-size:15px;color:#374151}
+ul{padding-left:22px;margin:10px 0 0}
+a{color:#2563eb;font-weight:800;text-decoration:none}
+a:hover{text-decoration:underline}
 .notice{
   background:#f5f7ff;
   border:1px solid #dfe4ff;
@@ -71,7 +53,10 @@ ul{
   color:#1e1b4b;
   font-weight:700;
 }
-.back-btn{border:0;cursor:pointer;font-family:inherit;
+.back-btn{
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -90,6 +75,12 @@ ul{
   color:#6b7280;
   font-size:13px;
 }
+.footer-note a{
+  color:inherit;
+  text-decoration:none;
+  font-weight:800;
+}
+.footer-note a:hover{text-decoration:underline}
 @media(max-width:700px){
   body{padding:18px 12px 48px}
   .legal-header,.legal-card{border-radius:22px;padding:26px 20px}
@@ -107,12 +98,54 @@ ul{
     </header>
 
     <section class="legal-card">
-      <h2>1. Genel İlke</h2><p>CVYAZ dijital CV oluşturma ve PDF teslim hizmetidir. Temiz PDF çıktısı kullanıcıya teslim edildikten sonra dijital ürün niteliği gereği iade yapılamayabilir.</p><h2>2. İade Yapılabilecek Durumlar</h2><ul><li>Ödeme alınmasına rağmen temiz PDF erişimi sağlanmamışsa.</li><li>Sistemsel hata nedeniyle PDF hiç oluşturulamamışsa.</li><li>Aynı işlem için mükerrer ödeme alınmışsa.</li><li>CVYAZ kaynaklı teknik arıza nedeniyle hizmet hiç sunulamamışsa.</li></ul><h2>3. İade Yapılamayabilecek Durumlar</h2><ul><li>Kullanıcının yanlış, eksik veya hatalı bilgi girmesi.</li><li>Temiz PDF’nin başarıyla teslim edilmiş olması.</li><li>Kullanıcının sonradan tasarım veya içerik değişikliği talep etmesi.</li><li>Fotoğraf veya ek belge kalitesinin kullanıcı kaynaklı düşük olması.</li></ul><h2>4. Talep Süreci</h2><p>İade veya destek talepleri destek@cvyaz.com.tr adresine sipariş bilgileriyle birlikte iletilmelidir. Talep incelendikten sonra kullanıcıya dönüş yapılır.</p><h2>5. Değerlendirme</h2><p>Her talep hizmet kayıtları, ödeme durumu ve teslimat bilgileri üzerinden değerlendirilir. Uygun görülen iadeler ödeme altyapısının süreçlerine göre gerçekleştirilir.</p>
-      <div class="notice">Bu sayfa bilgilendirme amacıyla hazırlanmıştır. Satın alma veya kullanım sırasında ilgili metinleri kabul ederek işlem yaparsınız.</div>
+      <h2>1. Genel İlke</h2>
+      <p>CVYAZ dijital CV oluşturma, önizleme ve PDF teslim hizmetidir. Hizmet fiziksel ürün değil, elektronik ortamda sunulan dijital içerik niteliğindedir.</p>
+      <p>Koruma yazısı bulunmayan temiz PDF çıktısı kullanıcıya teslim edildikten sonra, dijital ürün niteliği gereği iade yapılamayabilir.</p>
+
+      <h2>2. İade Yapılabilecek Durumlar</h2>
+      <ul>
+        <li>Ödeme alınmasına rağmen temiz PDF erişimi kullanıcıya sağlanmamışsa.</li>
+        <li>Sistemsel hata nedeniyle PDF hiç oluşturulamamışsa.</li>
+        <li>Aynı işlem için mükerrer ödeme alınmışsa.</li>
+        <li>CVYAZ kaynaklı teknik arıza nedeniyle hizmet hiç sunulamamışsa.</li>
+        <li>CVYAZ kaynaklı teknik hata nedeniyle kullanıcı temiz PDF dosyasına erişemiyorsa ve sorun destek sürecinde giderilemiyorsa.</li>
+      </ul>
+
+      <h2>3. İade Yapılamayabilecek Durumlar</h2>
+      <ul>
+        <li>Kullanıcının yanlış, eksik veya hatalı bilgi girmesi.</li>
+        <li>Temiz PDF’nin başarıyla teslim edilmiş olması.</li>
+        <li>Kullanıcının satın alma sonrası tasarım, renk, şablon veya içerik değişikliği talep etmesi.</li>
+        <li>Kullanıcının önizlemede gördüğü CV’yi satın aldıktan sonra kişisel tercih nedeniyle beğenmemesi.</li>
+        <li>Fotoğraf veya ek belge kalitesinin kullanıcı kaynaklı düşük olması.</li>
+        <li>Kullanıcının cihazı, tarayıcısı, internet bağlantısı veya dosya görüntüleyicisi kaynaklı erişim sorunları.</li>
+      </ul>
+
+      <h2>4. Teknik Destek ve Çözüm Süreci</h2>
+      <p>CVYAZ kaynaklı teknik hata nedeniyle kullanıcı temiz PDF erişimi sağlayamazsa, kullanıcı <a href="mailto:info@cvyaz.com.tr">info@cvyaz.com.tr</a> üzerinden destek talebi oluşturabilir.</p>
+      <p>Destek talebi incelenir. Uygun durumlarda teknik destek sağlanır, erişim yeniden sunulur veya gerekli görülürse ücret iadesi değerlendirilir.</p>
+
+      <h2>5. Talep Süreci</h2>
+      <p>İade veya destek talepleri <a href="mailto:info@cvyaz.com.tr">info@cvyaz.com.tr</a> adresine sipariş bilgileriyle birlikte iletilmelidir. Talep incelendikten sonra kullanıcıya dönüş yapılır.</p>
+
+      <h2>6. Değerlendirme</h2>
+      <p>Her talep hizmet kayıtları, ödeme durumu, teslimat bilgileri ve teknik kayıtlar üzerinden değerlendirilir. Uygun görülen iadeler ödeme altyapısının süreçlerine göre gerçekleştirilir.</p>
+
+      <h2>7. Ödeme Altyapısı Süreci</h2>
+      <p>İade işleminin uygun görülmesi halinde, iade süresi ve ödeme yöntemine yansıma zamanı kullanılan ödeme altyapısı, banka veya kart kuruluşunun süreçlerine göre değişiklik gösterebilir.</p>
+
+      <div class="notice">
+        Bu sayfa bilgilendirme amacıyla hazırlanmıştır. Satın alma veya kullanım sırasında ilgili metinleri kabul ederek işlem yaparsınız.
+      </div>
+
       <button type="button" class="back-btn" onclick="cvyazGoBack()">← Sayfaya Dön</button>
     </section>
 
-    <div class="footer-note">© 2026 CVYAZ — Tüm hakları saklıdır.</div>
+    <div class="footer-note">
+      © 2026 CVYAZ — Tüm hakları saklıdır. ·
+      <a href="mailto:info@cvyaz.com.tr">info@cvyaz.com.tr</a>
+      · Adana / TÜRKİYE
+    </div>
   </main>
 
 <script>
