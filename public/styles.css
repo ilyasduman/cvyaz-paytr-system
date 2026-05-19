@@ -10233,7 +10233,7 @@ body .app .cv-wrap > .cv {
 .cv.creative .watermark-grid,
 .cv.premium .watermark-grid {
   display: grid !important;
-  opacity: .12 !important;
+  opacity: .14 !important;
   z-index: 20 !important;
 }
 
