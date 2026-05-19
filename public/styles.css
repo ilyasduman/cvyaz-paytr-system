@@ -7569,10 +7569,11 @@ button[aria-label="Close"] {
 }
 
 .legal-copyright{
-  margin-top:28px !important;
-  text-align:center !important;
   font-size:13px !important;
-  opacity:.58 !important;
+  color:#6b7280 !important;
+  opacity:1 !important;
+  line-height:1.6 !important;
+  text-align:center !important;
 }
 
 @media (max-width:700px){
