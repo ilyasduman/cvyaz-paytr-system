@@ -10568,3 +10568,143 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.executive .sec h3 {
   color: var(--cv-accent) !important;
 }
+/* =====================================================
+   CV RENK PALETİ — TÜM STİLLER TAM RENK BAĞLANTI
+   Yazı + çizgi + kutu + rozet + border
+===================================================== */
+
+:root {
+  --cv-accent: #2563eb;
+  --cv-accent-soft: rgba(37, 99, 235, .12);
+}
+
+/* Genel CV ana renkleri */
+.cv .role,
+.cv .sec h3 {
+  color: var(--cv-accent) !important;
+}
+
+.cv .sec h3::before,
+.cv .sec::before {
+  background: var(--cv-accent) !important;
+}
+
+.cv .tag {
+  background: var(--cv-accent) !important;
+  color: #ffffff !important;
+  border-color: var(--cv-accent) !important;
+}
+
+/* ATS SADE */
+.cv.minimal .role,
+.cv.minimal .sec h3 {
+  color: var(--cv-accent) !important;
+}
+
+.cv.minimal .sec h3 {
+  border-bottom-color: var(--cv-accent) !important;
+}
+
+.cv.minimal .tag {
+  background: var(--cv-accent) !important;
+  color: #ffffff !important;
+}
+
+/* EXECUTIVE */
+.cv.executive .cv-top {
+  border-top-color: var(--cv-accent) !important;
+  border-bottom-color: var(--cv-accent) !important;
+}
+
+.cv.executive .role,
+.cv.executive .sec h3 {
+  color: var(--cv-accent) !important;
+}
+
+.cv.executive .sec {
+  border-bottom-color: var(--cv-accent) !important;
+}
+
+.cv.executive .entry {
+  border-left-color: var(--cv-accent) !important;
+}
+
+.cv.executive .tag {
+  background: var(--cv-accent) !important;
+  border-color: var(--cv-accent) !important;
+  color: #ffffff !important;
+}
+
+/* KURUMSAL */
+.cv.corporate .cv-top {
+  box-shadow: inset 0 0 0 1px var(--cv-accent) !important;
+}
+
+.cv.corporate .role {
+  color: #ffffff !important;
+  background: var(--cv-accent) !important;
+}
+
+.cv.corporate .sec {
+  border-color: var(--cv-accent) !important;
+}
+
+.cv.corporate .sec h3 {
+  color: #ffffff !important;
+  background: var(--cv-accent) !important;
+}
+
+.cv.corporate .tag {
+  background: var(--cv-accent) !important;
+  color: #ffffff !important;
+}
+
+/* MODERN */
+.cv.modern .cv-top,
+.cv.modern .tag {
+  background: var(--cv-accent) !important;
+}
+
+.cv.modern .role,
+.cv.modern .sec h3,
+.cv.modern .info-label {
+  color: var(--cv-accent) !important;
+}
+
+.cv.modern .sec {
+  border-left-color: var(--cv-accent) !important;
+}
+
+/* YARATICI */
+.cv.creative .cv-top,
+.cv.creative .tag,
+.cv.creative .sec::before {
+  background: var(--cv-accent) !important;
+}
+
+.cv.creative .role,
+.cv.creative .sec h3,
+.cv.creative .info-label {
+  color: var(--cv-accent) !important;
+}
+
+/* PREMIUM */
+.cv.premium .cv-top {
+  background: var(--cv-accent) !important;
+}
+
+.cv.premium .role,
+.cv.premium .sec h3,
+.cv.premium .info-label {
+  color: var(--cv-accent) !important;
+}
+
+.cv.premium .sec h3::before,
+.cv.premium .tag {
+  background: var(--cv-accent) !important;
+}
+
+.cv.premium .tag {
+  color: #ffffff !important;
+  border-color: var(--cv-accent) !important;
+}
