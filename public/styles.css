@@ -10708,11 +10708,31 @@ body .app .cv-wrap > .cv {
   color: #ffffff !important;
   border-color: var(--cv-accent) !important;
 }
-/* GÜVENLİ DİJİTAL SATIN ALMA ALT BOŞLUK FIX */
-.bottom-sheet,
-.purchase-box,
-.checkout-box,
-.secure-buy-box {
-  margin-bottom: 24px !important;
-  padding-bottom: 0px !important;
+/* SAYFA EN ALT BOŞLUK KAPATMA — FINAL */
+html,
+body {
+  min-height: auto !important;
+  padding-bottom: 0 !important;
+}
+
+body {
+  margin-bottom: 0 !important;
+}
+
+.app {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.legal-purchase,
+.purchase-card,
+.secure-purchase,
+.bottom-support-box,
+.legal-copyright {
+  margin-bottom: 0 !important;
+}
+
+#previewCta,
+.download {
+  margin-bottom: 0 !important;
 }
