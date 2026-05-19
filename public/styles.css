@@ -10244,3 +10244,39 @@ body .app .cv-wrap > .cv {
   -webkit-text-fill-color: rgba(17, 24, 39, .22) !important;
   opacity: 1 !important;
 }
+
+
+/* =====================================================
+   CVYAZ FINAL PURCHASE CARD CLEANUP
+   Güvenli Dijital Satın Alma üst çizgisi ve konuşma ikonları kaldırıldı.
+   Çekirdek yapı korunur.
+===================================================== */
+
+.enhanced-legal-box::before,
+.legal-box::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  height: 0 !important;
+  opacity: 0 !important;
+}
+
+.bottom-support-box::before,
+.bottom-support-btn::before,
+.support-whatsapp::before,
+.whatsapp-btn::before,
+.support-icon {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+}
+
+.bottom-support-box {
+  background: #ffffff !important;
+}
+
