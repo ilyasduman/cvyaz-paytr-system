@@ -10708,3 +10708,11 @@ body .app .cv-wrap > .cv {
   color: #ffffff !important;
   border-color: var(--cv-accent) !important;
 }
+/* GÜVENLİ DİJİTAL SATIN ALMA ALT BOŞLUK FIX */
+.bottom-sheet,
+.purchase-box,
+.checkout-box,
+.secure-buy-box {
+  margin-bottom: 24px !important;
+  padding-bottom: 18px !important;
+}
