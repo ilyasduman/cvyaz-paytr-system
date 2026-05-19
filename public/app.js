@@ -2313,6 +2313,10 @@ async function createPreviewPdf() {
 
     pdfClone = cv.cloneNode(true);
     pdfClone.id = "cvPdfClone";
+    pdfClone.style.setProperty(
+  "--cv-accent",
+  window.cvyazSelectedAccent || "#2563eb"
+);  
     pdfClone.classList.add("cvyaz-pdf-clone-safe-align");
 
     pdfClone.style.position = "fixed";
