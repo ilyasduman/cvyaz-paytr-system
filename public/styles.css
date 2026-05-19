@@ -10363,3 +10363,208 @@ body .app .cv-wrap > .cv {
 .cv.premium .sec h3::before {
   background: var(--cv-accent) !important;
 }
+
+/* =====================================================
+   CVYAZ COLOR PALETTE — ALL TEMPLATE ACCENT FIX
+   Çekirdek yapı korunur. Modern / Yaratıcı / Premium dışında
+   ATS Sade, Executive ve Kurumsal stilleri de renk paletine bağlanır.
+===================================================== */
+
+:root {
+  --cv-accent: #2563eb;
+}
+
+/* Renk paleti görünümü */
+.color-palette {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 14px !important;
+  margin-top: 20px !important;
+  margin-bottom: 18px !important;
+  flex-wrap: wrap !important;
+}
+
+.color-dot {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 999px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: .2s ease !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15) !important;
+}
+
+.color-dot:hover {
+  transform: scale(1.15) !important;
+}
+
+.color-dot.active {
+  outline: 3px solid #111827 !important;
+  outline-offset: 2px !important;
+}
+
+/* Ortak CV vurgu alanları */
+.cv .role,
+.cv .sec h3 {
+  color: var(--cv-accent) !important;
+}
+
+.cv .sec h3::before {
+  background: var(--cv-accent) !important;
+}
+
+.cv .tag {
+  background: var(--cv-accent) !important;
+  color: #ffffff !important;
+}
+
+/* ATS SADE — renk paletine bağlandı */
+.cv.minimal .role,
+.cv.minimal .sec h3 {
+  color: var(--cv-accent) !important;
+}
+
+.cv.minimal .sec h3 {
+  border-bottom-color: color-mix(in srgb, var(--cv-accent) 28%, #f3f4f6) !important;
+}
+
+.cv.minimal .tag {
+  background: color-mix(in srgb, var(--cv-accent) 12%, #ffffff) !important;
+  color: var(--cv-accent) !important;
+}
+
+/* EXECUTIVE — renk paletine bağlandı */
+.cv.executive .cv-top {
+  border-top-color: var(--cv-accent) !important;
+  border-bottom-color: var(--cv-accent) !important;
+}
+
+.cv.executive .role,
+.cv.executive .sec h3 {
+  color: var(--cv-accent) !important;
+}
+
+.cv.executive .sec {
+  border-bottom-color: color-mix(in srgb, var(--cv-accent) 22%, #ffffff) !important;
+}
+
+.cv.executive .entry {
+  border-left-color: color-mix(in srgb, var(--cv-accent) 30%, #ffffff) !important;
+}
+
+.cv.executive .tag {
+  background: color-mix(in srgb, var(--cv-accent) 12%, #ffffff) !important;
+  color: var(--cv-accent) !important;
+  border-color: color-mix(in srgb, var(--cv-accent) 28%, #ffffff) !important;
+}
+
+/* KURUMSAL — renk paletine bağlandı */
+.cv.corporate .role {
+  color: var(--cv-accent) !important;
+  background: color-mix(in srgb, var(--cv-accent) 12%, #ffffff) !important;
+}
+
+.cv.corporate .sec h3 {
+  color: var(--cv-accent) !important;
+  background: color-mix(in srgb, var(--cv-accent) 10%, #ffffff) !important;
+}
+
+.cv.corporate .tag {
+  background: color-mix(in srgb, var(--cv-accent) 14%, #ffffff) !important;
+  color: var(--cv-accent) !important;
+}
+
+.cv.corporate .cv-top {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cv-accent) 18%, #e5e7eb) !important;
+}
+
+/* MODERN — mevcut çalışan renk sistemi korunur, güçlendirilir */
+.cv.modern .cv-top {
+  background: var(--cv-accent) !important;
+}
+
+.cv.modern .role,
+.cv.modern .sec h3 {
+  color: var(--cv-accent) !important;
+}
+
+.cv.modern .tag {
+  background: var(--cv-accent) !important;
+  color: #ffffff !important;
+}
+
+.cv.modern {
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--cv-accent) 10%, transparent) 0,
+      color-mix(in srgb, var(--cv-accent) 10%, transparent) 22px,
+      #ffffff 22px,
+      #ffffff 100%
+    ) !important;
+}
+
+/* YARATICI — mevcut çalışan renk sistemi korunur, güçlendirilir */
+.cv.creative .cv-top,
+.cv.creative .tag {
+  background: var(--cv-accent) !important;
+}
+
+.cv.creative .role,
+.cv.creative .sec h3 {
+  color: var(--cv-accent) !important;
+}
+
+.cv.creative .sec::before {
+  background: var(--cv-accent) !important;
+}
+
+/* PREMIUM — mevcut çalışan renk sistemi korunur, güçlendirilir */
+.cv.premium .cv-top {
+  background: var(--cv-accent) !important;
+}
+
+.cv.premium .role,
+.cv.premium .sec h3 {
+  color: var(--cv-accent) !important;
+}
+
+.cv.premium .sec h3::before {
+  background: var(--cv-accent) !important;
+}
+
+.cv.premium .tag {
+  background: color-mix(in srgb, var(--cv-accent) 14%, #ffffff) !important;
+  color: var(--cv-accent) !important;
+  border-color: color-mix(in srgb, var(--cv-accent) 28%, #ffffff) !important;
+}
+
+/* PDF önizleme klonu da aynı renk sistemini kullansın */
+#cvPdfClone .role,
+#cvPdfClone .sec h3 {
+  color: var(--cv-accent) !important;
+}
+
+#cvPdfClone .sec h3::before {
+  background: var(--cv-accent) !important;
+}
+
+#cvPdfClone .tag {
+  background: var(--cv-accent) !important;
+  color: #ffffff !important;
+}
+
+#cvPdfClone.cv.executive .cv-top {
+  border-top-color: var(--cv-accent) !important;
+  border-bottom-color: var(--cv-accent) !important;
+}
+
+#cvPdfClone.cv.corporate .role,
+#cvPdfClone.cv.corporate .sec h3,
+#cvPdfClone.cv.minimal .role,
+#cvPdfClone.cv.minimal .sec h3,
+#cvPdfClone.cv.executive .role,
+#cvPdfClone.cv.executive .sec h3 {
+  color: var(--cv-accent) !important;
+}
