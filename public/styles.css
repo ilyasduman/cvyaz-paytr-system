@@ -10279,4 +10279,33 @@ body .app .cv-wrap > .cv {
 .bottom-support-box {
   background: #ffffff !important;
 }
+/* =========================================
+   CV RENK PALETİ
+========================================= */
 
+.color-palette{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  margin-top:20px;
+  margin-bottom:18px;
+}
+
+.color-dot{
+  width:24px;
+  height:24px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  transition:.2s ease;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.color-dot:hover{
+  transform:scale(1.15);
+}
+
+.color-dot.active{
+  outline:3px solid #111827;
+}
