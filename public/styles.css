@@ -10640,133 +10640,97 @@ body .app .cv-wrap > .cv {
   color: var(--cv-accent) !important;
 }
 /* =========================================
-   CVYAZ ATS SADE V3.3 — STABLE PREMIUM ATS
+   CVYAZ ATS SADE V3.4 — STABLE COMPACT ATS
    Eski .cv.minimal ATS bloğunu komple sil.
-   Bunu yapıştır.
 ========================================= */
 
 .cv.minimal,
 #cvPdfClone .cv.minimal,
 #cvPdfClone.cv.minimal {
-  background: #ffffff !important;
-  color: #333333 !important;
-  padding: 34px !important;
-  font-family: Arial, Helvetica, sans-serif !important;
-  line-height: 1.5 !important;
+  background:#ffffff !important;
+  color:#333333 !important;
+  padding:34px !important;
+  font-family:Arial, Helvetica, sans-serif !important;
+  line-height:1.45 !important;
 }
 
-/* İç yapı */
 .cv.minimal .cv-inner,
 #cvPdfClone .cv.minimal .cv-inner,
 #cvPdfClone.cv.minimal .cv-inner {
-  position: relative !important;
-  z-index: 2 !important;
+  position:relative !important;
+  z-index:2 !important;
 }
 
-/* =========================================
-   ÜST ALAN
-========================================= */
-
+/* ÜST ALAN — kompakt */
 .cv.minimal .cv-top,
 #cvPdfClone .cv.minimal .cv-top,
 #cvPdfClone.cv.minimal .cv-top {
-  background: #ffffff !important;
-  color: #333333 !important;
-
-  border: 1.5px solid var(--cv-accent, #333333) !important;
-  border-radius: 0 !important;
-
-  padding: 22px 24px !important;
-  margin-bottom: 24px !important;
-
-  text-align: left !important;
-
-  box-shadow:
-    inset 0 0 0 9999px rgba(232,227,220,.08) !important;
+  background:#ffffff !important;
+  color:#333333 !important;
+  border:1.4px solid var(--cv-accent,#333333) !important;
+  border-radius:0 !important;
+  padding:18px 22px !important;
+  margin-bottom:22px !important;
+  text-align:left !important;
+  box-shadow:inset 0 0 0 9999px rgba(232,227,220,.06) !important;
 }
 
-/* Üst alandaki yarım çizgiler kaldırıldı */
 .cv.minimal .cv-top::after,
 #cvPdfClone .cv.minimal .cv-top::after,
 #cvPdfClone.cv.minimal .cv-top::after {
-  content: none !important;
-  display: none !important;
+  content:none !important;
+  display:none !important;
 }
 
-/* =========================================
-   FOTOĞRAF
-========================================= */
-
+/* FOTOĞRAF — yazıya binmeyen güvenli ölçü */
 .cv.minimal .photo-frame,
 #cvPdfClone .cv.minimal .photo-frame,
 #cvPdfClone.cv.minimal .photo-frame {
-  width: 88px !important;
-  height: 108px !important;
-
-  border-radius: 0 !important;
-  border: 1.5px solid rgba(51,51,51,.35) !important;
-
-  background: #ffffff !important;
-  box-shadow: none !important;
-
-  float: left !important;
-  margin-right: 18px !important;
-  margin-bottom: 10px !important;
+  width:82px !important;
+  height:98px !important;
+  border-radius:0 !important;
+  border:1.5px solid rgba(51,51,51,.35) !important;
+  background:#ffffff !important;
+  box-shadow:none !important;
+  float:left !important;
+  margin:2px 18px 10px 0 !important;
 }
 
 .cv.minimal .photo-frame img,
 #cvPdfClone .cv.minimal .photo-frame img,
 #cvPdfClone.cv.minimal .photo-frame img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
 }
 
-/* =========================================
-   İSİM
-========================================= */
-
+/* İSİM */
 .cv.minimal h2,
 #cvPdfClone .cv.minimal h2,
 #cvPdfClone.cv.minimal h2 {
-  color: #333333 !important;
-
-  font-size: 35px !important;
-  font-weight: 800 !important;
-
-  letter-spacing: 5px !important;
-  text-transform: uppercase !important;
-
-  line-height: 1.08 !important;
-
-  margin: 0 0 8px 0 !important;
+  color:#333333 !important;
+  font-size:32px !important;
+  font-weight:800 !important;
+  letter-spacing:4.6px !important;
+  text-transform:uppercase !important;
+  line-height:1.08 !important;
+  margin:0 0 6px 0 !important;
 }
 
-/* =========================================
-   MESLEK
-========================================= */
-
+/* MESLEK */
 .cv.minimal .role,
 #cvPdfClone .cv.minimal .role,
 #cvPdfClone.cv.minimal .role {
-  color: #555555 !important;
-
-  background: transparent !important;
-
-  font-size: 12.5px !important;
-  font-weight: 700 !important;
-
-  letter-spacing: 3px !important;
-  text-transform: uppercase !important;
-
-  margin-top: 8px !important;
-  margin-bottom: 12px !important;
+  color:#555555 !important;
+  background:transparent !important;
+  font-size:12px !important;
+  font-weight:700 !important;
+  letter-spacing:2.6px !important;
+  text-transform:uppercase !important;
+  margin:0 0 10px 0 !important;
 }
 
-/* =========================================
-   BİLGİ SATIRLARI
-========================================= */
-
+/* BİLGİ SATIRLARI */
 .cv.minimal .contact,
 .cv.minimal .small-line,
 .cv.minimal .info-value,
@@ -10776,66 +10740,45 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.minimal .contact,
 #cvPdfClone.cv.minimal .small-line,
 #cvPdfClone.cv.minimal .info-value {
-  color: #444444 !important;
-
-  font-size: 13px !important;
-  line-height: 1.48 !important;
-
-  opacity: 1 !important;
+  color:#444444 !important;
+  font-size:12.7px !important;
+  line-height:1.42 !important;
+  opacity:1 !important;
 }
 
-/* Label */
 .cv.minimal .info-label,
 #cvPdfClone .cv.minimal .info-label,
 #cvPdfClone.cv.minimal .info-label {
-  color: #333333 !important;
-
-  font-size: 12.3px !important;
-  font-weight: 800 !important;
+  color:#333333 !important;
+  font-size:12px !important;
+  font-weight:800 !important;
 }
 
-/* =========================================
-   BÖLÜMLER
-========================================= */
-
+/* BÖLÜMLER — çizgi tam genişlik */
 .cv.minimal .sec,
 #cvPdfClone .cv.minimal .sec,
 #cvPdfClone.cv.minimal .sec {
-  background: transparent !important;
-
-  border: 0 !important;
-
-  border-bottom:
-    1.2px solid var(--cv-accent, rgba(51,51,51,.25)) !important;
-
-  padding: 0 0 17px 0 !important;
-  margin: 0 0 20px 0 !important;
+  background:transparent !important;
+  border:0 !important;
+  border-bottom:1.2px solid var(--cv-accent, rgba(51,51,51,.25)) !important;
+  padding:0 0 15px 0 !important;
+  margin:0 0 18px 0 !important;
 }
-
-/* =========================================
-   BÖLÜM BAŞLIKLARI
-========================================= */
 
 .cv.minimal .sec h3,
 #cvPdfClone .cv.minimal .sec h3,
 #cvPdfClone.cv.minimal .sec h3 {
-  color: #333333 !important;
-
-  background: transparent !important;
-
-  font-size: 13.5px !important;
-  font-weight: 800 !important;
-
-  letter-spacing: 3.5px !important;
-  text-transform: uppercase !important;
-
-  border: 0 !important;
-
-  margin: 0 0 13px 0 !important;
-  padding: 0 !important;
+  color:#333333 !important;
+  background:transparent !important;
+  font-size:13px !important;
+  font-weight:800 !important;
+  letter-spacing:3.2px !important;
+  text-transform:uppercase !important;
+  border:0 !important;
+  margin:0 0 11px 0 !important;
+  padding:0 !important;
 }
 
-/* Yarım kalan çizgiler kaldırıldı */
 .cv.minimal .sec h3::after,
 .cv.minimal .sec h3::before,
 .cv.minimal .sec::before,
@@ -10845,32 +10788,26 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.minimal .sec h3::after,
 #cvPdfClone.cv.minimal .sec h3::before,
 #cvPdfClone.cv.minimal .sec::before {
-  content: none !important;
-  display: none !important;
+  content:none !important;
+  display:none !important;
 }
 
-/* =========================================
-   ENTRY
-========================================= */
-
+/* ENTRY */
 .cv.minimal .entry,
 #cvPdfClone .cv.minimal .entry,
 #cvPdfClone.cv.minimal .entry {
-  border: 0 !important;
-
-  padding: 0 !important;
-  margin: 0 0 15px 0 !important;
-
-  color: #333333 !important;
+  border:0 !important;
+  padding:0 !important;
+  margin:0 0 13px 0 !important;
+  color:#333333 !important;
 }
 
 .cv.minimal .entry b,
 #cvPdfClone .cv.minimal .entry b,
 #cvPdfClone.cv.minimal .entry b {
-  color: #333333 !important;
-
-  font-size: 13.4px !important;
-  font-weight: 850 !important;
+  color:#333333 !important;
+  font-size:13px !important;
+  font-weight:850 !important;
 }
 
 .cv.minimal .entry p,
@@ -10879,100 +10816,66 @@ body .app .cv-wrap > .cv {
 #cvPdfClone .cv.minimal .entry small,
 #cvPdfClone.cv.minimal .entry p,
 #cvPdfClone.cv.minimal .entry small {
-  color: #444444 !important;
-
-  font-size: 13.2px !important;
-  line-height: 1.52 !important;
+  color:#444444 !important;
+  font-size:12.8px !important;
+  line-height:1.46 !important;
 }
 
-/* =========================================
-   TAG
-========================================= */
-
+/* TAG */
 .cv.minimal .tag,
 #cvPdfClone .cv.minimal .tag,
 #cvPdfClone.cv.minimal .tag {
-  background: transparent !important;
-
-  color: #333333 !important;
-
-  border:
-    1px solid var(--cv-accent, rgba(51,51,51,.25)) !important;
-
-  border-radius: 0 !important;
-
-  font-size: 12px !important;
-  font-weight: 700 !important;
-
-  box-shadow:
-    inset 0 0 0 9999px rgba(232,227,220,.08) !important;
+  background:transparent !important;
+  color:#333333 !important;
+  border:1px solid var(--cv-accent, rgba(51,51,51,.25)) !important;
+  border-radius:0 !important;
+  font-size:11.8px !important;
+  font-weight:700 !important;
+  box-shadow:inset 0 0 0 9999px rgba(232,227,220,.06) !important;
 }
-
-/* =========================================
-   LISTE
-========================================= */
 
 .cv.minimal ul,
 #cvPdfClone .cv.minimal ul,
 #cvPdfClone.cv.minimal ul {
-  margin: 7px 0 0 18px !important;
-  padding: 0 !important;
+  margin:6px 0 0 18px !important;
+  padding:0 !important;
 }
 
 .cv.minimal li,
 #cvPdfClone .cv.minimal li,
 #cvPdfClone.cv.minimal li {
-  margin-bottom: 5px !important;
-
-  color: #333333 !important;
-  font-size: 13.2px !important;
+  margin-bottom:4px !important;
+  color:#333333 !important;
+  font-size:12.8px !important;
 }
 
-/* =========================================
-   WATERMARK
-========================================= */
-
+/* WATERMARK */
 .cv.minimal .watermark-grid,
 #cvPdfClone .cv.minimal .watermark-grid,
 #cvPdfClone.cv.minimal .watermark-grid {
-  display: grid !important;
-
-  position: absolute !important;
-  inset: -90px !important;
-
-  grid-template-columns: repeat(4,1fr) !important;
-
-  gap: 125px 110px !important;
-
-  place-items: center !important;
-
-  pointer-events: none !important;
-
-  z-index: 20 !important;
-
-  opacity: .13 !important;
-
-  transform: rotate(-24deg) !important;
-
-  overflow: hidden !important;
+  display:grid !important;
+  position:absolute !important;
+  inset:-90px !important;
+  grid-template-columns:repeat(4,1fr) !important;
+  gap:125px 110px !important;
+  place-items:center !important;
+  pointer-events:none !important;
+  z-index:20 !important;
+  opacity:.13 !important;
+  transform:rotate(-24deg) !important;
+  overflow:hidden !important;
 }
 
 .cv.minimal .watermark-grid span,
 #cvPdfClone .cv.minimal .watermark-grid span,
 #cvPdfClone.cv.minimal .watermark-grid span {
-  display: inline-block !important;
-
-  font-size: 40px !important;
-  font-weight: 900 !important;
-
-  letter-spacing: 2px !important;
-
-  white-space: nowrap !important;
-
-  color: rgba(17,24,39,.20) !important;
-  -webkit-text-fill-color: rgba(17,24,39,.20) !important;
-
-  user-select: none !important;
-
-  line-height: 1 !important;
+  display:inline-block !important;
+  font-size:40px !important;
+  font-weight:900 !important;
+  letter-spacing:2px !important;
+  white-space:nowrap !important;
+  color:rgba(17,24,39,.20) !important;
+  -webkit-text-fill-color:rgba(17,24,39,.20) !important;
+  user-select:none !important;
+  line-height:1 !important;
 }
