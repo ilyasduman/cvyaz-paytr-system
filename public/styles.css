@@ -10801,3 +10801,206 @@ body .app .cv-wrap > .cv {
   margin-right:auto !important;
   box-shadow:0 8px 24px rgba(15,23,42,.06) !important;
 }
+/* =========================================
+   CVYAZ ATS SADE V2 — MINIMAL OVERRIDE
+   ATS class adı: .cv.minimal
+========================================= */
+
+.cv.minimal,
+#cvPdfClone .cv.minimal,
+#cvPdfClone.cv.minimal {
+  background: #ffffff !important;
+  color: #333333 !important;
+  padding: 34px !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  line-height: 1.45 !important;
+}
+
+/* CV iç yapı */
+.cv.minimal .cv-inner,
+#cvPdfClone .cv.minimal .cv-inner,
+#cvPdfClone.cv.minimal .cv-inner {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Üst isim kutusu */
+.cv.minimal .cv-top,
+#cvPdfClone .cv.minimal .cv-top,
+#cvPdfClone.cv.minimal .cv-top {
+  background: #ffffff !important;
+  color: #333333 !important;
+  border: 2px solid #333333 !important;
+  border-radius: 0 !important;
+  padding: 22px 26px !important;
+  margin-bottom: 26px !important;
+  text-align: center !important;
+  box-shadow: none !important;
+}
+
+/* İsim */
+.cv.minimal h2,
+#cvPdfClone .cv.minimal h2,
+#cvPdfClone.cv.minimal h2 {
+  color: #333333 !important;
+  font-size: 31px !important;
+  font-weight: 800 !important;
+  letter-spacing: 7px !important;
+  text-transform: uppercase !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+}
+
+/* Pozisyon */
+.cv.minimal .role,
+#cvPdfClone .cv.minimal .role,
+#cvPdfClone.cv.minimal .role {
+  color: #555555 !important;
+  background: transparent !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  margin-top: 8px !important;
+}
+
+/* Bölümler */
+.cv.minimal .sec,
+#cvPdfClone .cv.minimal .sec,
+#cvPdfClone.cv.minimal .sec {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(51, 51, 51, .18) !important;
+  padding: 0 0 16px 0 !important;
+  margin: 0 0 18px 0 !important;
+}
+
+/* Bölüm başlıkları */
+.cv.minimal .sec h3,
+#cvPdfClone .cv.minimal .sec h3,
+#cvPdfClone.cv.minimal .sec h3 {
+  color: #333333 !important;
+  background: transparent !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  border: 0 !important;
+  margin: 0 0 12px 0 !important;
+  padding: 0 !important;
+}
+
+/* Dekorları kapat */
+.cv.minimal .sec h3::before,
+.cv.minimal .sec h3::after,
+.cv.minimal .sec::before,
+#cvPdfClone .cv.minimal .sec h3::before,
+#cvPdfClone .cv.minimal .sec h3::after,
+#cvPdfClone .cv.minimal .sec::before,
+#cvPdfClone.cv.minimal .sec h3::before,
+#cvPdfClone.cv.minimal .sec h3::after,
+#cvPdfClone.cv.minimal .sec::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Girişler */
+.cv.minimal .entry,
+#cvPdfClone .cv.minimal .entry,
+#cvPdfClone.cv.minimal .entry {
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 0 14px 0 !important;
+  color: #333333 !important;
+}
+
+.cv.minimal .entry b,
+#cvPdfClone .cv.minimal .entry b,
+#cvPdfClone.cv.minimal .entry b {
+  color: #333333 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+/* Metinler */
+.cv.minimal .entry p,
+.cv.minimal .entry small,
+.cv.minimal .small-line,
+.cv.minimal .contact,
+.cv.minimal .info-value,
+#cvPdfClone .cv.minimal .entry p,
+#cvPdfClone .cv.minimal .entry small,
+#cvPdfClone .cv.minimal .small-line,
+#cvPdfClone .cv.minimal .contact,
+#cvPdfClone .cv.minimal .info-value,
+#cvPdfClone.cv.minimal .entry p,
+#cvPdfClone.cv.minimal .entry small,
+#cvPdfClone.cv.minimal .small-line,
+#cvPdfClone.cv.minimal .contact,
+#cvPdfClone.cv.minimal .info-value {
+  color: #444444 !important;
+  font-size: 12.5px !important;
+  line-height: 1.45 !important;
+  opacity: 1 !important;
+}
+
+/* Label */
+.cv.minimal .info-label,
+#cvPdfClone .cv.minimal .info-label,
+#cvPdfClone.cv.minimal .info-label {
+  color: #333333 !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+}
+
+/* Fotoğraf */
+.cv.minimal .photo-frame,
+#cvPdfClone .cv.minimal .photo-frame,
+#cvPdfClone.cv.minimal .photo-frame {
+  border-radius: 0 !important;
+  border: 1px solid rgba(51, 51, 51, .35) !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* Etiketler */
+.cv.minimal .tag,
+#cvPdfClone .cv.minimal .tag,
+#cvPdfClone.cv.minimal .tag {
+  background: #e8e3dc !important;
+  color: #333333 !important;
+  border: 1px solid rgba(51, 51, 51, .18) !important;
+  border-radius: 0 !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+}
+
+/* Liste */
+.cv.minimal ul,
+#cvPdfClone .cv.minimal ul,
+#cvPdfClone.cv.minimal ul {
+  margin: 6px 0 0 17px !important;
+  padding: 0 !important;
+}
+
+.cv.minimal li,
+#cvPdfClone .cv.minimal li,
+#cvPdfClone.cv.minimal li {
+  margin-bottom: 4px !important;
+  color: #333333 !important;
+  font-size: 12.5px !important;
+}
+
+/* Watermark */
+.cv.minimal .watermark-grid,
+#cvPdfClone .cv.minimal .watermark-grid,
+#cvPdfClone.cv.minimal .watermark-grid {
+  opacity: .045 !important;
+}
+
+.cv.minimal .watermark-grid span,
+#cvPdfClone .cv.minimal .watermark-grid span,
+#cvPdfClone.cv.minimal .watermark-grid span {
+  color: rgba(51, 51, 51, .09) !important;
+  -webkit-text-fill-color: rgba(51, 51, 51, .09) !important;
+}
