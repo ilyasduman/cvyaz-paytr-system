@@ -10802,9 +10802,9 @@ body .app .cv-wrap > .cv {
   box-shadow:0 8px 24px rgba(15,23,42,.06) !important;
 }
 /* =========================================
-   CVYAZ ATS SADE V3.1 — PREMIUM COMPACT HEADER
-   ATS class adı: .cv.minimal
-   Eski ATS bloğunu sil, bunu yapıştır.
+   CVYAZ ATS SADE V3.2 — SAFE PREMIUM POLISH
+   Çalışan V3 çekirdeği korunur.
+   color-mix yok. Grid yok. Ön izleme kırmaz.
 ========================================= */
 
 .cv.minimal,
@@ -10824,24 +10824,21 @@ body .app .cv-wrap > .cv {
   z-index: 2 !important;
 }
 
-/* Üst alan daha kompakt */
+/* Üst kimlik kutusu — kompakt ama çekirdek bozulmaz */
 .cv.minimal .cv-top,
 #cvPdfClone .cv.minimal .cv-top,
 #cvPdfClone.cv.minimal .cv-top {
   background: #ffffff !important;
   color: #333333 !important;
-  border: 2px solid color-mix(in srgb, var(--cv-accent, #333333) 45%, #d1d5db) !important;
+  border: 1.5px solid var(--cv-accent, #333333) !important;
   border-radius: 0 !important;
-  padding: 28px 34px !important;
-  margin-bottom: 26px !important;
-  text-align: left !important;
-  box-shadow: none !important;
-  display: grid !important;
-  grid-template-columns: 150px 1fr !important;
-  gap: 30px !important;
-  align-items: start !important;
+  padding: 24px 28px !important;
+  margin-bottom: 24px !important;
+  text-align: center !important;
+  box-shadow: inset 0 0 0 9999px rgba(232, 227, 220, .08) !important;
 }
 
+/* Üst kutudaki yarım çizgi kaldırıldı */
 .cv.minimal .cv-top::after,
 #cvPdfClone .cv.minimal .cv-top::after,
 #cvPdfClone.cv.minimal .cv-top::after {
@@ -10849,33 +10846,12 @@ body .app .cv-wrap > .cv {
   display: none !important;
 }
 
-/* Fotoğraf biraz büyüdü, rengi sabit */
-.cv.minimal .photo-frame,
-#cvPdfClone .cv.minimal .photo-frame,
-#cvPdfClone.cv.minimal .photo-frame {
-  width: 132px !important;
-  height: 152px !important;
-  border-radius: 0 !important;
-  border: 1.5px solid rgba(51, 51, 51, .35) !important;
-  background: #ffffff !important;
-  box-shadow: none !important;
-  align-self: start !important;
-}
-
-.cv.minimal .photo-frame img,
-#cvPdfClone .cv.minimal .photo-frame img,
-#cvPdfClone.cv.minimal .photo-frame img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-}
-
 /* İsim */
 .cv.minimal h2,
 #cvPdfClone .cv.minimal h2,
 #cvPdfClone.cv.minimal h2 {
   color: #333333 !important;
-  font-size: 36px !important;
+  font-size: 35px !important;
   font-weight: 800 !important;
   letter-spacing: 5.2px !important;
   text-transform: uppercase !important;
@@ -10893,10 +10869,11 @@ body .app .cv-wrap > .cv {
   font-weight: 700 !important;
   letter-spacing: 3px !important;
   text-transform: uppercase !important;
-  margin: 0 0 16px 0 !important;
+  margin-top: 8px !important;
+  margin-bottom: 12px !important;
 }
 
-/* Bilgi satırları */
+/* Bilgi metinleri */
 .cv.minimal .contact,
 .cv.minimal .small-line,
 .cv.minimal .info-value,
@@ -10920,17 +10897,38 @@ body .app .cv-wrap > .cv {
   font-weight: 800 !important;
 }
 
-/* Bölüm ayraçları daha soft */
+/* Fotoğraf biraz büyüdü — renk paletinden etkilenmez */
+.cv.minimal .photo-frame,
+#cvPdfClone .cv.minimal .photo-frame,
+#cvPdfClone.cv.minimal .photo-frame {
+  width: 118px !important;
+  height: 138px !important;
+  border-radius: 0 !important;
+  border: 1.5px solid rgba(51, 51, 51, .35) !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.cv.minimal .photo-frame img,
+#cvPdfClone .cv.minimal .photo-frame img,
+#cvPdfClone.cv.minimal .photo-frame img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Bölümler */
 .cv.minimal .sec,
 #cvPdfClone .cv.minimal .sec,
 #cvPdfClone.cv.minimal .sec {
   background: transparent !important;
   border: 0 !important;
-  border-bottom: 1.5px solid color-mix(in srgb, var(--cv-accent, #333333) 45%, #d1d5db) !important;
+  border-bottom: 1.2px solid var(--cv-accent, rgba(51, 51, 51, .25)) !important;
   padding: 0 0 17px 0 !important;
   margin: 0 0 20px 0 !important;
 }
 
+/* Bölüm başlıkları */
 .cv.minimal .sec h3,
 #cvPdfClone .cv.minimal .sec h3,
 #cvPdfClone.cv.minimal .sec h3 {
@@ -10945,28 +10943,21 @@ body .app .cv-wrap > .cv {
   padding: 0 !important;
 }
 
+/* Yarım kalan başlık çizgileri kaldırıldı */
 .cv.minimal .sec h3::after,
-#cvPdfClone .cv.minimal .sec h3::after,
-#cvPdfClone.cv.minimal .sec h3::after {
-  content: "" !important;
-  display: block !important;
-  width: 46px !important;
-  height: 2px !important;
-  background: color-mix(in srgb, var(--cv-accent, #333333) 55%, #d1d5db) !important;
-  margin-top: 7px !important;
-  opacity: .85 !important;
-}
-
 .cv.minimal .sec h3::before,
 .cv.minimal .sec::before,
+#cvPdfClone .cv.minimal .sec h3::after,
 #cvPdfClone .cv.minimal .sec h3::before,
 #cvPdfClone .cv.minimal .sec::before,
+#cvPdfClone.cv.minimal .sec h3::after,
 #cvPdfClone.cv.minimal .sec h3::before,
 #cvPdfClone.cv.minimal .sec::before {
   content: none !important;
   display: none !important;
 }
 
+/* Girişler */
 .cv.minimal .entry,
 #cvPdfClone .cv.minimal .entry,
 #cvPdfClone.cv.minimal .entry {
@@ -10995,15 +10986,17 @@ body .app .cv-wrap > .cv {
   line-height: 1.52 !important;
 }
 
+/* Etiketler */
 .cv.minimal .tag,
 #cvPdfClone .cv.minimal .tag,
 #cvPdfClone.cv.minimal .tag {
   background: transparent !important;
   color: #333333 !important;
-  border: 1px solid color-mix(in srgb, var(--cv-accent, #333333) 45%, #d1d5db) !important;
+  border: 1px solid var(--cv-accent, rgba(51, 51, 51, .25)) !important;
   border-radius: 0 !important;
   font-size: 12px !important;
   font-weight: 700 !important;
+  box-shadow: inset 0 0 0 9999px rgba(232, 227, 220, .08) !important;
 }
 
 .cv.minimal ul,
