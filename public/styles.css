@@ -9801,15 +9801,24 @@ body .app .cv-wrap > .cv {
 ------------------------------ */
 
 .cv.modern,
+#cvPdfClone .cv.modern,
 #cvPdfClone.cv.modern {
   padding: 46px 44px !important;
   background:
-    linear-gradient(90deg, #eff6ff 0, #eff6ff 18px, #ffffff 18px, #ffffff 100%) !important;
+    linear-gradient(
+      90deg,
+      #eff6ff 0,
+      #eff6ff 18px,
+      #ffffff 18px,
+      #ffffff 100%
+    ) !important;
   color: #111827 !important;
 }
 
-/* Üst alan: artık kart gibi değil, premium CV başlığı gibi */
+/* ÜST ALAN */
+
 .cv.modern .cv-top,
+#cvPdfClone .cv.modern .cv-top,
 #cvPdfClone.cv.modern .cv-top {
   background: transparent !important;
   color: #111827 !important;
@@ -9821,18 +9830,23 @@ body .app .cv-wrap > .cv {
   border-bottom: 3px solid #2563eb !important;
 }
 
-/* İsim */
+/* İSİM */
+
 .cv.modern h2,
+#cvPdfClone .cv.modern h2,
 #cvPdfClone.cv.modern h2 {
   color: #0f172a !important;
   font-size: 36px !important;
   line-height: 1.05 !important;
   letter-spacing: -1.1px !important;
   font-weight: 900 !important;
+  margin-bottom: 4px !important;
 }
 
-/* Meslek / pozisyon */
+/* MESLEK */
+
 .cv.modern .role,
+#cvPdfClone .cv.modern .role,
 #cvPdfClone.cv.modern .role {
   color: #2563eb !important;
   font-size: 14px !important;
@@ -9842,10 +9856,14 @@ body .app .cv-wrap > .cv {
   margin-top: 6px !important;
 }
 
-/* İletişim alanı */
+/* İLETİŞİM */
+
 .cv.modern .contact,
 .cv.modern .small-line,
 .cv.modern .info-value,
+#cvPdfClone .cv.modern .contact,
+#cvPdfClone .cv.modern .small-line,
+#cvPdfClone .cv.modern .info-value,
 #cvPdfClone.cv.modern .contact,
 #cvPdfClone.cv.modern .small-line,
 #cvPdfClone.cv.modern .info-value {
@@ -9854,13 +9872,16 @@ body .app .cv-wrap > .cv {
 }
 
 .cv.modern .info-label,
+#cvPdfClone .cv.modern .info-label,
 #cvPdfClone.cv.modern .info-label {
   color: #2563eb !important;
   font-weight: 800 !important;
 }
 
-/* Fotoğraf */
+/* FOTOĞRAF */
+
 .cv.modern .photo-frame,
+#cvPdfClone .cv.modern .photo-frame,
 #cvPdfClone.cv.modern .photo-frame {
   background: #ffffff !important;
   border: 2px solid #dbeafe !important;
@@ -9868,8 +9889,10 @@ body .app .cv-wrap > .cv {
   box-shadow: 0 8px 22px rgba(37, 99, 235, .12) !important;
 }
 
-/* Bölümler */
+/* BÖLÜMLER */
+
 .cv.modern .sec,
+#cvPdfClone .cv.modern .sec,
 #cvPdfClone.cv.modern .sec {
   border: 0 !important;
   border-left: 3px solid #dbeafe !important;
@@ -9878,8 +9901,10 @@ body .app .cv-wrap > .cv {
   background: transparent !important;
 }
 
-/* Bölüm başlıkları */
+/* BÖLÜM BAŞLIKLARI */
+
 .cv.modern .sec h3,
+#cvPdfClone .cv.modern .sec h3,
 #cvPdfClone.cv.modern .sec h3 {
   color: #1d4ed8 !important;
   font-size: 12.5px !important;
@@ -9894,6 +9919,7 @@ body .app .cv-wrap > .cv {
 }
 
 .cv.modern .sec h3::before,
+#cvPdfClone .cv.modern .sec h3::before,
 #cvPdfClone.cv.modern .sec h3::before {
   content: "" !important;
   width: 22px !important;
@@ -9903,8 +9929,10 @@ body .app .cv-wrap > .cv {
   display: inline-block !important;
 }
 
-/* Girişler */
+/* ENTRY */
+
 .cv.modern .entry,
+#cvPdfClone .cv.modern .entry,
 #cvPdfClone.cv.modern .entry {
   border: 0 !important;
   padding-left: 0 !important;
@@ -9912,6 +9940,7 @@ body .app .cv-wrap > .cv {
 }
 
 .cv.modern .entry b,
+#cvPdfClone .cv.modern .entry b,
 #cvPdfClone.cv.modern .entry b {
   color: #111827 !important;
   font-weight: 850 !important;
@@ -9919,14 +9948,18 @@ body .app .cv-wrap > .cv {
 
 .cv.modern .entry p,
 .cv.modern .entry small,
+#cvPdfClone .cv.modern .entry p,
+#cvPdfClone .cv.modern .entry small,
 #cvPdfClone.cv.modern .entry p,
 #cvPdfClone.cv.modern .entry small {
   color: #374151 !important;
   line-height: 1.45 !important;
 }
 
-/* Etiketler */
+/* TAG */
+
 .cv.modern .tag,
+#cvPdfClone .cv.modern .tag,
 #cvPdfClone.cv.modern .tag {
   background: #eff6ff !important;
   color: #1d4ed8 !important;
@@ -9935,6 +9968,20 @@ body .app .cv-wrap > .cv {
   font-weight: 800 !important;
 }
 
+/* WATERMARK */
+
+.cv.modern .watermark-grid,
+#cvPdfClone .cv.modern .watermark-grid,
+#cvPdfClone.cv.modern .watermark-grid {
+  opacity: .05 !important;
+}
+
+.cv.modern .watermark-grid span,
+#cvPdfClone .cv.modern .watermark-grid span,
+#cvPdfClone.cv.modern .watermark-grid span {
+  color: rgba(15, 23, 42, .09) !important;
+  -webkit-text-fill-color: rgba(15, 23, 42, .09) !important;
+}
 /* -----------------------------
    YARATICI — renkli, dinamik, portfolyo hissi
 ------------------------------ */
