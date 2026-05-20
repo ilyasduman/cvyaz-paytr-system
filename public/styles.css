@@ -10802,7 +10802,7 @@ body .app .cv-wrap > .cv {
   box-shadow:0 8px 24px rgba(15,23,42,.06) !important;
 }
 /* =========================================
-   CVYAZ ATS SADE V3 — PREMIUM SIDEBAR
+   CVYAZ ATS SADE V3.1 — PREMIUM COMPACT HEADER
    ATS class adı: .cv.minimal
    Eski ATS bloğunu sil, bunu yapıştır.
 ========================================= */
@@ -10817,7 +10817,6 @@ body .app .cv-wrap > .cv {
   line-height: 1.5 !important;
 }
 
-/* İç yapı */
 .cv.minimal .cv-inner,
 #cvPdfClone .cv.minimal .cv-inner,
 #cvPdfClone.cv.minimal .cv-inner {
@@ -10825,30 +10824,50 @@ body .app .cv-wrap > .cv {
   z-index: 2 !important;
 }
 
-/* Üst kimlik kutusu */
+/* Üst alan daha kompakt */
 .cv.minimal .cv-top,
 #cvPdfClone .cv.minimal .cv-top,
 #cvPdfClone.cv.minimal .cv-top {
   background: #ffffff !important;
   color: #333333 !important;
-  border: 2px solid var(--cv-accent, #333333) !important;
+  border: 2px solid color-mix(in srgb, var(--cv-accent, #333333) 45%, #d1d5db) !important;
   border-radius: 0 !important;
-  padding: 24px 28px !important;
+  padding: 28px 34px !important;
   margin-bottom: 26px !important;
-  text-align: center !important;
+  text-align: left !important;
   box-shadow: none !important;
+  display: grid !important;
+  grid-template-columns: 150px 1fr !important;
+  gap: 30px !important;
+  align-items: start !important;
 }
 
-/* Sidebar efekti: kişisel bilgiler kutusuna premium sol panel hissi */
 .cv.minimal .cv-top::after,
 #cvPdfClone .cv.minimal .cv-top::after,
 #cvPdfClone.cv.minimal .cv-top::after {
-  content: "" !important;
-  display: block !important;
-  height: 1px !important;
-  background: var(--cv-accent, #333333) !important;
-  opacity: .35 !important;
-  margin-top: 16px !important;
+  content: none !important;
+  display: none !important;
+}
+
+/* Fotoğraf biraz büyüdü, rengi sabit */
+.cv.minimal .photo-frame,
+#cvPdfClone .cv.minimal .photo-frame,
+#cvPdfClone.cv.minimal .photo-frame {
+  width: 132px !important;
+  height: 152px !important;
+  border-radius: 0 !important;
+  border: 1.5px solid rgba(51, 51, 51, .35) !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+  align-self: start !important;
+}
+
+.cv.minimal .photo-frame img,
+#cvPdfClone .cv.minimal .photo-frame img,
+#cvPdfClone.cv.minimal .photo-frame img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }
 
 /* İsim */
@@ -10856,12 +10875,12 @@ body .app .cv-wrap > .cv {
 #cvPdfClone .cv.minimal h2,
 #cvPdfClone.cv.minimal h2 {
   color: #333333 !important;
-  font-size: 34px !important;
+  font-size: 36px !important;
   font-weight: 800 !important;
-  letter-spacing: 5.5px !important;
+  letter-spacing: 5.2px !important;
   text-transform: uppercase !important;
   line-height: 1.08 !important;
-  margin: 0 !important;
+  margin: 0 0 8px 0 !important;
 }
 
 /* Pozisyon */
@@ -10874,10 +10893,10 @@ body .app .cv-wrap > .cv {
   font-weight: 700 !important;
   letter-spacing: 3px !important;
   text-transform: uppercase !important;
-  margin-top: 9px !important;
+  margin: 0 0 16px 0 !important;
 }
 
-/* İletişim / kişisel bilgi alanları */
+/* Bilgi satırları */
 .cv.minimal .contact,
 .cv.minimal .small-line,
 .cv.minimal .info-value,
@@ -10893,7 +10912,6 @@ body .app .cv-wrap > .cv {
   opacity: 1 !important;
 }
 
-/* Label */
 .cv.minimal .info-label,
 #cvPdfClone .cv.minimal .info-label,
 #cvPdfClone.cv.minimal .info-label {
@@ -10902,28 +10920,17 @@ body .app .cv-wrap > .cv {
   font-weight: 800 !important;
 }
 
-/* Fotoğraf çerçevesi — renk paletinden etkilenmez */
-.cv.minimal .photo-frame,
-#cvPdfClone .cv.minimal .photo-frame,
-#cvPdfClone.cv.minimal .photo-frame {
-  border-radius: 0 !important;
-  border: 1.5px solid rgba(51, 51, 51, .35) !important;
-  background: #ffffff !important;
-  box-shadow: none !important;
-}
-
-/* Bölümler */
+/* Bölüm ayraçları daha soft */
 .cv.minimal .sec,
 #cvPdfClone .cv.minimal .sec,
 #cvPdfClone.cv.minimal .sec {
   background: transparent !important;
   border: 0 !important;
-  border-bottom: 1.5px solid var(--cv-accent, rgba(51, 51, 51, .25)) !important;
+  border-bottom: 1.5px solid color-mix(in srgb, var(--cv-accent, #333333) 45%, #d1d5db) !important;
   padding: 0 0 17px 0 !important;
   margin: 0 0 20px 0 !important;
 }
 
-/* Bölüm başlıkları */
 .cv.minimal .sec h3,
 #cvPdfClone .cv.minimal .sec h3,
 #cvPdfClone.cv.minimal .sec h3 {
@@ -10938,7 +10945,6 @@ body .app .cv-wrap > .cv {
   padding: 0 !important;
 }
 
-/* Başlık alt premium çizgi */
 .cv.minimal .sec h3::after,
 #cvPdfClone .cv.minimal .sec h3::after,
 #cvPdfClone.cv.minimal .sec h3::after {
@@ -10946,12 +10952,11 @@ body .app .cv-wrap > .cv {
   display: block !important;
   width: 46px !important;
   height: 2px !important;
-  background: var(--cv-accent, #333333) !important;
+  background: color-mix(in srgb, var(--cv-accent, #333333) 55%, #d1d5db) !important;
   margin-top: 7px !important;
-  opacity: .9 !important;
+  opacity: .85 !important;
 }
 
-/* Eski dekorları kapat */
 .cv.minimal .sec h3::before,
 .cv.minimal .sec::before,
 #cvPdfClone .cv.minimal .sec h3::before,
@@ -10962,7 +10967,6 @@ body .app .cv-wrap > .cv {
   display: none !important;
 }
 
-/* Girişler */
 .cv.minimal .entry,
 #cvPdfClone .cv.minimal .entry,
 #cvPdfClone.cv.minimal .entry {
@@ -10980,7 +10984,6 @@ body .app .cv-wrap > .cv {
   font-weight: 850 !important;
 }
 
-/* Metinler */
 .cv.minimal .entry p,
 .cv.minimal .entry small,
 #cvPdfClone .cv.minimal .entry p,
@@ -10992,19 +10995,17 @@ body .app .cv-wrap > .cv {
   line-height: 1.52 !important;
 }
 
-/* Etiketler */
 .cv.minimal .tag,
 #cvPdfClone .cv.minimal .tag,
 #cvPdfClone.cv.minimal .tag {
   background: transparent !important;
   color: #333333 !important;
-  border: 1px solid var(--cv-accent, rgba(51, 51, 51, .25)) !important;
+  border: 1px solid color-mix(in srgb, var(--cv-accent, #333333) 45%, #d1d5db) !important;
   border-radius: 0 !important;
   font-size: 12px !important;
   font-weight: 700 !important;
 }
 
-/* Liste */
 .cv.minimal ul,
 #cvPdfClone .cv.minimal ul,
 #cvPdfClone.cv.minimal ul {
@@ -11018,16 +11019,6 @@ body .app .cv-wrap > .cv {
   margin-bottom: 5px !important;
   color: #333333 !important;
   font-size: 13.2px !important;
-}
-
-/* Hafif mini-sidebar hissi: ilk bilgi kartı ve beceri/tag alanlarını ayır */
-.cv.minimal .cv-top,
-.cv.minimal .tag,
-#cvPdfClone .cv.minimal .cv-top,
-#cvPdfClone .cv.minimal .tag,
-#cvPdfClone.cv.minimal .cv-top,
-#cvPdfClone.cv.minimal .tag {
-  box-shadow: inset 0 0 0 9999px rgba(232, 227, 220, .08) !important;
 }
 
 /* Watermark */
