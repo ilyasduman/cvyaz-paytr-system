@@ -9797,105 +9797,124 @@ body .app .cv-wrap > .cv {
 }
 
 /* -----------------------------
-   MODERN — lacivert/teknoloji, net ve güçlü
+   MODERN — temiz, teknolojik, premium CV
 ------------------------------ */
 
 .cv.modern,
 #cvPdfClone.cv.modern {
-  padding: 50px 46px !important;
+  padding: 46px 44px !important;
   background:
-    linear-gradient(90deg, rgba(37, 99, 235, .06) 0, rgba(37, 99, 235, .06) 24px, #ffffff 24px, #ffffff 100%) !important;
+    linear-gradient(90deg, #eff6ff 0, #eff6ff 18px, #ffffff 18px, #ffffff 100%) !important;
   color: #111827 !important;
 }
 
+/* Üst alan: artık kart gibi değil, premium CV başlığı gibi */
 .cv.modern .cv-top,
 #cvPdfClone.cv.modern .cv-top {
-  background: #0f172a !important;
-  color: #ffffff !important;
+  background: transparent !important;
+  color: #111827 !important;
   border: 0 !important;
-  border-radius: 22px !important;
-  padding: 24px !important;
-  margin-bottom: 26px !important;
-  box-shadow: 0 14px 34px rgba(15, 23, 42, .18) !important;
+  border-radius: 0 !important;
+  padding: 0 0 18px 0 !important;
+  margin-bottom: 24px !important;
+  box-shadow: none !important;
+  border-bottom: 3px solid #2563eb !important;
 }
 
+/* İsim */
 .cv.modern h2,
 #cvPdfClone.cv.modern h2 {
-  color: #ffffff !important;
-  font-size: 39px !important;
-  letter-spacing: -1.2px !important;
+  color: #0f172a !important;
+  font-size: 36px !important;
+  line-height: 1.05 !important;
+  letter-spacing: -1.1px !important;
+  font-weight: 900 !important;
 }
 
+/* Meslek / pozisyon */
 .cv.modern .role,
 #cvPdfClone.cv.modern .role {
-  color: #93c5fd !important;
-  font-size: 17px !important;
+  color: #2563eb !important;
+  font-size: 14px !important;
   font-weight: 900 !important;
   text-transform: uppercase !important;
-  letter-spacing: .8px !important;
+  letter-spacing: 1.2px !important;
+  margin-top: 6px !important;
 }
 
+/* İletişim alanı */
 .cv.modern .contact,
 .cv.modern .small-line,
 .cv.modern .info-value,
 #cvPdfClone.cv.modern .contact,
 #cvPdfClone.cv.modern .small-line,
 #cvPdfClone.cv.modern .info-value {
-  color: rgba(255, 255, 255, .88) !important;
+  color: #374151 !important;
   opacity: 1 !important;
 }
 
 .cv.modern .info-label,
 #cvPdfClone.cv.modern .info-label {
-  color: #93c5fd !important;
+  color: #2563eb !important;
+  font-weight: 800 !important;
 }
 
+/* Fotoğraf */
 .cv.modern .photo-frame,
 #cvPdfClone.cv.modern .photo-frame {
-  background: rgba(255, 255, 255, .10) !important;
-  border: 1px solid rgba(255, 255, 255, .22) !important;
-  box-shadow: none !important;
+  background: #ffffff !important;
+  border: 2px solid #dbeafe !important;
+  border-radius: 14px !important;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, .12) !important;
 }
 
+/* Bölümler */
 .cv.modern .sec,
 #cvPdfClone.cv.modern .sec {
-  border-bottom: 0 !important;
-  border-left: 4px solid #dbeafe !important;
-  padding: 0 0 18px 18px !important;
-  margin-bottom: 20px !important;
+  border: 0 !important;
+  border-left: 3px solid #dbeafe !important;
+  padding: 0 0 15px 17px !important;
+  margin-bottom: 18px !important;
   background: transparent !important;
 }
 
+/* Bölüm başlıkları */
 .cv.modern .sec h3,
 #cvPdfClone.cv.modern .sec h3 {
-  color: #2563eb !important;
-  font-size: 13px !important;
-  letter-spacing: 1.8px !important;
+  color: #1d4ed8 !important;
+  font-size: 12.5px !important;
+  letter-spacing: 1.7px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
   display: flex !important;
   align-items: center !important;
   gap: 9px !important;
   border: 0 !important;
+  margin-bottom: 9px !important;
 }
 
 .cv.modern .sec h3::before,
 #cvPdfClone.cv.modern .sec h3::before {
   content: "" !important;
-  width: 26px !important;
-  height: 5px !important;
+  width: 22px !important;
+  height: 4px !important;
   border-radius: 999px !important;
   background: #2563eb !important;
   display: inline-block !important;
 }
 
+/* Girişler */
 .cv.modern .entry,
 #cvPdfClone.cv.modern .entry {
   border: 0 !important;
   padding-left: 0 !important;
+  margin-bottom: 10px !important;
 }
 
 .cv.modern .entry b,
 #cvPdfClone.cv.modern .entry b {
   color: #111827 !important;
+  font-weight: 850 !important;
 }
 
 .cv.modern .entry p,
@@ -9903,13 +9922,17 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.modern .entry p,
 #cvPdfClone.cv.modern .entry small {
   color: #374151 !important;
+  line-height: 1.45 !important;
 }
 
+/* Etiketler */
 .cv.modern .tag,
 #cvPdfClone.cv.modern .tag {
-  background: #0f172a !important;
-  color: #ffffff !important;
-  border-radius: 8px !important;
+  background: #eff6ff !important;
+  color: #1d4ed8 !important;
+  border: 1px solid #bfdbfe !important;
+  border-radius: 999px !important;
+  font-weight: 800 !important;
 }
 
 /* -----------------------------
