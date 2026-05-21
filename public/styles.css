@@ -10880,8 +10880,8 @@ body .app .cv-wrap > .cv {
   line-height:1 !important;
 }
 /* =========================================
-   CVYAZ MODERN V2.1 — PREMIUM TECH POLISH
-   Eski Modern V2 bloğunu sil, bunu yapıştır.
+   CVYAZ MODERN V2.2 — PREMIUM TECH FINAL
+   Eski Modern bloğunu sil, bunu yapıştır.
 ========================================= */
 
 .cv.modern,
@@ -10921,14 +10921,14 @@ body .app .cv-wrap > .cv {
 .cv.modern .photo-frame,
 #cvPdfClone .cv.modern .photo-frame,
 #cvPdfClone.cv.modern .photo-frame {
-  width:96px !important;
-  height:118px !important;
+  width:88px !important;
+  height:108px !important;
   float:left !important;
-  margin:2px 24px 12px 0 !important;
+  margin:2px 22px 12px 0 !important;
   border-radius:18px !important;
-  border:2px solid rgba(37,99,235,.18) !important;
+  border:2px solid rgba(37,99,235,.16) !important;
   background:#ffffff !important;
-  box-shadow:0 14px 30px rgba(37,99,235,.14) !important;
+  box-shadow:0 12px 26px rgba(37,99,235,.12) !important;
 }
 
 .cv.modern .photo-frame img,
@@ -10955,11 +10955,12 @@ body .app .cv-wrap > .cv {
 .cv.modern .role,
 #cvPdfClone .cv.modern .role,
 #cvPdfClone.cv.modern .role {
-  color:var(--cv-accent,#2563eb) !important;
+  color:#2563eb !important;
+  opacity:.92 !important;
   background:transparent !important;
   font-size:13.5px !important;
   font-weight:900 !important;
-  letter-spacing:1.6px !important;
+  letter-spacing:1.4px !important;
   text-transform:uppercase !important;
   margin:0 0 15px 0 !important;
 }
@@ -10994,7 +10995,7 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.modern .sec {
   background:transparent !important;
   border:0 !important;
-  border-left:4px solid rgba(37,99,235,.22) !important;
+  border-left:4px solid rgba(37,99,235,.16) !important;
   padding:0 0 18px 18px !important;
   margin:0 0 22px 0 !important;
 }
@@ -11003,11 +11004,12 @@ body .app .cv-wrap > .cv {
 .cv.modern .sec h3,
 #cvPdfClone .cv.modern .sec h3,
 #cvPdfClone.cv.modern .sec h3 {
-  color:var(--cv-accent,#2563eb) !important;
+  color:#2563eb !important;
+  opacity:.92 !important;
   background:transparent !important;
   font-size:13px !important;
   font-weight:900 !important;
-  letter-spacing:1.9px !important;
+  letter-spacing:1.7px !important;
   text-transform:uppercase !important;
   border:0 !important;
   margin:0 0 13px 0 !important;
@@ -11025,7 +11027,7 @@ body .app .cv-wrap > .cv {
   width:28px !important;
   height:4px !important;
   border-radius:999px !important;
-  background:var(--cv-accent,#2563eb) !important;
+  background:rgba(37,99,235,.75) !important;
 }
 
 .cv.modern .sec h3::after,
@@ -11072,8 +11074,8 @@ body .app .cv-wrap > .cv {
 #cvPdfClone .cv.modern .tag,
 #cvPdfClone.cv.modern .tag {
   background:rgba(37,99,235,.08) !important;
-  color:var(--cv-accent,#2563eb) !important;
-  border:1px solid rgba(37,99,235,.18) !important;
+  color:#2563eb !important;
+  border:1px solid rgba(37,99,235,.16) !important;
   border-radius:999px !important;
   font-size:12.3px !important;
   font-weight:800 !important;
