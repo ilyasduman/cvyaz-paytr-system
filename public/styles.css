@@ -11128,38 +11128,3 @@ body .app .cv-wrap > .cv {
   user-select:none !important;
   line-height:1 !important;
 }
-/* MODERN RENK PALETİ GÜVENLİ BAĞLANTI — color-mix yok */
-
-.cv.modern .role,
-#cvPdfClone .cv.modern .role,
-#cvPdfClone.cv.modern .role,
-.cv.modern .sec h3,
-#cvPdfClone .cv.modern .sec h3,
-#cvPdfClone.cv.modern .sec h3 {
-  color: var(--cv-accent, #2563eb) !important;
-}
-
-.cv.modern .cv-top,
-#cvPdfClone .cv.modern .cv-top,
-#cvPdfClone.cv.modern .cv-top {
-  border-bottom-color: var(--cv-accent, #2563eb) !important;
-}
-
-.cv.modern .sec,
-#cvPdfClone .cv.modern .sec,
-#cvPdfClone.cv.modern .sec {
-  border-left-color: rgba(37,99,235,.16) !important;
-}
-
-.cv.modern .sec h3::before,
-#cvPdfClone .cv.modern .sec h3::before,
-#cvPdfClone.cv.modern .sec h3::before {
-  background: var(--cv-accent, #2563eb) !important;
-}
-
-.cv.modern .tag,
-#cvPdfClone .cv.modern .tag,
-#cvPdfClone.cv.modern .tag {
-  color: var(--cv-accent, #2563eb) !important;
-  border-color: var(--cv-accent, #2563eb) !important;
-}
