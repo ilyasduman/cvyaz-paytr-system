@@ -10880,24 +10880,15 @@ body .app .cv-wrap > .cv {
   line-height:1 !important;
 }
 /* =========================================
-   CVYAZ MODERN V3.1 — APPLE / LINEAR ACCENT FIX
-   Renk paletine tam bağlı sürüm.
+   CVYAZ MODERN V2.2 — PREMIUM TECH FINAL
+   Eski Modern bloğunu sil, bunu yapıştır.
 ========================================= */
 
 .cv.modern,
 #cvPdfClone .cv.modern,
 #cvPdfClone.cv.modern {
-  --accent: var(--cv-accent, #2563eb);
-
   background:
-    linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--accent) 7%, transparent) 0,
-      color-mix(in srgb, var(--accent) 7%, transparent) 14px,
-      #ffffff 14px,
-      #ffffff 100%
-    ) !important;
-
+    linear-gradient(90deg, rgba(37,99,235,.09) 0, rgba(37,99,235,.09) 18px, #ffffff 18px, #ffffff 100%) !important;
   color:#111827 !important;
   padding:42px 44px !important;
   font-family:Arial, Helvetica, sans-serif !important;
@@ -10911,20 +10902,22 @@ body .app .cv-wrap > .cv {
   z-index:2 !important;
 }
 
-/* HEADER */
+/* ÜST ALAN */
 .cv.modern .cv-top,
 #cvPdfClone .cv.modern .cv-top,
 #cvPdfClone.cv.modern .cv-top {
   background:#ffffff !important;
+  color:#111827 !important;
   border:0 !important;
-  border-bottom:2px solid color-mix(in srgb, var(--accent) 22%, #e5e7eb) !important;
-  padding:0 0 30px 0 !important;
-  margin-bottom:30px !important;
+  border-bottom:2.5px solid var(--cv-accent,#2563eb) !important;
+  border-radius:0 !important;
+  padding:0 0 28px 0 !important;
+  margin-bottom:28px !important;
   box-shadow:none !important;
   text-align:left !important;
 }
 
-/* PHOTO */
+/* FOTOĞRAF */
 .cv.modern .photo-frame,
 #cvPdfClone .cv.modern .photo-frame,
 #cvPdfClone.cv.modern .photo-frame {
@@ -10933,9 +10926,9 @@ body .app .cv-wrap > .cv {
   float:left !important;
   margin:2px 22px 12px 0 !important;
   border-radius:18px !important;
-  border:1.5px solid color-mix(in srgb, var(--accent) 24%, #e5e7eb) !important;
+  border:2px solid rgba(37,99,235,.16) !important;
   background:#ffffff !important;
-  box-shadow:0 10px 28px color-mix(in srgb, var(--accent) 18%, transparent) !important;
+  box-shadow:0 12px 26px rgba(37,99,235,.12) !important;
 }
 
 .cv.modern .photo-frame img,
@@ -10946,33 +10939,33 @@ body .app .cv-wrap > .cv {
   object-fit:cover !important;
 }
 
-/* NAME */
+/* İSİM */
 .cv.modern h2,
 #cvPdfClone .cv.modern h2,
 #cvPdfClone.cv.modern h2 {
   color:#0f172a !important;
   font-size:42px !important;
   font-weight:900 !important;
-  letter-spacing:-1.5px !important;
+  letter-spacing:-1.4px !important;
   line-height:1.02 !important;
   margin:0 0 9px 0 !important;
 }
 
-/* ROLE */
+/* MESLEK */
 .cv.modern .role,
 #cvPdfClone .cv.modern .role,
 #cvPdfClone.cv.modern .role {
-  color:var(--accent) !important;
-  opacity:.9 !important;
+  color:#2563eb !important;
+  opacity:.92 !important;
   background:transparent !important;
-  font-size:13px !important;
+  font-size:13.5px !important;
   font-weight:900 !important;
   letter-spacing:1.4px !important;
   text-transform:uppercase !important;
-  margin:0 0 16px 0 !important;
+  margin:0 0 15px 0 !important;
 }
 
-/* INFO */
+/* BİLGİ SATIRLARI */
 .cv.modern .contact,
 .cv.modern .small-line,
 .cv.modern .info-value,
@@ -10983,8 +10976,8 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.modern .small-line,
 #cvPdfClone.cv.modern .info-value {
   color:#374151 !important;
-  font-size:13.1px !important;
-  line-height:1.54 !important;
+  font-size:13.2px !important;
+  line-height:1.52 !important;
   opacity:1 !important;
 }
 
@@ -10996,23 +10989,23 @@ body .app .cv-wrap > .cv {
   font-weight:850 !important;
 }
 
-/* SECTION */
+/* BÖLÜMLER */
 .cv.modern .sec,
 #cvPdfClone .cv.modern .sec,
 #cvPdfClone.cv.modern .sec {
   background:transparent !important;
   border:0 !important;
-  border-left:4px solid color-mix(in srgb, var(--accent) 18%, #e5e7eb) !important;
+  border-left:4px solid rgba(37,99,235,.16) !important;
   padding:0 0 18px 18px !important;
   margin:0 0 22px 0 !important;
 }
 
-/* SECTION TITLE */
+/* BÖLÜM BAŞLIKLARI */
 .cv.modern .sec h3,
 #cvPdfClone .cv.modern .sec h3,
 #cvPdfClone.cv.modern .sec h3 {
-  color:var(--accent) !important;
-  opacity:.9 !important;
+  color:#2563eb !important;
+  opacity:.92 !important;
   background:transparent !important;
   font-size:13px !important;
   font-weight:900 !important;
@@ -11034,8 +11027,7 @@ body .app .cv-wrap > .cv {
   width:28px !important;
   height:4px !important;
   border-radius:999px !important;
-  background:linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 30%, #ffffff)) !important;
-  box-shadow:0 0 10px color-mix(in srgb, var(--accent) 20%, transparent) !important;
+  background:rgba(37,99,235,.75) !important;
 }
 
 .cv.modern .sec h3::after,
@@ -11073,24 +11065,24 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.modern .entry p,
 #cvPdfClone.cv.modern .entry small {
   color:#374151 !important;
-  font-size:13.1px !important;
-  line-height:1.55 !important;
+  font-size:13.2px !important;
+  line-height:1.54 !important;
 }
 
 /* TAG */
 .cv.modern .tag,
 #cvPdfClone .cv.modern .tag,
 #cvPdfClone.cv.modern .tag {
-  background:color-mix(in srgb, var(--accent) 10%, #ffffff) !important;
-  color:var(--accent) !important;
-  border:1px solid color-mix(in srgb, var(--accent) 22%, #e5e7eb) !important;
+  background:rgba(37,99,235,.08) !important;
+  color:#2563eb !important;
+  border:1px solid rgba(37,99,235,.16) !important;
   border-radius:999px !important;
-  font-size:12px !important;
+  font-size:12.3px !important;
   font-weight:800 !important;
   box-shadow:none !important;
 }
 
-/* LIST */
+/* LİSTE */
 .cv.modern ul,
 #cvPdfClone .cv.modern ul,
 #cvPdfClone.cv.modern ul {
@@ -11103,7 +11095,7 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.modern li {
   margin-bottom:5px !important;
   color:#374151 !important;
-  font-size:13px !important;
+  font-size:13.1px !important;
 }
 
 /* WATERMARK */
@@ -11118,7 +11110,7 @@ body .app .cv-wrap > .cv {
   place-items:center !important;
   pointer-events:none !important;
   z-index:20 !important;
-  opacity:.11 !important;
+  opacity:.12 !important;
   transform:rotate(-24deg) !important;
   overflow:hidden !important;
 }
@@ -11135,4 +11127,39 @@ body .app .cv-wrap > .cv {
   -webkit-text-fill-color:rgba(17,24,39,.18) !important;
   user-select:none !important;
   line-height:1 !important;
+}
+/* MODERN RENK PALETİ GÜVENLİ BAĞLANTI — color-mix yok */
+
+.cv.modern .role,
+#cvPdfClone .cv.modern .role,
+#cvPdfClone.cv.modern .role,
+.cv.modern .sec h3,
+#cvPdfClone .cv.modern .sec h3,
+#cvPdfClone.cv.modern .sec h3 {
+  color: var(--cv-accent, #2563eb) !important;
+}
+
+.cv.modern .cv-top,
+#cvPdfClone .cv.modern .cv-top,
+#cvPdfClone.cv.modern .cv-top {
+  border-bottom-color: var(--cv-accent, #2563eb) !important;
+}
+
+.cv.modern .sec,
+#cvPdfClone .cv.modern .sec,
+#cvPdfClone.cv.modern .sec {
+  border-left-color: rgba(37,99,235,.16) !important;
+}
+
+.cv.modern .sec h3::before,
+#cvPdfClone .cv.modern .sec h3::before,
+#cvPdfClone.cv.modern .sec h3::before {
+  background: var(--cv-accent, #2563eb) !important;
+}
+
+.cv.modern .tag,
+#cvPdfClone .cv.modern .tag,
+#cvPdfClone.cv.modern .tag {
+  color: var(--cv-accent, #2563eb) !important;
+  border-color: var(--cv-accent, #2563eb) !important;
 }
