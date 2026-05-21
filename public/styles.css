@@ -10880,23 +10880,21 @@ body .app .cv-wrap > .cv {
   line-height:1 !important;
 }
 /* =========================================
-   CVYAZ MODERN V2 — PREMIUM TECH OVERRIDE
-   Modern class adı: .cv.modern
-   CSS en altına ekle.
+   CVYAZ MODERN V2.1 — PREMIUM TECH POLISH
+   Eski Modern V2 bloğunu sil, bunu yapıştır.
 ========================================= */
 
 .cv.modern,
 #cvPdfClone .cv.modern,
 #cvPdfClone.cv.modern {
   background:
-    linear-gradient(90deg, rgba(37,99,235,.08) 0, rgba(37,99,235,.08) 16px, #ffffff 16px, #ffffff 100%) !important;
+    linear-gradient(90deg, rgba(37,99,235,.09) 0, rgba(37,99,235,.09) 18px, #ffffff 18px, #ffffff 100%) !important;
   color:#111827 !important;
-  padding:40px 42px !important;
+  padding:42px 44px !important;
   font-family:Arial, Helvetica, sans-serif !important;
-  line-height:1.48 !important;
+  line-height:1.5 !important;
 }
 
-/* İç yapı */
 .cv.modern .cv-inner,
 #cvPdfClone .cv.modern .cv-inner,
 #cvPdfClone.cv.modern .cv-inner {
@@ -10904,33 +10902,33 @@ body .app .cv-wrap > .cv {
   z-index:2 !important;
 }
 
-/* Üst alan */
+/* ÜST ALAN */
 .cv.modern .cv-top,
 #cvPdfClone .cv.modern .cv-top,
 #cvPdfClone.cv.modern .cv-top {
   background:#ffffff !important;
   color:#111827 !important;
   border:0 !important;
-  border-bottom:2px solid var(--cv-accent,#2563eb) !important;
+  border-bottom:2.5px solid var(--cv-accent,#2563eb) !important;
   border-radius:0 !important;
-  padding:0 0 20px 0 !important;
-  margin-bottom:24px !important;
+  padding:0 0 28px 0 !important;
+  margin-bottom:28px !important;
   box-shadow:none !important;
   text-align:left !important;
 }
 
-/* Fotoğraf */
+/* FOTOĞRAF */
 .cv.modern .photo-frame,
 #cvPdfClone .cv.modern .photo-frame,
 #cvPdfClone.cv.modern .photo-frame {
-  width:86px !important;
-  height:106px !important;
+  width:96px !important;
+  height:118px !important;
   float:left !important;
-  margin:2px 20px 10px 0 !important;
-  border-radius:16px !important;
+  margin:2px 24px 12px 0 !important;
+  border-radius:18px !important;
   border:2px solid rgba(37,99,235,.18) !important;
   background:#ffffff !important;
-  box-shadow:0 10px 24px rgba(37,99,235,.12) !important;
+  box-shadow:0 14px 30px rgba(37,99,235,.14) !important;
 }
 
 .cv.modern .photo-frame img,
@@ -10941,32 +10939,32 @@ body .app .cv-wrap > .cv {
   object-fit:cover !important;
 }
 
-/* İsim */
+/* İSİM */
 .cv.modern h2,
 #cvPdfClone .cv.modern h2,
 #cvPdfClone.cv.modern h2 {
   color:#0f172a !important;
-  font-size:34px !important;
+  font-size:42px !important;
   font-weight:900 !important;
-  letter-spacing:-1px !important;
-  line-height:1.05 !important;
-  margin:0 0 7px 0 !important;
+  letter-spacing:-1.4px !important;
+  line-height:1.02 !important;
+  margin:0 0 9px 0 !important;
 }
 
-/* Pozisyon */
+/* MESLEK */
 .cv.modern .role,
 #cvPdfClone .cv.modern .role,
 #cvPdfClone.cv.modern .role {
   color:var(--cv-accent,#2563eb) !important;
   background:transparent !important;
-  font-size:13px !important;
+  font-size:13.5px !important;
   font-weight:900 !important;
-  letter-spacing:1.4px !important;
+  letter-spacing:1.6px !important;
   text-transform:uppercase !important;
-  margin:0 0 12px 0 !important;
+  margin:0 0 15px 0 !important;
 }
 
-/* Kişisel bilgi metinleri */
+/* BİLGİ SATIRLARI */
 .cv.modern .contact,
 .cv.modern .small-line,
 .cv.modern .info-value,
@@ -10977,8 +10975,8 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.modern .small-line,
 #cvPdfClone.cv.modern .info-value {
   color:#374151 !important;
-  font-size:12.9px !important;
-  line-height:1.48 !important;
+  font-size:13.2px !important;
+  line-height:1.52 !important;
   opacity:1 !important;
 }
 
@@ -10986,33 +10984,33 @@ body .app .cv-wrap > .cv {
 #cvPdfClone .cv.modern .info-label,
 #cvPdfClone.cv.modern .info-label {
   color:#111827 !important;
-  font-size:12px !important;
+  font-size:12.3px !important;
   font-weight:850 !important;
 }
 
-/* Bölümler */
+/* BÖLÜMLER */
 .cv.modern .sec,
 #cvPdfClone .cv.modern .sec,
 #cvPdfClone.cv.modern .sec {
   background:transparent !important;
   border:0 !important;
-  border-left:3px solid rgba(37,99,235,.16) !important;
-  padding:0 0 16px 16px !important;
-  margin:0 0 20px 0 !important;
+  border-left:4px solid rgba(37,99,235,.22) !important;
+  padding:0 0 18px 18px !important;
+  margin:0 0 22px 0 !important;
 }
 
-/* Bölüm başlıkları */
+/* BÖLÜM BAŞLIKLARI */
 .cv.modern .sec h3,
 #cvPdfClone .cv.modern .sec h3,
 #cvPdfClone.cv.modern .sec h3 {
   color:var(--cv-accent,#2563eb) !important;
   background:transparent !important;
-  font-size:12.8px !important;
+  font-size:13px !important;
   font-weight:900 !important;
-  letter-spacing:1.8px !important;
+  letter-spacing:1.9px !important;
   text-transform:uppercase !important;
   border:0 !important;
-  margin:0 0 12px 0 !important;
+  margin:0 0 13px 0 !important;
   padding:0 !important;
   display:flex !important;
   align-items:center !important;
@@ -11024,7 +11022,7 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.modern .sec h3::before {
   content:"" !important;
   display:inline-block !important;
-  width:24px !important;
+  width:28px !important;
   height:4px !important;
   border-radius:999px !important;
   background:var(--cv-accent,#2563eb) !important;
@@ -11040,13 +11038,13 @@ body .app .cv-wrap > .cv {
   display:none !important;
 }
 
-/* Entry */
+/* ENTRY */
 .cv.modern .entry,
 #cvPdfClone .cv.modern .entry,
 #cvPdfClone.cv.modern .entry {
   border:0 !important;
   padding:0 !important;
-  margin:0 0 14px 0 !important;
+  margin:0 0 15px 0 !important;
   color:#111827 !important;
 }
 
@@ -11054,7 +11052,7 @@ body .app .cv-wrap > .cv {
 #cvPdfClone .cv.modern .entry b,
 #cvPdfClone.cv.modern .entry b {
   color:#111827 !important;
-  font-size:13.4px !important;
+  font-size:13.7px !important;
   font-weight:850 !important;
 }
 
@@ -11065,24 +11063,24 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.modern .entry p,
 #cvPdfClone.cv.modern .entry small {
   color:#374151 !important;
-  font-size:13px !important;
-  line-height:1.5 !important;
+  font-size:13.2px !important;
+  line-height:1.54 !important;
 }
 
-/* Tag */
+/* TAG */
 .cv.modern .tag,
 #cvPdfClone .cv.modern .tag,
 #cvPdfClone.cv.modern .tag {
   background:rgba(37,99,235,.08) !important;
   color:var(--cv-accent,#2563eb) !important;
-  border:1px solid rgba(37,99,235,.16) !important;
+  border:1px solid rgba(37,99,235,.18) !important;
   border-radius:999px !important;
-  font-size:12px !important;
+  font-size:12.3px !important;
   font-weight:800 !important;
   box-shadow:none !important;
 }
 
-/* Liste */
+/* LİSTE */
 .cv.modern ul,
 #cvPdfClone .cv.modern ul,
 #cvPdfClone.cv.modern ul {
@@ -11095,10 +11093,10 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.modern li {
   margin-bottom:5px !important;
   color:#374151 !important;
-  font-size:13px !important;
+  font-size:13.1px !important;
 }
 
-/* Watermark */
+/* WATERMARK */
 .cv.modern .watermark-grid,
 #cvPdfClone .cv.modern .watermark-grid,
 #cvPdfClone.cv.modern .watermark-grid {
