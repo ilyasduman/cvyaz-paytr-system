@@ -10880,7 +10880,7 @@ body .app .cv-wrap > .cv {
   line-height:1 !important;
 }
 /* =========================================
-   CVYAZ MODERN V2.3 — STABLE ACCENT SYSTEM
+   CVYAZ MODERN V2.4 — STABLE SOFT ACCENT
    color-mix yok. Ön izleme kırmaz.
 ========================================= */
 
@@ -10902,22 +10902,20 @@ body .app .cv-wrap > .cv {
   z-index:2 !important;
 }
 
-/* ÜST ALAN */
 .cv.modern .cv-top,
 #cvPdfClone .cv.modern .cv-top,
 #cvPdfClone.cv.modern .cv-top {
   background:#ffffff !important;
   color:#111827 !important;
   border:0 !important;
-  border-bottom:2.5px solid var(--cv-accent,#2563eb) !important;
+  border-bottom:2px solid var(--cv-accent,#2563eb) !important;
   border-radius:0 !important;
-  padding:0 0 28px 0 !important;
+  padding:0 0 26px 0 !important;
   margin-bottom:28px !important;
   box-shadow:none !important;
   text-align:left !important;
 }
 
-/* FOTOĞRAF */
 .cv.modern .photo-frame,
 #cvPdfClone .cv.modern .photo-frame,
 #cvPdfClone.cv.modern .photo-frame {
@@ -10926,9 +10924,9 @@ body .app .cv-wrap > .cv {
   float:left !important;
   margin:2px 22px 12px 0 !important;
   border-radius:18px !important;
-  border:2px solid var(--cv-accent,#2563eb) !important;
+  border:1.5px solid rgba(37,99,235,.18) !important;
   background:#ffffff !important;
-  box-shadow:0 12px 26px rgba(37,99,235,.12) !important;
+  box-shadow:0 10px 24px rgba(15,23,42,.10) !important;
 }
 
 .cv.modern .photo-frame img,
@@ -10939,7 +10937,6 @@ body .app .cv-wrap > .cv {
   object-fit:cover !important;
 }
 
-/* İSİM */
 .cv.modern h2,
 #cvPdfClone .cv.modern h2,
 #cvPdfClone.cv.modern h2 {
@@ -10951,7 +10948,6 @@ body .app .cv-wrap > .cv {
   margin:0 0 9px 0 !important;
 }
 
-/* MESLEK */
 .cv.modern .role,
 #cvPdfClone .cv.modern .role,
 #cvPdfClone.cv.modern .role {
@@ -10965,7 +10961,6 @@ body .app .cv-wrap > .cv {
   margin:0 0 15px 0 !important;
 }
 
-/* BİLGİ SATIRLARI */
 .cv.modern .contact,
 .cv.modern .small-line,
 .cv.modern .info-value,
@@ -10989,18 +10984,16 @@ body .app .cv-wrap > .cv {
   font-weight:850 !important;
 }
 
-/* BÖLÜMLER */
 .cv.modern .sec,
 #cvPdfClone .cv.modern .sec,
 #cvPdfClone.cv.modern .sec {
   background:transparent !important;
   border:0 !important;
-  border-left:4px solid var(--cv-accent,#2563eb) !important;
-  padding:0 0 18px 18px !important;
+  border-left:3px solid var(--cv-accent,#2563eb) !important;
+  padding:0 0 18px 16px !important;
   margin:0 0 22px 0 !important;
 }
 
-/* BÖLÜM BAŞLIKLARI */
 .cv.modern .sec h3,
 #cvPdfClone .cv.modern .sec h3,
 #cvPdfClone.cv.modern .sec h3 {
@@ -11040,7 +11033,6 @@ body .app .cv-wrap > .cv {
   display:none !important;
 }
 
-/* ENTRY */
 .cv.modern .entry,
 #cvPdfClone .cv.modern .entry,
 #cvPdfClone.cv.modern .entry {
@@ -11069,20 +11061,18 @@ body .app .cv-wrap > .cv {
   line-height:1.54 !important;
 }
 
-/* TAG */
 .cv.modern .tag,
 #cvPdfClone .cv.modern .tag,
 #cvPdfClone.cv.modern .tag {
   background:#ffffff !important;
   color:var(--cv-accent,#2563eb) !important;
-  border:1.5px solid var(--cv-accent,#2563eb) !important;
+  border:1.2px solid var(--cv-accent,#2563eb) !important;
   border-radius:999px !important;
   font-size:12.3px !important;
   font-weight:800 !important;
   box-shadow:none !important;
 }
 
-/* LİSTE */
 .cv.modern ul,
 #cvPdfClone .cv.modern ul,
 #cvPdfClone.cv.modern ul {
@@ -11098,7 +11088,6 @@ body .app .cv-wrap > .cv {
   font-size:13.1px !important;
 }
 
-/* WATERMARK */
 .cv.modern .watermark-grid,
 #cvPdfClone .cv.modern .watermark-grid,
 #cvPdfClone.cv.modern .watermark-grid {
