@@ -10888,7 +10888,7 @@ body .app .cv-wrap > .cv {
 #cvPdfClone .cv.modern,
 #cvPdfClone.cv.modern {
   background:#ffffff !important;
-  border-left:18px solid var(--cv-accent,#2563eb) !important;
+  border-left:8px solid var(--cv-accent,#2563eb) !important;
   color:#111827 !important;
   padding:42px 44px !important;
   font-family:Arial, Helvetica, sans-serif !important;
