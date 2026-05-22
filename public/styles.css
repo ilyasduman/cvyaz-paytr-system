@@ -11540,3 +11540,256 @@ body .app .cv-wrap > .cv {
   }
 
 }
+/* =========================================
+   PREMIUM V2 — LUXURY / EXECUTIVE
+========================================= */
+
+.cv.premium,
+#cvPdfClone.cv.premium{
+
+  background:#fffdf9 !important;
+  color:#1a1a1a !important;
+
+  padding:58px 56px !important;
+
+  font-family:
+    "Inter",
+    "Helvetica Neue",
+    sans-serif !important;
+
+  position:relative !important;
+}
+
+/* üst altın çizgi */
+
+.cv.premium::before,
+#cvPdfClone.cv.premium::before{
+  content:"" !important;
+
+  position:absolute !important;
+
+  top:34px !important;
+  left:56px !important;
+  right:56px !important;
+
+  height:2px !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      #c8a96b,
+      #f4e4bc,
+      #c8a96b
+    ) !important;
+}
+
+/* HEADER */
+
+.cv.premium .cv-top,
+#cvPdfClone.cv.premium .cv-top{
+
+  position:relative !important;
+
+  padding-right:180px !important;
+
+  margin-bottom:46px !important;
+
+  background:none !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+/* FOTO */
+
+.cv.premium .photo-frame,
+#cvPdfClone.cv.premium .photo-frame{
+
+  position:absolute !important;
+
+  top:6px !important;
+  right:0 !important;
+
+  width:122px !important;
+  height:122px !important;
+
+  border-radius:22px !important;
+
+  overflow:hidden !important;
+
+  border:2px solid #d6b97a !important;
+
+  background:#fff !important;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08) !important;
+}
+
+/* İSİM */
+
+.cv.premium h2,
+#cvPdfClone.cv.premium h2{
+
+  font-size:56px !important;
+
+  font-weight:900 !important;
+
+  letter-spacing:-2px !important;
+
+  line-height:.92 !important;
+
+  color:#111827 !important;
+
+  margin-bottom:12px !important;
+}
+
+/* MESLEK */
+
+.cv.premium .role,
+#cvPdfClone.cv.premium .role{
+
+  font-size:16px !important;
+
+  letter-spacing:4px !important;
+
+  text-transform:uppercase !important;
+
+  font-weight:700 !important;
+
+  color:#b38b44 !important;
+
+  background:none !important;
+
+  border:0 !important;
+
+  padding:0 !important;
+
+  margin-bottom:26px !important;
+}
+
+/* BİLGİLER */
+
+.cv.premium .contact,
+.cv.premium .small-line,
+.cv.premium .info-value,
+#cvPdfClone.cv.premium .contact,
+#cvPdfClone.cv.premium .small-line,
+#cvPdfClone.cv.premium .info-value{
+
+  color:#4b5563 !important;
+
+  font-size:15px !important;
+
+  line-height:1.8 !important;
+}
+
+.cv.premium .info-label,
+#cvPdfClone.cv.premium .info-label{
+
+  color:#111827 !important;
+
+  font-weight:800 !important;
+}
+
+/* SECTION */
+
+.cv.premium .sec,
+#cvPdfClone.cv.premium .sec{
+
+  background:none !important;
+
+  border:0 !important;
+
+  border-top:1px solid #ece5d8 !important;
+
+  padding:24px 0 0 !important;
+
+  margin-bottom:26px !important;
+}
+
+/* BAŞLIK */
+
+.cv.premium .sec h3,
+#cvPdfClone.cv.premium .sec h3{
+
+  font-size:13px !important;
+
+  letter-spacing:3px !important;
+
+  text-transform:uppercase !important;
+
+  color:#b38b44 !important;
+
+  margin-bottom:16px !important;
+
+  background:none !important;
+
+  border:0 !important;
+
+  padding:0 !important;
+}
+
+.cv.premium .sec h3::before,
+#cvPdfClone.cv.premium .sec h3::before,
+.cv.premium .sec::before,
+#cvPdfClone.cv.premium .sec::before{
+  display:none !important;
+}
+
+/* TAG */
+
+.cv.premium .tag,
+#cvPdfClone.cv.premium .tag{
+
+  background:#f6efe2 !important;
+
+  color:#8a6a2f !important;
+
+  border-radius:999px !important;
+
+  padding:6px 12px !important;
+}
+
+/* ENTRY */
+
+.cv.premium .entry,
+#cvPdfClone.cv.premium .entry{
+
+  border:0 !important;
+
+  padding-left:0 !important;
+}
+
+/* MOBİL */
+
+@media (max-width:768px){
+
+  .cv.premium,
+  #cvPdfClone.cv.premium{
+    padding:34px 24px !important;
+  }
+
+  .cv.premium .cv-top,
+  #cvPdfClone.cv.premium .cv-top{
+    padding-right:0 !important;
+  }
+
+  .cv.premium .photo-frame,
+  #cvPdfClone.cv.premium .photo-frame{
+
+    position:relative !important;
+
+    right:auto !important;
+    top:auto !important;
+
+    margin:0 0 18px auto !important;
+
+    width:90px !important;
+    height:90px !important;
+  }
+
+  .cv.premium h2,
+  #cvPdfClone.cv.premium h2{
+    font-size:34px !important;
+  }
+
+}
