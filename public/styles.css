@@ -11271,7 +11271,8 @@ body .app .cv-wrap > .cv {
   line-height:1 !important;
 }
 /* =========================================
-   CVYAZ CREATIVE V2.3 — PDF SAFE DESIGN
+   CVYAZ CREATIVE V2.4 — ULTRA SAFE CREATIVE
+   Veri girilince PDF açılması için sadeleştirildi.
 ========================================= */
 
 .cv.creative,
@@ -11283,28 +11284,25 @@ body .app .cv-wrap > .cv {
   line-height:1.5 !important;
 }
 
-/* ÜST KART */
 .cv.creative .cv-top,
 #cvPdfClone.cv.creative .cv-top {
-  background:#ffffff !important;
   border:2px solid var(--cv-accent,#ec4899) !important;
-  border-radius:24px 8px 24px 8px !important;
   padding:24px !important;
   margin-bottom:24px !important;
-  text-align:left !important;
+  background:#ffffff !important;
+  border-radius:0 !important;
   box-shadow:none !important;
 }
 
-/* FOTOĞRAF */
 .cv.creative .photo-frame,
 #cvPdfClone.cv.creative .photo-frame {
   width:82px !important;
   height:102px !important;
-  border-radius:20px 8px 20px 8px !important;
   border:2px solid var(--cv-accent,#ec4899) !important;
   background:#ffffff !important;
   overflow:hidden !important;
-  margin:0 0 14px 0 !important;
+  margin-bottom:14px !important;
+  border-radius:0 !important;
   box-shadow:none !important;
 }
 
@@ -11315,34 +11313,27 @@ body .app .cv-wrap > .cv {
   object-fit:cover !important;
 }
 
-/* İSİM */
 .cv.creative h2,
 #cvPdfClone.cv.creative h2 {
   color:#111827 !important;
   font-size:38px !important;
   font-weight:900 !important;
-  letter-spacing:-1.5px !important;
-  line-height:1.02 !important;
+  letter-spacing:-1.4px !important;
+  line-height:1.05 !important;
   margin:0 0 10px 0 !important;
-  text-transform:lowercase !important;
 }
 
-/* MESLEK */
 .cv.creative .role,
 #cvPdfClone.cv.creative .role {
-  display:inline-block !important;
-  background:var(--cv-accent,#ec4899) !important;
-  color:#ffffff !important;
-  border-radius:999px !important;
-  padding:6px 13px !important;
-  font-size:12px !important;
+  color:var(--cv-accent,#ec4899) !important;
+  background:transparent !important;
+  font-size:13px !important;
   font-weight:900 !important;
-  letter-spacing:1px !important;
+  letter-spacing:1.4px !important;
   text-transform:uppercase !important;
   margin:0 0 14px 0 !important;
 }
 
-/* BİLGİLER */
 .cv.creative .contact,
 .cv.creative .small-line,
 .cv.creative .info-value,
@@ -11361,19 +11352,16 @@ body .app .cv-wrap > .cv {
   font-weight:900 !important;
 }
 
-/* BÖLÜM KARTLARI */
 .cv.creative .sec,
 #cvPdfClone.cv.creative .sec {
   background:#ffffff !important;
-  border:1.5px solid rgba(17,24,39,.10) !important;
   border:1.5px solid var(--cv-accent,#ec4899) !important;
-  border-radius:18px 8px 18px 8px !important;
   padding:16px 18px !important;
   margin:0 0 18px 0 !important;
+  border-radius:0 !important;
   box-shadow:none !important;
 }
 
-/* BÖLÜM BAŞLIKLARI */
 .cv.creative .sec h3,
 #cvPdfClone.cv.creative .sec h3 {
   color:var(--cv-accent,#ec4899) !important;
@@ -11397,7 +11385,6 @@ body .app .cv-wrap > .cv {
   display:none !important;
 }
 
-/* ENTRY */
 .cv.creative .entry,
 #cvPdfClone.cv.creative .entry {
   border:0 !important;
@@ -11421,13 +11408,12 @@ body .app .cv-wrap > .cv {
   line-height:1.5 !important;
 }
 
-/* TAG */
 .cv.creative .tag,
 #cvPdfClone.cv.creative .tag {
-  background:var(--cv-accent,#ec4899) !important;
-  color:#ffffff !important;
-  border:0 !important;
-  border-radius:999px !important;
+  background:transparent !important;
+  color:var(--cv-accent,#ec4899) !important;
+  border:1px solid var(--cv-accent,#ec4899) !important;
+  border-radius:0 !important;
   font-size:12px !important;
   font-weight:850 !important;
 }
