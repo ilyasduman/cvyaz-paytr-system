@@ -11427,3 +11427,25 @@ body .app .cv-wrap > .cv {
   font-size:12px !important;
   font-weight:850 !important;
 }
+/* FOTOĞRAFI SAĞA AL */
+.cv.creative .cv-top,
+#cvPdfClone.cv.creative .cv-top{
+  display:flex !important;
+  justify-content:space-between !important;
+  align-items:flex-start !important;
+  gap:26px !important;
+}
+
+/* SOL İÇERİK */
+.cv.creative .top-left,
+#cvPdfClone.cv.creative .top-left{
+  flex:1 !important;
+}
+
+/* FOTO SAĞ */
+.cv.creative .photo-frame,
+#cvPdfClone.cv.creative .photo-frame{
+  order:2 !important;
+  margin:0 !important;
+  flex-shrink:0 !important;
+}
