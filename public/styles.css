@@ -11518,3 +11518,25 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.creative .info-value {
   font-size:13.6px !important;
 }
+/* =========================================
+   CREATIVE PDF NAME FIX
+========================================= */
+
+.cv.creative h2,
+#cvPdfClone.cv.creative h2{
+  font-size:52px !important;
+  line-height:.95 !important;
+  letter-spacing:-2px !important;
+  max-width:720px !important;
+}
+
+/* MOBİL */
+@media (max-width:768px){
+
+  .cv.creative h2,
+  #cvPdfClone.cv.creative h2{
+    font-size:32px !important;
+    letter-spacing:-1px !important;
+  }
+
+}
