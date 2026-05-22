@@ -11449,3 +11449,44 @@ body .app .cv-wrap > .cv {
   margin:0 !important;
   flex-shrink:0 !important;
 }
+/* FOTO biraz küçülsün */
+.cv.creative .photo-frame,
+#cvPdfClone.cv.creative .photo-frame{
+  width:120px !important;
+  height:120px !important;
+}
+
+/* İsim daha kompakt */
+.cv.creative h2,
+#cvPdfClone.cv.creative h2{
+  font-size:68px !important;
+  letter-spacing:-3px !important;
+}
+
+/* Üst alan nefes alsın */
+.cv.creative .cv-top,
+#cvPdfClone.cv.creative .cv-top{
+  padding-top:34px !important;
+  padding-bottom:34px !important;
+}
+
+/* Bölüm çizgileri daha soft */
+.cv.creative .sec,
+#cvPdfClone.cv.creative .sec{
+  border-left:3px solid var(--cv-accent,#ec4899) !important;
+}
+
+/* Section başlığı daha modern */
+.cv.creative .sec h3,
+#cvPdfClone.cv.creative .sec h3{
+  font-size:15px !important;
+  letter-spacing:3px !important;
+}
+
+/* Bilgiler biraz küçülsün */
+.cv.creative .contact,
+.cv.creative .info-value,
+#cvPdfClone.cv.creative .contact,
+#cvPdfClone.cv.creative .info-value{
+  font-size:14px !important;
+}
