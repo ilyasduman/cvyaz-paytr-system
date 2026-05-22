@@ -1113,7 +1113,7 @@ select:focus {
 
 
 .tab[data-template="minimal"]::after { background: #9ca3af; }
-.tab[data-template="executive"]::after { background: #7c3aed; }
+.tab[data-template="executive"]::after { background: #9aaea3; }
 .tab[data-template="corporate"]::after { background: #0f172a; }
 
 
