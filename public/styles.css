@@ -11357,3 +11357,26 @@ body .app .cv-wrap > .cv {
   user-select:none !important;
   line-height:1 !important;
 }
+/* EXECUTIVE V3 — RENK PALETİ BAĞLANTISI */
+
+.cv.executive .cv-top,
+#cvPdfClone .cv.executive .cv-top,
+#cvPdfClone.cv.executive .cv-top {
+  background: var(--cv-accent, #9aaea3) !important;
+}
+
+.cv.executive .role,
+#cvPdfClone .cv.executive .role,
+#cvPdfClone.cv.executive .role {
+  color: var(--cv-accent, #60766b) !important;
+  background: rgba(255,255,255,.88) !important;
+}
+
+.cv.executive .sec h3,
+#cvPdfClone .cv.executive .sec h3,
+#cvPdfClone.cv.executive .sec h3,
+.cv.executive .tag,
+#cvPdfClone .cv.executive .tag,
+#cvPdfClone.cv.executive .tag {
+  border-color: var(--cv-accent, #9aaea3) !important;
+}
