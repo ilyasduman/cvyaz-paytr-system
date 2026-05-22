@@ -11117,3 +11117,243 @@ body .app .cv-wrap > .cv {
   user-select:none !important;
   line-height:1 !important;
 }
+/* =========================================
+   CVYAZ EXECUTIVE V3 — SOFT BOARDROOM
+   Alta eklenecek stabil override.
+========================================= */
+
+.cv.executive,
+#cvPdfClone .cv.executive,
+#cvPdfClone.cv.executive {
+  background:#ffffff !important;
+  color:#1f2937 !important;
+  padding:0 !important;
+  border:0 !important;
+  font-family:Arial, Helvetica, sans-serif !important;
+  line-height:1.5 !important;
+}
+
+.cv.executive .cv-inner,
+#cvPdfClone .cv.executive .cv-inner,
+#cvPdfClone.cv.executive .cv-inner {
+  position:relative !important;
+  z-index:2 !important;
+  padding:0 46px 46px !important;
+}
+
+/* ÜST BOARDROOM HEADER */
+.cv.executive .cv-top,
+#cvPdfClone .cv.executive .cv-top,
+#cvPdfClone.cv.executive .cv-top {
+  margin:0 -46px 30px !important;
+  padding:30px 46px !important;
+  min-height:auto !important;
+  background:#9aaea3 !important;
+  color:#ffffff !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:24px !important;
+}
+
+/* FOTOĞRAF */
+.cv.executive .photo-frame,
+#cvPdfClone .cv.executive .photo-frame,
+#cvPdfClone.cv.executive .photo-frame {
+  width:116px !important;
+  height:132px !important;
+  border-radius:8px !important;
+  border:2px solid rgba(255,255,255,.9) !important;
+  background:#ffffff !important;
+  overflow:hidden !important;
+  flex-shrink:0 !important;
+  box-shadow:none !important;
+}
+
+.cv.executive .photo-frame img,
+#cvPdfClone .cv.executive .photo-frame img,
+#cvPdfClone.cv.executive .photo-frame img {
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+
+/* İSİM */
+.cv.executive h2,
+#cvPdfClone .cv.executive h2,
+#cvPdfClone.cv.executive h2 {
+  color:#ffffff !important;
+  font-family:Georgia, "Times New Roman", serif !important;
+  font-size:42px !important;
+  font-weight:700 !important;
+  letter-spacing:.02em !important;
+  line-height:1.05 !important;
+  text-transform:uppercase !important;
+  margin:0 0 10px 0 !important;
+}
+
+/* ROLE */
+.cv.executive .role,
+#cvPdfClone .cv.executive .role,
+#cvPdfClone.cv.executive .role {
+  display:inline-block !important;
+  background:rgba(255,255,255,.88) !important;
+  color:#60766b !important;
+  border-radius:6px !important;
+  padding:6px 16px !important;
+  font-size:12px !important;
+  font-weight:850 !important;
+  letter-spacing:1.2px !important;
+  text-transform:uppercase !important;
+  margin:0 !important;
+}
+
+/* HEADER İÇİ BİLGİLER */
+.cv.executive .contact,
+.cv.executive .small-line,
+.cv.executive .info-value,
+#cvPdfClone .cv.executive .contact,
+#cvPdfClone .cv.executive .small-line,
+#cvPdfClone .cv.executive .info-value,
+#cvPdfClone.cv.executive .contact,
+#cvPdfClone.cv.executive .small-line,
+#cvPdfClone.cv.executive .info-value {
+  color:rgba(255,255,255,.95) !important;
+  font-size:12.8px !important;
+  line-height:1.5 !important;
+  opacity:1 !important;
+}
+
+.cv.executive .info-label,
+#cvPdfClone .cv.executive .info-label,
+#cvPdfClone.cv.executive .info-label {
+  color:#ffffff !important;
+  font-size:12px !important;
+  font-weight:850 !important;
+}
+
+/* BÖLÜMLER */
+.cv.executive .sec,
+#cvPdfClone .cv.executive .sec,
+#cvPdfClone.cv.executive .sec {
+  background:transparent !important;
+  border:0 !important;
+  padding:0 !important;
+  margin:0 0 22px 0 !important;
+}
+
+/* BÖLÜM BAŞLIĞI — KUTULU */
+.cv.executive .sec h3,
+#cvPdfClone .cv.executive .sec h3,
+#cvPdfClone.cv.executive .sec h3 {
+  background:#e7eee9 !important;
+  color:#1f2937 !important;
+  border:1px solid rgba(96,118,107,.45) !important;
+  border-radius:6px !important;
+  padding:7px 14px !important;
+  margin:0 0 14px 0 !important;
+  font-size:13px !important;
+  font-weight:900 !important;
+  letter-spacing:1.3px !important;
+  text-transform:uppercase !important;
+}
+
+.cv.executive .sec h3::before,
+.cv.executive .sec h3::after,
+#cvPdfClone .cv.executive .sec h3::before,
+#cvPdfClone .cv.executive .sec h3::after,
+#cvPdfClone.cv.executive .sec h3::before,
+#cvPdfClone.cv.executive .sec h3::after {
+  content:none !important;
+  display:none !important;
+}
+
+/* ENTRY */
+.cv.executive .entry,
+#cvPdfClone .cv.executive .entry,
+#cvPdfClone.cv.executive .entry {
+  border:0 !important;
+  padding:0 !important;
+  margin:0 0 16px 0 !important;
+}
+
+.cv.executive .entry b,
+#cvPdfClone .cv.executive .entry b,
+#cvPdfClone.cv.executive .entry b {
+  color:#111827 !important;
+  font-size:13.8px !important;
+  font-weight:850 !important;
+  text-transform:uppercase !important;
+}
+
+.cv.executive .entry p,
+.cv.executive .entry small,
+#cvPdfClone .cv.executive .entry p,
+#cvPdfClone .cv.executive .entry small,
+#cvPdfClone.cv.executive .entry p,
+#cvPdfClone.cv.executive .entry small {
+  color:#374151 !important;
+  font-size:13px !important;
+  line-height:1.55 !important;
+}
+
+/* TAG */
+.cv.executive .tag,
+#cvPdfClone .cv.executive .tag,
+#cvPdfClone.cv.executive .tag {
+  background:#e7eee9 !important;
+  color:#1f2937 !important;
+  border:1px solid rgba(96,118,107,.45) !important;
+  border-radius:6px !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+}
+
+/* LİSTE */
+.cv.executive ul,
+#cvPdfClone .cv.executive ul,
+#cvPdfClone.cv.executive ul {
+  margin:7px 0 0 18px !important;
+  padding:0 !important;
+}
+
+.cv.executive li,
+#cvPdfClone .cv.executive li,
+#cvPdfClone.cv.executive li {
+  margin-bottom:5px !important;
+  color:#374151 !important;
+  font-size:13px !important;
+}
+
+/* WATERMARK */
+.cv.executive .watermark-grid,
+#cvPdfClone .cv.executive .watermark-grid,
+#cvPdfClone.cv.executive .watermark-grid {
+  display:grid !important;
+  position:absolute !important;
+  inset:-90px !important;
+  grid-template-columns:repeat(4,1fr) !important;
+  gap:125px 110px !important;
+  place-items:center !important;
+  pointer-events:none !important;
+  z-index:20 !important;
+  opacity:.11 !important;
+  transform:rotate(-24deg) !important;
+  overflow:hidden !important;
+}
+
+.cv.executive .watermark-grid span,
+#cvPdfClone .cv.executive .watermark-grid span,
+#cvPdfClone.cv.executive .watermark-grid span {
+  display:inline-block !important;
+  font-size:40px !important;
+  font-weight:900 !important;
+  letter-spacing:2px !important;
+  white-space:nowrap !important;
+  color:rgba(17,24,39,.18) !important;
+  -webkit-text-fill-color:rgba(17,24,39,.18) !important;
+  user-select:none !important;
+  line-height:1 !important;
+}
