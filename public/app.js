@@ -4268,7 +4268,7 @@ const cvyazTemplatePalettes = {
   executive: ["#9aaea3", "#8b1e1e", "#6b4f3f", "#111827"],
   corporate: ["#0f172a", "#047857", "#1d4ed8"],
   creative: ["#ec4899", "#8b5cf6", "#f97316", "#06b6d4"],
-  premium: ["#d4af37", "#b45309", "#111827", "#7f1d1d"]
+  premium: ["#d4af37", "#8b5a2b", "#0f172a", "#7f1d1d"]
 };
 
 window.cvyazSelectedAccent = window.cvyazSelectedAccent || "#2563eb";
