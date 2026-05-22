@@ -11898,3 +11898,65 @@ body .app .cv-wrap > .cv {
 .cv.premium .role{
    letter-spacing: 4px !important;
 }
+/* =====================================================
+   CREATIVE — RENK PALETİ TAM BAĞLANTI FIX
+   Meslek + başlık + çizgi + foto + border tek renge bağlandı
+===================================================== */
+
+.cv.creative,
+#cvPdfClone.cv.creative{
+  --creative-accent: var(--cv-accent, #ec4899);
+}
+
+/* Üst çizgi */
+.cv.creative .cv-top,
+#cvPdfClone.cv.creative .cv-top{
+  border-top-color: var(--creative-accent) !important;
+}
+
+/* Fotoğraf çerçevesi */
+.cv.creative .photo-frame,
+#cvPdfClone.cv.creative .photo-frame{
+  border-color: var(--creative-accent) !important;
+}
+
+/* Meslek / pozisyon */
+.cv.creative .role,
+#cvPdfClone.cv.creative .role{
+  color: var(--creative-accent) !important;
+  background: transparent !important;
+}
+
+/* Bölüm başlıkları */
+.cv.creative .sec h3,
+#cvPdfClone.cv.creative .sec h3{
+  color: var(--creative-accent) !important;
+}
+
+/* Sol vurgu çizgileri */
+.cv.creative .sec,
+#cvPdfClone.cv.creative .sec{
+  border-left-color: var(--creative-accent) !important;
+}
+
+/* Küçük çizgi / pseudo çizgiler */
+.cv.creative .sec h3::before,
+.cv.creative .sec h3::after,
+#cvPdfClone.cv.creative .sec h3::before,
+#cvPdfClone.cv.creative .sec h3::after{
+  background: var(--creative-accent) !important;
+}
+
+/* Tag / rozet */
+.cv.creative .tag,
+#cvPdfClone.cv.creative .tag{
+  background: var(--creative-accent) !important;
+  border-color: var(--creative-accent) !important;
+  color: #ffffff !important;
+}
+
+/* İnce ayraçlar */
+.cv.creative .entry,
+#cvPdfClone.cv.creative .entry{
+  border-color: rgba(17,24,39,.08) !important;
+}
