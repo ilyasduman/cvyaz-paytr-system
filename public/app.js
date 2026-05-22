@@ -4258,95 +4258,89 @@ cvyazSaveDraft();
   });
 
 })();
-/* =========================================
-   CV RENK DEĞİŞTİRME
-========================================= */
-
-const colorDots = document.querySelectorAll(".color-dot");
-
-colorDots.forEach(dot => {
-
-  dot.addEventListener("click", () => {
-
-    colorDots.forEach(d => d.classList.remove("active"));
-
-    dot.classList.add("active");
-
-    const color = dot.dataset.color;
-
-    document.documentElement.style.setProperty(
-      "--cv-accent",
-      color
-    );
-
-  });
-
-});
-/* =========================================
-   CV RENK DEĞİŞTİRME
-========================================= */
-
-document.querySelectorAll(".color-dot").forEach(dot => {
-  dot.addEventListener("click", () => {
-    const color = dot.getAttribute("data-color");
-
-    document.documentElement.style.setProperty("--cv-accent", color);
-
-    document.querySelectorAll(".color-dot").forEach(d => {
-      d.classList.remove("active");
-    });
-
-    dot.classList.add("active");
-  });
-});
 /* =====================================================
-   CVYAZ COLOR SYSTEM FINAL
-   ANA SAYFA + PDF ÖNİZLEME
+   CVYAZ TEMPLATE BAZLI RENK SİSTEMİ
 ===================================================== */
 
-window.cvyazSelectedAccent =
-  window.cvyazSelectedAccent || "#2563eb";
+const cvyazTemplatePalettes = {
+  minimal: ["#333333", "#64748b", "#0f172a", "#7f1d1d", "#6b4f3f"],
+  modern: ["#2563eb", "#10b981", "#ef4444", "#f59e0b", "#7c3aed", "#111827"],
+  executive: ["#9aaea3", "#1e3a5f", "#7f1d1d", "#6b4f3f", "#111827"],
+  corporate: ["#0f172a", "#1d4ed8", "#047857", "#374151"],
+  creative: ["#ec4899", "#8b5cf6", "#f97316", "#06b6d4"],
+  premium: ["#d4af37", "#b45309", "#111827", "#7f1d1d"]
+};
 
-function applyCvAccentColor(color) {
+window.cvyazSelectedAccent = window.cvyazSelectedAccent || "#2563eb";
 
-  window.cvyazSelectedAccent = color;
+function getCurrentCvTemplate() {
+  const cv = document.getElementById("cv");
+  if (!cv) return "modern";
 
-  document.documentElement.style.setProperty(
-    "--cv-accent",
-    color
-  );
+  const templates = [
+    "minimal",
+    "modern",
+    "executive",
+    "corporate",
+    "creative",
+    "premium"
+  ];
 
-  const liveCv = document.getElementById("cv");
-
-  if (liveCv) {
-    liveCv.style.setProperty("--cv-accent", color);
-  }
-
-  const pdfClone = document.getElementById("cvPdfClone");
-
-  if (pdfClone) {
-    pdfClone.style.setProperty("--cv-accent", color);
-  }
-
+  return templates.find(t => cv.classList.contains(t)) || "modern";
 }
 
-document.querySelectorAll(".color-dot").forEach(function(dot) {
+function applyCvAccentColor(color) {
+  window.cvyazSelectedAccent = color;
 
-  dot.addEventListener("click", function() {
+  document.documentElement.style.setProperty("--cv-accent", color);
 
-    const color =
-      dot.getAttribute("data-color") || "#2563eb";
+  const liveCv = document.getElementById("cv");
+  if (liveCv) liveCv.style.setProperty("--cv-accent", color);
 
-    applyCvAccentColor(color);
+  const pdfClone = document.getElementById("cvPdfClone");
+  if (pdfClone) pdfClone.style.setProperty("--cv-accent", color);
+}
 
-    document
-      .querySelectorAll(".color-dot")
-      .forEach(function(d) {
+function renderTemplatePalette(template) {
+  const palette = document.querySelector(".color-palette");
+  if (!palette) return;
+
+  const colors =
+    cvyazTemplatePalettes[template] || cvyazTemplatePalettes.modern;
+
+  palette.innerHTML = "";
+
+  colors.forEach((color, index) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "color-dot" + (index === 0 ? " active" : "");
+    btn.dataset.color = color;
+    btn.style.background = color;
+
+    btn.addEventListener("click", function () {
+      applyCvAccentColor(color);
+
+      document.querySelectorAll(".color-dot").forEach(d => {
         d.classList.remove("active");
       });
 
-    dot.classList.add("active");
+      btn.classList.add("active");
+    });
 
+    palette.appendChild(btn);
   });
 
+  applyCvAccentColor(colors[0]);
+}
+
+function refreshPaletteForCurrentTemplate() {
+  renderTemplatePalette(getCurrentCvTemplate());
+}
+
+refreshPaletteForCurrentTemplate();
+
+document.querySelectorAll(".tab[data-template]").forEach(tab => {
+  tab.addEventListener("click", () => {
+    setTimeout(refreshPaletteForCurrentTemplate, 80);
+  });
 });
