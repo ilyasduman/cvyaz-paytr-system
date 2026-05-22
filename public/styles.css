@@ -11793,3 +11793,35 @@ body .app .cv-wrap > .cv {
   }
 
 }
+/* =========================================
+   PREMIUM V2 — RENK PALETİ BAĞLANTI FIX
+========================================= */
+
+.cv.premium::before,
+#cvPdfClone.cv.premium::before{
+  background:var(--cv-accent,#d4af37) !important;
+}
+
+.cv.premium .photo-frame,
+#cvPdfClone.cv.premium .photo-frame{
+  border-color:var(--cv-accent,#d4af37) !important;
+}
+
+.cv.premium .role,
+#cvPdfClone.cv.premium .role,
+.cv.premium .sec h3,
+#cvPdfClone.cv.premium .sec h3{
+  color:var(--cv-accent,#d4af37) !important;
+}
+
+.cv.premium .tag,
+#cvPdfClone.cv.premium .tag{
+  color:var(--cv-accent,#d4af37) !important;
+  border:1px solid var(--cv-accent,#d4af37) !important;
+  background:#fffaf0 !important;
+}
+
+.cv.premium .sec,
+#cvPdfClone.cv.premium .sec{
+  border-top-color:var(--cv-accent,#d4af37) !important;
+}
