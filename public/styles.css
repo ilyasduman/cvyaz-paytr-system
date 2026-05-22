@@ -11366,7 +11366,7 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.creative .sec {
   background:#ffffff !important;
   border:1.5px solid rgba(17,24,39,.10) !important;
-  border-left:5px solid var(--cv-accent,#ec4899) !important;
+  border:1.5px solid var(--cv-accent,#ec4899) !important;
   border-radius:18px 8px 18px 8px !important;
   padding:16px 18px !important;
   margin:0 0 18px 0 !important;
