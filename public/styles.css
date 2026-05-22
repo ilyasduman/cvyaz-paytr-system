@@ -11490,3 +11490,31 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.creative .info-value{
   font-size:14px !important;
 }
+/* CREATIVE SON POLISH */
+
+.cv.creative h2,
+#cvPdfClone.cv.creative h2 {
+  font-size:56px !important;
+  letter-spacing:-2.2px !important;
+}
+
+.cv.creative .photo-frame,
+#cvPdfClone.cv.creative .photo-frame {
+  width:112px !important;
+  height:112px !important;
+}
+
+.cv.creative .cv-top,
+#cvPdfClone.cv.creative .cv-top {
+  padding-top:28px !important;
+  padding-bottom:28px !important;
+}
+
+.cv.creative .contact,
+.cv.creative .small-line,
+.cv.creative .info-value,
+#cvPdfClone.cv.creative .contact,
+#cvPdfClone.cv.creative .small-line,
+#cvPdfClone.cv.creative .info-value {
+  font-size:13.6px !important;
+}
