@@ -11270,218 +11270,28 @@ body .app .cv-wrap > .cv {
   user-select:none !important;
   line-height:1 !important;
 }
-/* =========================================
-   CVYAZ CREATIVE V2.1 — SAFE PORTFOLIO
-   Fotoğraf sağda, PDF ön izleme dostu.
-========================================= */
-
 .cv.creative,
-#cvPdfClone .cv.creative,
 #cvPdfClone.cv.creative {
-  background:#ffffff !important;
+  background:#fff !important;
   color:#111827 !important;
-  padding:44px 46px !important;
-  font-family:Arial, Helvetica, sans-serif !important;
-  line-height:1.5 !important;
-}
-
-.cv.creative .cv-inner,
-#cvPdfClone .cv.creative .cv-inner,
-#cvPdfClone.cv.creative .cv-inner {
-  position:relative !important;
-  z-index:2 !important;
+  padding:44px !important;
 }
 
 .cv.creative .cv-top,
-#cvPdfClone .cv.creative .cv-top,
 #cvPdfClone.cv.creative .cv-top {
-  background:#ffffff !important;
-  color:#111827 !important;
-  border:2px solid var(--cv-accent,#ec4899) !important;
-  border-radius:26px 8px 26px 8px !important;
+  border:2px solid #ec4899 !important;
   padding:24px !important;
   margin-bottom:24px !important;
-  box-shadow:0 10px 24px rgba(15,23,42,.08) !important;
-  text-align:left !important;
-  overflow:hidden !important;
-}
-
-/* FOTOĞRAF SAĞDA — güvenli */
-.cv.creative .photo-frame,
-#cvPdfClone .cv.creative .photo-frame,
-#cvPdfClone.cv.creative .photo-frame {
-  width:88px !important;
-  height:108px !important;
-  float:right !important;
-  margin:0 0 12px 20px !important;
-  border-radius:22px 8px 22px 8px !important;
-  border:2px solid var(--cv-accent,#ec4899) !important;
-  background:#ffffff !important;
-  overflow:hidden !important;
-  box-shadow:0 10px 22px rgba(15,23,42,.12) !important;
-}
-
-.cv.creative .photo-frame img,
-#cvPdfClone .cv.creative .photo-frame img,
-#cvPdfClone.cv.creative .photo-frame img {
-  width:100% !important;
-  height:100% !important;
-  object-fit:cover !important;
 }
 
 .cv.creative h2,
-#cvPdfClone .cv.creative h2,
 #cvPdfClone.cv.creative h2 {
   color:#111827 !important;
-  font-size:38px !important;
-  font-weight:950 !important;
-  letter-spacing:-1.6px !important;
-  line-height:1.02 !important;
-  margin:0 0 10px 0 !important;
-  text-transform:lowercase !important;
 }
 
 .cv.creative .role,
-#cvPdfClone .cv.creative .role,
-#cvPdfClone.cv.creative .role {
-  display:inline-block !important;
-  color:#ffffff !important;
-  background:var(--cv-accent,#ec4899) !important;
-  border-radius:999px !important;
-  padding:6px 13px !important;
-  font-size:12px !important;
-  font-weight:900 !important;
-  letter-spacing:1.1px !important;
-  text-transform:uppercase !important;
-  margin:0 0 14px 0 !important;
-}
-
-.cv.creative .contact,
-.cv.creative .small-line,
-.cv.creative .info-value,
-#cvPdfClone .cv.creative .contact,
-#cvPdfClone .cv.creative .small-line,
-#cvPdfClone .cv.creative .info-value,
-#cvPdfClone.cv.creative .contact,
-#cvPdfClone.cv.creative .small-line,
-#cvPdfClone.cv.creative .info-value {
-  color:#374151 !important;
-  font-size:12.9px !important;
-  line-height:1.48 !important;
-  opacity:1 !important;
-}
-
-.cv.creative .info-label,
-#cvPdfClone .cv.creative .info-label,
-#cvPdfClone.cv.creative .info-label {
-  color:#111827 !important;
-  font-weight:900 !important;
-}
-
-.cv.creative .sec,
-#cvPdfClone .cv.creative .sec,
-#cvPdfClone.cv.creative .sec {
-  background:#ffffff !important;
-  border:1.5px solid rgba(17,24,39,.08) !important;
-  border-left:5px solid var(--cv-accent,#ec4899) !important;
-  border-radius:20px 8px 20px 8px !important;
-  padding:17px 19px !important;
-  margin:0 0 18px 0 !important;
-  box-shadow:0 8px 18px rgba(15,23,42,.045) !important;
-}
-
+#cvPdfClone.cv.creative .role,
 .cv.creative .sec h3,
-#cvPdfClone .cv.creative .sec h3,
 #cvPdfClone.cv.creative .sec h3 {
-  color:var(--cv-accent,#ec4899) !important;
-  background:transparent !important;
-  border:0 !important;
-  padding:0 !important;
-  margin:0 0 12px 0 !important;
-  font-size:13px !important;
-  font-weight:950 !important;
-  letter-spacing:2px !important;
-  text-transform:uppercase !important;
-}
-
-.cv.creative .sec h3::before,
-.cv.creative .sec h3::after,
-.cv.creative .sec::before,
-#cvPdfClone .cv.creative .sec h3::before,
-#cvPdfClone .cv.creative .sec h3::after,
-#cvPdfClone .cv.creative .sec::before,
-#cvPdfClone.cv.creative .sec h3::before,
-#cvPdfClone.cv.creative .sec h3::after,
-#cvPdfClone.cv.creative .sec::before {
-  content:none !important;
-  display:none !important;
-}
-
-.cv.creative .entry,
-#cvPdfClone .cv.creative .entry,
-#cvPdfClone.cv.creative .entry {
-  border:0 !important;
-  padding:0 !important;
-  margin:0 0 14px 0 !important;
-}
-
-.cv.creative .entry b,
-#cvPdfClone .cv.creative .entry b,
-#cvPdfClone.cv.creative .entry b {
-  color:#111827 !important;
-  font-size:13.6px !important;
-  font-weight:900 !important;
-}
-
-.cv.creative .entry p,
-.cv.creative .entry small,
-#cvPdfClone .cv.creative .entry p,
-#cvPdfClone .cv.creative .entry small,
-#cvPdfClone.cv.creative .entry p,
-#cvPdfClone.cv.creative .entry small {
-  color:#4b5563 !important;
-  font-size:13px !important;
-  line-height:1.52 !important;
-}
-
-.cv.creative .tag,
-#cvPdfClone .cv.creative .tag,
-#cvPdfClone.cv.creative .tag {
-  background:var(--cv-accent,#ec4899) !important;
-  color:#ffffff !important;
-  border:0 !important;
-  border-radius:999px !important;
-  font-size:12px !important;
-  font-weight:850 !important;
-}
-
-/* WATERMARK */
-.cv.creative .watermark-grid,
-#cvPdfClone .cv.creative .watermark-grid,
-#cvPdfClone.cv.creative .watermark-grid {
-  display:grid !important;
-  position:absolute !important;
-  inset:-90px !important;
-  grid-template-columns:repeat(4,1fr) !important;
-  gap:125px 110px !important;
-  place-items:center !important;
-  pointer-events:none !important;
-  z-index:20 !important;
-  opacity:.105 !important;
-  transform:rotate(-24deg) !important;
-  overflow:hidden !important;
-}
-
-.cv.creative .watermark-grid span,
-#cvPdfClone .cv.creative .watermark-grid span,
-#cvPdfClone.cv.creative .watermark-grid span {
-  display:inline-block !important;
-  font-size:40px !important;
-  font-weight:900 !important;
-  letter-spacing:2px !important;
-  white-space:nowrap !important;
-  color:rgba(17,24,39,.17) !important;
-  -webkit-text-fill-color:rgba(17,24,39,.17) !important;
-  user-select:none !important;
-  line-height:1 !important;
+  color:#ec4899 !important;
 }
