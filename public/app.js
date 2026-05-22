@@ -4265,7 +4265,7 @@ cvyazSaveDraft();
 const cvyazTemplatePalettes = {
   minimal: ["#333333", "#64748b", "#0f172a", "#7f1d1d", "#6b4f3f"],
   modern: ["#2563eb", "#10b981", "#ef4444", "#f59e0b", "#7c3aed", "#111827"],
-  executive: ["#9aaea3", "#1e3a5f", "#7f1d1d", "#6b4f3f", "#111827"],
+  executive: ["#9aaea3", "#00c4cc", "#7f1d1d", "#6b4f3f", "#111827"],
   corporate: ["#0f172a", "#1d4ed8", "#047857", "#374151"],
   creative: ["#ec4899", "#8b5cf6", "#f97316", "#06b6d4"],
   premium: ["#d4af37", "#b45309", "#111827", "#7f1d1d"]
