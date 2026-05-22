@@ -11825,3 +11825,76 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.premium .sec{
   border-top-color:var(--cv-accent,#d4af37) !important;
 }
+/* =====================================================
+   CVYAZ FINAL STYLE POLISH PATCH
+   Çekirdek yapıyı bozmaz — sadece final görünüm iyileştirmeleri
+===================================================== */
+
+/* =========================
+   1. MODERN
+========================= */
+
+.cv.modern .name{
+   letter-spacing: -1px !important;
+}
+
+/* =========================
+   2. ATS
+========================= */
+
+.cv.ats{
+   font-size: 14px !important;
+}
+
+.cv.ats .name{
+   font-size: 30px !important;
+   line-height: 1.05 !important;
+}
+
+/* =========================
+   3. EXECUTIVE
+========================= */
+
+.cv.executive .cv-header,
+.cv.executive .top-area,
+.cv.executive .hero-area{
+   background: rgba(124, 145, 131, 0.92) !important;
+}
+
+.cv.executive .section,
+.cv.executive .section-box,
+.cv.executive .card{
+   border: 1px solid rgba(0,0,0,.08) !important;
+}
+
+/* =========================
+   4. KURUMSAL
+========================= */
+
+.cv.corporate::before,
+.cv.kurumsal::before,
+.cv.corporate .side-bar,
+.cv.kurumsal .side-bar{
+   width: 22px !important;
+}
+
+/* =========================
+   5. YARATICI
+========================= */
+
+.cv.creative .role{
+   color: #db2777 !important;
+}
+
+/* =========================
+   6. PREMIUM
+========================= */
+
+.cv.premium .name{
+   font-size: 58px !important;
+   line-height: .95 !important;
+}
+
+.cv.premium .role{
+   letter-spacing: 4px !important;
+}
