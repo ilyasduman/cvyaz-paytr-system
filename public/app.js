@@ -4344,3 +4344,8 @@ document.querySelectorAll(".tab[data-template]").forEach(tab => {
     setTimeout(refreshPaletteForCurrentTemplate, 80);
   });
 });
+/* CREATIVE — SADECE MESLEK RENK PALETİ FIX */
+.cv.creative .role,
+#cvPdfClone.cv.creative .role{
+  color: var(--cv-accent, #ec4899) !important;
+}
