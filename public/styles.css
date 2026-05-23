@@ -11967,13 +11967,16 @@ body .app .cv-wrap > .cv {
   border-color: rgba(17,24,39,.08) !important;
 }
 .demo-cv-box{
-  margin: 26px auto 10px;
+  margin: -8px auto 10px;
   padding: 20px;
   background: rgba(255,255,255,.72);
   border: 1px solid rgba(255,255,255,.7);
   border-radius: 26px;
   backdrop-filter: blur(10px);
   max-width: 920px;
+  box-shadow:
+    0 20px 60px rgba(15,23,42,.10),
+    0 8px 24px rgba(37,99,235,.08);
 }
 
 .demo-title{
