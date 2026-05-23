@@ -11985,9 +11985,13 @@ body .app .cv-wrap > .cv {
 }
 
 .demo-buttons{
-  display:grid;
-  grid-template-columns: repeat(2,1fr);
+  display:flex;
+  justify-content:center;
   gap:14px;
+}
+
+.demo-buttons button{
+  min-width:290px;
 }
 
 .demo-buttons button{
