@@ -12142,3 +12142,48 @@ body .app .cv-wrap > .cv {
     font-size:14px;
   }
 }
+/* ===== MOBILE DEMO CV COMPACT PATCH ===== */
+@media(max-width:768px){
+
+  .demo-cv-box{
+    padding:18px 16px !important;
+    margin:18px 14px 10px !important;
+  }
+
+  .demo-title{
+    font-size:22px !important;
+    margin-bottom:14px !important;
+  }
+
+  .demo-text{
+    font-size:15px !important;
+    line-height:1.55 !important;
+    margin-bottom:18px !important;
+  }
+
+  .demo-buttons button{
+    width:auto !important;
+    min-width:230px !important;
+    max-width:260px !important;
+    padding:12px 18px !important;
+    font-size:15px !important;
+    border-radius:18px !important;
+    margin:0 auto !important;
+  }
+}
+/* ===== DEMO CARD WIDTH FIX ===== */
+
+.demo-cv-box{
+  width:100%;
+  max-width:920px;
+  box-sizing:border-box;
+}
+
+@media(max-width:768px){
+
+  .demo-cv-box{
+    width:calc(100% - 28px) !important;
+    max-width:none !important;
+    margin:18px 14px 10px !important;
+  }
+}
