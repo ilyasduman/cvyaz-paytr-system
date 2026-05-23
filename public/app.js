@@ -4502,14 +4502,14 @@ function loadDemoCV(){
   setVal("driving", "B Sınıfı");
 
   setVal(
-    "about",
-    "Modern kullanıcı deneyimi odaklı web arayüzleri geliştiren frontend yazılım geliştiricisiyim. React, JavaScript ve responsive tasarım alanlarında deneyim sahibiyim. Temiz kod, performans optimizasyonu ve kullanıcı deneyimi odaklı çalışırım."
-  );
+  "about",
+  "Frontend geliştirme alanında kullanıcı deneyimi odaklı çalışan bir yazılım geliştiricisiyim. React, JavaScript ve responsive tasarım konularında deneyim sahibiyim. Temiz kod, performans ve sürdürülebilir arayüzler üretmeye odaklanırım."
+);
 
   setVal(
-    "skills",
-    "JavaScript, React, HTML, CSS, Node.js, Git, Responsive Tasarım, UI/UX, API Entegrasyonu, Problem Çözme"
-  );
+  "skills",
+  "JavaScript, React, HTML, CSS, Git, Responsive Tasarım, UI/UX, API Entegrasyonu"
+);
 
   /* =========================
      EĞİTİM
