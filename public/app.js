@@ -4388,15 +4388,6 @@ document.querySelectorAll(".tab[data-template]").forEach(tab => {
 })();
 function loadDemoCV(type){
 
-    const originalValues = [];
-
-document.querySelectorAll("input, textarea, select").forEach(function(el){
-  originalValues.push({
-    el: el,
-    value: el.value
-  });
-});
-
   const demos = {
 
     yazilim: {
@@ -4750,18 +4741,5 @@ function loadDemoCV(){
     });
 
   }
-
-}
-updatePreview();
-
-setTimeout(function(){
-
-  originalValues.forEach(function(item){
-    item.el.value = item.value;
-  });
-
-  window.cvyazDemoPreviewActive = true;
-
-}, 50);
 
 }
