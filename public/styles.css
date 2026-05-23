@@ -12019,7 +12019,7 @@ body .app .cv-wrap > .cv {
   background:linear-gradient(135deg,#2563eb,#1d4ed8);
   color:#fff;
 
-  transition:.18s ease;
+  transition:.25s ease;
 
   box-shadow:
     0 8px 18px rgba(37,99,235,.16);
