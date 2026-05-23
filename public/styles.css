@@ -12042,9 +12042,12 @@ body .app .cv-wrap > .cv {
   }
 
   .demo-buttons button{
-    padding:14px;
-    font-size:14px;
-    border-radius:16px;
-  }
+  padding:11px 14px;
+  font-size:13px;
+  border-radius:14px;
+  min-width:210px;
+  max-width:240px;
+  margin:0 auto;
+}
 
 }
