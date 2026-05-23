@@ -2430,7 +2430,7 @@ async function createPreviewPdf() {
     const mainHeight = Math.max(realHeight, 1123);
 
     const canvas = await html2canvas(pdfClone, {
-      scale: 2.2,
+      scale: window.innerWidth < 768 ? 3 : 2.6,
       useCORS: true,
       allowTaint: true,
       backgroundColor: "#ffffff",
