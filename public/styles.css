@@ -12001,15 +12001,20 @@ body .app .cv-wrap > .cv {
 
 .demo-buttons button{
   border:0;
-  border-radius:18px;
-  padding:16px 14px;
-  font-size:15px;
+  border-radius:16px;
+  padding:14px 18px;
+  font-size:14px;
   font-weight:700;
   cursor:pointer;
-  background: linear-gradient(135deg,#2563eb,#1d4ed8);
+  min-width:260px;
+
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
   color:#fff;
+
   transition:.18s ease;
-  box-shadow:0 10px 25px rgba(37,99,235,.22);
+
+  box-shadow:
+    0 10px 24px rgba(37,99,235,.18);
 }
 
 .demo-buttons button:hover{
