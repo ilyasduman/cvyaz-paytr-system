@@ -4386,3 +4386,71 @@ document.querySelectorAll(".tab[data-template]").forEach(tab => {
   roleInput.addEventListener("keydown", hideSuggestions, true);
   roleInput.addEventListener("focus", hideSuggestions, true);
 })();
+function loadDemoCV(type){
+
+  const demos = {
+
+    yazilim: {
+      fullName: "Emir Yılmaz",
+      job: "Yazılım Geliştirici",
+      phone: "0555 222 11 33",
+      email: "emir@example.com",
+      city: "İstanbul",
+      summary: "Frontend ve modern web teknolojileri alanında deneyimli yazılım geliştirici."
+    },
+
+    cagri: {
+      fullName: "Zeynep Kaya",
+      job: "Çağrı Merkezi Temsilcisi",
+      phone: "0555 888 44 22",
+      email: "zeynep@example.com",
+      city: "Adana",
+      summary: "Müşteri iletişimi ve çözüm odaklı destek süreçlerinde deneyimli."
+    },
+
+    muhasebe: {
+      fullName: "Ahmet Demir",
+      job: "Muhasebe Uzmanı",
+      phone: "0555 777 66 11",
+      email: "ahmet@example.com",
+      city: "Ankara",
+      summary: "Finansal kayıtlar, fatura süreçleri ve ön muhasebe operasyonlarında deneyimli."
+    },
+
+    satis: {
+      fullName: "Elif Arslan",
+      job: "Satış Danışmanı",
+      phone: "0555 333 55 99",
+      email: "elif@example.com",
+      city: "İzmir",
+      summary: "Müşteri ilişkileri ve mağaza satış süreçlerinde aktif görev aldı."
+    }
+
+  };
+
+  const d = demos[type];
+
+  if(!d) return;
+
+  const setVal = (id, value) => {
+    const el = document.getElementById(id);
+    if(el){
+      el.value = value;
+
+      el.dispatchEvent(new Event("input", { bubbles:true }));
+      el.dispatchEvent(new Event("change", { bubbles:true }));
+    }
+  };
+
+  setVal("fullName", d.fullName);
+  setVal("job", d.job);
+  setVal("phone", d.phone);
+  setVal("email", d.email);
+  setVal("city", d.city);
+  setVal("summary", d.summary);
+
+  if(typeof updatePreview === "function"){
+    updatePreview();
+  }
+
+}
