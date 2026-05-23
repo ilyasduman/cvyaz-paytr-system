@@ -11966,3 +11966,69 @@ body .app .cv-wrap > .cv {
 #cvPdfClone.cv.creative .entry{
   border-color: rgba(17,24,39,.08) !important;
 }
+.demo-cv-box{
+  margin: 26px auto 10px;
+  padding: 20px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 26px;
+  backdrop-filter: blur(10px);
+  max-width: 920px;
+}
+
+.demo-title{
+  text-align:center;
+  font-size: 22px;
+  font-weight: 800;
+  color:#111827;
+  margin-bottom:18px;
+}
+
+.demo-buttons{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:14px;
+}
+
+.demo-buttons button{
+  border:0;
+  border-radius:18px;
+  padding:16px 14px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  background: linear-gradient(135deg,#2563eb,#1d4ed8);
+  color:#fff;
+  transition:.18s ease;
+  box-shadow:0 10px 25px rgba(37,99,235,.22);
+}
+
+.demo-buttons button:hover{
+  transform:translateY(-2px);
+  opacity:.95;
+}
+
+@media(max-width:768px){
+
+  .demo-cv-box{
+    margin:18px 14px 6px;
+    padding:16px;
+    border-radius:22px;
+  }
+
+  .demo-title{
+    font-size:18px;
+  }
+
+  .demo-buttons{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .demo-buttons button{
+    padding:14px;
+    font-size:14px;
+    border-radius:16px;
+  }
+
+}
