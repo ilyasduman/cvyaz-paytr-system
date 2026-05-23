@@ -11995,6 +11995,7 @@ body .app .cv-wrap > .cv {
   display:flex;
   justify-content:center;
   gap:14px;
+  margin-top:18px;
 }
 
 .demo-buttons button{
