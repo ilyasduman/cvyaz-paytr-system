@@ -4344,3 +4344,42 @@ document.querySelectorAll(".tab[data-template]").forEach(tab => {
     setTimeout(refreshPaletteForCurrentTemplate, 80);
   });
 });
+/* =====================================================
+   CVYAZ MOBILE ROLE INPUT FIX
+   iPhone Safari meslek input bug çözümü
+===================================================== */
+
+(function(){
+
+  const roleInput =
+    document.querySelector('input[name="role"], #role, .role-input');
+
+  if(!roleInput) return;
+
+  const isMobile =
+    window.matchMedia("(max-width:768px)").matches;
+
+  if(isMobile){
+
+    roleInput.setAttribute("autocomplete","off");
+    roleInput.setAttribute("autocorrect","off");
+    roleInput.setAttribute("autocapitalize","off");
+    roleInput.setAttribute("spellcheck","false");
+
+    /* Mobilde autocomplete dropdownlarını kapat */
+    roleInput.addEventListener("focus", () => {
+
+      const suggestionBox =
+        document.querySelector(
+          ".job-suggestions, .autocomplete-list, .suggestions"
+        );
+
+      if(suggestionBox){
+        suggestionBox.style.display = "none";
+      }
+
+    });
+
+  }
+
+})();
