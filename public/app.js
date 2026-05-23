@@ -4345,41 +4345,44 @@ document.querySelectorAll(".tab[data-template]").forEach(tab => {
   });
 });
 /* =====================================================
-   CVYAZ MOBILE ROLE INPUT FIX
-   iPhone Safari meslek input bug çözümü
+   CVYAZ MOBILE ROLE HARD FIX
+   Mobilde meslek önerisini tamamen keser
 ===================================================== */
 
-(function(){
+(function () {
+  const isMobile = window.matchMedia("(max-width:768px)").matches;
+  if (!isMobile) return;
 
   const roleInput =
-    document.querySelector('input[name="role"], #role, .role-input');
+    document.querySelector('input[name="role"], #role, .role-input, input[placeholder*="Meslek"], input[placeholder*="Pozisyon"]');
 
-  if(!roleInput) return;
+  if (!roleInput) return;
 
-  const isMobile =
-    window.matchMedia("(max-width:768px)").matches;
+  roleInput.setAttribute("autocomplete", "off");
+  roleInput.setAttribute("autocorrect", "off");
+  roleInput.setAttribute("autocapitalize", "off");
+  roleInput.setAttribute("spellcheck", "false");
 
-  if(isMobile){
-
-    roleInput.setAttribute("autocomplete","off");
-    roleInput.setAttribute("autocorrect","off");
-    roleInput.setAttribute("autocapitalize","off");
-    roleInput.setAttribute("spellcheck","false");
-
-    /* Mobilde autocomplete dropdownlarını kapat */
-    roleInput.addEventListener("focus", () => {
-
-      const suggestionBox =
-        document.querySelector(
-          ".job-suggestions, .autocomplete-list, .suggestions"
-        );
-
-      if(suggestionBox){
-        suggestionBox.style.display = "none";
-      }
-
-    });
-
+  function hideSuggestions() {
+    document
+      .querySelectorAll(".job-suggestions, .autocomplete-list, .suggestions, .suggestion-box, .career-suggestions")
+      .forEach(el => {
+        el.innerHTML = "";
+        el.style.display = "none";
+        el.style.pointerEvents = "none";
+      });
   }
 
+  roleInput.addEventListener("input", function (e) {
+    e.stopImmediatePropagation();
+    hideSuggestions();
+
+    if (typeof updatePreview === "function") {
+      clearTimeout(window.__rolePreviewTimer);
+      window.__rolePreviewTimer = setTimeout(updatePreview, 120);
+    }
+  }, true);
+
+  roleInput.addEventListener("keydown", hideSuggestions, true);
+  roleInput.addEventListener("focus", hideSuggestions, true);
 })();
