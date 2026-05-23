@@ -12028,6 +12028,9 @@ body .app .cv-wrap > .cv {
 .demo-buttons button:hover{
   transform:translateY(-2px);
   opacity:.95;
+  box-shadow:
+    0 14px 34px rgba(37,99,235,.28),
+    0 0 18px rgba(59,130,246,.22);
 }
 
 @media(max-width:768px){
