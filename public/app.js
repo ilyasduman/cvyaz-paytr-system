@@ -4454,3 +4454,292 @@ function loadDemoCV(type){
   }
 
 }
+/* =====================================================
+   CVYAZ FULL DEMO CV
+===================================================== */
+
+function loadDemoCV(){
+
+  function setVal(id, value){
+
+    const el = document.getElementById(id);
+
+    if(!el) return;
+
+    el.value = value;
+
+    el.dispatchEvent(new Event("input", { bubbles:true }));
+    el.dispatchEvent(new Event("change", { bubbles:true }));
+
+  }
+
+  /* =========================
+     KİŞİSEL BİLGİLER
+  ========================= */
+
+  setVal("name", "Emir Can Yılmaz");
+
+  setVal("job", "Frontend Yazılım Geliştirici");
+
+  setVal("phone", "0555 234 19 42");
+
+  setVal("email", "emircan@example.com");
+
+  setVal("address", "Acıbadem Mahallesi");
+
+  setVal("district", "Kadıköy");
+
+  setVal("city", "İstanbul");
+
+  setVal("country", "Türkiye");
+
+  setVal("birth", "1997-08-14");
+
+  setVal("marital", "Bekar");
+
+  setVal("military", "Yaptı");
+
+  setVal("driving", "B Sınıfı");
+
+  setVal(
+    "about",
+    "Modern kullanıcı deneyimi odaklı web arayüzleri geliştiren frontend yazılım geliştiricisiyim. React, JavaScript ve responsive tasarım alanlarında deneyim sahibiyim. Temiz kod, performans optimizasyonu ve kullanıcı deneyimi odaklı çalışırım."
+  );
+
+  setVal(
+    "skills",
+    "JavaScript, React, HTML, CSS, Node.js, Git, Responsive Tasarım, UI/UX, API Entegrasyonu, Problem Çözme"
+  );
+
+  /* =========================
+     EĞİTİM
+  ========================= */
+
+  const eduList = document.getElementById("eduList");
+
+  if(eduList){
+
+    eduList.innerHTML = `
+      <div class="item edu">
+
+        <select class="edu-type">
+          <option selected>Üniversite</option>
+        </select>
+
+        <input class="edu-school" value="Marmara Üniversitesi">
+
+        <input class="edu-dept" value="Bilgisayar Programcılığı">
+
+        <input class="edu-start" value="2017-09">
+
+        <input class="edu-end" value="2021-06">
+
+        <input class="edu-gpa" value="3.28">
+
+        <textarea class="edu-desc">Frontend geliştirme, veri tabanı yönetimi ve modern web teknolojileri üzerine eğitim aldım.</textarea>
+
+      </div>
+    `;
+  }
+
+  /* =========================
+     DENEYİM
+  ========================= */
+
+  const expList = document.getElementById("expList");
+
+  if(expList){
+
+    expList.innerHTML = `
+
+      <div class="item exp">
+
+        <input class="exp-company" value="Nova Yazılım">
+
+        <input class="exp-role" value="Frontend Developer">
+
+        <select class="exp-type">
+          <option selected>Tam Zamanlı</option>
+        </select>
+
+        <input class="exp-loc" value="İstanbul / Türkiye">
+
+        <input class="exp-start" value="2022-02">
+
+        <input class="exp-end" value="2025-01">
+
+        <textarea class="exp-desc">React tabanlı yönetim panelleri geliştirdim. Mobil uyumlu arayüzler, API entegrasyonları ve performans iyileştirmeleri yaptım.</textarea>
+
+      </div>
+
+      <div class="item exp">
+
+        <input class="exp-company" value="Pixel Creative">
+
+        <input class="exp-role" value="UI Developer">
+
+        <select class="exp-type">
+          <option selected>Freelance</option>
+        </select>
+
+        <input class="exp-loc" value="Uzaktan">
+
+        <input class="exp-start" value="2021-03">
+
+        <input class="exp-end" value="2022-01">
+
+        <textarea class="exp-desc">Kurumsal web sitesi arayüzleri geliştirdim. Kullanıcı deneyimi ve responsive tasarım süreçlerinde görev aldım.</textarea>
+
+      </div>
+
+    `;
+  }
+
+  /* =========================
+     DİLLER
+  ========================= */
+
+  const langList = document.getElementById("langList");
+
+  if(langList){
+
+    langList.innerHTML = `
+
+      <div class="item lang">
+
+        <input class="lang-name" value="Türkçe">
+
+        <select class="lang-read">
+          <option selected>Ana Dil</option>
+        </select>
+
+        <select class="lang-write">
+          <option selected>Ana Dil</option>
+        </select>
+
+        <select class="lang-speak">
+          <option selected>Ana Dil</option>
+        </select>
+
+      </div>
+
+      <div class="item lang">
+
+        <input class="lang-name" value="İngilizce">
+
+        <select class="lang-read">
+          <option selected>İleri</option>
+        </select>
+
+        <select class="lang-write">
+          <option selected>İyi</option>
+        </select>
+
+        <select class="lang-speak">
+          <option selected>İyi</option>
+        </select>
+
+      </div>
+
+    `;
+  }
+
+  /* =========================
+     SERTİFİKALAR
+  ========================= */
+
+  const certList = document.getElementById("certList");
+
+  if(certList){
+
+    certList.innerHTML = `
+
+      <div class="item cert">
+
+        <input class="cert-name" value="React Frontend Development">
+
+        <input class="cert-org" value="BTK Akademi">
+
+        <input class="cert-date" value="2023-05">
+
+        <input class="cert-link" value="">
+
+        <textarea class="cert-desc">Modern React mimarisi, component yapısı ve state yönetimi üzerine eğitim.</textarea>
+
+      </div>
+
+    `;
+  }
+
+  /* =========================
+     PROJELER
+  ========================= */
+
+  const projectList = document.getElementById("projectList");
+
+  if(projectList){
+
+    projectList.innerHTML = `
+
+      <div class="item project">
+
+        <input class="project-name" value="CVYAZ CV Builder">
+
+        <input class="project-type" value="SaaS Web Uygulaması">
+
+        <input class="project-tech" value="JavaScript, HTML, CSS">
+
+        <input class="project-date" value="2026-01">
+
+        <input class="project-link" value="cvyaz.com.tr">
+
+        <textarea class="project-desc">Canlı önizlemeli, ATS uyumlu modern CV oluşturma platformu geliştirdim.</textarea>
+
+      </div>
+
+    `;
+  }
+
+  /* =========================
+     REFERANSLAR
+  ========================= */
+
+  const refList = document.getElementById("refList");
+
+  if(refList){
+
+    refList.innerHTML = `
+
+      <div class="item ref">
+
+        <input class="ref-name" value="Ahmet Kaya">
+
+        <input class="ref-role" value="Yazılım Takım Lideri">
+
+        <input class="ref-company" value="Nova Yazılım">
+
+        <input class="ref-phone" value="0555 888 44 22">
+
+        <input class="ref-email" value="ahmet@example.com">
+
+        <textarea class="ref-desc">Birlikte frontend projelerinde çalıştık.</textarea>
+
+      </div>
+
+    `;
+  }
+
+  update();
+
+  const preview = document.getElementById("cvWrap");
+
+  if(preview){
+
+    preview.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+  }
+
+}
