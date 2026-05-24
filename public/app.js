@@ -283,8 +283,8 @@ function lockPreviewCta() {
     return;
   }
 
-  previewButton.classList.add("preview-locked");
-  document.body.classList.remove("cvyaz-show-preview-cta");
+  previewButton.classList.remove("preview-locked");
+document.body.classList.add("cvyaz-show-preview-cta");
 
   try {
     localStorage.removeItem("cvyaz_preview_cta_unlocked_v71");
@@ -4844,14 +4844,3 @@ function clearDemoCV(){
   }, 80);
 
 }
-window.addEventListener("load", function(){
-
-  setTimeout(function(){
-
-    if (typeof loadDemoCV === "function") {
-      loadDemoCV();
-    }
-
-  }, 700);
-
-});
