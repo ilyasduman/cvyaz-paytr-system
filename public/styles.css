@@ -12489,3 +12489,64 @@ body .app .cv-wrap > .cv {
   line-height: 1.45 !important;
   font-weight: 500 !important;
 }
+/* =====================================================
+   CVYAZ ALT KART GENİŞLİK DÜZELTME — WEB + MOBİL
+   Nasıl Çalışır / ATS / Güvenli Satın Alma tren etkisi fix
+===================================================== */
+
+.how-it-works,
+.how-card,
+.steps-card,
+.ats-card,
+.ats-section,
+.secure-buy,
+.buy-card,
+.purchase-card,
+.legal-card,
+.trust-card {
+  width: min(100%, 760px) !important;
+  max-width: 760px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Webde fazla daralmayı engelle */
+@media (min-width: 769px) {
+  .how-it-works,
+  .how-card,
+  .steps-card,
+  .ats-card,
+  .ats-section,
+  .secure-buy,
+  .buy-card,
+  .purchase-card,
+  .legal-card,
+  .trust-card {
+    width: 760px !important;
+  }
+}
+
+/* Mobilde kartlar ekranı doldursun ama taşmasın */
+@media (max-width: 768px) {
+  .how-it-works,
+  .how-card,
+  .steps-card,
+  .ats-card,
+  .ats-section,
+  .secure-buy,
+  .buy-card,
+  .purchase-card,
+  .legal-card,
+  .trust-card {
+    width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+
+  .steps-grid,
+  .how-steps {
+    grid-template-columns: 1fr !important;
+  }
+}
