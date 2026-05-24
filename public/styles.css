@@ -12496,3 +12496,18 @@ body .side-menu p {
     padding: 0 24px !important;
   }
 }
+body .side-menu a {
+  gap: 18px !important;
+  padding-left: 24px !important;
+}
+
+body .side-menu a span:first-child {
+  all: unset !important;
+}
+
+body .side-menu a svg {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  color: #6d5dfc !important;
+}
