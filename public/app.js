@@ -4467,7 +4467,9 @@ function loadDemoCV(){
 
     if(!el) return;
 
-    el.value = value;
+    if (!document.body.classList.contains("demo-preview-mode")) {
+  el.value = value;
+}
 
     el.dispatchEvent(new Event("input", { bubbles:true }));
     el.dispatchEvent(new Event("change", { bubbles:true }));
