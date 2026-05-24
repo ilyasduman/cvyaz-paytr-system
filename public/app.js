@@ -822,6 +822,7 @@ function bindInputs(box) {
 ===================================================== */
 
 function renderEducation() {
+    document.body.classList.add("demo-preview-mode");
 
   let html = "";
 
