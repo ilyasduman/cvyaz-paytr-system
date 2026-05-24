@@ -12214,6 +12214,6 @@ body .app .cv-wrap > .cv {
   }
 
 }
-.preview-wrap::after{
+.cv-wrap::after{
   display:none !important;
 }
