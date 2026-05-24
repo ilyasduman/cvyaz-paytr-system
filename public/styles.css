@@ -12399,5 +12399,5 @@ body .app .cv-wrap > .cv {
 .cv.executive .photo-frame img,
 .cv.modern .cv-photo,
 .cv.executive .cv-photo{
-  top: 6px !important;
+  top: 10px !important;
 }
