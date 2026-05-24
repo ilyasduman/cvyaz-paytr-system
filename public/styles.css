@@ -12387,13 +12387,18 @@ body .app .cv-wrap > .cv {
   margin: 0 !important;
 
 }
-/* PDF ÖNİZLEMEDE FOTO KIRPILMASINI ENGELLE */
-.preview-modal #pPhoto,
-.pdf-preview #pPhoto,
-.preview-overlay #pPhoto,
-.modal #pPhoto,
-.full-preview #pPhoto{
+/* PDF ÖNİZLEME FOTO — KESİLMEYİ DURDUR */
+body.preview-open #pPhoto,
+body.modal-open #pPhoto,
+#previewModal #pPhoto,
+#previewOverlay #pPhoto,
+.preview-full #pPhoto,
+.previewWrap #pPhoto,
+.preview-modal #pPhoto{
   transform: none !important;
-  object-fit: cover !important;
-  object-position: center 8% !important;
+  width: 170px !important;
+  height: 210px !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+  background: #fff !important;
 }
