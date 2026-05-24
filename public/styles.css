@@ -12461,18 +12461,9 @@ body .app .cv-wrap > .cv {
   color: #2f2f2f !important;
   letter-spacing: 0 !important;
 }
-/* ANA SAYFA PREVIEW FONT OPTICAL FIX */
-.preview-shell .cv{
-  font-size: 0.93em !important;
-}
-/* PROFESYONEL ÖZET GERÇEK FONT FIX */
-.cv .summary,
-.cv .summary-text,
 .cv .summary p,
-.cv .profile-summary,
-.cv .professional-summary{
-    font-size: 9px !important;
+.cv .professional-summary p,
+.cv .profile-summary p{
+    font-size: 8px !important;
     line-height: 1.45 !important;
-    font-weight: 400 !important;
-    letter-spacing: 0 !important;
 }
