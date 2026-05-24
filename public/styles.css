@@ -12450,3 +12450,19 @@ body .app .cv-wrap > .cv {
   }
 
 }
+/* ANA SAYFA ÖNİZLEME — PROFESYONEL ÖZET YAZI KALINLIĞI */
+.cv .summary,
+.cv .cv-summary,
+.cv .about,
+.cv .professional-summary,
+.cv section p,
+.cv .section-content{
+  font-weight: 400 !important;
+}
+
+.cv .summary strong,
+.cv .cv-summary strong,
+.cv .about strong,
+.cv .professional-summary strong{
+  font-weight: 500 !important;
+}
