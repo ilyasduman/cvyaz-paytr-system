@@ -12393,7 +12393,7 @@ body .app .cv-wrap > .cv {
 .profile-photo,
 .photo-frame img{
   position: relative !important;
-  top: 10px !important;
+  top: 11px !important;
 }
 
 /* MODERN + EXECUTIVE FOTO İNCE AYAR */
@@ -12401,5 +12401,5 @@ body .app .cv-wrap > .cv {
 .cv.executive .photo-frame img,
 .cv.modern .cv-photo,
 .cv.executive .cv-photo{
-  top: 6px !important;
+  top: 8px !important;
 }
