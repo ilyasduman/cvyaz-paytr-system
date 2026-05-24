@@ -4512,17 +4512,22 @@ function loadDemoCV(){
   "JavaScript, React, HTML, CSS, Git, Responsive Tasarım, UI/UX, API Entegrasyonu"
 );
     
-    /* =========================
-   DEMO FOTOĞRAF
-========================= */
-
 /* =========================
    DEMO FOTOĞRAF
 ========================= */
 
 const demoPhoto = "demo-photo.png";
 
-cvyazRestorePhotoData(demoPhoto);
+const pPhoto = document.getElementById("pPhoto");
+const photoFrame = document.getElementById("photoFrame");
+
+if (pPhoto) {
+  pPhoto.src = demoPhoto;
+}
+
+if (photoFrame) {
+  photoFrame.style.display = "block";
+}
 
 if (typeof updatePreview === "function") {
   updatePreview();
