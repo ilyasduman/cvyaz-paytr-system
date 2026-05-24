@@ -4748,34 +4748,60 @@ function clearDemoCV(){
 
   document.body.classList.remove("demo-preview-mode");
 
+  // INPUT / TEXTAREA TEMİZLE
   document.querySelectorAll("input, textarea").forEach(el => {
+
     if (el.type !== "file") {
+
       el.value = "";
+
       el.dispatchEvent(new Event("input", { bubbles:true }));
       el.dispatchEvent(new Event("change", { bubbles:true }));
+
     }
+
   });
 
+  // SELECT TEMİZLE
   document.querySelectorAll("select").forEach(el => {
+
     el.selectedIndex = 0;
+
     el.dispatchEvent(new Event("input", { bubbles:true }));
     el.dispatchEvent(new Event("change", { bubbles:true }));
+
   });
 
-  const previewArea =
-    document.getElementById("previewArea") ||
-    document.getElementById("cvPreview") ||
-    document.getElementById("preview") ||
-    document.querySelector(".preview-area") ||
-    document.querySelector(".cv-preview");
+  // PREVIEW ALANLARINI SIFIRLA
+  const cvMounts = [
+    "cvPreview",
+    "preview",
+    "cvPaper",
+    "cvOutput"
+  ];
 
-  if (previewArea) {
-    previewArea.innerHTML = "";
+  cvMounts.forEach(id => {
+
+    const el = document.getElementById(id);
+
+    if (el) {
+      el.innerHTML = "";
+    }
+
+  });
+
+  // ANA SİSTEMİ YENİDEN ÇALIŞTIR
+  if (typeof update === "function") {
+    update();
   }
 
+  // PREVIEW YENİDEN OLUŞTUR
   setTimeout(() => {
-    if (typeof updatePreview === "function") updatePreview();
-    if (typeof update === "function") update();
-  }, 50);
+
+    if (typeof updatePreview === "function") {
+      updatePreview();
+    }
+
+  }, 80);
 
 }
