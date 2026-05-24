@@ -12837,3 +12837,36 @@ body .app .cv-wrap > .cv {
   align-items:center !important;
   justify-content:center !important;
 }
+/* =====================================================
+   CVYAZ EXAMPLE BUTTONS FINAL SIZE
+===================================================== */
+
+.preview-actions{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  gap:10px !important;
+}
+
+.preview-actions button{
+
+  width:190px !important;
+  min-width:190px !important;
+  max-width:190px !important;
+
+  height:48px !important;
+  min-height:48px !important;
+  max-height:48px !important;
+
+  padding:0 !important;
+
+  border-radius:14px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  font-size:14px !important;
+  font-weight:600 !important;
+  letter-spacing:-0.1px !important;
+}
