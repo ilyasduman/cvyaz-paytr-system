@@ -4748,86 +4748,59 @@ function clearDemoCV(){
 
   document.body.classList.remove("demo-preview-mode");
 
-  // TÜM INPUT / TEXTAREA TEMİZLE
   document.querySelectorAll("input, textarea").forEach(el => {
-
     if (el.type !== "file") {
-
       el.value = "";
-
       el.dispatchEvent(new Event("input", { bubbles:true }));
       el.dispatchEvent(new Event("change", { bubbles:true }));
-
     }
-
   });
 
-  // TÜM SELECTLERİ SIFIRLA
   document.querySelectorAll("select").forEach(el => {
-
     el.selectedIndex = 0;
-
     el.dispatchEvent(new Event("change", { bubbles:true }));
-
   });
 
-  // DİNAMİK BLOKLARI TEMİZLE
   document.querySelectorAll(".edu, .exp, .language, .cert, .project, .reference").forEach((item, index) => {
-
-    // İLK BLOK HARİÇ EKLENENLERİ SİL
     if (index > 0) {
       item.remove();
       return;
     }
 
-    // İLK BLOĞUN İÇİNİ BOŞALT
     item.querySelectorAll("input, textarea").forEach(el => {
-
       el.value = "";
-
       el.dispatchEvent(new Event("input", { bubbles:true }));
       el.dispatchEvent(new Event("change", { bubbles:true }));
-
     });
 
     item.querySelectorAll("select").forEach(el => {
-
       el.selectedIndex = 0;
-
       el.dispatchEvent(new Event("change", { bubbles:true }));
+    });
+  });
 
+  setTimeout(() => {
+    if (typeof updatePreview === "function") updatePreview();
+
+    const previewRoots = document.querySelectorAll(
+      "#cvPreview, #preview, .cv-preview, .preview, .cv, .cv-paper, .paper"
+    );
+
+    previewRoots.forEach(root => {
+      root.querySelectorAll("*").forEach(el => {
+        const text = (el.innerText || "").replace(/\s+/g, " ").trim();
+
+        const isEmptyDemoBlock =
+          text === "EĞİTİM Üniversite Üniversite" ||
+          text === "İŞ DENEYİMİ Pozisyon Tam Zamanlı Pozisyon Freelance" ||
+          text === "DİLLER Dil Okuma: Ana Dil • Yazma: Ana Dil • Konuşma: Ana Dil Dil Okuma: İleri • Yazma: İyi • Konuşma: İyi";
+
+        if (isEmptyDemoBlock) {
+          el.remove();
+        }
+      });
     });
 
-  });
-
-  // PREVIEW GÜNCELLE
-  if (typeof updatePreview === "function") {
-    updatePreview();
-  }
-
-  // EK GÜNCELLEME
-  setTimeout(() => {
-  if (typeof updatePreview === "function") {
-    updatePreview();
-  }
-
-  const cv = document.querySelector(".cv");
-  if (!cv) return;
-
-  cv.querySelectorAll("section, .cv-section, .section").forEach(sec => {
-    const text = sec.innerText.trim();
-
-    if (
-      text === "EĞİTİM" ||
-      text === "İŞ DENEYİMİ" ||
-      text === "DİLLER" ||
-      text === "Üniversite" ||
-      text === "Pozisyon" ||
-      text === "Dil"
-    ) {
-      sec.remove();
-    }
-  });
-}, 150);
+  }, 200);
 
 }
