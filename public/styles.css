@@ -12387,18 +12387,11 @@ body .app .cv-wrap > .cv {
   margin: 0 !important;
 
 }
-/* PDF ÖNİZLEME FOTO — KESİLMEYİ DURDUR */
-body.preview-open #pPhoto,
-body.modal-open #pPhoto,
-#previewModal #pPhoto,
-#previewOverlay #pPhoto,
-.preview-full #pPhoto,
-.previewWrap #pPhoto,
-.preview-modal #pPhoto{
-  transform: none !important;
-  width: 170px !important;
-  height: 210px !important;
-  object-fit: contain !important;
-  object-position: center 28% !important;
-  background: #fff !important;
+/* FOTOĞRAFI BİRAZ AŞAĞI İNDİR */
+#pPhoto,
+.cv-photo,
+.profile-photo,
+.photo-frame img{
+  position: relative !important;
+  top: 10px !important;
 }
