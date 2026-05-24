@@ -12387,3 +12387,13 @@ body .app .cv-wrap > .cv {
   margin: 0 !important;
 
 }
+/* PDF ÖNİZLEMEDE FOTO KIRPILMASINI ENGELLE */
+.preview-modal #pPhoto,
+.pdf-preview #pPhoto,
+.preview-overlay #pPhoto,
+.modal #pPhoto,
+.full-preview #pPhoto{
+  transform: none !important;
+  object-fit: cover !important;
+  object-position: center 18% !important;
+}
