@@ -12450,19 +12450,14 @@ body .app .cv-wrap > .cv {
   }
 
 }
-/* ANA SAYFA ÖNİZLEME — PROFESYONEL ÖZET YAZI KALINLIĞI */
-.cv .summary,
-.cv .cv-summary,
-.cv .about,
+/* PROFESYONEL ÖZET YAZI İNCELT */
+.cv .summary-text,
+.cv .profile-summary,
 .cv .professional-summary,
-.cv section p,
-.cv .section-content{
-  font-weight: 300 !important;
-}
-
-.cv .summary strong,
-.cv .cv-summary strong,
-.cv .about strong,
-.cv .professional-summary strong{
-  font-weight: 300 !important;
+.cv .section-text,
+.cv .section p,
+.cv p{
+  font-weight: 400 !important;
+  color: #2f2f2f !important;
+  letter-spacing: 0 !important;
 }
