@@ -4762,20 +4762,20 @@ function clearDemoCV(){
     el.dispatchEvent(new Event("change", { bubbles:true }));
   });
 
-  const cvMounts = [
-    "cvPreview",
-    "preview",
-    "cvPaper",
-    "cvOutput"
-  ];
+  const previewArea =
+    document.getElementById("previewArea") ||
+    document.getElementById("cvPreview") ||
+    document.getElementById("preview") ||
+    document.querySelector(".preview-area") ||
+    document.querySelector(".cv-preview");
 
-  cvMounts.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = "";
-  });
-
-  if (typeof updatePreview === "function") {
-    updatePreview();
+  if (previewArea) {
+    previewArea.innerHTML = "";
   }
+
+  setTimeout(() => {
+    if (typeof updatePreview === "function") updatePreview();
+    if (typeof update === "function") update();
+  }, 50);
 
 }
