@@ -4758,31 +4758,24 @@ function clearDemoCV(){
 
   document.querySelectorAll("select").forEach(el => {
     el.selectedIndex = 0;
+    el.dispatchEvent(new Event("input", { bubbles:true }));
     el.dispatchEvent(new Event("change", { bubbles:true }));
+  });
+
+  const cvMounts = [
+    "cvPreview",
+    "preview",
+    "cvPaper",
+    "cvOutput"
+  ];
+
+  cvMounts.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = "";
   });
 
   if (typeof updatePreview === "function") {
     updatePreview();
   }
-
-  requestAnimationFrame(() => {
-
-    const cv = document.querySelector(".cv");
-
-    if (!cv) return;
-
-    cv.querySelectorAll("*").forEach(el => {
-      const text = (el.innerText || "").replace(/\s+/g, " ").trim();
-
-      if (
-        text === "EĞİTİM Üniversite Üniversite" ||
-        text === "İŞ DENEYİMİ Pozisyon Tam Zamanlı Pozisyon Freelance" ||
-        text === "DİLLER Dil Okuma: Ana Dil • Yazma: Ana Dil • Konuşma: Ana Dil Dil Okuma: İleri • Yazma: İyi • Konuşma: İyi"
-      ) {
-        el.remove();
-      }
-    });
-
-  });
 
 }
