@@ -12457,7 +12457,7 @@ body .app .cv-wrap > .cv {
 .cv .professional-summary,
 .cv section p,
 .cv .section-content{
-  font-weight: 400 !important;
+  font-weight: 300 !important;
 }
 
 .cv .summary strong,
