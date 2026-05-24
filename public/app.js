@@ -4511,6 +4511,21 @@ function loadDemoCV(){
   "skills",
   "JavaScript, React, HTML, CSS, Git, Responsive Tasarım, UI/UX, API Entegrasyonu"
 );
+    
+    /* =========================
+   DEMO FOTOĞRAF
+========================= */
+
+const demoPhoto =
+"https://i.pravatar.cc/300?img=12";
+
+const photoPreview =
+document.getElementById("photoPreview");
+
+if (photoPreview) {
+  photoPreview.src = demoPhoto;
+  photoPreview.style.display = "block";
+}
 
   /* =========================
      EĞİTİM
