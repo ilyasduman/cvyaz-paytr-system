@@ -12429,27 +12429,24 @@ body .app .cv-wrap > .cv {
 }
 @media (max-width: 768px){
 
-  .sample-actions{
-    display:flex !important;
-    gap:10px !important;
-    justify-content:center !important;
-    align-items:center !important;
-    margin-top:14px !important;
+  .demo-inline-action{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
   }
 
-  .sample-actions button{
-    flex:1 !important;
-    max-width:170px !important;
-
-    height:52px !important;
-    padding:0 14px !important;
-
-    border-radius:18px !important;
-
-    font-size:15px !important;
-    font-weight:700 !important;
-
-    white-space:nowrap !important;
+  .demo-inline-action button{
+    width: 48% !important;
+    max-width: 165px !important;
+    min-width: 0 !important;
+    height: 50px !important;
+    padding: 0 8px !important;
+    font-size: 13px !important;
+    border-radius: 18px !important;
+    white-space: nowrap !important;
   }
 
 }
