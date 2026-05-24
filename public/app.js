@@ -822,7 +822,6 @@ function bindInputs(box) {
 ===================================================== */
 
 function renderEducation() {
-    document.body.classList.add("demo-preview-mode");
 
   let html = "";
 
@@ -4388,6 +4387,7 @@ document.querySelectorAll(".tab[data-template]").forEach(tab => {
   roleInput.addEventListener("focus", hideSuggestions, true);
 })();
 function loadDemoCV(type){
+    document.body.classList.add("demo-preview-mode");
 
   const demos = {
 
