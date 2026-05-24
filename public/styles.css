@@ -12366,19 +12366,24 @@ body .app .cv-wrap > .cv {
   object-position: center top !important;
   display: block !important;
 }
-/* ANA SAYFA CANLI ÖNİZLEME FOTO DOLULUK */
-.live-preview #pPhoto,
-.preview-card #pPhoto,
-.cv-preview #pPhoto,
-.preview-window #pPhoto,
-.cv-live #pPhoto,
-.cv img[src*="demo-photo"]{
-  width: 92px !important;
-  height: 112px !important;
+/* ANA SAYFA FOTO DENGELİ BOYUT */
+
+#pPhoto,
+.cv img[src*="demo-photo"],
+.cv .photo img,
+.cv-photo,
+.profile-photo,
+.photo-frame img{
+
+  width: 82px !important;
+  height: 102px !important;
+
   object-fit: cover !important;
   object-position: center top !important;
-  transform: scale(1.22) !important;
+
+  transform: scale(1.12) !important;
+
   padding: 0 !important;
   margin: 0 !important;
-  display: block !important;
+
 }
