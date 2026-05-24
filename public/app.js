@@ -4807,11 +4807,27 @@ function clearDemoCV(){
 
   // EK GÜNCELLEME
   setTimeout(() => {
+  if (typeof updatePreview === "function") {
+    updatePreview();
+  }
 
-    if (typeof updatePreview === "function") {
-      updatePreview();
+  const cv = document.querySelector(".cv");
+  if (!cv) return;
+
+  cv.querySelectorAll("section, .cv-section, .section").forEach(sec => {
+    const text = sec.innerText.trim();
+
+    if (
+      text === "EĞİTİM" ||
+      text === "İŞ DENEYİMİ" ||
+      text === "DİLLER" ||
+      text === "Üniversite" ||
+      text === "Pozisyon" ||
+      text === "Dil"
+    ) {
+      sec.remove();
     }
-
-  }, 100);
+  });
+}, 150);
 
 }
