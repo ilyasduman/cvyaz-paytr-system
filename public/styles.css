@@ -12323,3 +12323,16 @@ body .app .cv-wrap > .cv {
   justify-content: center;
   margin: 0 !important;
 }
+/* DEMO / CV FOTOĞRAF KIRPILMA DÜZELTME */
+#pPhoto,
+.cv img[src*="demo-photo"],
+.cv .photo img,
+.cv-photo,
+.profile-photo,
+.photo-frame img{
+  width: 72px !important;
+  height: 92px !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  border-radius: 8px !important;
+}
