@@ -4844,14 +4844,3 @@ function clearDemoCV(){
   }, 80);
 
 }
-window.addEventListener("load", function(){
-
-  setTimeout(function(){
-
-    if (typeof loadDemoCV === "function") {
-      loadDemoCV();
-    }
-
-  }, 50);
-
-});
