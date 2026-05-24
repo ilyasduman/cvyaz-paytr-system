@@ -4516,8 +4516,7 @@ function loadDemoCV(){
    DEMO FOTOĞRAF
 ========================= */
 
-const demoPhoto =
-"https://i.pravatar.cc/300?img=12";
+const demoPhoto = "demo-photo.png";
 
 const photoPreview = document.getElementById("photoPreview");
 
