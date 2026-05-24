@@ -12292,3 +12292,18 @@ body .app .cv-wrap > .cv {
     0 16px 38px rgba(37,99,235,.30),
     0 0 24px rgba(59,130,246,.24) !important;
 }
+.demo-clear-btn{
+  margin-top: 12px;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-weight: 800;
+  background: #f1f5f9;
+  color: #0f172a;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(15,23,42,.12);
+}
+
+.demo-clear-btn:hover{
+  transform: translateY(-1px);
+}
