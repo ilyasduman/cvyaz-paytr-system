@@ -4172,7 +4172,7 @@ cvyazSaveDraft();
   }
 
   function centerAtsBadgesOnly() {
-    const words = ["Temiz düzen", "Okunabilir PDF", "Profesyonel yapı", "Modern tasarım"];
+    const words = ["Temiz", "Okunabilir PDF", "Profesyonel yapı", "Modern tasarım"];
 
     document.querySelectorAll("section, article, div").forEach(function(box) {
       if (isForbiddenArea(box)) {
