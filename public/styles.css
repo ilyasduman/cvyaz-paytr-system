@@ -12259,3 +12259,36 @@ body .app .cv-wrap > .cv {
     font-size:14px;
   }
 }
+/* ===== WEB + MOBILE DEMO INLINE BUTTON FINAL ===== */
+
+.demo-inline-action{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  margin:16px 0 14px !important;
+}
+
+.demo-inline-action button{
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  border:0 !important;
+  outline:0 !important;
+  border-radius:999px !important;
+  padding:12px 28px !important;
+  font-size:16px !important;
+  font-weight:800 !important;
+  color:#fff !important;
+  cursor:pointer !important;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8) !important;
+  box-shadow:
+    0 12px 28px rgba(37,99,235,.24),
+    0 0 20px rgba(59,130,246,.16) !important;
+  transition:.25s ease !important;
+}
+
+.demo-inline-action button:hover{
+  transform:translateY(-2px) !important;
+  box-shadow:
+    0 16px 38px rgba(37,99,235,.30),
+    0 0 24px rgba(59,130,246,.24) !important;
+}
