@@ -12783,3 +12783,26 @@ body .app .cv-wrap > .cv {
   box-shadow:
     0 8px 22px rgba(15,23,42,.18) !important;
 }
+/* =====================================================
+   CVYAZ PREVIEW BUTTON EQUAL SIZE
+===================================================== */
+
+.preview-actions{
+  display:flex !important;
+  justify-content:center !important;
+  gap:14px !important;
+}
+
+.preview-actions button{
+  width:240px !important;
+  height:58px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  padding:0 !important;
+
+  font-size:15px !important;
+  font-weight:600 !important;
+}
