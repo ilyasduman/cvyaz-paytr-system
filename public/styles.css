@@ -12467,3 +12467,12 @@ body .app .cv-wrap > .cv {
     font-size: 7px !important;
     line-height: 1.45 !important;
 }
+.cv .summary,
+.cv .summary-text,
+.cv .professional-summary,
+.cv .professional-summary p,
+.cv .summary p{
+    font-size: 7px !important;
+    line-height: 1.4 !important;
+    font-weight: 400 !important;
+}
