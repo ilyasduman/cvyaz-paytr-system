@@ -12395,5 +12395,5 @@ body .app .cv-wrap > .cv {
 .full-preview #pPhoto{
   transform: none !important;
   object-fit: cover !important;
-  object-position: center 18% !important;
+  object-position: center 8% !important;
 }
