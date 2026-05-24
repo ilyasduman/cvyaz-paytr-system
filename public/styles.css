@@ -12392,7 +12392,7 @@ body .app .cv-wrap > .cv {
 .profile-photo,
 .photo-frame img{
   position: relative !important;
-  top: 0 !important;
+  top: 8 !important;
 }
 /* MODERN + EXECUTIVE FOTO İNCE AYAR */
 .cv.modern .photo-frame img,
