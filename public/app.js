@@ -4796,14 +4796,12 @@ function clearDemoCV(){
     ".reference input, .reference textarea, .reference select"
   ).forEach(clearField);
 
-  // Özel görünen ama input olmayan alanlar
   document.querySelectorAll("[contenteditable='true']").forEach(el => {
     el.innerText = "";
     el.textContent = "";
     el.dispatchEvent(new Event("input", { bubbles:true }));
   });
 
-  // Demo sonrası kalan seçim metinlerini de temizle
   document.querySelectorAll(".edu, .exp, .language").forEach(block => {
     block.querySelectorAll("*").forEach(el => {
       const t = (el.textContent || "").trim();
@@ -4824,12 +4822,16 @@ function clearDemoCV(){
 
   if (typeof update === "function") update();
 
-    const profilePhoto = document.getElementById("profilePhoto");
+  const pPhoto = document.getElementById("pPhoto");
+  const photoFrame = document.getElementById("photoFrame");
 
-if (profilePhoto) {
-  profilePhoto.src = "";
-  profilePhoto.style.display = "none";
-}
+  if (pPhoto) {
+    pPhoto.removeAttribute("src");
+  }
+
+  if (photoFrame) {
+    photoFrame.style.display = "none";
+  }
 
   setTimeout(() => {
     if (typeof updatePreview === "function") updatePreview();
