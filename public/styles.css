@@ -12214,8 +12214,8 @@ body .app .cv-wrap > .cv {
   }
 
 }
-/* Alt canlı badge gizle */
-.cv-wrap + div,
-.preview-wrap + div{
+/* Alttaki fazla canlı rozetini gizle */
+.preview-title:has(.preview-title)::after{
+  content:none !important;
   display:none !important;
 }
