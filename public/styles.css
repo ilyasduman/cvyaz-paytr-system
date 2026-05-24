@@ -12465,3 +12465,13 @@ body .app .cv-wrap > .cv {
 .preview-shell .cv{
   font-size: 0.93em !important;
 }
+/* PROFESYONEL ÖZET FONT SIZE FIX */
+.cv .summary-text,
+.cv .professional-summary,
+.cv .profile-summary,
+.cv .section-summary,
+.cv .summary,
+.cv .summary p{
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+}
