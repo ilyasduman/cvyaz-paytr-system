@@ -12490,7 +12490,7 @@ body .app .cv-wrap > .cv {
   font-weight: 500 !important;
 }
 /* ================================
-   CVYAZ HAMBURGER MENU — WEB + MOBIL AYNI
+   CVYAZ HAMBURGER MENU — WEB + MOBİL AYNI
 ================================ */
 
 .site-menu,
@@ -12501,18 +12501,18 @@ body .app .cv-wrap > .cv {
   position: fixed !important;
   top: 0 !important;
   right: 0 !important;
-  width: min(390px, 92vw) !important;
+  width: min(400px, 92vw) !important;
   height: 100vh !important;
   background: linear-gradient(180deg, #ffffff 0%, #f7f8ff 100%) !important;
   border-left: 1px solid rgba(99, 102, 241, 0.16) !important;
   box-shadow: -24px 0 60px rgba(15, 23, 42, 0.22) !important;
   border-radius: 30px 0 0 30px !important;
-  padding: 28px 24px !important;
+  padding: 26px 22px !important;
   z-index: 9999 !important;
   overflow-y: auto !important;
 }
 
-/* Başlık alanı */
+/* Başlık */
 .site-menu-header,
 .menu-header,
 .drawer-header {
@@ -12540,58 +12540,82 @@ body .app .cv-wrap > .cv {
   color: #71798a !important;
 }
 
-/* Kapatma butonu */
+/* Kapat butonu */
 .menu-close,
 .close-menu,
 .site-menu-close {
-  width: 46px !important;
-  height: 46px !important;
-  min-width: 46px !important;
-  border-radius: 17px !important;
-  border: 1px solid rgba(99, 102, 241, 0.18) !important;
-  background: #f4f3ff !important;
+  width: 62px !important;
+  height: 62px !important;
+  min-width: 62px !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(109, 93, 252, 0.12) !important;
+  background: rgba(244, 243, 255, 0.95) !important;
   color: #101827 !important;
-  font-size: 20px !important;
+  font-size: 22px !important;
   font-weight: 900 !important;
   display: grid !important;
   place-items: center !important;
-  box-shadow: 0 12px 25px rgba(99, 102, 241, 0.13) !important;
+  box-shadow:
+    0 14px 35px rgba(109, 93, 252, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
 }
 
-/* Menü linkleri */
+/* Menü link kartları */
 .site-menu a,
 .mobile-menu a,
 .menu-panel a,
 .drawer a,
 .offcanvas a {
   width: 100% !important;
-  min-height: 58px !important;
+  min-height: 72px !important;
   margin-bottom: 12px !important;
-  padding: 0 18px !important;
-  border-radius: 19px !important;
-  background: #ffffff !important;
-  border: 1px solid rgba(99, 102, 241, 0.13) !important;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.045) !important;
+  padding: 0 24px !important;
+  border-radius: 24px !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(109, 93, 252, 0.08) !important;
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
   color: #182236 !important;
-  font-size: 17px !important;
-  font-weight: 900 !important;
+  font-size: 18px !important;
+  font-weight: 850 !important;
   text-decoration: none !important;
 
   display: flex !important;
   align-items: center !important;
-  gap: 14px !important;
+  gap: 18px !important;
 }
 
-/* İkonlar */
+/* Tüm ikonları eşitle */
 .site-menu a svg,
 .mobile-menu a svg,
 .menu-panel a svg,
 .drawer a svg,
 .offcanvas a svg {
-  width: 21px !important;
-  height: 21px !important;
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
   color: #6d5dfc !important;
-  stroke-width: 2.4 !important;
+  stroke: currentColor !important;
+  stroke-width: 2.2 !important;
+  fill: none !important;
+  opacity: 0.95 !important;
+}
+
+/* Emoji ikon varsa nötrleştirir */
+.site-menu a .emoji,
+.mobile-menu a .emoji,
+.menu-panel a .emoji,
+.drawer a .emoji,
+.offcanvas a .emoji {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  font-size: 20px !important;
+  color: #6d5dfc !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 /* Sağ ok */
@@ -12602,12 +12626,13 @@ body .app .cv-wrap > .cv {
 .offcanvas a::after {
   content: "›" !important;
   margin-left: auto !important;
-  color: #a5adbd !important;
-  font-size: 26px !important;
+  color: #b2b8c7 !important;
+  font-size: 28px !important;
   font-weight: 700 !important;
+  line-height: 1 !important;
 }
 
-/* Ayırıcı çizgi */
+/* Ayırıcı */
 .menu-divider,
 .site-menu-divider {
   height: 1px !important;
@@ -12615,21 +12640,26 @@ body .app .cv-wrap > .cv {
   margin: 18px 0 !important;
 }
 
-/* Alt slogan rozeti */
+/* Alt ATS rozeti */
 .menu-badge,
 .site-menu-badge {
   margin-top: 20px !important;
-  border-radius: 19px !important;
-  background: #111111 !important;
-  color: #aeb6c8 !important;
-  padding: 18px 20px !important;
-  font-size: 14px !important;
+  min-height: 62px !important;
+  border-radius: 999px !important;
+  background: #0f0f12 !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+  padding: 16px 22px !important;
+  font-size: 15px !important;
   line-height: 1.45 !important;
-  font-weight: 600 !important;
+  font-weight: 650 !important;
   text-align: center !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-/* Karartma alanı */
+/* Karartma */
 .menu-overlay,
 .drawer-overlay,
 .offcanvas-backdrop {
@@ -12640,14 +12670,14 @@ body .app .cv-wrap > .cv {
   z-index: 9998 !important;
 }
 
-/* Mobilde de aynı oran, sadece nefes payı */
+/* Mobilde de aynı karakter */
 @media (max-width: 768px) {
   .site-menu,
   .mobile-menu,
   .menu-panel,
   .drawer,
   .offcanvas {
-    width: min(380px, 94vw) !important;
+    width: min(400px, 94vw) !important;
     border-radius: 26px 0 0 26px !important;
     padding: 24px 20px !important;
   }
@@ -12662,19 +12692,19 @@ body .app .cv-wrap > .cv {
   .menu-panel a,
   .drawer a,
   .offcanvas a {
-    min-height: 56px !important;
-    font-size: 16px !important;
+    min-height: 72px !important;
+    font-size: 18px !important;
+    border-radius: 24px !important;
+    padding: 0 24px !important;
   }
-}
-.site-menu a svg,
-.mobile-menu a svg,
-.menu-panel a svg {
-  width: 20px !important;
-  height: 20px !important;
-  min-width: 20px !important;
 
-  stroke-width: 2.2 !important;
-  color: #6d5dfc !important;
-
-  opacity: 0.95 !important;
+  .site-menu a svg,
+  .mobile-menu a svg,
+  .menu-panel a svg,
+  .drawer a svg,
+  .offcanvas a svg {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+  }
 }
