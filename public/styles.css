@@ -12711,3 +12711,24 @@ body .app .cv-wrap > .cv {
     padding-right: 18px !important;
   }
 }
+/* =====================================================
+   ATS BADGES WEB SINGLE ROW FIX
+===================================================== */
+
+@media (min-width: 768px) {
+
+  .mini-checks{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:10px !important;
+  }
+
+  .mini-checks span{
+    white-space:nowrap !important;
+    font-size:14px !important;
+    padding:10px 14px !important;
+  }
+
+}
