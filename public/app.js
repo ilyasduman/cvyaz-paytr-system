@@ -4748,30 +4748,70 @@ function clearDemoCV(){
 
   document.body.classList.remove("demo-preview-mode");
 
+  // TÜM INPUT / TEXTAREA TEMİZLE
   document.querySelectorAll("input, textarea").forEach(el => {
+
     if (el.type !== "file") {
+
       el.value = "";
+
       el.dispatchEvent(new Event("input", { bubbles:true }));
       el.dispatchEvent(new Event("change", { bubbles:true }));
+
     }
+
   });
 
+  // TÜM SELECTLERİ SIFIRLA
   document.querySelectorAll("select").forEach(el => {
+
     el.selectedIndex = 0;
+
     el.dispatchEvent(new Event("change", { bubbles:true }));
+
   });
 
+  // DİNAMİK BLOKLARI TEMİZLE
   document.querySelectorAll(".edu, .exp, .language, .cert, .project, .reference").forEach((item, index) => {
-    if (index > 0) item.remove();
+
+    // İLK BLOK HARİÇ EKLENENLERİ SİL
+    if (index > 0) {
+      item.remove();
+      return;
+    }
+
+    // İLK BLOĞUN İÇİNİ BOŞALT
+    item.querySelectorAll("input, textarea").forEach(el => {
+
+      el.value = "";
+
+      el.dispatchEvent(new Event("input", { bubbles:true }));
+      el.dispatchEvent(new Event("change", { bubbles:true }));
+
+    });
+
+    item.querySelectorAll("select").forEach(el => {
+
+      el.selectedIndex = 0;
+
+      el.dispatchEvent(new Event("change", { bubbles:true }));
+
+    });
+
   });
 
+  // PREVIEW GÜNCELLE
   if (typeof updatePreview === "function") {
     updatePreview();
   }
 
+  // EK GÜNCELLEME
   setTimeout(() => {
+
     if (typeof updatePreview === "function") {
       updatePreview();
     }
-  }, 50);
+
+  }, 100);
+
 }
