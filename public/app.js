@@ -4823,6 +4823,13 @@ function clearDemoCV(){
 
   if (typeof update === "function") update();
 
+    const profilePhoto = document.getElementById("profilePhoto");
+
+if (profilePhoto) {
+  profilePhoto.src = "";
+  profilePhoto.style.display = "none";
+}
+
   setTimeout(() => {
     if (typeof updatePreview === "function") updatePreview();
     if (typeof update === "function") update();
