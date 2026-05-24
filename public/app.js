@@ -4519,12 +4519,18 @@ function loadDemoCV(){
 const demoPhoto =
 "https://i.pravatar.cc/300?img=12";
 
-const photoPreview =
-document.getElementById("photoPreview");
+const photoPreview = document.getElementById("photoPreview");
 
 if (photoPreview) {
   photoPreview.src = demoPhoto;
   photoPreview.style.display = "block";
+  photoPreview.style.opacity = "1";
+
+  photoPreview.classList.add("active");
+}
+
+if (typeof updatePreview === "function") {
+  updatePreview();
 }
 
   /* =========================
