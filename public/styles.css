@@ -12476,3 +12476,26 @@ body .app .cv-wrap > .cv {
     line-height: 1.4 !important;
     font-weight: 400 !important;
 }
+/* =====================================================
+   CVYAZ — PROFESYONEL OZET FONT DENGESI
+===================================================== */
+
+.cv .summary,
+.cv .summary p,
+.cv .professional-summary,
+.cv .professional-summary p,
+.cv .profile-summary,
+.cv .profile-summary p {
+    font-size: 6.8px !important;
+    line-height: 1.45 !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+    color: #222 !important;
+}
+
+/* Baslik sabit */
+.cv .summary-title,
+.cv .professional-summary-title {
+    font-size: 7px !important;
+    font-weight: 700 !important;
+}
