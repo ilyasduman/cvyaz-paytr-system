@@ -4761,46 +4761,28 @@ function clearDemoCV(){
     el.dispatchEvent(new Event("change", { bubbles:true }));
   });
 
-  document.querySelectorAll(".edu, .exp, .language, .cert, .project, .reference").forEach((item, index) => {
-    if (index > 0) {
-      item.remove();
-      return;
-    }
+  if (typeof updatePreview === "function") {
+    updatePreview();
+  }
 
-    item.querySelectorAll("input, textarea").forEach(el => {
-      el.value = "";
-      el.dispatchEvent(new Event("input", { bubbles:true }));
-      el.dispatchEvent(new Event("change", { bubbles:true }));
+  requestAnimationFrame(() => {
+
+    const cv = document.querySelector(".cv");
+
+    if (!cv) return;
+
+    cv.querySelectorAll("*").forEach(el => {
+      const text = (el.innerText || "").replace(/\s+/g, " ").trim();
+
+      if (
+        text === "EĞİTİM Üniversite Üniversite" ||
+        text === "İŞ DENEYİMİ Pozisyon Tam Zamanlı Pozisyon Freelance" ||
+        text === "DİLLER Dil Okuma: Ana Dil • Yazma: Ana Dil • Konuşma: Ana Dil Dil Okuma: İleri • Yazma: İyi • Konuşma: İyi"
+      ) {
+        el.remove();
+      }
     });
 
-    item.querySelectorAll("select").forEach(el => {
-      el.selectedIndex = 0;
-      el.dispatchEvent(new Event("change", { bubbles:true }));
-    });
   });
-
-  setTimeout(() => {
-    if (typeof updatePreview === "function") updatePreview();
-
-    const previewRoots = document.querySelectorAll(
-      "#cvPreview, #preview, .cv-preview, .preview, .cv, .cv-paper, .paper"
-    );
-
-    previewRoots.forEach(root => {
-      root.querySelectorAll("*").forEach(el => {
-        const text = (el.innerText || "").replace(/\s+/g, " ").trim();
-
-        const isEmptyDemoBlock =
-          text === "EĞİTİM Üniversite Üniversite" ||
-          text === "İŞ DENEYİMİ Pozisyon Tam Zamanlı Pozisyon Freelance" ||
-          text === "DİLLER Dil Okuma: Ana Dil • Yazma: Ana Dil • Konuşma: Ana Dil Dil Okuma: İleri • Yazma: İyi • Konuşma: İyi";
-
-        if (isEmptyDemoBlock) {
-          el.remove();
-        }
-      });
-    });
-
-  }, 200);
 
 }
