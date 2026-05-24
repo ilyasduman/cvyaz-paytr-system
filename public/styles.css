@@ -12743,19 +12743,3 @@ body .app .cv-wrap > .cv {
   }
 
 }
-/* HERO BAŞLIK FONT KÜÇÜLTME */
-@media (min-width: 768px) {
-  .hero h1,
-  h1 {
-    font-size: 64px !important;
-    line-height: .96 !important;
-  }
-}
-
-@media (max-width: 767px) {
-  .hero h1,
-  h1 {
-    font-size: 44px !important;
-    line-height: .98 !important;
-  }
-}
