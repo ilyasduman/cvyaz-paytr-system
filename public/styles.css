@@ -12427,3 +12427,27 @@ body .app .cv-wrap > .cv {
   }
 
 }
+/* CV PDF ÖNİZLEME BUTONU — FORMU EZMESİN */
+#previewCta,
+.download#previewCta{
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+
+  display: block !important;
+  width: 260px !important;
+  max-width: 260px !important;
+
+  margin: 18px auto 26px !important;
+  z-index: 3 !important;
+}
+@media (max-width: 768px){
+  #previewCta,
+  .download#previewCta{
+    width: 260px !important;
+    max-width: 260px !important;
+    margin: 18px auto 24px !important;
+  }
+}
