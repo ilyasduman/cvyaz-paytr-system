@@ -12336,3 +12336,14 @@ body .app .cv-wrap > .cv {
   object-position: center top !important;
   border-radius: 8px !important;
 }
+/* PREMIUM FOTOĞRAF BOYUT DÜZELTME */
+.cv.premium #pPhoto,
+.cv.premium .photo-frame img,
+.cv.premium .cv-photo,
+.cv.premium img[src*="demo-photo"]{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+}
