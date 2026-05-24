@@ -4749,28 +4749,29 @@ function clearDemoCV(){
   document.body.classList.remove("demo-preview-mode");
 
   document.querySelectorAll("input, textarea").forEach(el => {
-
     if (el.type !== "file") {
-
       el.value = "";
-
       el.dispatchEvent(new Event("input", { bubbles:true }));
       el.dispatchEvent(new Event("change", { bubbles:true }));
-
     }
-
   });
 
   document.querySelectorAll("select").forEach(el => {
-
     el.selectedIndex = 0;
-
     el.dispatchEvent(new Event("change", { bubbles:true }));
+  });
 
+  document.querySelectorAll(".edu, .exp, .language, .cert, .project, .reference").forEach((item, index) => {
+    if (index > 0) item.remove();
   });
 
   if (typeof updatePreview === "function") {
     updatePreview();
   }
 
+  setTimeout(() => {
+    if (typeof updatePreview === "function") {
+      updatePreview();
+    }
+  }, 50);
 }
