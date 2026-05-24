@@ -4516,17 +4516,13 @@ function loadDemoCV(){
    DEMO FOTOĞRAF
 ========================= */
 
+/* =========================
+   DEMO FOTOĞRAF
+========================= */
+
 const demoPhoto = "demo-photo.png";
 
-const photoPreview = document.getElementById("photoPreview");
-
-if (photoPreview) {
-  photoPreview.src = demoPhoto;
-  photoPreview.style.display = "block";
-  photoPreview.style.opacity = "1";
-
-  photoPreview.classList.add("active");
-}
+cvyazRestorePhotoData(demoPhoto);
 
 if (typeof updatePreview === "function") {
   updatePreview();
