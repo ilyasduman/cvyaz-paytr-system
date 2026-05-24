@@ -12197,3 +12197,28 @@ body .app .cv-wrap > .cv {
   white-space:normal !important;
   letter-spacing:.8px !important;
 }
+/* ===== SADECE MOBİL CV ÖNİZLEME TAŞMA FIX ===== */
+@media(max-width:768px){
+
+  #cvWrap{
+    height:auto !important;
+    min-height:720px !important;
+    max-height:none !important;
+    overflow:visible !important;
+    padding-bottom:40px !important;
+  }
+
+  #cvWrap .cv{
+    margin-bottom:40px !important;
+  }
+
+  .how-card,
+  .how-section,
+  .steps,
+  .how-it-works{
+    margin-top:55px !important;
+    position:relative !important;
+    z-index:2 !important;
+  }
+
+}
