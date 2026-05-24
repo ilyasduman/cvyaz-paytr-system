@@ -12387,12 +12387,13 @@ body .app .cv-wrap > .cv {
   margin: 0 !important;
 
 }
+/* FOTOĞRAFI BİRAZ AŞAĞI İNDİR */
 #pPhoto,
 .cv-photo,
 .profile-photo,
 .photo-frame img{
   position: relative !important;
-  top: 8 !important;
+  top: 10px !important;
 }
 /* MODERN + EXECUTIVE FOTO İNCE AYAR */
 .cv.modern .photo-frame img,
