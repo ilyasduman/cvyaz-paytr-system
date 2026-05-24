@@ -4459,7 +4459,6 @@ function loadDemoCV(type){
 ===================================================== */
 
 function loadDemoCV(){
-    document.body.classList.add("demo-preview-mode");
 
   function setVal(id, value){
 
