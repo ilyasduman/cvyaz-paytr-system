@@ -12387,18 +12387,27 @@ body .app .cv-wrap > .cv {
   margin: 0 !important;
 
 }
-/* FOTOĞRAFI BİRAZ AŞAĞI İNDİR */
+/* FOTOĞRAF DİKEY HİZALAMA — SON AYAR */
 #pPhoto,
 .cv-photo,
 .profile-photo,
 .photo-frame img{
   position: relative !important;
-  top: 10px !important;
+  top: 0 !important;
 }
-/* MODERN + EXECUTIVE FOTO İNCE AYAR */
+
+/* ANA SAYFA MODERN + EXECUTIVE */
+.cv.modern #pPhoto,
+.cv.executive #pPhoto,
 .cv.modern .photo-frame img,
-.cv.executive .photo-frame img,
-.cv.modern .cv-photo,
-.cv.executive .cv-photo{
-  top: 8px !important;
+.cv.executive .photo-frame img{
+  top: 4px !important;
+}
+
+/* PDF ÖNİZLEME ATS + PREMIUM */
+.preview-modal .cv.ats #pPhoto,
+.preview-modal .cv.premium #pPhoto,
+#previewModal .cv.ats #pPhoto,
+#previewModal .cv.premium #pPhoto{
+  top: 4px !important;
 }
