@@ -4387,7 +4387,6 @@ document.querySelectorAll(".tab[data-template]").forEach(tab => {
   roleInput.addEventListener("focus", hideSuggestions, true);
 })();
 function loadDemoCV(type){
-    document.body.classList.add("demo-preview-mode");
 
   const demos = {
 
@@ -4744,22 +4743,3 @@ function loadDemoCV(){
   }
 
 }
-document.querySelectorAll("input, textarea, select").forEach(el => {
-  el.addEventListener("focus", () => {
-    if (!document.body.classList.contains("demo-preview-mode")) return;
-
-    document.body.classList.remove("demo-preview-mode");
-
-    document.querySelectorAll("input, textarea").forEach(i => {
-      if (i.type !== "file") i.value = "";
-    });
-
-    document.querySelectorAll("select").forEach(s => {
-      s.selectedIndex = 0;
-    });
-
-    if (typeof updatePreview === "function") {
-      updatePreview();
-    }
-  }, { once: true });
-});
