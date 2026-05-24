@@ -12461,3 +12461,7 @@ body .app .cv-wrap > .cv {
   color: #2f2f2f !important;
   letter-spacing: 0 !important;
 }
+/* ANA SAYFA PREVIEW FONT OPTICAL FIX */
+.preview-shell .cv{
+  font-size: 0.93em !important;
+}
