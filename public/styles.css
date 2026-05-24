@@ -12675,3 +12675,39 @@ body .app .cv-wrap > .cv {
     z-index: 90 !important;
   }
 }
+/* =====================================================
+   CVYAZ MOBILE ALT KARTLAR ÜST PENCEREYLE AYNI GENİŞLİK
+===================================================== */
+
+@media (max-width: 767px) {
+  .app {
+    width: 100% !important;
+    max-width: 430px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .cv-wrap,
+  .info-section,
+  .info-section.ats-card,
+  #ats-nedir,
+  .enhanced-legal-box,
+  .legal-box,
+  .site-footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .info-section,
+  .info-section.ats-card,
+  .enhanced-legal-box,
+  .legal-box {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+}
