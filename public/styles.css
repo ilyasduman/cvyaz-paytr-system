@@ -12283,3 +12283,53 @@ body .app .cv-wrap > .cv {
   line-height: 1.45 !important;
   font-weight: 500 !important;
 }
+/* =====================================================
+   CVYAZ HAMBURGER SAFE POLISH — BOZMADAN RÖTUŞ
+   Sadece görünümü iyileştirir, ikon/metin yapısına dokunmaz
+===================================================== */
+
+body .side-menu {
+  width: min(400px, 94vw) !important;
+  padding: 26px 22px !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f8ff 100%) !important;
+  border-left: 1px solid rgba(109, 93, 252, .14) !important;
+  border-radius: 30px 0 0 30px !important;
+  box-shadow: -24px 0 60px rgba(15, 23, 42, .22) !important;
+}
+
+body .side-menu a {
+  min-height: 58px !important;
+  margin: 0 0 12px !important;
+  padding: 0 18px !important;
+  border-radius: 19px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(109, 93, 252, .10) !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, .045) !important;
+  color: #182236 !important;
+  font-size: 17px !important;
+  font-weight: 900 !important;
+}
+
+body .side-menu a:hover {
+  background: #ffffff !important;
+  color: #182236 !important;
+}
+
+body .side-menu a svg {
+  width: 21px !important;
+  height: 21px !important;
+  min-width: 21px !important;
+  color: #6d5dfc !important;
+  stroke: currentColor !important;
+  stroke-width: 2.2 !important;
+  fill: none !important;
+}
+
+body .side-menu p {
+  margin-top: 20px !important;
+  border-radius: 999px !important;
+  background: #0f0f12 !important;
+  color: rgba(255,255,255,.82) !important;
+  font-size: 14px !important;
+  font-weight: 650 !important;
+}
