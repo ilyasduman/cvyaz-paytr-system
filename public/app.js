@@ -4748,60 +4748,69 @@ function clearDemoCV(){
 
   document.body.classList.remove("demo-preview-mode");
 
-  // INPUT / TEXTAREA TEMİZLE
-  document.querySelectorAll("input, textarea").forEach(el => {
+  const clearField = (el) => {
+    if (!el) return;
 
-    if (el.type !== "file") {
+    if (el.type === "file") return;
 
+    if (el.type === "checkbox" || el.type === "radio") {
+      el.checked = false;
+    } else if (el.tagName === "SELECT") {
+      el.selectedIndex = 0;
       el.value = "";
-
-      el.dispatchEvent(new Event("input", { bubbles:true }));
-      el.dispatchEvent(new Event("change", { bubbles:true }));
-
+    } else {
+      el.value = "";
     }
 
-  });
-
-  // SELECT TEMİZLE
-  document.querySelectorAll("select").forEach(el => {
-
-    el.selectedIndex = 0;
+    el.removeAttribute("value");
 
     el.dispatchEvent(new Event("input", { bubbles:true }));
     el.dispatchEvent(new Event("change", { bubbles:true }));
+    el.dispatchEvent(new Event("blur", { bubbles:true }));
+  };
 
+  document.querySelectorAll("input, textarea, select").forEach(clearField);
+
+  document.querySelectorAll(
+    ".edu input, .edu textarea, .edu select, " +
+    ".exp input, .exp textarea, .exp select, " +
+    ".language input, .language textarea, .language select, " +
+    ".cert input, .cert textarea, .cert select, " +
+    ".project input, .project textarea, .project select, " +
+    ".reference input, .reference textarea, .reference select"
+  ).forEach(clearField);
+
+  // Özel görünen ama input olmayan alanlar
+  document.querySelectorAll("[contenteditable='true']").forEach(el => {
+    el.innerText = "";
+    el.textContent = "";
+    el.dispatchEvent(new Event("input", { bubbles:true }));
   });
 
-  // PREVIEW ALANLARINI SIFIRLA
-  const cvMounts = [
-    "cvPreview",
-    "preview",
-    "cvPaper",
-    "cvOutput"
-  ];
+  // Demo sonrası kalan seçim metinlerini de temizle
+  document.querySelectorAll(".edu, .exp, .language").forEach(block => {
+    block.querySelectorAll("*").forEach(el => {
+      const t = (el.textContent || "").trim();
 
-  cvMounts.forEach(id => {
-
-    const el = document.getElementById(id);
-
-    if (el) {
-      el.innerHTML = "";
-    }
-
+      if (
+        t === "Üniversite" ||
+        t === "Tam Zamanlı" ||
+        t === "Freelance" ||
+        t === "Ana Dil" ||
+        t === "İleri" ||
+        t === "İyi"
+      ) {
+        if ("value" in el) el.value = "";
+        else el.textContent = "";
+      }
+    });
   });
 
-  // ANA SİSTEMİ YENİDEN ÇALIŞTIR
-  if (typeof update === "function") {
-    update();
-  }
+  if (typeof update === "function") update();
 
-  // PREVIEW YENİDEN OLUŞTUR
   setTimeout(() => {
-
-    if (typeof updatePreview === "function") {
-      updatePreview();
-    }
-
+    if (typeof updatePreview === "function") updatePreview();
+    if (typeof update === "function") update();
   }, 80);
 
 }
