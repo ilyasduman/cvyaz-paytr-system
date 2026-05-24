@@ -12485,7 +12485,7 @@ body .app .cv-wrap > .cv {
 .cv [class*="Summary"],
 .cv [class*="ozet"],
 .cv [class*="Ozet"]{
-  font-size: 9px !important;
+  font-size: 14px !important;
   line-height: 1.45 !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
 }
