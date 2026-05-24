@@ -12330,11 +12330,30 @@ body .app .cv-wrap > .cv {
 .cv-photo,
 .profile-photo,
 .photo-frame img{
-  width: 72px !important;
-  height: 92px !important;
+
+  width: 78px !important;
+  height: 100px !important;
+
   object-fit: cover !important;
   object-position: center top !important;
+
+  transform: scale(1.10) !important;
+
   border-radius: 8px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+}
+/* MODERN / EXECUTIVE / KURUMSAL / YARATICI FOTO DOLULUK */
+
+.cv.modern #pPhoto,
+.cv.executive #pPhoto,
+.cv.corporate #pPhoto,
+.cv.creative #pPhoto {
+
+  transform: scale(1.18) !important;
+
 }
 /* PREMIUM FOTOĞRAF BOYUT DÜZELTME */
 .cv.premium #pPhoto,
