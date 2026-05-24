@@ -12333,3 +12333,35 @@ body .side-menu p {
   font-size: 14px !important;
   font-weight: 650 !important;
 }
+/* =====================================================
+   CVYAZ HAMBURGER ICON FIX — SON YAMA
+   Bozuk ikon/font karakterlerini gizler
+===================================================== */
+
+body .side-menu a {
+  position: relative !important;
+  padding-left: 22px !important;
+  gap: 0 !important;
+}
+
+/* Link içindeki ikon/font karakterlerini gizle */
+body .side-menu a svg,
+body .side-menu a i,
+body .side-menu a .icon,
+body .side-menu a [class*="icon"],
+body .side-menu a span:first-child {
+  display: none !important;
+}
+
+/* Yazıyı temiz hizala */
+body .side-menu a {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+/* Sağ ok kalsın */
+body .side-menu a::after {
+  display: block !important;
+  content: "›" !important;
+  margin-left: auto !important;
+}
