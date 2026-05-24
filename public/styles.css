@@ -12489,3 +12489,192 @@ body .app .cv-wrap > .cv {
   line-height: 1.45 !important;
   font-weight: 500 !important;
 }
+/* ================================
+   CVYAZ HAMBURGER MENU — WEB + MOBIL AYNI
+================================ */
+
+.site-menu,
+.mobile-menu,
+.menu-panel,
+.drawer,
+.offcanvas {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: min(390px, 92vw) !important;
+  height: 100vh !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f8ff 100%) !important;
+  border-left: 1px solid rgba(99, 102, 241, 0.16) !important;
+  box-shadow: -24px 0 60px rgba(15, 23, 42, 0.22) !important;
+  border-radius: 30px 0 0 30px !important;
+  padding: 28px 24px !important;
+  z-index: 9999 !important;
+  overflow-y: auto !important;
+}
+
+/* Başlık alanı */
+.site-menu-header,
+.menu-header,
+.drawer-header {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  margin-bottom: 26px !important;
+}
+
+.site-menu-title,
+.menu-title {
+  font-size: 30px !important;
+  line-height: 1 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.04em !important;
+  color: #101827 !important;
+}
+
+.site-menu-subtitle,
+.menu-subtitle {
+  margin-top: 10px !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #71798a !important;
+}
+
+/* Kapatma butonu */
+.menu-close,
+.close-menu,
+.site-menu-close {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  border-radius: 17px !important;
+  border: 1px solid rgba(99, 102, 241, 0.18) !important;
+  background: #f4f3ff !important;
+  color: #101827 !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  display: grid !important;
+  place-items: center !important;
+  box-shadow: 0 12px 25px rgba(99, 102, 241, 0.13) !important;
+}
+
+/* Menü linkleri */
+.site-menu a,
+.mobile-menu a,
+.menu-panel a,
+.drawer a,
+.offcanvas a {
+  width: 100% !important;
+  min-height: 58px !important;
+  margin-bottom: 12px !important;
+  padding: 0 18px !important;
+  border-radius: 19px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(99, 102, 241, 0.13) !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.045) !important;
+  color: #182236 !important;
+  font-size: 17px !important;
+  font-weight: 900 !important;
+  text-decoration: none !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+/* İkonlar */
+.site-menu a svg,
+.mobile-menu a svg,
+.menu-panel a svg,
+.drawer a svg,
+.offcanvas a svg {
+  width: 21px !important;
+  height: 21px !important;
+  color: #6d5dfc !important;
+  stroke-width: 2.4 !important;
+}
+
+/* Sağ ok */
+.site-menu a::after,
+.mobile-menu a::after,
+.menu-panel a::after,
+.drawer a::after,
+.offcanvas a::after {
+  content: "›" !important;
+  margin-left: auto !important;
+  color: #a5adbd !important;
+  font-size: 26px !important;
+  font-weight: 700 !important;
+}
+
+/* Ayırıcı çizgi */
+.menu-divider,
+.site-menu-divider {
+  height: 1px !important;
+  background: rgba(15, 23, 42, 0.08) !important;
+  margin: 18px 0 !important;
+}
+
+/* Alt slogan rozeti */
+.menu-badge,
+.site-menu-badge {
+  margin-top: 20px !important;
+  border-radius: 19px !important;
+  background: #111111 !important;
+  color: #aeb6c8 !important;
+  padding: 18px 20px !important;
+  font-size: 14px !important;
+  line-height: 1.45 !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+}
+
+/* Karartma alanı */
+.menu-overlay,
+.drawer-overlay,
+.offcanvas-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(15, 23, 42, 0.56) !important;
+  backdrop-filter: blur(8px) !important;
+  z-index: 9998 !important;
+}
+
+/* Mobilde de aynı oran, sadece nefes payı */
+@media (max-width: 768px) {
+  .site-menu,
+  .mobile-menu,
+  .menu-panel,
+  .drawer,
+  .offcanvas {
+    width: min(380px, 94vw) !important;
+    border-radius: 26px 0 0 26px !important;
+    padding: 24px 20px !important;
+  }
+
+  .site-menu-title,
+  .menu-title {
+    font-size: 28px !important;
+  }
+
+  .site-menu a,
+  .mobile-menu a,
+  .menu-panel a,
+  .drawer a,
+  .offcanvas a {
+    min-height: 56px !important;
+    font-size: 16px !important;
+  }
+}
+.site-menu a svg,
+.mobile-menu a svg,
+.menu-panel a svg {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+
+  stroke-width: 2.2 !important;
+  color: #6d5dfc !important;
+
+  opacity: 0.95 !important;
+}
