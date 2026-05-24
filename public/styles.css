@@ -12375,8 +12375,8 @@ body .app .cv-wrap > .cv {
 .profile-photo,
 .photo-frame img{
 
-  width: 102px !important;
-  height: 122px !important;
+  width: 92px !important;
+  height: 112px !important;
 
   object-fit: cover !important;
   object-position: center top !important;
