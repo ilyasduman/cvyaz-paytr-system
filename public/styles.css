@@ -12410,15 +12410,20 @@ body .app .cv-wrap > .cv {
 }
 @media (max-width: 768px){
 
-  .download{
-    width: 68% !important;
-    max-width: 290px !important;
-    margin: 14px auto 20px !important;
+  body .download#previewCta,
+  body #previewCta{
+    width: 260px !important;
+    max-width: 260px !important;
+    min-width: 0 !important;
 
-    padding: 16px 22px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+
+    padding: 14px 18px !important;
+    font-size: 16px !important;
     border-radius: 18px !important;
-
-    font-size: 15px !important;
+    text-align: center !important;
   }
 
 }
