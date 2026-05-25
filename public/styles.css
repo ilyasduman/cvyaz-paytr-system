@@ -13318,3 +13318,30 @@ body.menu-open .download {
   line-height: 1.15 !important;
   margin-bottom: 7px !important;
 }
+/* KİŞİSEL BİLGİLER ÇAKIŞMA FIX */
+.cv.modern .info-row,
+.cv.modern .info-row-inline,
+#cvPdfClone.cv.modern .info-row,
+#cvPdfClone.cv.modern .info-row-inline{
+    grid-template-columns: 170px minmax(0,1fr) !important;
+    column-gap: 14px !important;
+    align-items: start !important;
+}
+
+/* Sol başlık alanı */
+.cv.modern .info-row strong,
+.cv.modern .info-row-inline strong,
+#cvPdfClone.cv.modern .info-row strong,
+#cvPdfClone.cv.modern .info-row-inline strong{
+    display:block !important;
+    white-space:nowrap !important;
+}
+
+/* Sağ değer alanı */
+.cv.modern .info-row span,
+.cv.modern .info-row-inline span,
+#cvPdfClone.cv.modern .info-row span,
+#cvPdfClone.cv.modern .info-row-inline span{
+    display:block !important;
+    word-break:break-word !important;
+}
