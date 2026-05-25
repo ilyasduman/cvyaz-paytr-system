@@ -13460,3 +13460,29 @@ body.menu-open .download {
     letter-spacing: 0 !important;
   }
 }
+/* =====================================================
+   MOBİL PDF ÖNİZLEME
+   PROFESYONEL ÖZET GERÇEK BOYUT FIX
+===================================================== */
+
+@media (max-width:768px){
+
+  /* Profesyonel özet kutusu */
+  #cvPdfClone #secAbout,
+  .pdf-preview #secAbout,
+  .preview-modal #secAbout{
+    zoom: 1.22 !important;
+    transform: scale(1.22) !important;
+    transform-origin: top left !important;
+    width: 82% !important;
+  }
+
+  /* Yazının kendisi */
+  #cvPdfClone #secAbout p,
+  #cvPdfClone #pAbout{
+    font-size: 14px !important;
+    line-height: 1.48 !important;
+    font-weight: 400 !important;
+    color: #374151 !important;
+  }
+}
