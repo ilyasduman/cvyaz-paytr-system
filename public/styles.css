@@ -13683,3 +13683,26 @@ body.menu-open .download {
     margin-top: 4px !important;
   }
 }
+/* ATS SADE / MINIMAL — İSİM BOŞLUK FIX */
+
+.cv.minimal h1,
+.cv[data-template="minimal"] h1,
+#cvPdfClone.cv.minimal h1,
+#cvPdfClone.cv[data-template="minimal"] h1 {
+  font-size: 20px !important;
+  line-height: 0.95 !important;
+  letter-spacing: 2px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.cv.minimal .role,
+.cv[data-template="minimal"] .role,
+#cvPdfClone.cv.minimal .role,
+#cvPdfClone.cv[data-template="minimal"] .role {
+  margin-top: -2px !important;
+  margin-bottom: 4px !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  font-size: 7px !important;
+}
