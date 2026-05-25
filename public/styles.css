@@ -12450,33 +12450,8 @@ body .app .cv-wrap > .cv {
   }
 
 }
-/* PROFESYONEL ÖZET YAZI İNCELT */
-.cv .summary-text,
-.cv .profile-summary,
-.cv .professional-summary,
-.cv .section-text,
-.cv .section p,
-.cv p{
-  font-weight: 400 !important;
-  color: #2f2f2f !important;
-  letter-spacing: 0 !important;
-}
-.cv .summary p,
-.cv .professional-summary p,
-.cv .profile-summary p{
-    font-size: 7px !important;
-    line-height: 1.45 !important;
-}
-.cv .summary,
-.cv .summary-text,
-.cv .professional-summary,
-.cv .professional-summary p,
-.cv .summary p{
-    font-size: 7px !important;
-    line-height: 1.4 !important;
-    font-weight: 400 !important;
-}
-/* PROFESYONEL ÖZET — TÜM STİLLERDE DENGELİ FONT */
+
+/* PROFESYONEL ÖZET - TÜM STİLLERDE DENGELİ FONT */
 .cv h3 + p,
 .cv h4 + p,
 .cv .section-title + p,
@@ -12484,7 +12459,15 @@ body .app .cv-wrap > .cv {
 .cv [class*="summary"],
 .cv [class*="Summary"],
 .cv [class*="ozet"],
-.cv [class*="Ozet"]{
+.cv [class*="Ozet"],
+#cvPdfClone h3 + p,
+#cvPdfClone h4 + p,
+#cvPdfClone .section-title + p,
+#cvPdfClone .cv-section-title + p,
+#cvPdfClone [class*="summary"],
+#cvPdfClone [class*="Summary"],
+#cvPdfClone [class*="ozet"],
+#cvPdfClone [class*="Ozet"]{
   font-size: 11.8px !important;
   line-height: 1.38 !important;
   font-weight: 400 !important;
