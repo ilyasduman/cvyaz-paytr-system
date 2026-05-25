@@ -13537,3 +13537,39 @@ body.menu-open .download {
   }
 
 }
+/* =====================================================
+   PROFESYONEL ÖZET — FINAL KÜÇÜLTME
+   Web + Mobil + PDF önizleme
+===================================================== */
+
+.cv.modern [class*="summary"],
+.cv.modern [class*="Summary"],
+.cv.modern [class*="ozet"],
+.cv.modern [class*="Ozet"],
+.cv.modern h3 + p,
+#cvPdfClone.cv.modern [class*="summary"],
+#cvPdfClone.cv.modern [class*="Summary"],
+#cvPdfClone.cv.modern [class*="ozet"],
+#cvPdfClone.cv.modern [class*="Ozet"],
+#cvPdfClone.cv.modern h3 + p {
+  font-size: 10.8px !important;
+  line-height: 1.34 !important;
+  font-weight: 400 !important;
+  color: #374151 !important;
+  letter-spacing: 0 !important;
+}
+
+/* İçindeki paragraf varsa onu da ez */
+.cv.modern [class*="summary"] p,
+.cv.modern [class*="Summary"] p,
+.cv.modern [class*="ozet"] p,
+.cv.modern [class*="Ozet"] p,
+#cvPdfClone.cv.modern [class*="summary"] p,
+#cvPdfClone.cv.modern [class*="Summary"] p,
+#cvPdfClone.cv.modern [class*="ozet"] p,
+#cvPdfClone.cv.modern [class*="Ozet"] p {
+  font-size: 10.8px !important;
+  line-height: 1.34 !important;
+  font-weight: 400 !important;
+  color: #374151 !important;
+}
