@@ -13987,3 +13987,71 @@ body.menu-open .download {
     object-position: center 12% !important;
   }
 }
+/* EXECUTIVE İSİM + MESLEK KESİN KÜÇÜLTME */
+
+.cv.executive h1,
+.cv.executive h2,
+.cv.executive .cv-name,
+.cv.executive .name,
+.cv.executive .full-name,
+.cv.executive [class*="name"],
+#cvPdfClone h1,
+#cvPdfClone h2,
+#cvPdfClone .cv-name,
+#cvPdfClone .name,
+#cvPdfClone .full-name,
+#cvPdfClone [class*="name"] {
+  font-size: 34px !important;
+  line-height: 0.95 !important;
+  letter-spacing: 1.2px !important;
+  margin: 0 0 8px !important;
+  transform: none !important;
+}
+
+.cv.executive .role,
+.cv.executive .job,
+.cv.executive .job-title,
+.cv.executive .position,
+.cv.executive .subtitle,
+.cv.executive [class*="role"],
+.cv.executive [class*="job"],
+.cv.executive [class*="title"],
+#cvPdfClone .role,
+#cvPdfClone .job,
+#cvPdfClone .job-title,
+#cvPdfClone .position,
+#cvPdfClone .subtitle,
+#cvPdfClone [class*="role"],
+#cvPdfClone [class*="job"],
+#cvPdfClone [class*="title"] {
+  font-size: 10.5px !important;
+  line-height: 1.1 !important;
+  letter-spacing: 1px !important;
+  padding: 4px 12px !important;
+  margin: 0 0 12px !important;
+}
+
+/* Executive üst alanı biraz sıkıştır */
+.cv.executive,
+#cvPdfClone.cv.executive {
+  --exec-name-size: 34px !important;
+}
+
+.cv.executive .header,
+.cv.executive .cv-header,
+.cv.executive .top,
+.cv.executive [class*="header"],
+#cvPdfClone .header,
+#cvPdfClone .cv-header,
+#cvPdfClone .top,
+#cvPdfClone [class*="header"] {
+  padding-top: 26px !important;
+  padding-bottom: 24px !important;
+}
+
+/* Foto saç kesmesin */
+.cv.executive img,
+#cvPdfClone img {
+  object-fit: cover !important;
+  object-position: center 8% !important;
+}
