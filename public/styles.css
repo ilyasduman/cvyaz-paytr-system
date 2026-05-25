@@ -13518,3 +13518,28 @@ body.menu-open .download {
   font-size: 9px !important;
   padding: 3px 7px !important;
 }
+/* =====================================================
+   FINAL MICRO TUNING
+   Mobil preview küçült + ATS isim küçült
+===================================================== */
+
+/* ATS Sade isim küçült */
+.cv.minimal h1,
+.cv[data-template="minimal"] h1,
+#cvPdfClone.cv.minimal h1,
+#cvPdfClone.cv[data-template="minimal"] h1 {
+  font-size: 18px !important;
+  letter-spacing: 1.6px !important;
+}
+
+/* Mobil PDF preview biraz küçülsün */
+@media (max-width: 768px) {
+
+  #cvPdfClone,
+  .cv-preview-paper,
+  .preview-paper {
+    transform: scale(0.92) !important;
+    transform-origin: top center !important;
+  }
+
+}
