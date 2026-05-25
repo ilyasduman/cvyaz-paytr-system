@@ -12918,3 +12918,55 @@ body .app .cv-wrap > .cv {
 
   letter-spacing:-0.2px !important;
 }
+/* =====================================================
+   ÖRNEK CV BUTONLARI — WEB + MOBİL DENGE
+===================================================== */
+
+.preview-actions {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.preview-actions button {
+  width: 190px !important;
+  min-width: 190px !important;
+  max-width: 190px !important;
+
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+
+  padding: 0 !important;
+  border-radius: 14px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.1px !important;
+}
+
+/* Mobilde biraz daha küçük */
+@media (max-width: 767px) {
+  .preview-actions {
+    gap: 8px !important;
+  }
+
+  .preview-actions button {
+    width: 158px !important;
+    min-width: 158px !important;
+    max-width: 158px !important;
+
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+
+    font-size: 13.5px !important;
+    border-radius: 13px !important;
+  }
+}
