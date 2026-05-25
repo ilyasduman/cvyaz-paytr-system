@@ -13639,3 +13639,47 @@ body.menu-open .download {
   gap: 2px 8px !important;
   margin-top: 6px !important;
 }
+/* ATS SADE / MINIMAL — MOBİL PDF HEADER COMPACT FINAL */
+@media (max-width: 768px) {
+  #cvPdfClone.cv.minimal .top,
+  #cvPdfClone.cv[data-template="minimal"] .top,
+  #cvPdfClone.cv.minimal .hero,
+  #cvPdfClone.cv[data-template="minimal"] .hero {
+    padding: 8px 10px !important;
+    margin-bottom: 8px !important;
+    grid-template-columns: 72px 1fr !important;
+    column-gap: 12px !important;
+  }
+
+  #cvPdfClone.cv.minimal .top img,
+  #cvPdfClone.cv[data-template="minimal"] .top img,
+  #cvPdfClone.cv.minimal .hero img,
+  #cvPdfClone.cv[data-template="minimal"] .hero img {
+    width: 58px !important;
+    height: 70px !important;
+  }
+
+  #cvPdfClone.cv.minimal h1,
+  #cvPdfClone.cv[data-template="minimal"] h1 {
+    font-size: 18px !important;
+    letter-spacing: 2.2px !important;
+    margin-bottom: 2px !important;
+  }
+
+  #cvPdfClone.cv.minimal .role,
+  #cvPdfClone.cv[data-template="minimal"] .role {
+    font-size: 7px !important;
+    margin-bottom: 5px !important;
+  }
+
+  #cvPdfClone.cv.minimal .info,
+  #cvPdfClone.cv.minimal .personal,
+  #cvPdfClone.cv[data-template="minimal"] .info,
+  #cvPdfClone.cv[data-template="minimal"] .personal {
+    font-size: 7.8px !important;
+    line-height: 1.15 !important;
+    grid-template-columns: 64px 1fr !important;
+    gap: 1px 6px !important;
+    margin-top: 4px !important;
+  }
+}
