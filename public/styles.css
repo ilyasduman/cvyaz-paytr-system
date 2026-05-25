@@ -13230,27 +13230,32 @@ body.menu-open .download {
   padding: 4px 8px !important;
 }
 /* =====================================================
-   MODERN STYLE — PROFESYONEL ÖZET FONT FIX
+   MODERN STYLE — TÜM PROFESYONEL ÖZET FIX
 ===================================================== */
 
-.cv.modern .summary p,
-#cvPdfClone.cv.modern .summary p,
-.cv.modern .sec-summary p,
-#cvPdfClone.cv.modern .sec-summary p {
+.cv.modern .cv-section p,
+.cv.modern .section p,
+.cv.modern .summary-text,
+.cv.modern .profile-summary,
+.cv.modern .professional-summary,
+#cvPdfClone.cv.modern .cv-section p,
+#cvPdfClone.cv.modern .section p,
+#cvPdfClone.cv.modern .summary-text,
+#cvPdfClone.cv.modern .profile-summary,
+#cvPdfClone.cv.modern .professional-summary {
   font-size: 11.8px !important;
-  line-height: 1.36 !important;
+  line-height: 1.38 !important;
   font-weight: 500 !important;
   letter-spacing: 0 !important;
   color: #374151 !important;
-  margin-top: 4px !important;
 }
 
-/* Başlık diğer sectionlarla aynı olsun */
-.cv.modern .summary h3,
-#cvPdfClone.cv.modern .summary h3,
-.cv.modern .sec-summary h3,
-#cvPdfClone.cv.modern .sec-summary h3 {
-  font-size: 10.8px !important;
+/* Modern stil section başlık dengesi */
+.cv.modern .cv-section-title,
+.cv.modern .section-title,
+#cvPdfClone.cv.modern .cv-section-title,
+#cvPdfClone.cv.modern .section-title {
+  font-size: 11px !important;
+  letter-spacing: 1.8px !important;
   font-weight: 850 !important;
-  letter-spacing: 1.6px !important;
 }
