@@ -13922,7 +13922,7 @@ body.menu-open .download {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  object-position: center 15% !important;
+  object-position: center 25% !important;
   border-radius: 16px !important;
   display: block !important;
 }
