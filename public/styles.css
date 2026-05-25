@@ -13385,3 +13385,70 @@ body.menu-open .download {
 #cvPdfClone .cv.executive .tag {
   padding: 4px 8px !important;
 }
+/* =====================================================
+   EXECUTIVE HEADER COMPACT LAYOUT
+===================================================== */
+
+.cv.executive .hero,
+#cvPdfClone.cv.executive .hero,
+#cvPdfClone .cv.executive .hero {
+  display: grid !important;
+  grid-template-columns: 110px 1fr !important;
+  gap: 18px !important;
+  align-items: start !important;
+
+  padding: 18px 20px !important;
+  min-height: unset !important;
+}
+
+/* Fotoğraf */
+.cv.executive .hero-photo,
+#cvPdfClone.cv.executive .hero-photo,
+#cvPdfClone .cv.executive .hero-photo {
+  width: 92px !important;
+  height: 112px !important;
+  margin: 0 !important;
+}
+
+/* Sağ taraf */
+.cv.executive .hero-right,
+#cvPdfClone.cv.executive .hero-right,
+#cvPdfClone .cv.executive .hero-right {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+/* İsim */
+.cv.executive .hero h1,
+#cvPdfClone.cv.executive .hero h1,
+#cvPdfClone .cv.executive .hero h1 {
+  margin-bottom: 4px !important;
+  line-height: 1 !important;
+}
+
+/* Ünvan */
+.cv.executive .hero-role,
+#cvPdfClone.cv.executive .hero-role,
+#cvPdfClone .cv.executive .hero-role {
+  margin-bottom: 10px !important;
+}
+
+/* Bilgi satırları */
+.cv.executive .hero-info,
+#cvPdfClone.cv.executive .hero-info,
+#cvPdfClone .cv.executive .hero-info {
+  display: grid !important;
+  grid-template-columns: 140px 1fr !important;
+  row-gap: 4px !important;
+  column-gap: 10px !important;
+}
+
+/* Satırlar */
+.cv.executive .hero-info div,
+#cvPdfClone.cv.executive .hero-info div,
+#cvPdfClone .cv.executive .hero-info div {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.25 !important;
+}
