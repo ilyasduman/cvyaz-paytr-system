@@ -13902,3 +13902,57 @@ body.menu-open .download {
     flex: 0 0 76px !important;
   }
 }
+/* =====================================================
+   EXECUTIVE FOTO + FONT FIX
+===================================================== */
+
+/* FOTOĞRAF ÇERÇEVESİ */
+.cv.executive .photo-frame{
+  width: 132px !important;
+  height: 168px !important;
+  flex: 0 0 132px !important;
+  padding: 4px !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+
+/* FOTOĞRAFIN TAM OTURMASI */
+.cv.executive .photo{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  border-radius: 16px !important;
+  display: block !important;
+}
+
+/* İSİM */
+.cv.executive h2{
+  font-size: 34px !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.4px !important;
+  margin-bottom: 4px !important;
+}
+
+/* MESLEK */
+.cv.executive .role{
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+  letter-spacing: 1px !important;
+  font-style: italic !important;
+  margin-bottom: 14px !important;
+}
+
+/* ÜST ALAN DENGESİ */
+.cv.executive .cv-top{
+  gap: 24px !important;
+  align-items: center !important;
+}
+
+/* BİLGİLER */
+.cv.executive .contact,
+.cv.executive .info-row{
+  font-size: 13.5px !important;
+  line-height: 1.45 !important;
+}
