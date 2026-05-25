@@ -13005,28 +13005,3 @@ body.menu-open .download {
 #cvPdfClone.cv.premium .cv-header-left {
   order: 1 !important;
 }
-/* =====================================================
-   CVYAZ HEADER LOGO FIX — SADECE HEADER
-===================================================== */
-
-.topbar .logo img,
-.header .logo img,
-.navbar .logo img,
-header .logo img {
-  width: auto !important;
-  height: 52px !important;
-  max-width: 240px !important;
-  object-fit: contain !important;
-  display: block !important;
-  image-rendering: -webkit-optimize-contrast !important;
-}
-
-@media (max-width: 767px) {
-  .topbar .logo img,
-  .header .logo img,
-  .navbar .logo img,
-  header .logo img {
-    height: 42px !important;
-    max-width: 200px !important;
-  }
-}
