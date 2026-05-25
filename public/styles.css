@@ -13573,3 +13573,24 @@ body.menu-open .download {
   font-weight: 400 !important;
   color: #374151 !important;
 }
+/* =====================================================
+   MOBİL PDF ÖNİZLEME — PROFESYONEL ÖZET BÜYÜTME
+   Sadece mobil PDF preview içindir.
+===================================================== */
+
+@media (max-width: 768px){
+
+  #cvPdfClone.cv.modern [class*="summary"],
+  #cvPdfClone.cv.modern [class*="Summary"],
+  #cvPdfClone.cv.modern [class*="ozet"],
+  #cvPdfClone.cv.modern [class*="Ozet"],
+  #cvPdfClone.cv.modern [class*="summary"] p,
+  #cvPdfClone.cv.modern [class*="Summary"] p,
+  #cvPdfClone.cv.modern [class*="ozet"] p,
+  #cvPdfClone.cv.modern [class*="Ozet"] p {
+    font-size: 13.2px !important;
+    line-height: 1.42 !important;
+    font-weight: 400 !important;
+    color: #374151 !important;
+  }
+}
