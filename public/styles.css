@@ -13500,44 +13500,27 @@ body.menu-open .download {
 
 }
 /* =====================================================
-   PROFESYONEL ÖZET — TEK KONTROL BLOĞU
-   Web + Mobil + PDF Önizleme
+   PROFESYONEL ÖZET — GERÇEK FIX
 ===================================================== */
 
-/* Ana sayfa ve web dengesi */
-.cv.modern [class*="summary"],
-.cv.modern [class*="Summary"],
-.cv.modern [class*="ozet"],
-.cv.modern [class*="Ozet"],
-.cv.modern h3 + p {
+/* Ana görünüm */
+#pAbout{
   font-size: 11.8px !important;
-  line-height: 1.38 !important;
+  line-height: 1.42 !important;
   font-weight: 400 !important;
   color: #374151 !important;
   letter-spacing: 0 !important;
 }
 
-/* PDF önizleme — web */
-#cvPdfClone.cv.modern [class*="summary"],
-#cvPdfClone.cv.modern [class*="Summary"],
-#cvPdfClone.cv.modern [class*="ozet"],
-#cvPdfClone.cv.modern [class*="Ozet"],
-#cvPdfClone.cv.modern h3 + p {
-  font-size: 11.8px !important;
-  line-height: 1.38 !important;
-  font-weight: 400 !important;
-  color: #374151 !important;
-  letter-spacing: 0 !important;
-}
+/* Mobil PDF önizleme */
+@media (max-width:768px){
 
-/* PDF önizleme — mobilde biraz büyüt */
-@media (max-width: 768px) {
-  #cvPdfClone.cv.modern [class*="summary"],
-  #cvPdfClone.cv.modern [class*="Summary"],
-  #cvPdfClone.cv.modern [class*="ozet"],
-  #cvPdfClone.cv.modern [class*="Ozet"],
-  #cvPdfClone.cv.modern h3 + p {
+  #cvPdfClone #pAbout,
+  #cvPdfClone p#pAbout{
     font-size: 13.8px !important;
-    line-height: 1.42 !important;
+    line-height: 1.48 !important;
+    font-weight: 400 !important;
+    color: #374151 !important;
+    letter-spacing: 0 !important;
   }
 }
