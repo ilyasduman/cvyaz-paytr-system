@@ -13665,3 +13665,170 @@ body.menu-open .download {
   letter-spacing: 3px !important;
   margin: 0 0 4px !important;
 }
+/* =====================================================
+   EXECUTIVE FINAL POLISH — PREMIUM COMPACT FIX
+   Web + Mobil + PDF önizleme
+===================================================== */
+
+.cv.executive,
+#cvPdfClone.cv.executive {
+  font-size: 11.4px !important;
+  line-height: 1.34 !important;
+  color: #1f2933 !important;
+}
+
+.cv.executive .header,
+.cv.executive .cv-header,
+.cv.executive .top,
+#cvPdfClone.cv.executive .header,
+#cvPdfClone.cv.executive .cv-header,
+#cvPdfClone.cv.executive .top {
+  padding: 24px 34px 22px !important;
+  min-height: auto !important;
+}
+
+.cv.executive h1,
+.cv.executive h2,
+.cv.executive .name,
+.cv.executive .cv-name,
+#cvPdfClone.cv.executive h1,
+#cvPdfClone.cv.executive h2,
+#cvPdfClone.cv.executive .name,
+#cvPdfClone.cv.executive .cv-name {
+  font-size: 31px !important;
+  line-height: .96 !important;
+  letter-spacing: 1.2px !important;
+  margin: 0 0 8px !important;
+}
+
+.cv.executive .role,
+.cv.executive .job-title,
+.cv.executive .subtitle,
+#cvPdfClone.cv.executive .role,
+#cvPdfClone.cv.executive .job-title,
+#cvPdfClone.cv.executive .subtitle {
+  font-size: 10.5px !important;
+  line-height: 1.15 !important;
+  letter-spacing: 1px !important;
+  padding: 4px 12px !important;
+  margin: 0 0 8px !important;
+}
+
+.cv.executive .photo,
+.cv.executive img,
+#cvPdfClone.cv.executive .photo,
+#cvPdfClone.cv.executive img {
+  max-width: 82px !important;
+  max-height: 98px !important;
+}
+
+.cv.executive .info,
+.cv.executive .personal,
+#cvPdfClone.cv.executive .info,
+#cvPdfClone.cv.executive .personal {
+  font-size: 10.2px !important;
+  line-height: 1.32 !important;
+}
+
+.cv.executive .sec,
+#cvPdfClone.cv.executive .sec {
+  margin: 10px 0 0 !important;
+  padding: 0 !important;
+}
+
+.cv.executive .sec h3,
+#cvPdfClone.cv.executive .sec h3 {
+  font-size: 13px !important;
+  line-height: 1.05 !important;
+  letter-spacing: 1.7px !important;
+  padding: 3px 7px !important;
+  margin: 0 0 7px !important;
+}
+
+.cv.executive .entry,
+#cvPdfClone.cv.executive .entry {
+  margin: 0 0 7px !important;
+}
+
+.cv.executive .entry b,
+#cvPdfClone.cv.executive .entry b {
+  font-size: 12px !important;
+  line-height: 1.18 !important;
+  margin-bottom: 2px !important;
+}
+
+.cv.executive .entry small,
+#cvPdfClone.cv.executive .entry small {
+  font-size: 10px !important;
+  line-height: 1.22 !important;
+}
+
+.cv.executive .entry p,
+.cv.executive .sec p,
+#cvPdfClone.cv.executive .entry p,
+#cvPdfClone.cv.executive .sec p {
+  font-size: 10.8px !important;
+  line-height: 1.32 !important;
+  margin: 2px 0 0 !important;
+}
+
+.cv.executive .tag,
+#cvPdfClone.cv.executive .tag {
+  font-size: 9.6px !important;
+  line-height: 1.1 !important;
+  padding: 3px 7px !important;
+  margin: 2px 3px 2px 0 !important;
+}
+
+/* Mobilde Executive’i daha net ve premium tut */
+@media (max-width: 767px) {
+  .cv.executive,
+  #cvPdfClone.cv.executive {
+    font-size: 10.8px !important;
+    line-height: 1.3 !important;
+  }
+
+  .cv.executive h1,
+  .cv.executive h2,
+  .cv.executive .name,
+  .cv.executive .cv-name,
+  #cvPdfClone.cv.executive h1,
+  #cvPdfClone.cv.executive h2,
+  #cvPdfClone.cv.executive .name,
+  #cvPdfClone.cv.executive .cv-name {
+    font-size: 25px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .cv.executive .header,
+  .cv.executive .cv-header,
+  .cv.executive .top,
+  #cvPdfClone.cv.executive .header,
+  #cvPdfClone.cv.executive .cv-header,
+  #cvPdfClone.cv.executive .top {
+    padding: 18px 22px 16px !important;
+  }
+
+  .cv.executive .photo,
+  .cv.executive img,
+  #cvPdfClone.cv.executive .photo,
+  #cvPdfClone.cv.executive img {
+    max-width: 70px !important;
+    max-height: 86px !important;
+  }
+
+  .cv.executive .sec h3,
+  #cvPdfClone.cv.executive .sec h3 {
+    font-size: 11.4px !important;
+    padding: 3px 6px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .cv.executive .entry p,
+  .cv.executive .sec p,
+  #cvPdfClone.cv.executive .entry p,
+  #cvPdfClone.cv.executive .sec p {
+    font-size: 10.2px !important;
+    line-height: 1.3 !important;
+  }
+}
