@@ -13320,3 +13320,68 @@ body.menu-open .download {
     display:block !important;
     word-break:break-word !important;
 }
+/* =====================================================
+   EXECUTIVE / KLASİK STİL — CV BOŞLUK SIKIŞTIRMA
+   Mobil + Web + PDF önizleme
+===================================================== */
+
+.cv.executive,
+#cvPdfClone.cv.executive,
+#cvPdfClone .cv.executive {
+  padding-top: 34px !important;
+  padding-bottom: 34px !important;
+}
+
+.cv.executive .sec,
+#cvPdfClone.cv.executive .sec,
+#cvPdfClone .cv.executive .sec {
+  margin-top: 14px !important;
+  margin-bottom: 14px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.cv.executive .sec h3,
+#cvPdfClone.cv.executive .sec h3,
+#cvPdfClone .cv.executive .sec h3 {
+  margin: 0 0 8px 0 !important;
+  padding: 0 !important;
+}
+
+.cv.executive .entry,
+#cvPdfClone.cv.executive .entry,
+#cvPdfClone .cv.executive .entry {
+  margin-bottom: 10px !important;
+}
+
+.cv.executive .entry p,
+.cv.executive .sec p,
+#cvPdfClone.cv.executive .entry p,
+#cvPdfClone.cv.executive .sec p,
+#cvPdfClone .cv.executive .entry p,
+#cvPdfClone .cv.executive .sec p {
+  margin-top: 4px !important;
+  margin-bottom: 6px !important;
+  line-height: 1.35 !important;
+}
+
+.cv.executive hr,
+#cvPdfClone.cv.executive hr,
+#cvPdfClone .cv.executive hr {
+  margin: 12px 0 !important;
+}
+
+/* Yetenek / dil / sertifika / proje bölümleri arası boşluğu azalt */
+.cv.executive .tags,
+#cvPdfClone.cv.executive .tags,
+#cvPdfClone .cv.executive .tags {
+  gap: 6px !important;
+  margin-top: 6px !important;
+  margin-bottom: 8px !important;
+}
+
+.cv.executive .tag,
+#cvPdfClone.cv.executive .tag,
+#cvPdfClone .cv.executive .tag {
+  padding: 4px 8px !important;
+}
