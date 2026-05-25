@@ -13449,3 +13449,91 @@ body.menu-open .download {
     page-break-inside: avoid !important;
   }
 }
+/* =========================================================
+   CVYAZ MOBILE PDF PREVIEW TYPOGRAPHY FIX
+   Modern stil mobil/web birebir görünüm dengesi
+========================================================= */
+
+@media (max-width: 768px){
+
+  #cvPdfClone,
+  #cvPdfClone *{
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+    font-kerning: normal !important;
+  }
+
+  /* Genel body yazıları */
+  #cvPdfClone p,
+  #cvPdfClone li,
+  #cvPdfClone span,
+  #cvPdfClone div{
+    font-family: Inter, Arial, sans-serif !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+    line-height: 1.42 !important;
+    color: #374151 !important;
+  }
+
+  /* Başlıklar */
+  #cvPdfClone h1{
+    font-size: 32px !important;
+    line-height: 1.05 !important;
+    font-weight: 800 !important;
+  }
+
+  #cvPdfClone h2{
+    font-size: 21px !important;
+    line-height: 1.15 !important;
+    font-weight: 700 !important;
+  }
+
+  #cvPdfClone h3{
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+  }
+
+  #cvPdfClone h4{
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Profesyonel özet */
+  #cvPdfClone .summary,
+  #cvPdfClone .summary p,
+  #cvPdfClone .professional-summary,
+  #cvPdfClone .professional-summary p,
+  #cvPdfClone [class*="summary"],
+  #cvPdfClone [class*="ozet"]{
+    font-size: 11.8px !important;
+    line-height: 1.45 !important;
+    font-weight: 400 !important;
+    color: #374151 !important;
+    letter-spacing: 0 !important;
+  }
+
+  /* İş deneyimi açıklamaları */
+  #cvPdfClone .experience p,
+  #cvPdfClone .job-description,
+  #cvPdfClone .section-text{
+    font-size: 11.8px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Etiketler */
+  #cvPdfClone .skill-tag,
+  #cvPdfClone .tag{
+    font-size: 9.5px !important;
+    font-weight: 600 !important;
+  }
+
+  /* Dil / sertifika küçük meta */
+  #cvPdfClone .meta,
+  #cvPdfClone small{
+    font-size: 10px !important;
+    line-height: 1.35 !important;
+  }
+
+}
