@@ -13491,3 +13491,26 @@ body.menu-open .download {
   }
 
 }
+/* =====================================================
+   MODERN CV — PROFESYONEL ÖZET FINAL FIX
+===================================================== */
+
+/* WEB */
+#cvPdfClone.cv.modern #pAbout{
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  font-weight: 400 !important;
+  color: #374151 !important;
+}
+
+/* MOBİL PDF ÖNİZLEME */
+@media (max-width:768px){
+
+  #cvPdfClone.cv.modern #pAbout{
+    font-size: 16px !important;
+    line-height: 1.62 !important;
+    font-weight: 400 !important;
+    color: #374151 !important;
+  }
+
+}
