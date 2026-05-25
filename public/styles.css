@@ -9759,9 +9759,6 @@ body .app .cv-wrap > .cv {
 #cvPdfClone .cv.modern .entry p,
 #cvPdfClone .cv.modern .entry small,
 #cvPdfClone.cv.modern #secAbout p {
-  font-size: 20px !important;
-  line-height: 1.45 !important;
-}
 #cvPdfClone.cv.modern .entry small {
   color: #374151 !important;
   line-height: 1.45 !important;
@@ -10727,9 +10724,6 @@ body .app .cv-wrap > .cv {
 #cvPdfClone .cv.modern .entry p,
 #cvPdfClone .cv.modern .entry small,
 #cvPdfClone.cv.modern #secAbout p {
-  font-size: 20px !important;
-  line-height: 1.45 !important;
-}
 #cvPdfClone.cv.modern .entry small {
   color:#374151 !important;
   font-size:13.2px !important;
@@ -13324,9 +13318,6 @@ body.menu-open .download {
 /* Genel metin okunabilirliği */
 .cv.modern .entry p,
 #cvPdfClone.cv.modern #secAbout p {
-  font-size: 20px !important;
-  line-height: 1.45 !important;
-}
 .cv.modern .sec p,
 #cvPdfClone.cv.modern .sec p {
   color: #374151 !important;
@@ -13433,84 +13424,4 @@ body.menu-open .download {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
-}
-/* =====================================================
-   PROFESYONEL ÖZET — MOBİL PDF ÖNİZLEME KESİN BÜYÜTME
-===================================================== */
-
-/* Genel profesyonel özet */
-#secAbout p,
-#pAbout,
-.cv #secAbout p,
-.cv #pAbout,
-#cvPdfClone #secAbout p,
-#cvPdfClone #pAbout {
-  font-size: 11.8px !important;
-  line-height: 1.42 !important;
-  font-weight: 400 !important;
-  color: #374151 !important;
-  letter-spacing: 0 !important;
-}
-
-/* Sadece mobil PDF önizleme */
-@media (max-width: 768px) {
-  #secAbout p,
-  #pAbout,
-  #cvPdfClone #secAbout p,
-  #cvPdfClone #pAbout,
-  .pdf-modal #secAbout p,
-  .preview-modal #secAbout p,
-  body.preview-open #secAbout p,
-  body.pdf-open #secAbout p {
-    font-size: 15px !important;
-    line-height: 1.42 !important;
-    font-weight: 400 !important;
-    color: #374151 !important;
-    letter-spacing: 0 !important;
-  }
-}
-/* =====================================================
-   MODERN STİL
-   MOBİL PDF ÖNİZLEME
-   PROFESYONEL ÖZET MANUEL FONT FIX
-===================================================== */
-
-@media (max-width:768px){
-
-  #cvPdfClone.cv.modern #secAbout p,
-  #cvPdfClone.cv.modern #pAbout,
-  #cvPdfClone.cv.modern .professional-summary,
-  #cvPdfClone.cv.modern .summary{
-    
-    font-size: 18px !important;
-    line-height: 1.55 !important;
-    font-weight: 400 !important;
-    color: #374151 !important;
-    letter-spacing: 0 !important;
-
-  }
-
-}
-/* =====================================================
-   MODERN CV — PROFESYONEL ÖZET FINAL FIX
-===================================================== */
-
-/* WEB */
-#cvPdfClone.cv.modern #pAbout{
-  font-size: 13px !important;
-  line-height: 1.55 !important;
-  font-weight: 400 !important;
-  color: #374151 !important;
-}
-
-/* MOBİL PDF ÖNİZLEME */
-@media (max-width:768px){
-
-  #cvPdfClone.cv.modern #pAbout{
-    font-size: 16px !important;
-    line-height: 1.62 !important;
-    font-weight: 400 !important;
-    color: #374151 !important;
-  }
-
 }
