@@ -13908,9 +13908,9 @@ body.menu-open .download {
 
 /* FOTOĞRAF ÇERÇEVESİ */
 .cv.executive .photo-frame{
-  width: 122px !important;
-  height: 158px !important;
-  flex: 0 0 122px !important;
+  width: 112px !important;
+  height: 142px !important;
+  flex: 0 0 112px !important;
   padding: 4px !important;
   border-radius: 20px !important;
   overflow: hidden !important;
