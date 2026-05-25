@@ -12476,7 +12476,7 @@ body .app .cv-wrap > .cv {
     line-height: 1.4 !important;
     font-weight: 400 !important;
 }
-/* PROFESYONEL ÖZET — TÜM STİLLERDE ZORLA KÜÇÜLT */
+/* PROFESYONEL ÖZET — TÜM STİLLERDE DENGELİ FONT */
 .cv h3 + p,
 .cv h4 + p,
 .cv .section-title + p,
@@ -12485,9 +12485,11 @@ body .app .cv-wrap > .cv {
 .cv [class*="Summary"],
 .cv [class*="ozet"],
 .cv [class*="Ozet"]{
-  font-size: 16px !important;
-  line-height: 1.45 !important;
-  font-weight: 500 !important;
+  font-size: 11.8px !important;
+  line-height: 1.38 !important;
+  font-weight: 400 !important;
+  color: #374151 !important;
+  letter-spacing: 0 !important;
 }
 /* =====================================================
    CVYAZ INFO / ATS / LEGAL FINAL DENGE FIX
@@ -13228,34 +13230,4 @@ body.menu-open .download {
 #cvPdfClone.cv.modern .tag {
   font-size: 10.5px !important;
   padding: 4px 8px !important;
-}
-/* =====================================================
-   MODERN STYLE — TÜM PROFESYONEL ÖZET FIX
-===================================================== */
-
-.cv.modern .cv-section p,
-.cv.modern .section p,
-.cv.modern .summary-text,
-.cv.modern .profile-summary,
-.cv.modern .professional-summary,
-#cvPdfClone.cv.modern .cv-section p,
-#cvPdfClone.cv.modern .section p,
-#cvPdfClone.cv.modern .summary-text,
-#cvPdfClone.cv.modern .profile-summary,
-#cvPdfClone.cv.modern .professional-summary {
-  font-size: 11.8px !important;
-  line-height: 1.38 !important;
-  font-weight: 500 !important;
-  letter-spacing: 0 !important;
-  color: #374151 !important;
-}
-
-/* Modern stil section başlık dengesi */
-.cv.modern .cv-section-title,
-.cv.modern .section-title,
-#cvPdfClone.cv.modern .cv-section-title,
-#cvPdfClone.cv.modern .section-title {
-  font-size: 11px !important;
-  letter-spacing: 1.8px !important;
-  font-weight: 850 !important;
 }
