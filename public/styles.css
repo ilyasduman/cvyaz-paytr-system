@@ -12970,9 +12970,15 @@ body .app .cv-wrap > .cv {
     border-radius: 13px !important;
   }
 }
-body.menu-open .download,
+/* =====================================================
+   MENÜ AÇIKKEN PDF CTA KESİN GİZLE
+===================================================== */
+
+body.menu-open.cvyaz-show-preview-cta #previewCta,
+body.menu-open.cvyaz-show-preview-cta .download,
 body.menu-open #previewCta,
-body.menu-open button.download {
+body.menu-open .download {
+  display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
