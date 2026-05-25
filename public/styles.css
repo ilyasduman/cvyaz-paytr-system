@@ -13902,3 +13902,88 @@ body.menu-open .download {
     flex: 0 0 76px !important;
   }
 }
+/* =====================================================
+   EXECUTIVE — NAME + ROLE + PHOTO BALANCE FIX
+===================================================== */
+
+/* FOTO biraz aşağı kaydır — saç kesilmesin */
+.cv.executive .photo img,
+.cv.executive .profile-photo img,
+.cv.executive .photo-box img,
+.cv.executive .photo-wrap img,
+#cvPdfClone.cv.executive .photo img,
+#cvPdfClone.cv.executive .profile-photo img,
+#cvPdfClone.cv.executive .photo-box img,
+#cvPdfClone.cv.executive .photo-wrap img{
+  object-fit: cover !important;
+  object-position: center 18% !important;
+}
+
+/* İSİM küçült */
+.cv.executive .name,
+.cv.executive .cv-name,
+.cv.executive h1,
+#cvPdfClone.cv.executive .name,
+#cvPdfClone.cv.executive .cv-name,
+#cvPdfClone.cv.executive h1{
+  font-size: 44px !important;
+  line-height: 1 !important;
+  letter-spacing: 1px !important;
+  margin-bottom: 8px !important;
+}
+
+/* MESLEK küçült */
+.cv.executive .role,
+.cv.executive .job-title,
+.cv.executive .subtitle,
+.cv.executive .position,
+#cvPdfClone.cv.executive .role,
+#cvPdfClone.cv.executive .job-title,
+#cvPdfClone.cv.executive .subtitle,
+#cvPdfClone.cv.executive .position{
+  font-size: 13px !important;
+  letter-spacing: 1.2px !important;
+  padding: 6px 14px !important;
+  line-height: 1.15 !important;
+  margin-bottom: 16px !important;
+}
+
+/* MOBİL */
+@media (max-width:768px){
+
+  .cv.executive .name,
+  .cv.executive .cv-name,
+  .cv.executive h1,
+  #cvPdfClone.cv.executive .name,
+  #cvPdfClone.cv.executive .cv-name,
+  #cvPdfClone.cv.executive h1{
+    font-size: 28px !important;
+    line-height: .98 !important;
+    letter-spacing: .4px !important;
+  }
+
+  .cv.executive .role,
+  .cv.executive .job-title,
+  .cv.executive .subtitle,
+  .cv.executive .position,
+  #cvPdfClone.cv.executive .role,
+  #cvPdfClone.cv.executive .job-title,
+  #cvPdfClone.cv.executive .subtitle,
+  #cvPdfClone.cv.executive .position{
+    font-size: 9px !important;
+    letter-spacing: .8px !important;
+    padding: 4px 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .cv.executive .photo img,
+  .cv.executive .profile-photo img,
+  .cv.executive .photo-box img,
+  .cv.executive .photo-wrap img,
+  #cvPdfClone.cv.executive .photo img,
+  #cvPdfClone.cv.executive .profile-photo img,
+  #cvPdfClone.cv.executive .photo-box img,
+  #cvPdfClone.cv.executive .photo-wrap img{
+    object-position: center 12% !important;
+  }
+}
