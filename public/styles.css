@@ -13465,51 +13465,62 @@ body.menu-open .download {
   }
 }
 /* =====================================================
-   MOBİL PDF ÖNİZLEME — WEB İLE AYNI MODERN GÖRÜNÜM
+   MOBİL PDF ÖNİZLEME — WEB İLE AYNI AKIŞ
+   Modern stilde mobilde bölünme/bozulma engeli
 ===================================================== */
 
 @media (max-width: 767px) {
 
-  /* Mobilde PDF clone'a ekstra küçültme/oynama yapma */
-  #cvPdfClone.cv.modern {
-    width: 794px !important;
-    min-height: 1123px !important;
-    height: auto !important;
-
-    transform: none !important;
-    scale: none !important;
-    zoom: .52 !important;
-
-    padding: 44px 48px !important;
-    margin: 0 auto !important;
-  }
-
-  /* Mobil PDF modal içindeki sayfa web gibi davransın */
-  .pdf-modal #cvPdfClone.cv.modern,
-  .preview-modal #cvPdfClone.cv.modern,
-  body.preview-open #cvPdfClone.cv.modern {
-    transform: none !important;
-    zoom: .52 !important;
-    transform-origin: top center !important;
-  }
-
-  /* Bozan negatif marginleri sıfırla */
+  /* PDF önizleme içinde mobil özel kırılmaları iptal */
   #cvPdfClone.cv.modern,
+  .pdf-preview #cvPdfClone.cv.modern,
   .pdf-modal #cvPdfClone.cv.modern,
   .preview-modal #cvPdfClone.cv.modern {
-    margin-bottom: 0 !important;
+    width: 794px !important;
+    min-width: 794px !important;
+    max-width: 794px !important;
+
+    height: auto !important;
+    min-height: 1123px !important;
+
+    transform: scale(.48) !important;
+    transform-origin: top left !important;
+
+    zoom: 1 !important;
+    margin: 0 !important;
+    padding: 44px 48px !important;
   }
 
-  /* Webdeki font/spacing aynen kalsın */
-  #cvPdfClone.cv.modern h2 {
-    font-size: 28px !important;
-    line-height: 1.03 !important;
+  /* Sayfa kutuları bölünmesin */
+  .pdf-page,
+  .preview-page,
+  .cv-page,
+  .pdf-preview-page,
+  .pdf-sheet {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
   }
 
-  #cvPdfClone.cv.modern .sec {
-    margin-bottom: 12px !important;
-    padding-bottom: 10px !important;
+  /* Bölümler mobilde ayrı sayfaya fırlamasın */
+  #cvPdfClone.cv.modern .sec,
+  #cvPdfClone.cv.modern .entry,
+  #cvPdfClone.cv.modern .languages,
+  #cvPdfClone.cv.modern .certificates,
+  #cvPdfClone.cv.modern .projects,
+  #cvPdfClone.cv.modern .references {
     break-inside: auto !important;
     page-break-inside: auto !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Clone'u taşıyan alan soldan hizalansın */
+  .pdf-preview,
+  .pdf-modal,
+  .preview-modal,
+  .modal-body {
+    overflow-x: hidden !important;
   }
 }
