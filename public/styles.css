@@ -13665,3 +13665,15 @@ body.menu-open .download {
   letter-spacing: 3px !important;
   margin: 0 0 4px !important;
 }
+/* ATS SADE / MINIMAL — KİŞİSEL BİLGİLER ORTAK HİZA */
+
+.cv.minimal .info,
+.cv.minimal .personal,
+.cv[data-template="minimal"] .info,
+.cv[data-template="minimal"] .personal,
+#cvPdfClone.cv.minimal .info,
+#cvPdfClone.cv.minimal .personal,
+#cvPdfClone.cv[data-template="minimal"] .info,
+#cvPdfClone.cv[data-template="minimal"] .personal {
+  column-gap: 14px !important;
+}
