@@ -13345,3 +13345,56 @@ body.menu-open .download {
     display:block !important;
     word-break:break-word !important;
 }
+/* =====================================================
+   MODERN CV MICRO POLISH — FINAL CİLALAMA
+===================================================== */
+
+.cv.modern,
+#cvPdfClone.cv.modern {
+  color: #111827 !important;
+}
+
+/* Genel metin okunabilirliği */
+.cv.modern .entry p,
+#cvPdfClone.cv.modern .entry p,
+.cv.modern .sec p,
+#cvPdfClone.cv.modern .sec p {
+  color: #374151 !important;
+  font-weight: 400 !important;
+}
+
+/* Meta satırları daha sakin */
+.cv.modern .entry small,
+#cvPdfClone.cv.modern .entry small {
+  color: #6b7280 !important;
+  font-weight: 600 !important;
+}
+
+/* Bölüm başlıkları daha premium */
+.cv.modern .sec h3,
+#cvPdfClone.cv.modern .sec h3 {
+  color: #2563eb !important;
+  letter-spacing: 1.9px !important;
+}
+
+/* Sol mavi çizgi biraz zarifleşsin */
+.cv.modern .sec,
+#cvPdfClone.cv.modern .sec {
+  border-left-width: 2px !important;
+}
+
+/* Yetenek rozetleri daha rafine */
+.cv.modern .tag,
+#cvPdfClone.cv.modern .tag {
+  border-radius: 999px !important;
+  border: 1px solid rgba(37, 99, 235, .45) !important;
+  background: rgba(37, 99, 235, .035) !important;
+  color: #2563eb !important;
+}
+
+/* Kişisel bilgiler değerleri daha okunaklı */
+.cv.modern .info-value,
+#cvPdfClone.cv.modern .info-value {
+  color: #4b5563 !important;
+  font-weight: 400 !important;
+}
