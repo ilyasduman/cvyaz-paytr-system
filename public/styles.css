@@ -9758,7 +9758,10 @@ body .app .cv-wrap > .cv {
 .cv.modern .entry small,
 #cvPdfClone .cv.modern .entry p,
 #cvPdfClone .cv.modern .entry small,
-#cvPdfClone.cv.modern .entry p,
+#cvPdfClone.cv.modern #secAbout p {
+  font-size: 16px !important;
+  line-height: 1.45 !important;
+}
 #cvPdfClone.cv.modern .entry small {
   color: #374151 !important;
   line-height: 1.45 !important;
@@ -10723,7 +10726,10 @@ body .app .cv-wrap > .cv {
 .cv.modern .entry small,
 #cvPdfClone .cv.modern .entry p,
 #cvPdfClone .cv.modern .entry small,
-#cvPdfClone.cv.modern .entry p,
+#cvPdfClone.cv.modern #secAbout p {
+  font-size: 16px !important;
+  line-height: 1.45 !important;
+}
 #cvPdfClone.cv.modern .entry small {
   color:#374151 !important;
   font-size:13.2px !important;
@@ -13317,7 +13323,10 @@ body.menu-open .download {
 
 /* Genel metin okunabilirliği */
 .cv.modern .entry p,
-#cvPdfClone.cv.modern .entry p,
+#cvPdfClone.cv.modern #secAbout p {
+  font-size: 16px !important;
+  line-height: 1.45 !important;
+}
 .cv.modern .sec p,
 #cvPdfClone.cv.modern .sec p {
   color: #374151 !important;
