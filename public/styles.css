@@ -12983,3 +12983,25 @@ body.menu-open .download {
   visibility: hidden !important;
   pointer-events: none !important;
 }
+/* =====================================================
+   PREMIUM STİL FOTOĞRAF SAĞ SABİTLEME
+===================================================== */
+
+.cv.premium .cv-header,
+#cvPdfClone.cv.premium .cv-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+}
+
+.cv.premium .cv-photo,
+#cvPdfClone.cv.premium .cv-photo {
+  order: 2 !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+.cv.premium .cv-header-left,
+#cvPdfClone.cv.premium .cv-header-left {
+  order: 1 !important;
+}
