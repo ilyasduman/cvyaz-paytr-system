@@ -13543,41 +13543,38 @@ body.menu-open .download {
   }
 
 }
-/* ATS SADE / MINIMAL — WEB PDF ÖNİZLEME HEADER DENGE */
-@media (min-width: 769px) {
-  #cvPdfClone.cv.minimal,
-  #cvPdfClone.cv[data-template="minimal"] {
-    font-size: 10px !important;
-  }
+/* ATS SADE / MINIMAL — HEADER DENGE FIX */
+#cvPdfClone.cv.minimal .top,
+#cvPdfClone.cv[data-template="minimal"] .top {
+  display: grid !important;
+  grid-template-columns: 140px 1fr !important;
+  align-items: start !important;
+  gap: 22px !important;
+  min-height: auto !important;
+}
 
-  #cvPdfClone.cv.minimal h1,
-  #cvPdfClone.cv[data-template="minimal"] h1 {
-    font-size: 30px !important;
-    letter-spacing: 5px !important;
-    line-height: 1 !important;
-  }
+#cvPdfClone.cv.minimal .top-right,
+#cvPdfClone.cv[data-template="minimal"] .top-right {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
 
-  #cvPdfClone.cv.minimal .role,
-  #cvPdfClone.cv[data-template="minimal"] .role {
-    font-size: 9px !important;
-    letter-spacing: 1.2px !important;
-  }
+#cvPdfClone.cv.minimal .personal,
+#cvPdfClone.cv[data-template="minimal"] .personal {
+  margin-top: 14px !important;
+  max-width: 520px !important;
+}
 
-  #cvPdfClone.cv.minimal .info,
-  #cvPdfClone.cv.minimal .personal,
-  #cvPdfClone.cv[data-template="minimal"] .info,
-  #cvPdfClone.cv[data-template="minimal"] .personal {
-    font-size: 10px !important;
-    line-height: 1.35 !important;
-    grid-template-columns: 110px 1fr !important;
-    gap: 3px 10px !important;
-  }
+#cvPdfClone.cv.minimal h1,
+#cvPdfClone.cv[data-template="minimal"] h1 {
+  font-size: 26px !important;
+  letter-spacing: 4px !important;
+  margin-bottom: 6px !important;
+}
 
-  #cvPdfClone.cv.minimal .top,
-  #cvPdfClone.cv.minimal .hero,
-  #cvPdfClone.cv[data-template="minimal"] .top,
-  #cvPdfClone.cv[data-template="minimal"] .hero {
-    padding: 22px 26px !important;
-    min-height: 0 !important;
-  }
+#cvPdfClone.cv.minimal .role,
+#cvPdfClone.cv[data-template="minimal"] .role {
+  font-size: 10px !important;
+  letter-spacing: 1.5px !important;
 }
