@@ -13006,58 +13006,27 @@ body.menu-open .download {
   order: 1 !important;
 }
 /* =====================================================
-   CVYAZ HEADER LOGO NETLİK VE BOYUT FIX — WEB + MOBİL
-   Logo sıkışmasını engeller, orijinal oranı korur.
+   CVYAZ HEADER LOGO FIX — SADECE HEADER
 ===================================================== */
 
-/* WEB */
-.logo img,
-.site-logo img,
-.brand img,
-.brand-image img,
-.header-logo img,
-.top-logo img {
+.topbar .logo img,
+.header .logo img,
+.navbar .logo img,
+header .logo img {
   width: auto !important;
-  height: 58px !important;
-  max-width: 260px !important;
+  height: 52px !important;
+  max-width: 240px !important;
   object-fit: contain !important;
-  object-position: center !important;
   display: block !important;
   image-rendering: -webkit-optimize-contrast !important;
 }
 
-/* Logo kapsayıcıları */
-.logo,
-.site-logo,
-.brand,
-.brand-image,
-.header-logo,
-.top-logo {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  overflow: visible !important;
-}
-
-/* MOBİL */
 @media (max-width: 767px) {
-  .logo img,
-  .site-logo img,
-  .brand img,
-  .brand-image img,
-  .header-logo img,
-  .top-logo img {
-    width: auto !important;
-    height: 46px !important;
-    max-width: 220px !important;
-  }
-
-  .logo,
-  .site-logo,
-  .brand,
-  .brand-image,
-  .header-logo,
-  .top-logo {
-    justify-content: flex-start !important;
+  .topbar .logo img,
+  .header .logo img,
+  .navbar .logo img,
+  header .logo img {
+    height: 42px !important;
+    max-width: 200px !important;
   }
 }
