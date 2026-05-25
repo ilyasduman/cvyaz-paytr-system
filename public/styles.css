@@ -13574,23 +13574,28 @@ body.menu-open .download {
   color: #374151 !important;
 }
 /* =====================================================
-   MOBİL PDF ÖNİZLEME — PROFESYONEL ÖZET BÜYÜTME
-   Sadece mobil PDF preview içindir.
+   MODERN — PROFESYONEL ÖZET MOBİL PDF KESİN FIX
+   Class yakalamazsa bölüm sırasından hedefler.
 ===================================================== */
 
 @media (max-width: 768px){
 
-  #cvPdfClone.cv.modern [class*="summary"],
-  #cvPdfClone.cv.modern [class*="Summary"],
-  #cvPdfClone.cv.modern [class*="ozet"],
-  #cvPdfClone.cv.modern [class*="Ozet"],
-  #cvPdfClone.cv.modern [class*="summary"] p,
-  #cvPdfClone.cv.modern [class*="Summary"] p,
-  #cvPdfClone.cv.modern [class*="ozet"] p,
-  #cvPdfClone.cv.modern [class*="Ozet"] p {
-    font-size: 13.2px !important;
+  /* Modern PDF clone içinde 2. bölüm = Profesyonel Özet */
+  #cvPdfClone.cv.modern .sec:nth-of-type(2) p,
+  #cvPdfClone.cv.modern .section:nth-of-type(2) p,
+  #cvPdfClone.cv.modern .cv-section:nth-of-type(2) p {
+    font-size: 13.8px !important;
     line-height: 1.42 !important;
     font-weight: 400 !important;
     color: #374151 !important;
+    letter-spacing: 0 !important;
+  }
+
+  /* Eğer p değil direkt div/span ise */
+  #cvPdfClone.cv.modern .sec:nth-of-type(2),
+  #cvPdfClone.cv.modern .section:nth-of-type(2),
+  #cvPdfClone.cv.modern .cv-section:nth-of-type(2) {
+    font-size: 13.8px !important;
+    line-height: 1.42 !important;
   }
 }
