@@ -13005,3 +13005,144 @@ body.menu-open .download {
 #cvPdfClone.cv.premium .cv-header-left {
   order: 1 !important;
 }
+/* =====================================================
+   MODERN CV COMPACT REFINEMENT — 1. ADIM
+   Kişisel bilgi, font ve boşlukları sıkıştırır.
+===================================================== */
+
+.cv.modern {
+  padding: 44px 48px !important;
+}
+
+.cv.modern .cv-top {
+  gap: 18px !important;
+  padding-bottom: 18px !important;
+  margin-bottom: 18px !important;
+}
+
+.cv.modern h2 {
+  font-size: 32px !important;
+  line-height: 1.05 !important;
+  margin-bottom: 4px !important;
+}
+
+.cv.modern .role {
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+  margin-bottom: 8px !important;
+}
+
+.cv.modern .photo-frame {
+  width: 92px !important;
+  height: 112px !important;
+  flex: 0 0 92px !important;
+  border-radius: 14px !important;
+}
+
+.cv.modern .info-row,
+.cv.modern .info-row-inline {
+  grid-template-columns: 96px minmax(0, 1fr) !important;
+  font-size: 11.8px !important;
+  line-height: 1.28 !important;
+  margin: 0 !important;
+}
+
+.cv.modern .sec {
+  margin-bottom: 14px !important;
+  padding-bottom: 12px !important;
+}
+
+.cv.modern .sec h3 {
+  font-size: 11.5px !important;
+  line-height: 1.2 !important;
+  margin-bottom: 8px !important;
+  letter-spacing: 1.2px !important;
+}
+
+.cv.modern .entry {
+  margin-bottom: 9px !important;
+}
+
+.cv.modern .entry b {
+  font-size: 13.5px !important;
+  line-height: 1.25 !important;
+}
+
+.cv.modern .entry small {
+  font-size: 11.5px !important;
+  line-height: 1.3 !important;
+  margin: 3px 0 !important;
+}
+
+.cv.modern .entry p {
+  font-size: 12.3px !important;
+  line-height: 1.38 !important;
+}
+
+.cv.modern .tag {
+  font-size: 11.5px !important;
+  padding: 5px 9px !important;
+}
+/* =====================================================
+   MODERN CV FONT REFINEMENT — 2. ADIM
+   İsim, meslek, bölüm başlıkları ve içerik font dengesi.
+===================================================== */
+
+.cv.modern h2 {
+  font-size: 30px !important;
+  line-height: 1.04 !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.6px !important;
+}
+
+.cv.modern .role {
+  font-size: 11.5px !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.1px !important;
+  text-transform: uppercase !important;
+}
+
+.cv.modern .sec h3 {
+  font-size: 10.8px !important;
+  line-height: 1.15 !important;
+  font-weight: 850 !important;
+  letter-spacing: 1.6px !important;
+  text-transform: uppercase !important;
+}
+
+.cv.modern .entry b {
+  font-size: 12.8px !important;
+  line-height: 1.22 !important;
+  font-weight: 800 !important;
+}
+
+.cv.modern .entry small {
+  font-size: 10.8px !important;
+  line-height: 1.28 !important;
+  font-weight: 600 !important;
+  opacity: .62 !important;
+}
+
+.cv.modern .entry p {
+  font-size: 11.8px !important;
+  line-height: 1.36 !important;
+  font-weight: 400 !important;
+}
+
+.cv.modern .info-row,
+.cv.modern .info-row-inline {
+  font-size: 10.8px !important;
+  line-height: 1.24 !important;
+}
+
+.cv.modern .info-label {
+  font-weight: 800 !important;
+}
+
+.cv.modern .tag {
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  padding: 4px 8px !important;
+  line-height: 1.2 !important;
+}
