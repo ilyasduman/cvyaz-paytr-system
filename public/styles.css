@@ -12978,3 +12978,10 @@ body.menu-open .cv-preview-btn {
   pointer-events: none !important;
   transform: translateY(20px) !important;
 }
+body.menu-open .download,
+body.menu-open #previewCta,
+body.menu-open button.download {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
