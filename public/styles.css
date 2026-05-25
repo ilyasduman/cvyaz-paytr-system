@@ -13578,3 +13578,64 @@ body.menu-open .download {
   font-size: 10px !important;
   letter-spacing: 1.5px !important;
 }
+/* ATS SADE / MINIMAL — HEADER YÜKSEKLİK KISALTMA FINAL */
+
+#cvPdfClone.cv.minimal .top,
+#cvPdfClone.cv[data-template="minimal"] .top,
+#cvPdfClone.cv.minimal .hero,
+#cvPdfClone.cv[data-template="minimal"] .hero,
+.cv.minimal .top,
+.cv[data-template="minimal"] .top,
+.cv.minimal .hero,
+.cv[data-template="minimal"] .hero {
+  padding: 14px 18px !important;
+  margin-bottom: 12px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  display: grid !important;
+  grid-template-columns: 110px 1fr !important;
+  column-gap: 18px !important;
+  align-items: start !important;
+}
+
+#cvPdfClone.cv.minimal .top img,
+#cvPdfClone.cv[data-template="minimal"] .top img,
+.cv.minimal .top img,
+.cv[data-template="minimal"] .top img {
+  width: 78px !important;
+  height: 92px !important;
+  object-fit: cover !important;
+}
+
+#cvPdfClone.cv.minimal h1,
+#cvPdfClone.cv[data-template="minimal"] h1,
+.cv.minimal h1,
+.cv[data-template="minimal"] h1 {
+  font-size: 24px !important;
+  letter-spacing: 3.5px !important;
+  line-height: 1 !important;
+  margin: 0 0 4px !important;
+}
+
+#cvPdfClone.cv.minimal .role,
+#cvPdfClone.cv[data-template="minimal"] .role,
+.cv.minimal .role,
+.cv[data-template="minimal"] .role {
+  font-size: 8.5px !important;
+  margin-bottom: 8px !important;
+}
+
+#cvPdfClone.cv.minimal .info,
+#cvPdfClone.cv.minimal .personal,
+#cvPdfClone.cv[data-template="minimal"] .info,
+#cvPdfClone.cv[data-template="minimal"] .personal,
+.cv.minimal .info,
+.cv.minimal .personal,
+.cv[data-template="minimal"] .info,
+.cv[data-template="minimal"] .personal {
+  font-size: 9px !important;
+  line-height: 1.22 !important;
+  grid-template-columns: 82px 1fr !important;
+  gap: 2px 8px !important;
+  margin-top: 6px !important;
+}
