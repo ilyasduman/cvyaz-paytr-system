@@ -13452,3 +13452,81 @@ body.menu-open .download {
   padding: 0 !important;
   line-height: 1.25 !important;
 }
+/* =====================================================
+   ATS SADE — HEADER MODERN BENZERİ KOMPAKT FIX
+   Foto sol, bilgiler sağ, alt boşluk yok
+===================================================== */
+
+.cv.ats .top,
+.cv.ats-sade .top,
+.cv.ats .hero,
+.cv.ats-sade .hero,
+#cvPdfClone.cv.ats .top,
+#cvPdfClone.cv.ats-sade .top,
+#cvPdfClone.cv.ats .hero,
+#cvPdfClone.cv.ats-sade .hero {
+  display: grid !important;
+  grid-template-columns: 92px 1fr !important;
+  gap: 18px !important;
+  align-items: start !important;
+  padding: 18px 22px 14px !important;
+  margin-bottom: 14px !important;
+  min-height: 0 !important;
+}
+
+/* Fotoğraf */
+.cv.ats img,
+.cv.ats-sade img,
+#cvPdfClone.cv.ats img,
+#cvPdfClone.cv.ats-sade img {
+  width: 76px !important;
+  height: 92px !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+  margin: 0 !important;
+}
+
+/* İsim */
+.cv.ats h1,
+.cv.ats-sade h1,
+#cvPdfClone.cv.ats h1,
+#cvPdfClone.cv.ats-sade h1 {
+  margin: 0 0 4px !important;
+  line-height: 1.05 !important;
+}
+
+/* Meslek */
+.cv.ats .role,
+.cv.ats-sade .role,
+#cvPdfClone.cv.ats .role,
+#cvPdfClone.cv.ats-sade .role {
+  margin: 0 0 8px !important;
+}
+
+/* Kişisel bilgiler */
+.cv.ats .personal,
+.cv.ats-sade .personal,
+.cv.ats .info,
+.cv.ats-sade .info,
+#cvPdfClone.cv.ats .personal,
+#cvPdfClone.cv.ats-sade .personal,
+#cvPdfClone.cv.ats .info,
+#cvPdfClone.cv.ats-sade .info {
+  display: grid !important;
+  grid-template-columns: 120px 1fr !important;
+  gap: 3px 10px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Header altındaki boşluğu öldür */
+.cv.ats .top + *,
+.cv.ats-sade .top + *,
+.cv.ats .hero + *,
+.cv.ats-sade .hero + *,
+#cvPdfClone.cv.ats .top + *,
+#cvPdfClone.cv.ats-sade .top + *,
+#cvPdfClone.cv.ats .hero + *,
+#cvPdfClone.cv.ats-sade .hero + * {
+  margin-top: 8px !important;
+}
