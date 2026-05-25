@@ -13543,3 +13543,13 @@ body.menu-open .download {
   }
 
 }
+/* ATS SADE İSİM FINAL */
+.cv.minimal h1,
+.cv[data-template="minimal"] h1,
+#cvPdfClone.cv.minimal h1,
+#cvPdfClone.cv[data-template="minimal"] h1 {
+  font-size: 15px !important;
+  letter-spacing: 1.2px !important;
+  line-height: 1 !important;
+  margin-bottom: 2px !important;
+}
