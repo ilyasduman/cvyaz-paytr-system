@@ -13146,3 +13146,86 @@ body.menu-open .download {
   padding: 4px 8px !important;
   line-height: 1.2 !important;
 }
+/* =====================================================
+   MODERN PDF ÖNİZLEME FONT + BOŞLUK FIX
+   Ana sayfa değil, PDF clone görünümünü hedefler.
+===================================================== */
+
+#cvPdfClone.cv.modern {
+  padding: 44px 48px !important;
+}
+
+#cvPdfClone.cv.modern .cv-top {
+  gap: 18px !important;
+  padding-bottom: 18px !important;
+  margin-bottom: 18px !important;
+}
+
+#cvPdfClone.cv.modern h2 {
+  font-size: 30px !important;
+  line-height: 1.04 !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.6px !important;
+  margin-bottom: 4px !important;
+}
+
+#cvPdfClone.cv.modern .role {
+  font-size: 11.5px !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.1px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 8px !important;
+}
+
+#cvPdfClone.cv.modern .photo-frame {
+  width: 92px !important;
+  height: 112px !important;
+  flex: 0 0 92px !important;
+}
+
+#cvPdfClone.cv.modern .info-row,
+#cvPdfClone.cv.modern .info-row-inline {
+  grid-template-columns: 96px minmax(0, 1fr) !important;
+  font-size: 10.8px !important;
+  line-height: 1.24 !important;
+  margin: 0 !important;
+}
+
+#cvPdfClone.cv.modern .sec {
+  margin-bottom: 14px !important;
+  padding-bottom: 12px !important;
+}
+
+#cvPdfClone.cv.modern .sec h3 {
+  font-size: 10.8px !important;
+  line-height: 1.15 !important;
+  font-weight: 850 !important;
+  letter-spacing: 1.6px !important;
+  margin-bottom: 8px !important;
+}
+
+#cvPdfClone.cv.modern .entry {
+  margin-bottom: 9px !important;
+}
+
+#cvPdfClone.cv.modern .entry b {
+  font-size: 12.8px !important;
+  line-height: 1.22 !important;
+}
+
+#cvPdfClone.cv.modern .entry small {
+  font-size: 10.8px !important;
+  line-height: 1.28 !important;
+  margin: 3px 0 !important;
+}
+
+#cvPdfClone.cv.modern .entry p {
+  font-size: 11.8px !important;
+  line-height: 1.36 !important;
+}
+
+#cvPdfClone.cv.modern .tag {
+  font-size: 10.5px !important;
+  padding: 4px 8px !important;
+}
