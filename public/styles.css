@@ -13903,63 +13903,56 @@ body.menu-open .download {
   }
 }
 /* =====================================================
-   EXECUTIVE FINAL HARD OVERRIDE — FOTO + İSİM + MESLEK
+   EXECUTIVE FOTO + FONT FIX
 ===================================================== */
 
-.cv.executive .photo-frame,
-#cvPdfClone .cv.executive .photo-frame,
-#cvPdfClone.cv.executive .photo-frame{
-  width: 126px !important;
-  height: 154px !important;
-  flex: 0 0 126px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border-radius: 10px !important;
-  border: 3px solid rgba(255,255,255,.95) !important;
+/* FOTOĞRAF ÇERÇEVESİ */
+.cv.executive .photo-frame{
+  width: 132px !important;
+  height: 168px !important;
+  flex: 0 0 132px !important;
+  padding: 4px !important;
+  border-radius: 20px !important;
   overflow: hidden !important;
   background: #fff !important;
-  display: block !important;
 }
 
-.cv.executive .photo,
-.cv.executive .photo-frame img,
-#cvPdfClone .cv.executive .photo,
-#cvPdfClone .cv.executive .photo-frame img,
-#cvPdfClone.cv.executive .photo,
-#cvPdfClone.cv.executive .photo-frame img{
+/* FOTOĞRAFIN TAM OTURMASI */
+.cv.executive .photo{
   width: 100% !important;
   height: 100% !important;
-  max-width: none !important;
   object-fit: cover !important;
-  object-position: center 18% !important;
-  border-radius: 7px !important;
+  object-position: center top !important;
+  border-radius: 16px !important;
   display: block !important;
 }
 
-.cv.executive h2,
-#cvPdfClone .cv.executive h2,
-#cvPdfClone.cv.executive h2{
+/* İSİM */
+.cv.executive h2{
   font-size: 34px !important;
   line-height: 1.02 !important;
-  letter-spacing: .04em !important;
-  margin: 0 0 8px 0 !important;
-  font-weight: 700 !important;
+  letter-spacing: -.4px !important;
+  margin-bottom: 4px !important;
 }
 
-.cv.executive .role,
-#cvPdfClone .cv.executive .role,
-#cvPdfClone.cv.executive .role{
-  font-size: 12px !important;
-  line-height: 1.15 !important;
-  letter-spacing: 1.4px !important;
-  padding: 5px 14px !important;
-  margin: 0 0 14px 0 !important;
-  max-width: fit-content !important;
+/* MESLEK */
+.cv.executive .role{
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+  letter-spacing: 1px !important;
+  font-style: italic !important;
+  margin-bottom: 14px !important;
 }
 
-.cv.executive .cv-top,
-#cvPdfClone .cv.executive .cv-top,
-#cvPdfClone.cv.executive .cv-top{
+/* ÜST ALAN DENGESİ */
+.cv.executive .cv-top{
   gap: 24px !important;
   align-items: center !important;
+}
+
+/* BİLGİLER */
+.cv.executive .contact,
+.cv.executive .info-row{
+  font-size: 13.5px !important;
+  line-height: 1.45 !important;
 }
